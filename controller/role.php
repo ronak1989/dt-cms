@@ -19,7 +19,7 @@ class role extends roleModel {
 	 */
 	public static $_formFields = array(
 		'role_id' => array('skip' => array('insert')),
-		'cateogry' => array('labelTitle' => 'Role Category', 'inputType' => 'select', 'fieldType' => 'select', 'remoteValidate' => false, 'selectOptions' => array('admin' => 'Admin', 'editor' => 'Editor', 'management' => 'Management', 'production' => 'Production', 'marketing' => 'Marketing', 'others' => 'Others'), 'required' => false, 'fieldValue' => ''),
+		'role_category' => array('labelTitle' => 'Role Category', 'inputType' => 'select', 'fieldType' => 'select', 'remoteValidate' => false, 'selectOptions' => array('admin' => 'Admin', 'editor' => 'Editor', 'management' => 'Management', 'production' => 'Production', 'marketing' => 'Marketing', 'others' => 'Others'), 'required' => false, 'fieldValue' => ''),
 		'role_name' => array('labelTitle' => 'Role Name', 'inputType' => 'text', 'fieldType' => 'text', 'remoteValidate' => true, 'required' => true, 'fieldValue' => ''),
 		'status' => array('labelTitle' => 'Status', 'inputType' => 'radio', 'fieldType' => 'radio', 'remoteValidate' => false, 'radioButton' => array(array('val' => 'active', 'checked' => 'checked', 'label' => 'Active'), array('val' => 'inactive', 'checked' => '', 'label' => 'Inactive')), 'required' => false, 'fieldValue' => ''),
 	);
