@@ -1,0 +1,2284 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"$",
+				"$_roleCategory〔static property〕"
+			],
+			[
+				"str",
+				"strong"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"order",
+				"order_id"
+			],
+			[
+				"strto",
+				"strtolower〔function〕"
+			],
+			[
+				"issue",
+				"issue_startdt"
+			],
+			[
+				"issu",
+				"issue_startdt"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"te",
+				"text-transform"
+			],
+			[
+				"f",
+				"font-size"
+			],
+			[
+				"fi",
+				"font-weight"
+			],
+			[
+				"base",
+				"base64_encode〔function〕"
+			],
+			[
+				"uc",
+				"ucwords"
+			],
+			[
+				"use",
+				"username"
+			],
+			[
+				"st",
+				"style"
+			],
+			[
+				"magaz",
+				"magazine_banner"
+			],
+			[
+				"typ",
+				"typeof〔keyword〕"
+			],
+			[
+				"package",
+				"package_value"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"bas",
+				"base64_decode〔function〕"
+			],
+			[
+				"che",
+				"checkAccessValidity"
+			],
+			[
+				"meth",
+				"methodology"
+			],
+			[
+				"non",
+				"none〔value〕"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"se",
+				"setTimeout〔function〕"
+			],
+			[
+				"fon",
+				"font-family: 〔property〕"
+			],
+			[
+				"$this",
+				"$this〔variable〕"
+			],
+			[
+				"requi",
+				"require_once〔keyword〕"
+			],
+			[
+				"parse",
+				"parseInt〔function〕"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"cla",
+				"class"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"_",
+				"_CONST_IMAGE_URL"
+			],
+			[
+				"tar",
+				"target=〔attribute〕"
+			],
+			[
+				"ta",
+				"target	Attr"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"no_of",
+				"no_of_months"
+			],
+			[
+				"packag",
+				"package_id"
+			],
+			[
+				"car",
+				"card_name"
+			],
+			[
+				"paym",
+				"payment_mode"
+			],
+			[
+				"bi",
+				"bindByValue〔function〕"
+			],
+			[
+				"ui",
+				"uid=:uid"
+			],
+			[
+				"add",
+				"addClass〔function〕"
+			],
+			[
+				"go",
+				"goToByScroll1"
+			],
+			[
+				"back",
+				"background-color: 〔property〕"
+			],
+			[
+				"ba",
+				"base64_"
+			],
+			[
+				"subsc",
+				"subscription_type"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"ma",
+				"max-width"
+			],
+			[
+				"sub",
+				"sneak_preview_sub"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"ge",
+				"generic"
+			],
+			[
+				"ver",
+				"verifyUserCredentials"
+			],
+			[
+				"email",
+				"email_id"
+			],
+			[
+				"$_SE",
+				"$_SESSION〔variable〕"
+			],
+			[
+				"remove",
+				"removeErrorMsg"
+			],
+			[
+				"ha",
+				"hasClass〔function〕"
+			],
+			[
+				"paddin",
+				"padding-right"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"di",
+				"div	Tag"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"clas",
+				"class=〔attribute〕"
+			],
+			[
+				"hre",
+				"href=〔attribute〕"
+			],
+			[
+				"sr",
+				"src=〔attribute〕"
+			],
+			[
+				"q",
+				"_queryResult〔variable〕"
+			],
+			[
+				"user",
+				"_userInputMobileNo〔variable〕"
+			],
+			[
+				"password",
+				"password_hash〔function〕"
+			],
+			[
+				"_userInput",
+				"_userInputMobileNo"
+			],
+			[
+				"json_",
+				"json_encode〔function〕"
+			],
+			[
+				"cas",
+				"case	case …"
+			],
+			[
+				"case",
+				"case〔keyword〕"
+			],
+			[
+				"require",
+				"require_once〔keyword〕"
+			],
+			[
+				"stat",
+				"static〔keyword〕"
+			],
+			[
+				"color",
+				"color:#000000;font"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
+				"inlin",
+				"inline-block〔value〕"
+			],
+			[
+				"displ",
+				"display: 〔property〕"
+			],
+			[
+				"sty",
+				"style=〔attribute〕"
+			],
+			[
+				"display",
+				"display:inline"
+			],
+			[
+				"type",
+				"type=〔attribute〕"
+			],
+			[
+				"id",
+				"id=〔attribute〕"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"fff",
+				"FFFFFF"
+			],
+			[
+				"$rese",
+				"$researchMenuCounter〔variable〕"
+			],
+			[
+				"_CON",
+				"_CONST_VIEW_PATH〔constant〕"
+			],
+			[
+				"sa",
+				"sans-serif"
+			],
+			[
+				"pass",
+				"password_hash〔function〕"
+			],
+			[
+				"ins",
+				"insertCmsUserRoles"
+			],
+			[
+				"insert",
+				"insertCmsUserSiteAccess"
+			],
+			[
+				"in",
+				"insertCmsUserRoles〔function〕"
+			],
+			[
+				"de",
+				"deleteCmsUserSiteAccess〔function〕"
+			],
+			[
+				"delete",
+				"deleteCmsUserRoles"
+			],
+			[
+				"en",
+				"endTransaction"
+			],
+			[
+				"field",
+				"fieldValue"
+			],
+			[
+				"created",
+				"created_by"
+			],
+			[
+				"whil",
+				"while〔keyword〕"
+			],
+			[
+				"create",
+				"created_by"
+			],
+			[
+				"cms",
+				"cms_users"
+			],
+			[
+				"employee",
+				"employee_name"
+			],
+			[
+				"array_key",
+				"array_key_exists〔function〕"
+			],
+			[
+				"check",
+				"checked"
+			],
+			[
+				"http",
+				"http_response_code〔function〕"
+			],
+			[
+				"func",
+				"runkit_function_add"
+			],
+			[
+				"function",
+				"create_function"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"get",
+				"getResult〔function〕"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/var/www/magazine/model/magazineModel.php",
+			"settings":
+			{
+				"buffer_size": 66133,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/apps/magazine/model/magazineModel.php",
+			"settings":
+			{
+				"buffer_size": 67929,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/magazine/view/home.tpl.php",
+			"settings":
+			{
+				"buffer_size": 21869,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "model/roleModel.php",
+			"settings":
+			{
+				"buffer_size": 4571,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "model/cmsuserModel.php",
+			"settings":
+			{
+				"buffer_size": 9539,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "class/class.formrender.php",
+			"settings":
+			{
+				"buffer_size": 13491,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/ringthebell/cms/class/class.formrender.php",
+			"settings":
+			{
+				"buffer_size": 13244,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "controller/role.php",
+			"settings":
+			{
+				"buffer_size": 5155,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "view/footer.php",
+			"settings":
+			{
+				"buffer_size": 9693,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "view/form.tpl.php",
+			"settings":
+			{
+				"buffer_size": 2539,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "controller/cmsuser.php",
+			"settings":
+			{
+				"buffer_size": 6621,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "controller/site.php",
+			"settings":
+			{
+				"buffer_size": 5506,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/scripts/encryption_decryption.php",
+			"settings":
+			{
+				"buffer_size": 1783,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 138.0,
+		"last_filter": "PHP Code Sniffer: ",
+		"selected_items":
+		[
+			[
+				"PHP Code Sniffer: ",
+				"PHP Code Sniffer: Clear sniffer marks"
+			],
+			[
+				"phpcode",
+				"PHPCompanion:Goto Definition Scope"
+			],
+			[
+				"package inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Add Channel"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/var/www/magazine"
+	],
+	"file_history":
+	[
+		"/var/www/apps/magazine/view/home.tpl.php",
+		"/var/www/scripts/encryption_decryption.php",
+		"/var/www/apps/magazine/model/magazineModel.php",
+		"/var/www/apps/magazine/controller/magazine.php",
+		"/home/dalal/PEM/scripts/sendMagazineIssueMail.php",
+		"/var/www/scripts/sendMagazineIssueMail.php",
+		"/home/dalal/Desktop/Sedna - A Free HTML5_CSS3 website by Peter Finlan_files/scripts.js",
+		"/home/dalal/Desktop/Sedna - A Free HTML5_CSS3 website by Peter Finlan_files/webslidemenu.js",
+		"/home/dalal/Desktop/Sedna - A Free HTML5_CSS3 website by Peter Finlan_files/webslidemenu.css",
+		"/home/dalal/Desktop/Sedna - A Free HTML5_CSS3 website by Peter Finlan_files/styles.css",
+		"/home/dalal/Desktop/Sedna - A Free HTML5_CSS3 website by Peter Finlan.html",
+		"/var/www/apps/magazine/index.php",
+		"/var/www/apps/magazine/public/js/script.js",
+		"/var/www/apps/magazine/public/css/style.css",
+		"/home/dalal/Downloads/adaptive-images.1.5.2/adaptive-images.php",
+		"/var/www/magazine/view/august2015/index.php",
+		"/media/dalal/ZOTACWINUSB/DT_Mag_September Issue/september2015/index.php",
+		"/home/dalal/backup/dalal-ubuntu/Downloads/PHP_Kit/NON_SEAMLESS_KIT/dataFrom.htm",
+		"/var/www/apps/magazine/controller/user.php",
+		"/var/www/magazine/view/partial-april2015/index.php",
+		"/media/dalal/ZOTACWINUSB/DT_Mag_September Issue/partial-september2015/index.php",
+		"/home/dalal/Downloads/adaptive-images.1.5.2/ai-cookie.php",
+		"/var/www/magazine/class/swiftmailer/lib/classes/Swift/Mailer.php",
+		"/var/www/apps/magazine/constants.php",
+		"/var/www/apps/class/class.database.php",
+		"/var/www/magazine/class/swiftmailer/lib/classes/Swift/Transport/EsmtpTransport.php",
+		"/var/www/apps/class/swiftmailer/lib/classes/Swift/SmtpTransport.php",
+		"/var/www/apps/class/swiftmailer/lib/classes/Swift.php",
+		"/var/www/scripts/sendMagazineExpiredUsersMail.php",
+		"/var/www/apps/class/swiftmailer/lib/swift_required.php",
+		"/var/www/magazine/view/home.tpl.php",
+		"/var/www/scripts/mailer.html",
+		"/home/dalal/PEM/magazine/constants.php",
+		"/var/www/scripts/existing_mailer.html",
+		"/var/www/magazine/controller/magazine.php",
+		"/var/www/scripts/pkgs.sql",
+		"/home/dalal/dumps/Dump20150824.sql",
+		"/home/dalal/PEM/magazine/view/home.tpl.php",
+		"/var/www/magazine/model/magazineModel.php",
+		"/var/www/apps/class/swiftmailer/lib/dependency_maps/transport_deps.php",
+		"/var/www/magazine/class/swiftmailer/lib/classes/Swift.php",
+		"/var/www/scripts/expired_users.sql",
+		"/home/dalal/PEM/magazine/index.php",
+		"/var/www/magazine/index.php",
+		"/var/www/dalaltimescms/model/rtbnewsletterModel.php",
+		"/var/www/dalaltimescms/model/cmsuserModel.php",
+		"/var/www/dalaltimescms/controller/cmsuser.php",
+		"/var/www/dalaltimescms/master_route.php",
+		"/var/www/dalaltimescms/view/footer.php",
+		"/var/www/dalaltimescms/view/list.tpl.php",
+		"/var/www/dalaltimescms/view/login.php",
+		"/var/www/dalaltimescms/model/dashboardModel.php",
+		"/var/www/dalaltimescms/controller/role.php",
+		"/var/www/dalaltimescms/controller/dashboard.php",
+		"/var/www/dalaltimescms/constants.php",
+		"/var/www/dalaltimescms/view/sidebar_menu.php",
+		"/var/www/dalaltimescms/view/top_nav.php",
+		"/var/www/dalaltimescms/model/authenticateModel.php",
+		"/var/www/dalaltimescms/model/siteModel.php",
+		"/var/www/dalaltimescms/controller/site.php",
+		"/var/www/dalaltimescms/controller/authenticate.php",
+		"/var/www/dalaltimescms/view/dashboard.tpl.php",
+		"/var/www/dalaltimescms/view/form.tpl.php",
+		"/var/www/dalaltimescms/index.php",
+		"/var/www/magazine/public/js/script.js",
+		"/var/www/magazine/public/css/style.css",
+		"/var/www/ringthebell/cms/master_route.php",
+		"/var/www/php-backbone-master/example_1/index.html",
+		"/home/dalal/Downloads/php-backbone-master/README.md",
+		"/home/dalal/Desktop/dummy.html",
+		"/home/dalal/Downloads/Launchify - Blogger Templates/dummy.xml",
+		"/home/dalal/Desktop/magazine_registration.html",
+		"/home/dalal/Desktop/mailer.html",
+		"/var/www/magazine/view/footer.php",
+		"/home/dalal/Downloads/Launchify - Blogger Templates/Launchify - Blogger Templates.xml",
+		"/media/dalal/525F-BF41/praveen blog/wg_avenir_coming_soon/wg_avenir_coming_soon/index.html",
+		"/home/dalal/Flip Book Sample/partial-june2015/index.php",
+		"/home/dalal/Flip Book Sample/partial-july2015/index.php",
+		"/home/dalal/Flip Book Sample/partial-august2015/index.php",
+		"/home/dalal/Flip Book Sample/partial-april2015/index.php",
+		"/home/dalal/Flip Book Sample/partial-march2015/index.php",
+		"/home/dalal/Flip Book Sample/partial-may2015/index.php",
+		"/home/dalal/Flip Book Sample/partial-july2015/indexphp",
+		"/home/dalal/pendrive/DT Magazine Webpage/GRAPE_ShapeBootstrap_Bundle_v1.0/GRAPE Main Template/index-image.html",
+		"/var/www/magazine/index-image.html",
+		"/media/dalal/525F-BF41/praveen blog/wg_avenir_coming_soon/wg_avenir_coming_soon/css/styles.css",
+		"/media/dalal/525F-BF41/praveen blog/wg_avenir_coming_soon/wg_avenir_coming_soon/css/maximage.css",
+		"/var/www/dtx30/index.php",
+		"/var/www/dtx30/model/dtx30Model.php",
+		"/var/www/dtx30/public/css/responsive.css",
+		"/var/www/dtx30/public/css/style.css",
+		"/var/www/dtx30/view/home.tpl.php",
+		"/var/www/dtx30/view/footer.php",
+		"/var/www/marketmentors/public/js/script.js",
+		"/var/www/dtx30/view/header_tags.php",
+		"/var/www/dtx30/view/header.php",
+		"/var/www/dtx30/public/js/script.js",
+		"/media/dalal/525F-BF41/praveen blog/wg_avenir_coming_soon/wg_avenir_coming_soon/js/jquery.maximage.js",
+		"/media/dalal/525F-BF41/praveen blog/wg_avenir_coming_soon/wg_avenir_coming_soon/js/jquery.fullscreen.js",
+		"/media/dalal/525F-BF41/praveen blog/wg_avenir_coming_soon/wg_avenir_coming_soon/js/main.js",
+		"/var/www/dtx30/controller/magazine.php",
+		"/var/www/dtx30/model/magazineModel.php",
+		"/var/www/marketmentors/view/header.php",
+		"/var/www/marketmentors/view/header_tags.php",
+		"/var/www/magazine/view/header.php",
+		"/var/www/scripts/output/IssueMail",
+		"/home/dalal/pendrive/mailer/mailer.html",
+		"/var/www/magazine/class/Crypto.php",
+		"/var/www/magazine/class/class.database.php",
+		"/var/www/magazine/constants.php",
+		"/var/www/magazine/class/AltoRouter.php",
+		"/var/www/magazine/view/flip-book/index.php",
+		"/home/dalal/PEM/magazine/controller/magazine.php",
+		"/home/dalal/PEM/magazine/model/magazineModel.php",
+		"/var/www/marketmentors/model/marketMentorsModel.php",
+		"/var/www/marketmentors/controller/marketMentors.php",
+		"/var/www/marketmentors/index.php",
+		"/var/www/marketmentors/view/footer.php",
+		"/home/dalal/PEM/refModel.php",
+		"/var/www/marketmentors/view/home.tpl.php",
+		"/var/www/marketmentors/public/css/style.css",
+		"/var/www/marketmentors/public/css/responsive.css",
+		"/var/www/marketmentors/model/magazineModel.php",
+		"/var/www/info/constants.php",
+		"/var/www/info/view/footer.php",
+		"/var/www/info/public/css/style.css",
+		"/var/www/info/model/infoModel.php",
+		"/var/www/info/index.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/var/www/apps/class/",
+			"/var/www/dalaltimescms/",
+			"/var/www/dalaltimescms/view",
+			"/home/dalal/HTML/magazine/DT Magazine Webpage/GRAPE_ShapeBootstrap_Bundle_v1.0/GRAPE Main Template/assets"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"getMagazineStartEndDate",
+			"parsle",
+			"data-parsley-pattern",
+			"getUserRoles",
+			"selectOptions",
+			"template",
+			"$pageSubTitle",
+			"getRoleForm",
+			"Subscri",
+			"sendMagazineSubscriptionMailer",
+			"subscription_type",
+			"getMagazineStartEndDate",
+			"logo",
+			"wsmenu",
+			"bigmegamenu",
+			"animated-arrow",
+			"menuclose",
+			"navToggle",
+			"menuclose",
+			"slideLeft",
+			"navToggle",
+			"animated-arrow",
+			"wsmenu",
+			"bigmegamenu",
+			"width",
+			"bootstrap",
+			"header",
+			"header-content",
+			"header",
+			"smallogo",
+			"wsmenuexpandermain",
+			"slideRight",
+			"overlapblackbg",
+			"wsmenucontent",
+			"wsmenucontainer",
+			"fixed",
+			"../img/",
+			".jpg",
+			".css",
+			"fixed",
+			"wsmenuexpandermain slideRight",
+			"menuopen",
+			"hero-strip",
+			".css",
+			"wsmenu",
+			".wsmenu-list > li",
+			"waypoi",
+			"_0xaa90[30]",
+			"_0xaa90[29]",
+			"_0xaa90[26]",
+			"_0xaa90[27]",
+			"_0xaa90[28]",
+			"_0xaa90[24]",
+			"_0xaa90[25]",
+			"_0xaa90[31]",
+			"_0xaa90[20]",
+			"_0xaa90[21]",
+			"_0xaa90[22]",
+			"_0xaa90[23]",
+			"_0xaa90[19]",
+			"_0xaa90[14]",
+			"_0xaa90[15]",
+			"_0xaa90[16]",
+			"_0xaa90[17]",
+			"_0xaa90[18]",
+			"_0xaa90[9]",
+			"_0xaa90[10]",
+			"_0xaa90[11]",
+			"_0xaa90[7]",
+			"_0xaa90[12]",
+			"_0xaa90[2]",
+			"_0xaa90[1]",
+			"_0xaa90[0]",
+			"_0xaa90[13]",
+			"(_0xaa90[13]",
+			"_0xaa90[2]",
+			"32",
+			"31",
+			"\", \"",
+			"ninth",
+			"$magazineIssueDt",
+			"getMagazineStartEndDate",
+			"checkAccessValidity",
+			"foreach",
+			"files",
+			"zoo",
+			"magn",
+			"mag",
+			"magnific",
+			"flex_text",
+			"flextext",
+			"fl",
+			"checkAccessValidity",
+			"generateOrder",
+			"$this",
+			"decrypt_string",
+			"generateOrder",
+			"goToCCAvenue",
+			"resetPassword",
+			"updatePassword",
+			"sendForgotPasswordMailer",
+			"registerAutoload",
+			"Swift_SmtpTransport",
+			"password_hash",
+			"sendRegistrationMailer",
+			"updatePassword",
+			"forgot",
+			"sendRegistrationMailer",
+			"getMagazineStartEndDate",
+			"$magazineIssueDt",
+			"validateMobile",
+			"getSubscriptionPackages",
+			"getLoginRegisterSection",
+			"getUserSelectedPackageDetails",
+			"sendOfferMail",
+			"signin",
+			"desgination",
+			"nav navbar-nav navbar-right",
+			".tpl.php",
+			"generatePassword",
+			"password",
+			"redirect",
+			"verifyUserCredentials",
+			"password_verify",
+			"verifyUserCredentials",
+			"validate",
+			"verifyUserCredentials",
+			"require"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"\".wsmenu-submenu-sub-sub\"",
+			"\".wsmenu-submenu-sub\"",
+			"\"wsmenu-rotate\"",
+			"\".wsmenu-arrow\"",
+			"\"children\"",
+			"\".wsmenu-submenu\"",
+			"\"siblings\"",
+			"\".wsmenu-click\"",
+			"\"slow\"",
+			"\"slideToggle\"",
+			"\".wsmenu-list\"",
+			"\".wsmenu-mobile\"",
+			"\".megamenu\"",
+			"\"<span class=\"wsmenu-click\"><i class=\"wsmenu-arrow fa fa-angle-down\"></i></span>\"",
+			"\"prepend\"",
+			"\"",
+			".wsmenu-submenu, .wsmenu-submenu-sub, .wsmenu-submenu-sub-sub",
+			"\"has\"",
+			"\".wsmenu-list li\"",
+			"\"mrginleft\"",
+			"\"toggleClass\"",
+			"\".wsmenucontainer\"",
+			"\"click\"",
+			"\"on\"",
+			"\"menuopen\"",
+			"\".wsmenucontent\"",
+			"\".overlapblackbg, .slideLeft\"",
+			"\"menuopen\"",
+			"\", \\n\"",
+			"designation",
+			"/view/partial-may2015/files",
+			"/view/partial-march2015/files",
+			"/view/partial-june2015/files",
+			"/view/partial-july2015/files",
+			"august2015",
+			"/view/partial-april2015/files",
+			"/view/partial-april2015/mobile",
+			"http://4.bp.blogspot.com/-1-YSh6P3SaM/VcN1l5oa17I/AAAAAAAAAXc/syX0taYSVv0/s1600/gradient.png",
+			"#cc0000",
+			"dtx30",
+			"#CC0000",
+			"CC0000",
+			"td",
+			"/view/<?php echo $this->_issue;?>/files/",
+			"/view/<?php echo $this->_issue;?>/",
+			"mm_logo.jpg",
+			"http://marketmentors.dalaltimes.com",
+			"",
+			"marketMentorsModel",
+			"marketMentors",
+			"547e1e",
+			"infoModel",
+			"info",
+			"_infoModel",
+			"<?php echo _CONST_IMAGE_URL;?>",
+			"<?php echo _CONST_JS_PATH;?>",
+			"21",
+			"billing",
+			"http://local.magazine.dalaltimes.com/",
+			"'=>,'",
+			"",
+			":</strong>",
+			":<strong>",
+			"<li><strong>",
+			"$(\"#\"+clicked_id).prop('disabled', true);",
+			"alert-danger",
+			"",
+			"`",
+			"public/",
+			"public",
+			"/public/images",
+			"registration",
+			"",
+			"getElementById",
+			"why_read_img_block",
+			"dt-logo",
+			"userModel",
+			"_userModel",
+			"_usModel",
+			"user",
+			"_user",
+			"<?php echo _CONST_IMAGE_URL;?>",
+			"<?php echo _CONST_IMAGE_URL?>",
+			"<?php echo ?>",
+			"",
+			"_router",
+			"$Spreadsheetdata",
+			"$sheet",
+			"', $data->sheets[0]['cells'][$i][$j]);\\n",
+			"$this->bindByParam(':",
+			"",
+			":",
+			"",
+			":",
+			"rtbNewsletter",
+			"_rtbNewsletterModel",
+			"insertCmsUserCmsAccess",
+			"deleteCmsUserCmsAccess",
+			"insertCmsUserCMSAccess",
+			"",
+			"_cmsUserId",
+			"_cmsUserFields",
+			"_cmsId",
+			"cmsUserModel",
+			"_roleId",
+			"roleFields",
+			"roleModel",
+			"_returnData",
+			"_queryResult",
+			"_modelQuery",
+			"$_modelQuery",
+			"",
+			"<a href=\"#\">View</a> | <a href=\"#\">Delete</a>",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/var/www/magazine/model/magazineModel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 66133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								56447,
+								56447
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 18589.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/var/www/apps/magazine/model/magazineModel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 67929,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								64121,
+								64121
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 20164.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/var/www/magazine/view/home.tpl.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 21869,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12719,
+								12719
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4099.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "model/roleModel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4571,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								430,
+								430
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "model/cmsuserModel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9539,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6343,
+								6343
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1879.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "class/class.formrender.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13491,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1012,
+								1012
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 42.0,
+						"translation.y": 64.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/var/www/ringthebell/cms/class/class.formrender.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13244,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1261,
+								1261
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 914.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "controller/role.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5155,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5155,
+								5155
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1189.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "view/footer.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9693,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3368,
+								3368
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 649.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "view/form.tpl.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2539,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1629,
+								1629
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 304.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "controller/cmsuser.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6621,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								319,
+								319
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 14.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "controller/site.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5506,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1118,
+								1118
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 536.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/var/www/scripts/encryption_decryption.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1783,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								850,
+								850
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 112.0
+	},
+	"pinned_build_system": "",
+	"project": "dtcms.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"file",
+				"api/filereader.php"
+			],
+			[
+				"mas",
+				"master_route.php"
+			],
+			[
+				"site",
+				"model/siteModel.php"
+			],
+			[
+				"",
+				"constants.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 683.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 221.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

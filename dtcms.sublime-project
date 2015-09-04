@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"path": "/var/www/ringthebell"
+		},
+		{
+			"path": "/var/www/magazine"
+		},
+		{
+			"path": "."
+		}
+	]
+}
