@@ -212,7 +212,7 @@ class FromRender {
 			if (isset($optionParams['optgroup'])) {
 				if ($optionParams['optgroup'] == $current_optgroup) {
 					$option_list .= '<option value="' . $optionParams['val'] . '" ' . $selected . '>' . $optionParams['opt'] . '</option>';
-				} else if ($optionParams['optgroup'] != $current_optgroup) {
+				} else if ($optionParams['optgroup'] != $current_optgroup && $current_optgroup != '') {
 					$current_optgroup = $optionParams['optgroup'];
 					if ($list != 0) {
 						$option_list .= '</optgroup>';
