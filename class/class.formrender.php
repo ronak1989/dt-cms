@@ -206,9 +206,29 @@ class FromRender {
 		if ($inputTypeParams['remoteValidate'] == true) {
 			$_validation .= 'data-ajax-name="remoteValidator" data-parsley-remote-options=\'{ "type": "POST",  "data": { "field": "' . $key . '" } }\' data-parsley-remote-validator="validateSitename" data-parsley-remote="1" data-parsley-trigger="blur" data-parsley-remote-message=""';
 		}
+		$current_optgroup = '';
 		foreach ($inputTypeParams['selectOptions'] as $list => $optionParams) {
 			(in_array($optionParams['val'], $inputTypeParams['fieldValue']) === true) ? $selected = 'selected' : $selected = '';
-			$option_list .= '<option value="' . $optionParams['val'] . '" ' . $selected . '>' . $optionParams['opt'] . '</option>';
+			if (isset($optionParams['optgroup'])) {
+				if ($optionParams['optgroup'] == $current_optgroup) {
+					$option_list .= '<option value="' . $optionParams['val'] . '" ' . $selected . '>' . $optionParams['opt'] . '</option>';
+				} else if ($optionParams['optgroup'] != $current_optgroup) {
+					$current_optgroup = $optionParams['optgroup'];
+					if ($list != 0) {
+						$option_list .= '</optgroup>';
+					}
+
+					$option_list .= '<optgroup label="' . ucwords($optionParams['optgroup']) . '">';
+					$option_list .= '<option value="' . $optionParams['val'] . '" ' . $selected . '>' . $optionParams['opt'] . '</option>';
+				} else {
+					$current_optgroup = $optionParams['optgroup'];
+					$option_list .= '<optgroup label="' . ucwords($optionParams['optgroup']) . '">';
+					$option_list .= '<option value="' . $optionParams['val'] . '" ' . $selected . '>' . $optionParams['opt'] . '</option>';
+				}
+			} else {
+				$option_list .= '<option value="' . $optionParams['val'] . '" ' . $selected . '>' . $optionParams['opt'] . '</option>';
+			}
+			$option_list .= '</optgroup>';
 		}
 		self::$_formStructure .= '<div class="form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="' . $key . '">' . $inputTypeParams['labelTitle'] . ' ' . $_showRequired . '

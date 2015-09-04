@@ -166,7 +166,7 @@
 <!-- multiselect -->
 <script>
     $(document).ready(function () {
-        $('.multiselect').multiSelect();
+        $('.multiselect').multiSelect( {selectableOptgroup: true });
     });
 </script>
 <!-- /multiselect -->

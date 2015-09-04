@@ -90,11 +90,11 @@ class cmsUserModel extends Database {
 	}
 
 	private function getUserRoles($type = NULL) {
-		$column_name = 'role_id ,role_name';
+		$column_name = 'role_category, role_id ,role_name';
 		if ($type == 'create') {
-			$column_name = 'role_id as val ,role_name as opt';
+			$column_name = 'role_category as optgroup, role_id as val ,role_name as opt';
 		}
-		$this->_modelQuery = 'SELECT ' . $column_name . ' FROM roles where status = :status';
+		$this->_modelQuery = 'SELECT ' . $column_name . ' FROM roles where status = :status order by role_category asc';
 		$this->query($this->_modelQuery);
 		$this->bindByValue('status', 'active');
 		return $this->resultset();
