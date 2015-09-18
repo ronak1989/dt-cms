@@ -10,6 +10,14 @@ $router->map('POST', '/validate', 'authenticate#signin', '');
 $router->map('GET', '/master/[a:c]/[a:a]?/[i:id]?', '', 'master_CONTROLLER_list');
 $router->map('POST', '/master/[a:c]/[a:a]?/[i:id]?', '', 'master_CONTROLLER_operation');
 
+/** Magazine Backend List ***/
+$router->map('GET', '/magazine/users', 'user#getMagazineUsers', '');
+$router->map('GET', '/get-magazine-subscriber/list', 'user#getMagazineUsersDetails', '');
+
+$router->map('GET', '/partner', 'partner#getPartners', '');
+$router->map('GET', '/get-magazine-partner/list', 'partner#getMagazinePartnerDetails', '');
+$router->map('GET', '/partner/add', 'partner#addPartner', '');
+
 $controller_name = null;
 $method_name = null;
 $id = null;
@@ -34,9 +42,7 @@ if ($match) {
 		$controller_name = 'authenticate';
 		$method_name = 'showLoginBox';
 	}
-
 	require_once _CONST_CONTROLLER_PATH . $controller_name . '.php';
-
 	$obj = new $controller_name($id, $_POST);
 	if ($method_name == 'list') {
 		$method_name = "details";

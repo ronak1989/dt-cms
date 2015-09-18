@@ -26,6 +26,8 @@
     <!-- fileupload -->
     <link href="<?php echo _CONST_CSS_PATH;?>uploadfile.css" rel="stylesheet">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.css" rel="stylesheet">
+
     <script src="<?php echo _CONST_JS_PATH;?>jquery.min.js" type="text/javascript"></script>
 
 
