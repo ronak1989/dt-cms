@@ -17,6 +17,8 @@ $router->map('GET', '/get-magazine-subscriber/list', 'user#getMagazineUsersDetai
 $router->map('GET', '/partner', 'partner#getPartners', '');
 $router->map('GET', '/get-magazine-partner/list', 'partner#getMagazinePartnerDetails', '');
 $router->map('GET', '/partner/add', 'partner#addPartner', '');
+$router->map('GET', '/partner/users', 'user#getMagazinePartnerUsers', '');
+$router->map('GET', '/get-magazine-partner-subscriber/list', 'user#getMagazinePartnerUsersDetails', '');
 
 $controller_name = null;
 $method_name = null;

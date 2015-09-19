@@ -8,7 +8,7 @@ class Partner extends PartnerModel {
 	private $order = "desc";
 	private $_data = array();
 
-	private $columnHeadings = array('partner_id' => 'SR NO', 'partner_code' => 'PARTNER CODE', 'partner_name' => 'PARTNER NAME', 'contact_person' => 'CONATACT PERSON', 'mobile_no' => 'PRIMARY MOBILE NO', 'secondary_mobileno' => 'SECONDARY MOBILE NO', 'email_id' => 'EMAIL ID', 'office_address' => 'OFFICE ADDRESS', 'residential_address' => 'RESIDENTIAL ADDRESS', 'enrollment_fee' => 'ENROLLMENT FEE', 'payment_option' => 'PAYMENT OPTION', 'bank_name' => 'BANK NAME', 'cheque_no' => 'CHEQUE NO', 'bank_branch' => 'BRANCH', 'ifsc_code' => 'IFSC CODE', 'micr_code' => 'MICR CODE', 'url' => 'URL');
+	private $columnHeadings = array();
 
 	static $pageTitle = 'Magazine Partners';
 	static $pageSubTitle = '';
@@ -22,6 +22,7 @@ class Partner extends PartnerModel {
 	}
 
 	public function getPartners() {
+		$this->columnHeadings = array('partner_id' => 'SR NO', 'partner_code' => 'PARTNER CODE', 'partner_name' => 'PARTNER NAME', 'contact_person' => 'CONATACT PERSON', 'mobile_no' => 'PRIMARY MOBILE NO', 'secondary_mobileno' => 'SECONDARY MOBILE NO', 'email_id' => 'EMAIL ID', 'office_address' => 'OFFICE ADDRESS', 'residential_address' => 'RESIDENTIAL ADDRESS', 'enrollment_fee' => 'ENROLLMENT FEE', 'payment_option' => 'PAYMENT OPTION', 'bank_name' => 'BANK NAME', 'cheque_no' => 'CHEQUE NO', 'bank_branch' => 'BRANCH', 'ifsc_code' => 'IFSC CODE', 'micr_code' => 'MICR CODE', 'url' => 'URL');
 		$data_url = '/get-magazine-partner/list';
 		$this->_data['url']['add'] = _CONST_WEB_URL . '/partner/add';
 		require_once _CONST_VIEW_PATH . 'userlist.tpl.php';
@@ -35,5 +36,6 @@ class Partner extends PartnerModel {
 	public function addPartner() {
 		require_once _CONST_VIEW_PATH . 'partneradd.tpl.php';
 	}
+
 }
 ?>

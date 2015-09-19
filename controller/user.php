@@ -20,6 +20,16 @@ class User extends UserModel {
 		$this->_userModel = new userModel(NULL, NULL);
 	}
 
+	private function insertBeforeKey($array, $key, $data = null) {
+		if (($offset = array_search($key, array_keys($array))) === false) // if the key doesn't exist
+		{
+			$offset = 0; // should we prepend $array with $data?
+			$offset = count($array); // or should we append $array with $data? lets pick this one...
+		}
+
+		return array_merge(array_slice($array, 0, $offset), (array) $data, array_slice($array, $offset));
+	}
+
 	public function getMagazineUsers() {
 		$data_url = '/get-magazine-subscriber/list';
 		require_once _CONST_VIEW_PATH . 'userlist.tpl.php';
@@ -27,6 +37,17 @@ class User extends UserModel {
 
 	public function getMagazineUsersDetails() {
 		$data = $this->_userModel->getMagazineSubscriberDetails($this->order, $this->offset, $this->limit);
+		echo $data;
+	}
+
+	public function getMagazinePartnerUsers() {
+		$this->columnHeadings = $this->insertBeforeKey($this->columnHeadings, 'customer_id', array('partner_code' => 'PARTNER CODE'));
+		$data_url = '/get-magazine-partner-subscriber/list';
+		require_once _CONST_VIEW_PATH . 'userlist.tpl.php';
+	}
+
+	public function getMagazinePartnerUsersDetails() {
+		$data = $this->_userModel->getMagazineSubscriberDetails($this->order, $this->offset, $this->limit, 'partner');
 		echo $data;
 	}
 }
