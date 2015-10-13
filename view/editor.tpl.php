@@ -558,6 +558,11 @@ tinymce.init({
     toolbar1: "localautosave | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent",
     toolbar2: "print preview media | forecolor backcolor emoticons | link image ",
     image_advtab: true,
+     /*Excel copy-paste Utility :Starts*/
+    paste_retain_style_properties : "all",
+    paste_strip_class_attributes : "none",
+   //paste_remove_spans : true,
+  /*Excel copy-paste Utility :Ends*/
     setup: function(editor){
         editor.on('keyup', function(e) {
             $('#defaultForm').formValidation('revalidateField', 'news_content');
