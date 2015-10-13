@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	/***************** Nav Transformicon ******************/
-	
+
 	/* When user clicks the Icon */
 	$('.nav-toggle').click(function() {
 		$(this).toggleClass('active');
@@ -14,18 +14,29 @@ $(document).ready(function() {
 		$('.header-nav').toggleClass('open');
 
 	});
-	
+
 	/****************** HP Slider ***************/
 	$('.carousel').carousel({
 	  interval: 6000,
 	  pause: "true"
 	});
 	var $item = $('.carousel .item');
-	var $wHeight = $(window).height();
-	
+	var $deviceW = $(window).width();
+	var $deviceH = $(window).height();
+	var $wHeight = $('#mycarousel').width();
+	$("#hp").css({'margin-top':$(".smallogo").height()});
+	if($deviceW>990){
+	if(($wHeight+$(".smallogo").height()) < $deviceH){
+		var $diff = $deviceH -$(".smallogo").height()-$wHeight;
+		$("#hp").css({'padding-bottom':$diff/2});
+	}
+}
+
+	var $wMiddleHeight = $wHeight/2;
+	$('#samvat, #testimonial').height($wMiddleHeight);
 	$item.height($wHeight);
-	$item.addClass('full-screen');
-	
+	//$item.addClass('full-screen');
+
 	$('.carousel img').each(function() {
 	  var $src = $(this).attr('src');
 	  var $color = $(this).attr('data-color');
@@ -35,7 +46,7 @@ $(document).ready(function() {
 	  });
 	  $(this).remove();
 	});
-	
+
 	$(window).on('resize', function (){
 	  $wHeight = $(window).height();
 	  $item.height($wHeight);

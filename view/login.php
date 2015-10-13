@@ -13,6 +13,30 @@ include_once _CONST_VIEW_PATH . 'header.php';
                 <section class="login_content">
                     <form method="post" action="/validate">
                         <h1>Login</h1>
+                        <?php if (isset($_SESSION['error']['login']) && !empty($_SESSION['error']['login'])) {
+	foreach ($_SESSION['error']['login'] as $key => $value) {
+		echo '<div role="alert" class="alert alert-danger alert-dismissible fade in">
+                            <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span>
+                            </button>
+                            ' . $value . '
+                        </div>';
+		unset($_SESSION['error']['login'][$key]);
+	}
+
+}
+?>
+<?php if (isset($_SESSION['success']['forgotpassword']) && !empty($_SESSION['success']['forgotpassword'])) {
+	foreach ($_SESSION['success']['forgotpassword'] as $key => $value) {
+		echo '<div role="alert" class="alert alert-success alert-dismissible fade in">
+                            <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span>
+                            </button>
+                            ' . $value . '
+                        </div>';
+		unset($_SESSION['success']['forgotpassword'][$key]);
+	}
+
+}
+?>
                         <div>
                             <input type="email" class="form-control" placeholder="Username" name="login_userid" required="" pattern="[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$" title="Invalid Email-Id" />
                         </div>
@@ -44,6 +68,18 @@ include_once _CONST_VIEW_PATH . 'header.php';
                 <section class="login_content">
                     <form method="post" action="/reset-password">
                         <h1>Forgot Password</h1>
+                        <?php if (isset($_SESSION['error']['forgotpassword']) && !empty($_SESSION['error']['forgotpassword'])) {
+	foreach ($_SESSION['error']['forgotpassword'] as $key => $value) {
+		echo '<div role="alert" class="alert alert-danger alert-dismissible fade in">
+                            <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span>
+                            </button>
+                            ' . $value . '
+                        </div>';
+		unset($_SESSION['error']['forgotpassword'][$key]);
+	}
+
+}
+?>
                         <div>
                             <input type="email" class="form-control" name="reset_userid" placeholder="Email" required="" />
                         </div>

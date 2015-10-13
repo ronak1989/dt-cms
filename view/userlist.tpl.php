@@ -63,6 +63,9 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                              <div class="form-group">
                                                 <input name="partner_code" class="form-control" type="text" placeholder="Search via Partner Code">
                                             </div>
+                                            <div class="form-group">
+                                                <input name="user_id" class="form-control" type="text" placeholder="Search via User ID">
+                                            </div>
                                             <button id="ok" type="submit" class="btn btn-default">OK</button>
                                         </div>
                                     </div>

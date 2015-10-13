@@ -1,6 +1,7 @@
 <?php
 require_once _CONST_CLASS_PATH . 'class.database.php';
 require_once _CONST_CLASS_PATH . 'class.formrender.php';
+require_once _CONST_CLASS_PATH . 'swiftmailer/lib/swift_required.php';
 class cmsUserModel extends Database {
 	private $_modelQuery = '';
 	private $_queryResult = '';
@@ -13,6 +14,65 @@ class cmsUserModel extends Database {
 		parent::__construct();
 		$this->_cmsUserId = $cmsUserId;
 		self::$_cmsUserFields = $cmsUserParams;
+	}
+
+	private function sendCmsUserRegistrationMailer($user_id, $password) {
+		$subject = 'Dalal Times CMS Access';
+		$from = array('subscription@dalaltimes.com' => 'Dalal Times');
+		$to = array(
+			$user_id => '',
+		);
+		$html = '<!DOCTYPE HTML>
+              <html>
+              <head>
+              <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+              <title>Untitled Document</title>
+              </head>
+
+              <body >
+              <div style="width:650px;margin: 0px auto;padding-top:20px;border:1px solid #e1e1e1;font-family:Verdana;font-size:12px;">
+              <div style="margin:0 25px;">
+                  <div style="display:inline-block;vertical-align:middle;width:49%;">
+                      <div style="float:left;">
+                          <img src="http://magazine.dalaltimes.com/public/images/mailer-dtlogo.png" style="vertical-align:middle;display:inline-block; text-align:right;">
+                      </div>
+                  </div>
+              </div>
+              <div style="margin:0 25px;">
+                <div style="margin-top:40px;text-align:center;border-bottom:1px solid #e1e1e1;color:#00a7dd; font-size:20px; text-transform:uppercase;">
+                    New User Confirmation
+                  </div>
+                  <div style="color:#434343;">
+                  <p>Your account has sucessfully been created for the Dalaltimes CMS. Please use the credentials given below to access the CMS</p>
+                	<p>
+                			User ID – [[USER-ID]]
+                        New Password – [[NEW-PASSWORD]]
+                      </p>
+                  <p>You can change your password by logging in to your account </p>
+                  </div>
+              </div>
+
+              </div>
+              </body>
+              </html>';
+		$html = str_replace(array('[[USER-ID]]', '[[NEW-PASSWORD]]'), array($user_id, $password), $html);
+		$transport = Swift_SmtpTransport::newInstance('smtp.mandrillapp.com', 587);
+		$transport->setUsername('ronak.shah@dalaltimes.com');
+		$transport->setPassword('0-8np7jSlC_pDxQNp4JPSA');
+
+		$swift = Swift_Mailer::newInstance($transport);
+
+		$message = new Swift_Message($subject);
+		$message->setFrom($from);
+		$message->setBody($html, 'text/html');
+		$message->setTo($to);
+
+		if ($recipients = $swift->send($message, $failures)) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 
 	private function deleteCmsUserRoles() {
@@ -168,8 +228,12 @@ class cmsUserModel extends Database {
 				$value['fieldValue'] = NULL;
 			}
 			if ($key == 'password') {
+				$user_password = $value['fieldValue'];
 				$this->bindByValue($key, password_hash($value['fieldValue'], PASSWORD_BCRYPT));
 			} else {
+				if ($key == 'mail') {
+					$user_id = $value['fieldValue'];
+				}
 				$this->bindByValue($key, $value['fieldValue']);
 			}
 		}
@@ -186,7 +250,7 @@ class cmsUserModel extends Database {
 				$this->cancelTransaction();
 				return false;
 			}
-
+			$this->sendCmsUserRegistrationMailer($user_id, $user_password);
 			$this->endTransaction();
 			return true;
 		} else {

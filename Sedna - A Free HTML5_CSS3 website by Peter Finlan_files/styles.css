@@ -86,23 +86,23 @@ body{background-color:#fff;  height:100%; font-family: 'Sourcesanspro_Regular';
 .hot-press{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;background:#e33827;text-align:center; margin-top:5px}
 #press-news{background:#eeeff1; }
 #press-news > ul{list-style-type: none;max-height:750px; overflow-y: visible;overflow-x: hidden;padding:0px 10px 10px 10px;}
-#press-news > ul li{border-bottom:1px solid #9d9fa2;padding:10px; overflow:hidden;  }    
-#press-news > ul li.last{border-bottom:none;}    		
-#press-news > ul li p{font-size:0.867em; color:#4a4a4a; line-height:1.200em;padding-bottom:10px;}   
+#press-news > ul li{border-bottom:1px solid #9d9fa2;padding:10px; overflow:hidden;  }
+#press-news > ul li.last{border-bottom:none;}
+#press-news > ul li p{font-size:0.867em; color:#4a4a4a; line-height:1.200em;padding-bottom:10px;}
 
-.forecaster-block{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;background:#509fc6;text-align:center;margin-top:5px}	
+.forecaster-block{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;background:#509fc6;text-align:center;margin-top:5px}
 .forecaster-heading{background:#3f97b5;padding:10px;color:#FFFFFF;font-size:1.000em; line-height:1em}
 .forecaster-description {padding:10px;color:#8a8b8c;font-size:1em; line-height:1em}
 .middle-align{margin:0 auto;}
 .ads-container{margin:15px 0px 0px 0px}
 
-.chart-of-the-day-title{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;background:#509fc6;text-align:center;}	
+.chart-of-the-day-title{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;background:#509fc6;text-align:center;}
 .chart-of-the-day-headline {padding:5px 10px 0px 10px;color:#636466;font-size:1.200em; line-height:1.200em; font-weight:bold;}
 .chart-of-the-day-desc{padding:5px 10px 0px 10px;color:#636466;font-size:1em; line-height:1em}
 
 .twitter-container{}
 
-.slide-show-title{font-size: 0.800em;text-transform: uppercase;color: #000000;padding:5px;background:#e7ac0b;text-align:center; font-weight:bold}	
+.slide-show-title{font-size: 0.800em;text-transform: uppercase;color: #000000;padding:5px;background:#e7ac0b;text-align:center; font-weight:bold}
 .slideshow-img-heading{    font-size: 15px;    color: #fff;    line-height: 20px;    }
 .slide-show-category{color:#d3b608}
 
@@ -491,7 +491,7 @@ header {
 	  padding:30px 0 0;
 	  color:#ffffff;
   }
-  
+
 
 
   header ul.primary-nav {

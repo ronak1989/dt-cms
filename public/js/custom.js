@@ -69,9 +69,9 @@ $(function () {
     })
     /** ******  /tooltip  *********************** **/
     /** ******  progressbar  *********************** **/
-if ($(".progress .progress-bar")[0]) {
+/*if ($(".progress .progress-bar")[0]) {
     $('.progress .progress-bar').progressbar(); // bootstrap 3
-}
+}*/
 /** ******  /progressbar  *********************** **/
 /** ******  switchery  *********************** **/
 if ($(".js-switch")[0]) {
@@ -101,6 +101,18 @@ $('.collapse-link').click(function () {
     button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
     setTimeout(function () {
         x_panel.resize();
+    }, 50);
+});
+$('.search_collapse-link').click(function () {
+    var srch_panel = $(this).closest('div.srch_panel');
+    var button = $(this).find('i');
+    var content = srch_panel.find('div.srch_content');
+    content.slideToggle(200);
+    (srch_panel.hasClass('fixed_height_390') ? srch_panel.toggleClass('').toggleClass('fixed_height_390') : '');
+    (srch_panel.hasClass('fixed_height_320') ? srch_panel.toggleClass('').toggleClass('fixed_height_320') : '');
+    button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+    setTimeout(function () {
+        srch_panel.resize();
     }, 50);
 });
 /** ******  /collapse panel  *********************** **/

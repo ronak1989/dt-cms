@@ -4,7 +4,7 @@ class User extends UserModel {
 	private $access_roles = array();
 	private $_userModel = NULL;
 	private $limit = 10;
-	private $offset = 10;
+	private $offset = 0;
 	private $order = "desc";
 
 	private $columnHeadings = array('customer_id' => 'CUSTOMER ID', 'name' => 'NAME', 'email_id' => 'EMAIL-ID', 'mobile' => 'CONTACT NO', 'order_id' => 'ORDER ID', 'tracking_id' => 'Tracking ID', 'start_date' => 'STARTS ON', 'end_date' => 'EXPIRY ON', 'subscription_pkg' => 'SUBSCRIPTION PACKAGE', 'subscription_type' => 'SUBSCRIPTION TYPE', 'subscription_amount' => 'SUBSCRIPTION AMOUNT', 'amount' => 'AMOUNT PAID BY USER', 'payment_mode' => 'MODE OF PAYMENT');
@@ -49,6 +49,10 @@ class User extends UserModel {
 	public function getMagazinePartnerUsersDetails() {
 		$data = $this->_userModel->getMagazineSubscriberDetails($this->order, $this->offset, $this->limit, 'partner');
 		echo $data;
+	}
+
+	public function getUserForm() {
+		require_once _CONST_VIEW_PATH . 'formNew.tpl.php';
 	}
 }
 ?>
