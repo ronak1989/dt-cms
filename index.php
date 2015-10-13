@@ -28,7 +28,7 @@ $router->map('GET', '/get-magazine-partner-subscriber/list', 'user#getMagazinePa
 $router->map('POST', '/api/input-validate/', 'validation#checkInput', '');
 
 /**** EDITOR ****/
-$router->map('GET|POST', '/news/editor/compose?/[i:id]?', 'editor#compose', '');
+$router->map('GET|POST', '/news/editor/compose/?[i:id]?', 'editor#compose', '');
 $router->map('GET|POST', '/news/editor/savearticle', 'editor#savearticle', '');
 $router->map('POST', '/news/editor/loadsubcategories', 'editor#loadsubcategories', '');
 $router->map('GET|POST|PATCH|PUT|DELETE', '/news/upload_attachment', 'editor#uploadAttachment', '');
