@@ -39,7 +39,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-th-list"></i> News <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-th-list"></i> News Editor<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
                             <li>
                                 <a href="/news/editor/compose/">Compose</a>
@@ -52,10 +52,10 @@
                     <li><a><i class="fa fa-th-list"></i> Ranking <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
                             <li>
-                                <a href="/news/editor/compose/">Cover Story</a>
+                                <a href="/rank/cover-story/">Cover Story</a>
                             </li>
                             <li>
-                                <a href="/news/latest">Hot of the Press</a>
+                                <a href="/rank/hot-of-the-press/">Hot of the Press</a>
                             </li>
                         </ul>
                     </li>
