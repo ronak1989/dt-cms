@@ -39,7 +39,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-th-list"></i> News Editor<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-newspaper-o"></i> News Editor<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
                             <li>
                                 <a href="/news/editor/compose/">Compose</a>
@@ -49,7 +49,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-th-list"></i> Ranking <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-bar-chart"></i> Ranking <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
                             <li>
                                 <a href="/rank/cover-story/">Cover Story</a>
@@ -59,7 +59,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-th-list"></i> Partner <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-users "></i> Partner <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
                             <li><a href="/partner">Magazine Partners</a>
                             </li>

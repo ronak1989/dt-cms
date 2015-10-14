@@ -9,7 +9,7 @@ class News extends NewsModel {
 	private $searchParams = array();
 	private $rankParams = array();
 
-	private $columnHeadings = array('modified_date' => 'LAST MODIFIED DATE', 'autono' => 'AUTO NO', 'headline' => 'HEADLINE', 'category_name' => 'CATEGORY', 'sub_category_name' => 'SUB CATEGORY', 'operations' => array('data-title' => 'Actions', 'data-events' => 'operationEvents', 'data-formatter' => 'operationFormatter'));
+	private $columnHeadings = array('modified_date' => 'LAST MODIFIED DATE', 'autono' => 'AUTO NO', 'headline' => 'HEADLINE', 'category_name' => 'CATEGORY', 'sub_category_name' => 'SUB CATEGORY', 'operations' => array('data-title' => 'Actions', 'data-events' => 'operationEvents', 'data-formatter' => 'operationFormatter', 'data-width' => '20%', 'data-align' => 'center'));
 	private $rankColumnHeadings = array('modified_date' => 'LAST MODIFIED DATE', 'autono' => 'AUTO NO', 'headline' => 'HEADLINE', 'category_name' => 'CATEGORY', 'rank' => 'RANKED', 'caption' => array('data-title' => 'Caption ', 'data-events' => 'operationEvents', 'data-formatter' => 'rankCaption'), 'operations' => array('data-title' => 'Actions', 'data-events' => 'operationEvents', 'data-formatter' => 'rankActions'));
 
 	static $pageTitle = 'NEWS SECTION';
@@ -62,6 +62,7 @@ class News extends NewsModel {
 		$rank_url = '/ranked/cover-story/news/';
 		$update_url = '/rank/update/';
 		$delete_url = '/rank/remove/';
+		$rank_type = 'cover story';
 		$data['mainCategory'] = '<option value="">Please select Category to Search</option>';
 		foreach (parent::getNewsCategory() as $key => $value) {
 			$data['mainCategory'] .= '<option value="' . $key . '">' . ucwords(strtolower($value)) . '</option>';
@@ -75,6 +76,7 @@ class News extends NewsModel {
 		$rank_url = '/ranked/hot-of-the-press/news/';
 		$update_url = '/rank/update/';
 		$delete_url = '/rank/remove/';
+		$rank_type = 'hot of the press';
 		$data['mainCategory'] = '<option value="">Please select Category to Search</option>';
 		foreach (parent::getNewsCategory() as $key => $value) {
 			$data['mainCategory'] .= '<option value="' . $key . '">' . ucwords(strtolower($value)) . '</option>';

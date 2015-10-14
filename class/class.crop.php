@@ -20,7 +20,7 @@ class CropAvatar {
 		array("width" => 77, "height" => 43),
 	);
 
-	function __construct($src, $data, $file, $operation, $imgname, $imgtags, $imgDetails) {
+	function __construct($src, $data, $file, $operation, $imgname, $imgtags, $imgDetails, $destFile) {
 		$this->setImageParams($imgname, $imgtags);
 		$this->setSrc($src);
 		$this->setData($data);
@@ -30,7 +30,7 @@ class CropAvatar {
 		} else {
 			$this->fileName = substr($imgDetails[0]['image_original'], 1);
 			$this->setSrc(substr($imgDetails[0]['image_original'], 1));
-			$this->dst = substr($imgDetails[0]['image_' . $this->data->width], 1);
+			$this->dst = substr($imgDetails[0]['image_' . $destFile], 1);
 			$this->crop($this->src, $this->dst, $this->data);
 		}
 	}
@@ -216,8 +216,8 @@ class CropAvatar {
 
 			$tmp_img_w = $data->width;
 			$tmp_img_h = $data->height;
-			$dst_img_w = $data->width;
-			$dst_img_h = $data->height;
+			$dst_img_w = 1280;
+			$dst_img_h = 700;
 
 			$src_x = $data->x;
 			$src_y = $data->y;

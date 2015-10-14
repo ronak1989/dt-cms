@@ -349,7 +349,7 @@
     this.$avatarForm = this.$avatarModal.find('.avatar-form');
     this.$avatarUpload = this.$avatarForm.find('.avatar-upload');
     this.$avatarImgId = this.$avatarForm.find('.avatar-image_id');
-    this.$avatarWidth = this.$avatarForm.find('.avatar-width');
+    this.$avatarWidth = this.$avatarForm.find('.avatar-image_width');
     this.$avatarSrc = this.$avatarForm.find('.avatar-src');
     this.$avatarData = this.$avatarForm.find('.avatar-data');
     this.$avatarInput = this.$avatarForm.find('.avatar-input');
@@ -393,12 +393,12 @@
               aspectRatio: 16/9,
               autoCrop: true,
               autoCropArea:0.8,
-              cropBoxResizable:false,
+              cropBoxResizable:true,
               cropBoxMovable: true,
               dragCrop: false,
               //preview: this.$avatarPreview.selector,
               strict: true,
-              movable:true,
+              movable:false,
               crop: function (e) {
                 var json = [
                       '{"x":' + e.x,
@@ -411,13 +411,13 @@
                 _this.$avatarData.val(json);
               },
               built: function (e){
-                console.log(_this.$cropBoxHeight)
+              /*  console.log(_this.$cropBoxHeight)
               $canvasData = $image.cropper('getCanvasData');
               var _top = Math.round(($canvasData.height/2)-(_this.$cropBoxHeight/2));
               var _left = Math.round(($canvasData.width/2)-(_this.$cropBoxWidth/2));
               console.log(_left);
               console.log(_top);
-              $image.cropper("setCropBoxData", { top:_top, left:_left, width: _this.$cropBoxWidth, height: _this.$cropBoxHeight });
+              $image.cropper("setCropBoxData", { top:_top, left:_left, width: _this.$cropBoxWidth, height: _this.$cropBoxHeight });*/
               },
             });
     },
@@ -568,12 +568,12 @@
           aspectRatio: 16/9,
           autoCrop: true,
           autoCropArea:0.8,
-          cropBoxResizable:false,
+          cropBoxResizable:true,
           cropBoxMovable: true,
           dragCrop: false,
           preview: this.$avatarPreview.selector,
           strict: true,
-          movable:true,
+          movable:false,
           crop: function (e) {
                 var json = [
                       '{"x":' + e.x,
@@ -586,11 +586,11 @@
                 _this.$avatarData.val(json);
               },
           built: function (e){
-              $canvasData = _this.$img.cropper('getCanvasData');
+  /*            $canvasData = _this.$img.cropper('getCanvasData');
               var _top = Math.round(($canvasData.height/2)-(_this.$cropBoxHeight/2));
               var _left = Math.round(($canvasData.width/2)-(_this.$cropBoxWidth/2));
               _this.$img.cropper("setCropBoxData", { top:_top, left:_left, width: _this.$cropBoxWidth, height: _this.$cropBoxHeight });
-          },
+  */        },
         });
         this.active = true;
       }
@@ -651,7 +651,10 @@
       if ($.isPlainObject(data) && data.state === 200) {
         if (data.result) {
           this.url = data.result;
-
+          console.log(this.$imgKey);
+          console.log($("#img_"+this.$imgKey).attr('src'));
+          $("#img_"+this.$imgKey).one("load", function() {}).attr("src", data.result+'?12');
+          alert(data.result);
           if (this.support.datauri || this.uploaded) {
             this.uploaded = false;
             this.cropDone();
@@ -681,7 +684,7 @@
 
     cropDone: function () {
       this.$avatarForm.get(0).reset();
-      this.$avatar.attr('src', this.url);
+      //this.$avatar.attr('src', this.url);
       this.stopCropper();
       this.$avatarModal.modal('hide');
     },

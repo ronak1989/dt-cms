@@ -19,10 +19,48 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
 
             <!-- page content -->
             <div class="right_col" role="main">
-                <div class="">
+                <div>
+                    <?php if (isset($_SESSION['error']['newspublish']) && !empty($_SESSION['error']['newspublish'])) {
+	echo '<div class="clearfix"></div>';
+	foreach ($_SESSION['error']['newspublish'] as $key => $value) {
+
+		echo '<div role="alert" class="alert alert-danger alert-dismissible fade in">
+                            <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span>
+                            </button>
+                            ' . $value . '
+                        </div>';
+		unset($_SESSION['error']['newspublish'][$key]);
+	}
+
+}
+?>
+<?php if (isset($_SESSION['success']['newspublish']) && !empty($_SESSION['success']['newspublish'])) {
+	echo '<div class="clearfix"></div>';
+	foreach ($_SESSION['success']['newspublish'] as $key => $value) {
+		echo '<div role="alert" class="alert alert-success alert-dismissible fade in">
+                            <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span>
+                            </button>
+                            ' . $value . '
+                        </div>';
+		unset($_SESSION['success']['newspublish'][$key]);
+	}
+
+}
+?>
                     <div class="page-title">
                         <div class="title_left">
                             <h3><?php echo self::$pageTitle;?></h3>
+                        </div>
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li>
+                                        <div class='form-group'>
+                                            <a class="btn btn-dark text-right" href="/news/editor/compose"><i class="fa fa-pencil"></i> Compose </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -84,7 +122,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                             </div>
                                         </div>
 
-                                        <table id="ranked_news" data-toggle="table" data-query-params="ranked_news_queryParams"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-url="<?php echo $data_url;?>" data-pagination="true" data-side-pagination="server" data-method="get" data-sort-order='desc'>
+                                        <table id="unpublished_news" data-toggle="table" data-query-params="unpublished_news_queryParams"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-url="<?php echo $data_url;?>" data-pagination="true" data-side-pagination="server" data-method="get" data-sort-order='desc'>
                                             <thead>
                                             <tr>
                                                 <?php foreach ($this->columnHeadings as $data_field => $col_dtls) {
@@ -132,7 +170,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                             <div class="row srch_content">
                                                 <div class="col-xs-6">
                                                     <div class="form-group">
-                                                        <input type='hidden' name='publish' value="0">
+                                                        <input type='hidden' name='publish' value="1">
                                                         <input name="autono" class="form-control" type="text" placeholder="Search via Autono">
                                                     </div>
                                                     <div class="form-group">
@@ -215,8 +253,8 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
 <script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>common.js"></script>
 
 <script>
-    $('#ranked_news_toolbar').find('[name=category_id]').on('change',function(e){
-        var object = $('#ranked_news_toolbar').find('[name=subcategory_id]');
+    $('#unpublished_news_toolbar').find('[name=category_id]').on('change',function(e){
+        var object = $('#unpublished_news_toolbar').find('[name=subcategory_id]');
         loadNewsSubcategories(this.value,'',object,'object');
     });
 
@@ -226,7 +264,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
     });
 
 
-    var $ranked_news_table = $('#ranked_news'),
+    var $ranked_news_table = $('#unpublished_news'),
         $nup_searh = $('#nup_search'),
         $published_news_table = $('#published_news'),
         $np_searh = $('#np_search');
@@ -251,8 +289,8 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
         });
     });
 
-    function ranked_news_queryParams(params) {
-        $('#ranked_news_toolbar').find('input[name], input[hidden],select[name]').each(function () {
+    function unpublished_news_queryParams(params) {
+        $('#unpublished_news_toolbar').find('input[name], input[hidden],select[name]').each(function () {
             params[$(this).attr('name')] = $(this).val();
         });
         return params;
@@ -266,26 +304,29 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
     }
 
     function operationFormatter(value, row, index) {
+
         return [
-            '<a class="edit btn btn-info btn-xs" href="javascript:void(0)" title="Like">',
+        '<div class="btn-group  btn-group-sm">',
+            '<a class="edit btn btn-default" href="/news/editor/compose/'+row.autono+'" title="Edit">',
             '<i class="fa fa-pencil-square-o"></i> Edit',
             '</a>  ',
-            '<a class="view btn btn-primary btn-xs" href="javascript:void(0)" title="Remove">',
+            '<a class="view btn btn-default" href="/news/preview/'+row.autono+'" title="Preview">',
             '<i class="fa fa-eye "></i> View',
             '</a> ',
-            '<a class="remove btn btn-danger btn-xs" href="javascript:void(0)" title="Remove">',
+            '<a class="remove btn btn-default" href="javascript:void(0)" title="Remove">',
             '<i class="fa fa-trash-o"></i> Delete',
-            '</a>'
+            '</a>',
+        '</div>'
         ].join('');
     }
 
     window.operationEvents = {
-        'click .edit': function (e, value, row, index) {
+/*        'click .edit': function (e, value, row, index) {
             alert('You click like action, row: ' + JSON.stringify(row));
-        },
-        'click .view': function (e, value, row, index) {
+        },*/
+/*        'click .view': function (e, value, row, index) {
             alert('You click like action, row: ' + JSON.stringify(row));
-        },
+        },*/
         'click .remove': function (e, value, row, index) {
             $(this).closest('table').bootstrapTable('remove', {
                 field: 'autono',

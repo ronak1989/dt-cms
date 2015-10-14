@@ -369,7 +369,7 @@ dark,
 }
 
 body {
-    color: #73879C;
+    color: #515f6e;
     background: #2A3F54;
     /*#ECF0F1; #FCFCFC*/
 
@@ -5941,3 +5941,5 @@ ul.notifications {
 
 
 .rank{width:30px;}
+.news_content{font-size: 14px;}
+.FA15{font-size: 14px !important;}

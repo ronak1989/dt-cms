@@ -62,8 +62,8 @@ class Editor extends EditorModel {
 		if (isset($params['related_story'])) {$this->articleParams['related_story'] = $params['related_story'];}
 		if (isset($params['search'])) {$this->articleParams['search'] = $params['search'];}
 		if (isset($params['publish']) && $params['publish'] == true) {
-			$this->articleParams['publish'] = 1;
-			$this->articleParams['transfer_to_newspublish_tbl'] = 1;
+			$this->articleParams['publish'] = '1';
+			$this->articleParams['transfer_to_newspublish_tbl'] = '1';
 		}
 	}
 
@@ -114,12 +114,34 @@ class Editor extends EditorModel {
 		}
 	}
 
+	public function publisharticle() {
+		if ($this->articleParams['articleId'] != '') {
+			$this->_operationStatus = $this->_editorModel->publishNewsArticle($this->articleParams);
+			if ($this->_operationStatus !== false) {
+				$_SESSION['success']['newspublish'][] = 'Story no ' . $this->articleParams['articleId'] . ' has been published Successully';
+				$this->redirect(303, '/news/latest/');
+			} else {
+				$_SESSION['error']['newspublish'][] = 'Story no ' . $this->articleParams['articleId'] . ' has not been published. Try Again';
+				$this->redirect(303, '/news/preview/' . $this->articleParams['articleId']);
+				echo 'error';
+			}
+		}
+	}
+
 	public function loadsubcategories() {
 		echo json_encode($this->_editorModel->getNewsSubCategory($this->categoryId), JSON_FORCE_OBJECT);
 	}
 
 	public function uploadAttachment() {
 		$upload_handler = new UploadHandler();
+	}
+
+	public function preview() {
+		$data['mainCategory'] = $this->_editorModel->getNewsCategory();
+		$data['newsSource'] = $this->_editorModel->getNewsSource();
+		$this->articleParams = $this->_editorModel->getArticleDetails($this->articleParams);
+		$data['subCategory'] = $this->_editorModel->getNewsSubCategory($this->articleParams['news_subcategory']);
+		require_once _CONST_VIEW_PATH . 'preview.tpl.php';
 	}
 }
 ?>

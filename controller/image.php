@@ -37,12 +37,12 @@ class Image extends ImageModel {
 			$src = $_POST['avatar_src'];
 			$data = $_POST['avatar_data'];
 			$file = $_FILES['avatar_file'];
-			$operation = $_FILES['img_type'];
+			$destFile = $_POST['avatar_image_width'];
 			$operation = 'crop';
 			$imgDetails = $this->_imageModel->getImageDetails($image_id);
 		}
 
-		$crop = new CropAvatar($src, $data, $file, $operation, $imgName, $imgTags, $imgDetails);
+		$crop = new CropAvatar($src, $data, $file, $operation, $imgName, $imgTags, $imgDetails, $destFile);
 		if ($operation == 'resize') {
 			if (is_null($crop->getMsg())) {
 				$image_id = $this->_imageModel->insertImageDetails($orgimgName, $imgTags, $crop->getResult(), $crop->getResizeFileName());

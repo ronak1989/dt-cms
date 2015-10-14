@@ -159,6 +159,26 @@ class EditorModel extends Database {
 		}
 	}
 
+	protected function publishNewsArticle($fields) {
+		$this->beginTransaction();
+		$this->_modelQuery = 'UPDATE `news_unpublish` set
+			`publish` = :publish,
+			`transfer_to_newspublish_tbl` = :transfer_to_newspublish_tbl,
+			`last_updated_by` = :last_updated_by where autono = :autono';
+		$this->query($this->_modelQuery);
+		$this->bindByValue('publish', $fields['publish']);
+		$this->bindByValue('transfer_to_newspublish_tbl', $fields['transfer_to_newspublish_tbl']);
+		$this->bindByValue('last_updated_by', $fields['last_updated_by']);
+		$this->bindByValue('autono', $fields['articleId']);
+		if ($this->execute()) {
+			$this->endTransaction();
+			return true;
+		} else {
+			$this->cancelTransaction();
+			return false;
+		}
+	}
+
 	protected function getArticleDetails($fields) {
 		$this->_modelQuery = 'SELECT nup.*, cu.employee_name as author_name, cu1.employee_name as publisher_name FROM `news_unpublish` nup LEFT JOIN cms_users cu ON nup.author_id = cu.cms_id LEFT JOIN cms_users cu1 ON nup.publisher_id = cu1.cms_id where autono = :autono';
 		$this->query($this->_modelQuery);

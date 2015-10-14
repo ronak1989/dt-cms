@@ -41,7 +41,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                 <div class="x_content">
                                     <div class="clearfix"></div>
                                     <div>
-                                        <input type='hidden' name='rank_type' id='rank_type' value='cover story'>
+                                        <input type='hidden' name='rank_type' id='rank_type' value='<?php echo $rank_type;?>'>
                                         <table id="ranked_news" data-toggle="table" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-url="<?php echo $rank_url;?>" data-pagination="true" data-side-pagination="server" data-method="get">
                                             <thead>
                                             <tr>
@@ -91,7 +91,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                             <div class="row srch_content">
                                                 <div class="col-xs-6">
                                                     <div class="form-group">
-                                                        <input type='hidden' name='publish' value="0">
+                                                        <input type='hidden' name='publish' value="1">
                                                         <input name="autono" class="form-control" type="text" placeholder="Search via Autono">
                                                     </div>
                                                     <div class="form-group">
@@ -227,12 +227,14 @@ foreach ($this->columnHeadings as $data_field => $col_dtls) {
 
     function operationFormatter(value, row, index) {
         return [
-            '<a class="edit btn btn-info btn-xs" href="javascript:void(0)" title="Like">',
+            '<div class="btn-group  btn-group-sm">',
+            '<a class="edit btn btn-default" href="/news/editor/compose/'+row.autono+'" title="Edit">',
             '<i class="fa fa-pencil-square-o"></i> Edit',
             '</a>  ',
-            '<a class="view btn btn-primary btn-xs" href="javascript:void(0)" title="Remove">',
+            '<a class="view btn btn-default" href="/news/preview/'+row.autono+'" title="Preview">',
             '<i class="fa fa-eye "></i> View',
-            '</a> '
+            '</a> ',
+        '</div>'
         ].join('');
     }
 
@@ -263,12 +265,12 @@ foreach ($this->columnHeadings as $data_field => $col_dtls) {
     }
 
     window.operationEvents = {
-        'click .edit': function (e, value, row, index) {
+/*        'click .edit': function (e, value, row, index) {
             alert('You click like action, row: ' + JSON.stringify(row));
         },
         'click .view': function (e, value, row, index) {
             alert('You click like action, row: ' + JSON.stringify(row));
-        },
+        },*/
         'click .remove': function (e, value, row, index) {
             $(this).closest('table').bootstrapTable('remove', {
                 field: 'autono',
@@ -300,6 +302,7 @@ foreach ($this->columnHeadings as $data_field => $col_dtls) {
                         rank_autono: row.autono,
                         rank: $ranked_val
                     },function(data, status){
+                        $("#ranked_news").bootstrapTable('refresh');
                         console.log(status);
                         console.log(data);
                     });

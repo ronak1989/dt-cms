@@ -168,7 +168,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                     <select class="form-control" name="news_source" id="news_source">
                                                         <option value="">Please select News Source</option>
                                                         <?php foreach ($data['newsSource'] as $key => $value) {
-	if ($this->articleParams['news_category'] == $key) {
+	if ($this->articleParams['news_source'] == $key) {
 		echo '<option value="' . $key . '" selected>' . $value . '</option>';
 	} else {
 		echo '<option value="' . $key . '">' . $value . '</option>';
@@ -194,13 +194,32 @@ if (isset($this->articleParams['related_story'])) {
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="assign_to_production"><input type="checkbox" name="assign_to_production" id="assign_to_production" value='true' /> Assign to Production</label>
-                                                    <label for="publish"><input type="checkbox" name="publish" id="publish" value='true' <?php echo $this->articleParams['publish'];?> /> Publish Article</label>
                                                 </div>
+                                                <div class="col-sm-12 text-center">
 
-                                                <div class="form-group">
-                                                    <div class="col-lg-9 col-lg-offset-3">
-                                                        <button type="submit" class="btn btn-primary" id="validateButton">Save Article</button>
-                                                    </div>
+                                                <?php
+if ($this->articleParams['articleId'] != '') {
+	echo '
+
+                                                        <a href="/news/latest" class="btn btn-dark"><i class="fa fa-chevron-left"></i> Back </a>
+
+
+                                                        <a href="/news/preview/' . $this->articleParams['articleId'] . '" class="btn btn-success"><i class="fa fa-eye  "></i> Preview </a>
+
+
+                                                        <button type="submit" class="btn btn-primary" id="validateButton"><i class="fa fa-floppy-o"></i> Save </button>
+';
+} else {
+	echo '
+
+                                                        <a href="/news/latest" class="btn btn-dark"><i class="fa fa-chevron-left"></i> Back </a>
+
+                                                        <button type="submit" class="btn btn-primary" id="validateButton"><i class="fa fa-floppy-o"></i> Save</button>
+';
+
+}
+?>
+
                                                 </div>
 
                                             </div>

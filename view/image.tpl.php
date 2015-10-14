@@ -94,10 +94,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                     <div class="row text-left">
                                                       <div class="col-sm-6 MA10" id="crop-avatar-1280">
                                                         <!-- data-target="#avatar-modal" data-toggle="modal" -->
-                                                        <div class="pdf-thumb-box avatar-view" >
-                                                          <div class="pdf-thumb-box-overlay" style="left: 0px; opacity: 0.8; visibility: visible;width:100%;height:100%">
-                                                              <i class="glyphicon glyphicon-eye-open"></i>1280x720
-                                                          </div>
+                                                        <div class="avatar-view" >
                                                           <img src="http://placehold.it/1280x720" id="img_1280" class="img-responsive" alt="">
                                                         </div>
                                                         <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
@@ -114,6 +111,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                                     <!-- Upload image and data -->
                                                                     <div class="avatar-upload">
                                                                       <input type="hidden" class="avatar-image_id" name="avatar_image_id">
+                                                                      <input type="hidden" class="avatar-image_width" name="avatar_image_width">
                                                                       <input type="hidden" class="avatar-src" name="avatar_src">
                                                                       <input type="hidden" class="avatar-data" name="avatar_data">
                                                                       <label for="avatarInput">Local upload</label>
@@ -165,6 +163,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                                       <!-- Upload image and data -->
                                                                       <div class="avatar-upload">.
                                                                         <input type="hidden" class="avatar-image_id" name="avatar_image_id">
+                                                                        <input type="hidden" class="avatar-image_width" name="avatar_image_width">
                                                                         <input type="hidden" class="avatar-src" name="avatar_src">
                                                                         <input type="hidden" class="avatar-data" name="avatar_data">
                                                                         <label for="avatarInput">Local upload</label>
@@ -219,6 +218,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                                       <!-- Upload image and data -->
                                                                       <div class="avatar-upload">
                                                                         <input type="hidden" class="avatar-image_id" name="avatar_image_id">
+                                                                        <input type="hidden" class="avatar-image_width" name="avatar_image_width">
                                                                         <input type="hidden" class="avatar-src" name="avatar_src">
                                                                         <input type="hidden" class="avatar-data" name="avatar_data">
                                                                         <label for="avatarInput">Local upload</label>
@@ -271,7 +271,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                                       <!-- Upload image and data -->
                                                                       <div class="avatar-upload">
                                                                         <input type="hidden" class="avatar-image_id" name="avatar_image_id">
-                                                                        <input type="hidden" class="avatar-width" name="avatar_width">
+                                                                        <input type="hidden" class="avatar-image_width" name="avatar_image_width">
                                                                         <input type="hidden" class="avatar-src" name="avatar_src">
                                                                         <input type="hidden" class="avatar-data" name="avatar_data">
                                                                         <label for="avatarInput">Local upload</label>
@@ -324,6 +324,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                                       <!-- Upload image and data -->
                                                                       <div class="avatar-upload">
                                                                         <input type="hidden" class="avatar-image_id" name="avatar_image_id">
+                                                                        <input type="hidden" class="avatar-image_width" name="avatar_image_width">
                                                                         <input type="hidden" class="avatar-src" name="avatar_src">
                                                                         <input type="hidden" class="avatar-data" name="avatar_data">
                                                                         <label for="avatarInput">Local upload</label>
