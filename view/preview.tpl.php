@@ -54,7 +54,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
 
                                         <div class="col-md-12 col-lg-12 col-sm-12 news_content">
                                             <input type="hidden" name="articleId" id="articleId" value="<?php echo $this->articleParams['articleId'];?>" />
-                                            <input type="checkbox" name="publish" id="publish" value='true' checked style="display: none;" /> Publish Article</label>
+                                            <input type="checkbox" name="publish" id="publish" value='true' checked style="display: none;" />
                                             <!-- blockquote -->
                                             <?php echo $this->articleParams['news_content'];?>
                                             <br>
