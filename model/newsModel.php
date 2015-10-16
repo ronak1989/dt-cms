@@ -138,7 +138,9 @@ class NewsModel extends EditorModel {
 
 	protected function getSearchNewsCount($search = array()) {
 		$where_condition = array();
-
+		if (isset($search['publish_status'])) {
+			$where_condition[] = ' publish = "' . $search['publish_status'] . '"';
+		}
 		if (isset($search['autono']) && $search['autono'] != '') {
 			$where_condition[] .= ' autono = "' . $search['autono'] . '"';
 		}
@@ -169,28 +171,27 @@ class NewsModel extends EditorModel {
 
 	protected function getSearchNewsList($order, $offset, $limit, $search = array()) {
 		$where_condition = array();
-
 		if (isset($search['autono']) && $search['autono'] != '') {
-			$where_condition[] .= ' autono = "' . $search['autono'] . '"';
+			$where_condition[] = ' autono = "' . $search['autono'] . '"';
 		}
 		if (isset($search['category_id']) && $search['category_id'] != '') {
-			$where_condition[] .= ' category_id = "' . $search['category_id'] . '"';
+			$where_condition[] = ' category_id = "' . $search['category_id'] . '"';
 		}
 		if (isset($search['subcategory_id']) && $search['subcategory_id'] != '') {
-			$where_condition[] .= ' sub_category_id = "' . $search['subcategory_id'] . '"';
+			$where_condition[] = ' sub_category_id = "' . $search['subcategory_id'] . '"';
 		}
 		if (isset($search['date_range']) && !empty($search['date_range'][0]) && !empty($search['date_range'][1])) {
-			$where_condition[] .= ' modified_date BETWEEN "' . $search['date_range'][0] . '" and "' . $search['date_range'][1] . '"';
+			$where_condition[] = ' modified_date BETWEEN "' . $search['date_range'][0] . '" and "' . $search['date_range'][1] . '"';
 		}
 		if (isset($search['headline']) && $search['headline'] != '') {
-			$where_condition[] .= ' headline like "%' . $search['headline'] . '%"';
+			$where_condition[] = ' headline like "%' . $search['headline'] . '%"';
 		}
 		if (isset($search['keywords']) && $search['keywords'] != '') {
-			$where_condition[] .= ' keywords like "%' . $search['keywords'] . '%"';
+			$where_condition[] = ' keywords like "%' . $search['keywords'] . '%"';
 		}
 
 		if (!empty($where_condition)) {
-			$where_condition = 'where (' . implode(' OR ', $where_condition) . ') and publish = "0"';
+			$where_condition = 'where (' . implode(' OR ', $where_condition) . ') and publish = "' . $search['publish_status'] . '"';
 		}
 
 		$this->_modelQuery = 'select modified_date, autono, autono as id, headline, category_id, sub_category_id  from news_unpublish ' . $where_condition . ' order by modified_date ' . $order . ' limit ' . $offset . ',' . $limit . '';

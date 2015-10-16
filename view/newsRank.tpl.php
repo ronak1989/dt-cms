@@ -3,7 +3,7 @@
 <?php
 include_once _CONST_VIEW_PATH . 'header.php';
 ?>
-<body class="nav-md">
+<body class="nav-sm">
     <div class="container body">
         <div class="main_container">
             <!-- SIDEBARE MENU -->
@@ -193,6 +193,7 @@ foreach ($this->columnHeadings as $data_field => $col_dtls) {
 
 
     $(function () {
+        $('.search_collapse-link').trigger('click');
         $('.dtpicker').daterangepicker({
             format: 'DD-MM-YYYY',
             /*endDate: '<?php echo date("jS F Y");?>',*/

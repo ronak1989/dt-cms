@@ -9,6 +9,9 @@ class CropAvatar {
 	private $extension;
 	private $msg;
 	private $fileName;
+	private $cropBoxWidth;
+	private $cropBoxHeight;
+	private $path;
 
 	private $resizedFileName = array();
 	private $resizeList = array(
@@ -21,6 +24,7 @@ class CropAvatar {
 	);
 
 	function __construct($src, $data, $file, $operation, $imgname, $imgtags, $imgDetails, $destFile) {
+		$this->path = strtolower('images/' . date('Y/M-d') . '/');
 		$this->setImageParams($imgname, $imgtags);
 		$this->setSrc($src);
 		$this->setData($data);
@@ -31,10 +35,35 @@ class CropAvatar {
 			$this->fileName = substr($imgDetails[0]['image_original'], 1);
 			$this->setSrc(substr($imgDetails[0]['image_original'], 1));
 			$this->dst = substr($imgDetails[0]['image_' . $destFile], 1);
+			$this->setCropSize($destFile);
 			$this->crop($this->src, $this->dst, $this->data);
+
 		}
 	}
-
+	private function setCropSize($size) {
+		switch ($size) {
+			case '1280':
+				$this->cropBoxWidth = 1280;
+				$this->cropBoxHeight = 720;
+				break;
+			case '615':
+				$this->cropBoxWidth = 615;
+				$this->cropBoxHeight = 346;
+				break;
+			case '300':
+				$this->cropBoxWidth = 300;
+				$this->cropBoxHeight = 169;
+				break;
+			case '100':
+				$this->cropBoxWidth = 100;
+				$this->cropBoxHeight = 56;
+				break;
+			case '77':
+				$this->cropBoxWidth = 77;
+				$this->cropBoxHeight = 43;
+				break;
+		}
+	}
 	private function setImageParams($imgname, $imgtags) {
 		$this->name = $imgname;
 		$this->img_tags = $imgtags;
@@ -67,8 +96,16 @@ class CropAvatar {
 
 			if ($type) {
 				$extension = image_type_to_extension($type);
-				$src = 'images/' . $this->name . '-original' . $extension;
-				$this->fileName = 'images/' . $this->name;
+				if (!is_dir($this->path)) {
+					mkdir($this->path, 0755, true);
+				}
+				$src = $this->path . $this->name . '-original' . $extension;
+				$this->fileName = $this->path . $this->name;
+				if (file_exists($src)) {
+					$this->name = date('YmdHis-') . $this->name;
+					$src = $this->path . $this->name . '-original' . $extension;
+					$this->fileName = $this->path . $this->name;
+				}
 				if ($type == IMAGETYPE_GIF || $type == IMAGETYPE_JPEG || $type == IMAGETYPE_PNG) {
 
 					if (file_exists($src)) {
@@ -97,7 +134,7 @@ class CropAvatar {
 	}
 
 	private function setDst() {
-		$this->dst = 'images/' . $this->name . $this->extension;
+		$this->dst = $this->path . $this->name . $this->extension;
 	}
 	private function resize($src, $dst) {
 		if (!empty($src) && !empty($dst)) {
@@ -216,8 +253,8 @@ class CropAvatar {
 
 			$tmp_img_w = $data->width;
 			$tmp_img_h = $data->height;
-			$dst_img_w = 1280;
-			$dst_img_h = 700;
+			$dst_img_w = $this->cropBoxWidth;
+			$dst_img_h = $this->cropBoxHeight;
 
 			$src_x = $data->x;
 			$src_y = $data->y;

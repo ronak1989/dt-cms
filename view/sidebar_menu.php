@@ -1,5 +1,5 @@
 <div class="col-md-3 left_col">
-    <div class="left_col scroll-view">
+    <div class="left_col">
 
         <div class="navbar nav_title" style="border: 0;">
             <a href="<?php echo _CONST_WEB_URL;?>" class="site_title"><span>Dalaltimes.com</span></a>
@@ -42,7 +42,7 @@
                     <li><a><i class="fa fa-newspaper-o"></i> News Editor<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
                             <li>
-                                <a href="/news/editor/compose/">Compose</a>
+                                <a href="/news/editor/compose">Compose</a>
                             </li>
                             <li>
                                 <a href="/news/latest">News Listing</a>
@@ -52,10 +52,23 @@
                     <li><a><i class="fa fa-bar-chart"></i> Ranking <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
                             <li>
-                                <a href="/rank/cover-story/">Cover Story</a>
+                                <a href="/rank/cover-story">Cover Story</a>
                             </li>
                             <li>
-                                <a href="/rank/hot-of-the-press/">Hot of the Press</a>
+                                <a href="/rank/hot-of-the-press">Hot of the Press</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fa fa-picture-o"></i> Image <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="display: none">
+                            <li>
+                                <a href="/image/new">Upload New Image</a>
+                            </li>
+                            <li>
+                                <a href="/image/latest">Approved Images</a>
+                            </li>
+                            <li>
+                                <a href="/image/pending-for-approval">Approve Images</a>
                             </li>
                         </ul>
                     </li>
@@ -155,7 +168,7 @@
         <!-- /sidebar menu -->
 
         <!-- /menu footer buttons -->
-        <div class="sidebar-footer hidden-small">
+        <div class="sidebar-footer hidden-small" st>
             <a data-toggle="tooltip" data-placement="top" title="Settings">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
             </a>

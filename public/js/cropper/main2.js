@@ -140,6 +140,29 @@
     },
 
     submit: function () {
+      var image_details = this.$img.cropper('getImageData');
+      if(image_details['naturalHeight'] !=900 || image_details['naturalWidth'] !=1600){
+        var $alert = [
+            '<div class="alert alert-danger avatar-alert alert-dismissable">',
+              '<button type="button" class="close" data-dismiss="alert">&times;</button>',
+              'The image is not 1600x900',
+            '</div>'
+          ].join('');
+          this.$imgUpload.after($alert);
+          return false;
+      }
+      if((Math.floor(image_details['aspectRatio'] * 100) / 100) !=1.77){
+        var $alert = [
+            '<div class="alert alert-danger avatar-alert alert-dismissable">',
+              '<button type="button" class="close" data-dismiss="alert">&times;</button>',
+              'The image is not in 16:9 ratio',
+            '</div>'
+          ].join('');
+          this.$imgUpload.after($alert);
+          return false;
+      }
+        /*; <*/
+
       if ((!this.$imgSrc.val() && !this.$imgInput.val()) || !this.$imgName.val() || !this.$imgTags.val()) {
         return false;
       }
@@ -202,7 +225,7 @@
         this.active = true;
       }
 
-      this.$imgModal.one('hidden.bs.modal', function () {
+      this.$imgModal.on('hidden.bs.modal', function () {
         _this.$imgPreview.empty();
         _this.stopCropper();
       });
@@ -258,6 +281,7 @@
     submitDone: function (data) {
       if ($.isPlainObject(data) && data.state === 200) {
         if (data.result) {
+          $('#img-uploader').hide();
           this.url = data.result;
           $.each(data.resizedList, function(key,valueObj){
               $("#img_"+key).attr('src',valueObj);
@@ -310,11 +334,6 @@
     }
   };
 
-  $(function () {
-    var ImgUploader = new ImageUploader($('#img-uploader'));
-  });
-
-
   function CropAvatar($element,$Loadimg,$imgKey,$image_id) {
     this.$container = $element;
     this.$imgKey = $imgKey;
@@ -360,7 +379,6 @@
     this.$avatarPreview = this.$avatarModal.find('.avatar-preview');
     this.$preLoadimage = $('<img src="'+$Loadimg+'">');
     this.$avatarWrapper.empty().html(this.$preLoadimage);
-    console.log('2222');
     this.$avatarWidth.val(this.$imgKey);
     this.$avatarImgId.val($image_id);
     this.init();
@@ -490,10 +508,9 @@
     click: function () {
       var _this = this;
       this.$avatarModal.modal('show');
-      this.$avatarModal.on('shown.bs.modal', function () {
+      /*this.$avatarModal.on('shown.bs.modal', function () {
         _this.customCropper();
-        console.log('2222');
-      });
+      });*/
       this.initPreview();
     },
 
@@ -526,9 +543,9 @@
     },
 
     submit: function () {
-      /*if (!this.$avatarSrc.val() && !this.$avatarInput.val()) {
+      if (!this.$avatarSrc.val() && !this.$avatarInput.val()) {
         return false;
-      }*/
+      }
 
       if (this.support.formData) {
         this.ajaxUpload();
@@ -654,7 +671,6 @@
           console.log(this.$imgKey);
           console.log($("#img_"+this.$imgKey).attr('src'));
           $("#img_"+this.$imgKey).one("load", function() {}).attr("src", data.result+'?12');
-          alert(data.result);
           if (this.support.datauri || this.uploaded) {
             this.uploaded = false;
             this.cropDone();
@@ -700,11 +716,3 @@
       this.$avatarUpload.after($alert);
     }
   };
-
- $(function () {
-/*    var av_1280 =  new CropAvatar($('#crop-avatar-1280'));
-    var av_615 =  new CropAvatar($('#crop-avatar-615'));
-    var av_300 =  new CropAvatar($('#crop-avatar-300'));
-    var av_100 =  new CropAvatar($('#crop-avatar-100'));
-    var av_77 =  new CropAvatar($('#crop-avatar-77'));
-*/  });

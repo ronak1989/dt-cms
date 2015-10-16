@@ -3,7 +3,7 @@
 <?php
 include_once _CONST_VIEW_PATH . 'header.php';
 ?>
-<body class="nav-md">
+<body class="nav-sm">
     <div class="container body">
         <div class="main_container">
             <!-- SIDEBARE MENU -->
@@ -24,6 +24,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                         <div class="title_left">
                             <h3><?php echo self::$pageTitle;?></h3>
                         </div>
+
                     </div>
                     <div class="clearfix"></div>
 
@@ -41,11 +42,11 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                 <div class="x_content">
                                     <div class="clearfix"></div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
-                                            <div class="x_panel">
+                                            <div class="x_panel" id="upload_new">
                                                 <div class="form-group">
                                                     <div class="container" id="img-uploader">
                                                         <div class="row" id="img-modal">
-                                                          <form class="img-form" action="/news/image/upload" enctype="multipart/form-data" method="post">
+                                                          <form class="img-form" action="/image/upload" enctype="multipart/form-data" method="post">
                                                               <div class="img-body">
                                                                 <!-- Crop and preview -->
                                                                 <div class="row">
@@ -74,6 +75,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                                   </div>
                                                                   <div class="col-md-9">
                                                                     <div class="img-wrapper"></div>
+                                                                    <em>The image needs to be of size 1600x900</em>
                                                                   </div>
                                                                 </div>
                                                               </div>
@@ -85,22 +87,36 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                             </div>
                                         </div>
                                         <div class="">
-                                            <div class="x_panel">
+                                            <div class="x_panel" id="resize-container">
                                                 <div class="form-group">
-                                                  <div class="container" id="resize-container" style="display:block">
+                                                  <div class="container" >
                                                     <div class="row">
                                                       <h1>Resized Images</h1>
+                                                      <div class="title_right">
+                                                          <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
+                                                              <ul class="nav navbar-right panel_toolbox">
+                                                                  <li>
+                                                                      <div class='form-group'>
+                                                                          <a class="btn btn-dark text-right" href="/image/new"><i class="fa fa-pencil"></i> Upload New Image </a>
+                                                                      </div>
+                                                                  </li>
+                                                              </ul>
+                                                          </div>
+                                                      </div>
                                                     </div>
                                                     <div class="row text-left">
                                                       <div class="col-sm-6 MA10" id="crop-avatar-1280">
                                                         <!-- data-target="#avatar-modal" data-toggle="modal" -->
-                                                        <div class="avatar-view" >
-                                                          <img src="http://placehold.it/1280x720" id="img_1280" class="img-responsive" alt="">
+                                                        <div class="pdf-thumb-box avatar-view" >
+                                                          <div class="pdf-thumb-box-overlay" style="left: 0px; opacity: 0.8; visibility: visible;width:100%;height:100%">
+                                                              <i class="glyphicon glyphicon-eye-open"></i>1280x720
+                                                          </div>
+                                                          <img src="<?php echo $data['image_size'][1280];?>" id="img_1280" class="img-responsive" alt="">
                                                         </div>
                                                         <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
                                                           <div class="modal-dialog modal-lg">
                                                             <div class="modal-content">
-                                                              <form class="avatar-form" action="/news/image/upload" enctype="multipart/form-data" method="post">
+                                                              <form class="avatar-form" action="/image/upload" enctype="multipart/form-data" method="post">
                                                                 <div class="modal-header">
                                                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                   <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
@@ -146,13 +162,13 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                             <div class="pdf-thumb-box-overlay" style="left: 0px; opacity: 0.8; visibility: visible;width:100%;height:100%">
                                                                 <i class="glyphicon glyphicon-eye-open"></i>615x346
                                                             </div>
-                                                            <img src="http://placehold.it/615x346" id="img_615" class="img-responsive"  alt="">
+                                                            <img src="<?php echo $data['image_size'][615];?>" id="img_615" class="img-responsive"  alt="">
                                                           </div>
                                                                   <!-- Cropping modal -->
                                                           <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
                                                             <div class="modal-dialog modal-lg">
                                                               <div class="modal-content">
-                                                                <form class="avatar-form" action="/news/image/upload" enctype="multipart/form-data" method="post">
+                                                                <form class="avatar-form" action="/image/upload" enctype="multipart/form-data" method="post">
                                                                   <div class="modal-header">
                                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                     <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
@@ -201,13 +217,13 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                             <div class="pdf-thumb-box-overlay" style="left: 0px; opacity: 0.8; visibility: visible;width:300px;height:169px">
                                                                 <i class="glyphicon glyphicon-eye-open"></i>300x169
                                                             </div>
-                                                            <img src="http://placehold.it/300x169" id="img_300" alt="">
+                                                            <img src="<?php echo $data['image_size'][300];?>" id="img_300" alt="">
                                                           </div>
                                                                   <!-- Cropping modal -->
                                                           <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
                                                             <div class="modal-dialog modal-lg">
                                                               <div class="modal-content">
-                                                                <form class="avatar-form" action="/news/image/upload" enctype="multipart/form-data" method="post">
+                                                                <form class="avatar-form" action="/image/upload" enctype="multipart/form-data" method="post">
                                                                   <div class="modal-header">
                                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                     <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
@@ -254,13 +270,13 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                             <div class="pdf-thumb-box-overlay" style="left: 0px; opacity: 0.8; visibility: visible;width:100px;height:56px">
                                                                 <i class="glyphicon glyphicon-eye-open"></i>100x56
                                                             </div>
-                                                            <img src="http://placehold.it/100x56" id="img_100" alt="">
+                                                            <img src="<?php echo $data['image_size'][100];?>" id="img_100" alt="">
                                                           </div>
                                                                   <!-- Cropping modal -->
                                                           <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
                                                             <div class="modal-dialog modal-lg">
                                                               <div class="modal-content">
-                                                                <form class="avatar-form" action="/news/image/upload" enctype="multipart/form-data" method="post">
+                                                                <form class="avatar-form" action="/image/upload" enctype="multipart/form-data" method="post">
                                                                   <div class="modal-header">
                                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                     <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
@@ -307,13 +323,13 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                             <div class="pdf-thumb-box-overlay pdf-thumb-box-overlay-small" style="left: 0px; opacity: 0.8; visibility: visible;width:77px;height:43px">
                                                                 <i class="glyphicon glyphicon-eye-open"></i>77x43
                                                             </div>
-                                                            <img src="http://placehold.it/77x43" id="img_77" alt="">
+                                                            <img src="<?php echo $data['image_size'][77];?>" id="img_77" alt="">
                                                           </div>
                                                                   <!-- Cropping modal -->
                                                           <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
                                                             <div class="modal-dialog modal-lg">
                                                               <div class="modal-content">
-                                                                <form class="avatar-form" action="/news/image/upload" enctype="multipart/form-data" method="post">
+                                                                <form class="avatar-form" action="/image/upload" enctype="multipart/form-data" method="post">
                                                                   <div class="modal-header">
                                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                     <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
@@ -421,7 +437,27 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
 
           $(this).children(".pdf-thumb-box-overlay").animate({"left": 0}, 250);
         });
-        });
+      });
 </script>
+<?php if ($data['operation'] == 'new') {?>
+<script>
+$(function () {
+  var ImgUploader = new ImageUploader($('#img-uploader'));
+});
+</script>
+<?php } else {?>
+<script>
+$(function () {
+  $('#upload_new').hide();
+  $('#resize-container').show();
+  var av_1280 =  new CropAvatar($('#crop-avatar-1280'),'<?php echo $imgDetails[0]['image_original'];?>',1280,<?php echo $imgDetails[0]['image_id'];?>);
+  var av_615 =  new CropAvatar($('#crop-avatar-615'),'<?php echo $imgDetails[0]['image_original'];?>',1280,<?php echo $imgDetails[0]['image_id'];?>);
+  var av_300 =  new CropAvatar($('#crop-avatar-300'),'<?php echo $imgDetails[0]['image_original'];?>',1280,<?php echo $imgDetails[0]['image_id'];?>);
+  var av_100 =  new CropAvatar($('#crop-avatar-100'),'<?php echo $imgDetails[0]['image_original'];?>',1280,<?php echo $imgDetails[0]['image_id'];?>);
+  var av_77 =  new CropAvatar($('#crop-avatar-77'),'<?php echo $imgDetails[0]['image_original'];?>',1280,<?php echo $imgDetails[0]['image_id'];?>);
+});
+</script>
+<?php }
+?>
 </body>
 </html>

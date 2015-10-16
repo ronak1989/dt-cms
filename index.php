@@ -25,10 +25,10 @@ $router->map('GET', '/partner/add', 'partner#addPartner', '');
 $router->map('GET', '/partner/users', 'user#getMagazinePartnerUsers', '');
 $router->map('GET', '/get-magazine-partner-subscriber/list', 'user#getMagazinePartnerUsersDetails', '');
 
-$router->map('POST', '/api/input-validate/', 'validation#checkInput', '');
+$router->map('POST', '/api/input-validate', 'validation#checkInput', '');
 
 /**** EDITOR ****/
-$router->map('GET|POST', '/news/editor/compose/?[i:id]?', 'editor#compose', '');
+$router->map('GET|POST', '/news/editor/compose?/[i:id]?', 'editor#compose', '');
 $router->map('GET', '/news/preview/[i:id]', 'editor#preview', '');
 $router->map('GET|POST', '/news/editor/savearticle', 'editor#savearticle', '');
 $router->map('POST', '/news/editor/publisharticle', 'editor#publisharticle', '');
@@ -36,20 +36,25 @@ $router->map('POST', '/news/editor/loadsubcategories', 'editor#loadsubcategories
 $router->map('GET|POST|PATCH|PUT|DELETE', '/news/upload_attachment', 'editor#uploadAttachment', '');
 $router->map('GET|POST', '/news/search/story', 'news#searchStory', '');
 /** News **/
-$router->map('GET', '/news/latest?/?', 'news#getNews', '');
-$router->map('GET', '/news/latest/list?/?', 'news#getLatestNews', '');
+$router->map('GET', '/news/latest', 'news#getNews', '');
+$router->map('GET', '/news/latest/list', 'news#getLatestNews', '');
 
 /** Image **/
-$router->map('GET', '/news/image/new/', 'image#getImageUploadList', '');
-$router->map('GET|POST', '/news/image/upload/', 'image#uploadNewImage', '');
+$router->map('GET', '/image/new', 'image#getImageUploadList', '');
+$router->map('GET', '/image/edit/[i:id]', 'image#modifyImageUploaded', '');
+$router->map('GET|POST', '/image/upload', 'image#uploadNewImage', '');
+$router->map('GET', '/image/latest', 'image#getImage', '');
+$router->map('GET', '/image/pending-for-approval', 'image#getPendingImage', '');
+$router->map('GET', '/image/latest/list', 'image#getLatestImages', '');
+$router->map('POST', '/image/approve?/[i:id]?', 'image#approveImage', '');
 
 /** Ranking **/
-$router->map('GET', '/rank/cover-story?/?', 'news#getCoverStoryPage', '');
-$router->map('GET', '/rank/hot-of-the-press?/?', 'news#getHOPpage', '');
-$router->map('GET', '/ranked/cover-story/news?/?', 'news#getRankedCoverStory', '');
-$router->map('GET', '/ranked/hot-of-the-press/news?/?', 'news#getRankedHOPStory', '');
-$router->map('POST', '/rank/update/', 'news#updateRankedStories', '');
-$router->map('POST', '/rank/remove/', 'news#removeRankedStories', '');
+$router->map('GET', '/rank/cover-story', 'news#getCoverStoryPage', '');
+$router->map('GET', '/rank/hot-of-the-press', 'news#getHOPpage', '');
+$router->map('GET', '/ranked/cover-story/news', 'news#getRankedCoverStory', '');
+$router->map('GET', '/ranked/hot-of-the-press/news', 'news#getRankedHOPStory', '');
+$router->map('POST', '/rank/update', 'news#updateRankedStories', '');
+$router->map('POST', '/rank/remove', 'news#removeRankedStories', '');
 
 $controller_name = null;
 $method_name = null;

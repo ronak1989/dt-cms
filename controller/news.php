@@ -34,7 +34,7 @@ class News extends NewsModel {
 		if (isset($params['rank'])) {$this->rankParams['rank'] = $params['rank'];}
 		if (isset($params['rank_caption'])) {$this->rankParams['rank_caption'] = $params['rank_caption'];}
 		if (isset($_GET['search'])) {
-			$this->searchParams['publish_status'] = 0;
+			$this->searchParams['publish_status'] = 1;
 			$this->searchParams['autono'] = $_GET['search'];
 			$this->searchParams['headline'] = $_GET['search'];
 			$this->searchParams['keywords'] = $_GET['search'];

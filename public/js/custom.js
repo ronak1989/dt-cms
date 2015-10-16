@@ -56,7 +56,7 @@ $(function () {
     $('#sidebar-menu a[href="' + url + '"]').parent('li').addClass('current-page');
     $('#sidebar-menu a').filter(function () {
         return this.href == url;
-    }).parent('li').addClass('current-page').parent('ul').slideDown().parent().addClass('active');
+    }).parent('li').addClass('current-page').parent('ul').parent().addClass('active-sm');
 });
 
 /** ******  /left menu  *********************** **/

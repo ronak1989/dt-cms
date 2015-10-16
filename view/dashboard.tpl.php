@@ -4,7 +4,7 @@
 
 include_once _CONST_VIEW_PATH . 'header.php';
 ?>
-<body class="nav-md">
+<body class="nav-sm">
     <div class="container body">
         <div class="main_container">
             <!-- SIDEBARE MENU -->
