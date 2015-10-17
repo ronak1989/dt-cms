@@ -27,7 +27,7 @@ class Editor extends EditorModel {
 		'news_subcategory' => NULL,
 		'news_source' => NULL,
 		'keywords' => NULL,
-		'articleImageId' => NULL,
+		'image_id' => NULL,
 		'assign_to_production' => false,
 		'publish' => '0',
 		'transfer_to_newspublish_tbl' => '0',
@@ -58,7 +58,7 @@ class Editor extends EditorModel {
 		if (isset($params['news_subcategory'])) {$this->articleParams['news_subcategory'] = $params['news_subcategory'];}
 		if (isset($params['news_source'])) {$this->articleParams['news_source'] = $params['news_source'];}
 		if (isset($params['keywords'])) {$this->articleParams['keywords'] = $params['keywords'];}
-		if (isset($params['articleImageId'])) {$this->articleParams['articleImageId'] = $params['heading'];}
+		if (isset($params['image_id'])) {$this->articleParams['image_id'] = $params['image_id'] == '' ? NULL : $params['image_id'];}
 		if (isset($params['related_story'])) {$this->articleParams['related_story'] = $params['related_story'];}
 		if (isset($params['search'])) {$this->articleParams['search'] = $params['search'];}
 		if (isset($params['publish']) && $params['publish'] == true) {

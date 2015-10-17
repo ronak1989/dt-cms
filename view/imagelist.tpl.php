@@ -8,22 +8,30 @@ include_once _CONST_VIEW_PATH . 'header.php';
         <div class="main_container">
             <!-- SIDEBARE MENU -->
             <?php
-include_once _CONST_VIEW_PATH . 'sidebar_menu.php';
+
+if ($image_gallery == '') {
+	include_once _CONST_VIEW_PATH . 'sidebar_menu.php';
+}
+
 ?>
             <!-- /SIDEBARE MENU -->
             <!-- top navigation -->
             <?php
-include_once _CONST_VIEW_PATH . 'top_nav.php';
+if ($image_gallery == '') {
+	include_once _CONST_VIEW_PATH . 'top_nav.php';
+}
 ?>
             <!-- /top navigation -->
 
             <!-- page content -->
             <div class="right_col" role="main">
+                    <?php if ($image_gallery == '') {?>
                     <div class="page-title">
 
                         <div class="title_left">
                             <h3><?php echo self::$pageTitle;?></h3>
                         </div>
+
                         <div class="title_right">
                             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
                                 <ul class="nav navbar-right panel_toolbox">
@@ -36,6 +44,8 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                             </div>
                         </div>
                     </div>
+                    <?php }
+?>
                     <div class="clearfix"></div>
 
                     <div class="row">
@@ -49,7 +59,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="modal-body text-center">
-                                                <img src="#" class="img-responsive" />
+                                                <img src="#" class="img-responsive" style="margin: 0 auto;" />
                                             </div>
                                             <div class="modal-footer">
                                             </div>
@@ -153,6 +163,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
     var offset = 0;
     var limit = 10;
     var processing = false;
+    var img_gallery = "<?php echo $image_gallery;?>";
     function getImageSearchParams(){
         var params = {};
         params['order'] = 'desc';
@@ -189,6 +200,9 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
         });
     }
     $(function () {
+        if(img_gallery=='1'){
+            $('body').removeClass('nav-sm');
+        }
         loadImages();
         $('.load_more').click(function(){
             if(processing==false)
@@ -234,6 +248,29 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
 
             });
         });
+
+        $(document.body).on('click','.disapprove_img',function() {
+            var _this = this;
+            var image_id = $(this).attr('data-img-id');
+            $.post('<?php echo $disapprove_url;?>'+image_id, function(result) {
+                if(result=='success'){
+                    $(_this).closest('.col-md-55').remove();
+                    $("#status").append('<div role="alert" class="alert alert-success alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Image <strong>'+$(_this).attr('data-img-name')+'</strong> has been deleted from the system.</div>');
+                }else{
+                    $("#status").append('<div role="alert" class="alert alert-danger alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Error while deleting the image '+$(_this).attr('data-img-name')+'. Please try again!!!</div>');
+                }
+            }).fail(function(xhr, ajaxOptions, thrownError) {
+
+            });
+        });
+
+        $(document.body).on('click','.assign_img',function() {
+            window.parent.$("#image_id").val($(this).attr('data-img-id'));
+            window.parent.$("#gallery_image_300").html("<img class='img-responsive' style='margin:0 auto;width:100%' src='"+$(this).attr('data-img-path')+"'/>");
+            window.parent.$("#gallery_image_300").append('<button type="button" class="btn btn-danger" id="remove-image" onclick="removeImage();" style="width:100%;"><i class="fa fa-picture-o"></i> Remove Image</button>');
+            window.parent.$("#imageGalleryModal").modal('hide');
+        });
+
     });
 
     function operationFormatter(value, row, index) {
@@ -255,10 +292,18 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
 
     function imageFormatter(row) {
         var approved_img = '';
+        var disapprove_img = '';
+        var actions = '';
+        var assign_image = '';
         if(row.status=='inactive'){
-            approved_img = '<div class="btn-group"><button class="btn btn-dark btn-sm approve_img" data-img-id="'+row.image_id+'" data-img-name="'+row.image_name+'" type="button"><i class="fa fa-thumbs-o-up"></i> Approve</button></div>';
-
+            approved_img = '<div class="btn-group"><button class="btn btn-success btn-sm approve_img" data-img-id="'+row.image_id+'" data-img-name="'+row.image_name+'" type="button"><i class="fa fa-thumbs-o-up"></i> Approve</button></div>';
+            disapprove_img = '<div class="btn-group"><button class="btn btn-danger btn-sm disapprove_img" data-img-id="'+row.image_id+'" data-img-name="'+row.image_name+'" type="button"><i class="fa fa-thumbs-o-down"></i> Disapprove</button></div>';
+            var actions = '<div class="col-xs-12 text-center">'+approved_img+'&nbsp;&nbsp;'+disapprove_img+'</div><br><br>';
         }
+        if (img_gallery == '1') {
+            var assign_image = '<div class="col-xs-12 text-center"><div class="btn-group" style="width:100%"><button class="btn btn-success btn-sm assign_img" data-img-id="'+row.image_id+'" data-img-path="'+row.image_300+'" type="button" style="width:100%"><i class="fa fa-thumb-tack"></i> Assign Image</button></div></div><br><br>';
+        }
+
         return [
         '<div class="col-md-55">',
             '<div class="thumbnail">',
@@ -267,54 +312,36 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                     '<div class="mask">',
                         '<p>'+row.image_name+'</p>',
                         '<div class="tools tools-bottom">',
-                            '<a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_615+'"><i class="fa fa-link"></i></a>',
-                           ,
+                            'Keywords',
+                           '<p>'+row.image_keywords+'</p>',
                         '</div>',
                     '</div>',
                 '</div>',
                 '<div class="caption text-center">',
-                '<div class="btn-group">',
-
-                '<button aria-expanded="true" type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">Different Size <span class="caret"></span>',
-                '</button>',
-                '<ul class="dropdown-menu" role="menu">',
-                    '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_1600+'"><i class="fa fa-file-image-o"></i> 1600x900 </a></li>',
-                    '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_1280+'"><i class="fa fa-file-image-o"></i> 1280x720 </a></li>',
-                    '<li class="divider"></li>',
-                    '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_615+'"><i class="fa fa-file-image-o"></i> 615x346 </a></li>',
-                    '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_300+'"><i class="fa fa-file-image-o"></i> 300x169</a></li>',
-                    '<li class="divider"></li>',
-                    '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_100+'"><i class="fa fa-file-image-o"></i> 100x56</a></li>',
-                    '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_77+'"><i class="fa fa-file-image-o"></i> 77x43 </a></li>',
-
-                '</ul>',
+                    actions,
+                    assign_image,
+                    '<div class="col-xs-12">',
+                        '<div class="btn-group" style="width:100%">',
+                            '<button aria-expanded="true" type="button" class="btn btn-primary dropdown-toggle btn-sm " style="width:100%" data-toggle="dropdown">Different Size <span class="caret"></span>',
+                            '</button>',
+                            '<ul class="dropdown-menu" role="menu" style="width:100%">',
+                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_1600+'"><i class="fa fa-file-image-o"></i> 1600x900 </a></li>',
+                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_1280+'"><i class="fa fa-file-image-o"></i> 1280x720 </a></li>',
+                                '<li class="divider"></li>',
+                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_615+'"><i class="fa fa-file-image-o"></i> 615x346 </a></li>',
+                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_300+'"><i class="fa fa-file-image-o"></i> 300x169</a></li>',
+                                '<li class="divider"></li>',
+                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_100+'"><i class="fa fa-file-image-o"></i> 100x56</a></li>',
+                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_77+'"><i class="fa fa-file-image-o"></i> 77x43 </a></li>',
+                            '</ul>',
+                        '</div>',
+                    '</div>',
                 '</div>',
-                '&nbsp;&nbsp;',
-                 approved_img,
-                '</div>',
-
+                '<div class="clearfix"></div>',
             '</div>',
 
         '</div>'
-        /*'<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 animated fadeInDown">',
-            '<div class="well profile_view">',
-                '<div class="col-xs-12">',
-                    '<div class="col-xs-12" style="background-image:url('+row.image_300+');height:169px;background-position: center center;background-repeat: no-repeat;background-size: cover;">',
-                    '</div>',
-                '</div>',
-                '<div class="col-xs-12 bottom text-center">',
-                    '<div class="col-xs-12 emphasis">',
-                        '<button class="btn btn-success btn-xs" type="button"> <i class="fa fa-file-image-o"></i>77x43 </button>',
-                        '<button class="btn btn-success btn-xs" type="button"> <i class="fa fa-file-image-o"></i> 100x56</button>',
-                        '<button class="btn btn-success btn-xs" type="button"> <i class="fa fa-file-image-o"></i> 300x169</button>',
-                        '<button class="btn btn-success btn-xs" type="button"> <i class="fa fa-file-image-o"></i> 615x346</button>',
-                        '<button class="btn btn-success btn-xs" type="button"> <i class="fa fa-file-image-o"></i>1280x720 </button>',
-                        '<button class="btn btn-success btn-xs" type="button"> <i class="fa fa-file-image-o"></i>1600x900 </button>',
-                        '<button class="btn btn-success btn-xs" type="button"> <i class="fa fa-file-image-o"></i> </button>',
-                    '</div>',
-                '</div>',
-            '</div>',
-        '</div>'*/
+
         ].join('');
     }
 

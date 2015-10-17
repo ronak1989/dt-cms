@@ -37,6 +37,16 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                         </li> -->
                                     </ul>
                                     <div class="clearfix"></div>
+                                    <div class="modal fade" id="imageGalleryModal" role="dialog" aria-labelledby="imageGalleryModalBox" aria-hidden="true">
+                                        <div class="modal-dialog" style="width:90%;height: 90%">
+                                            <div class="modal-content">
+                                                <div class="modal-body text-center">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                  <iframe src="/image/gallery" width="100%" height="500px" ></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="x_content">
                                     <div class="clearfix"></div>
@@ -195,6 +205,19 @@ if (isset($this->articleParams['related_story'])) {
                                                 <div class="form-group">
                                                     <label for="assign_to_production"><input type="checkbox" name="assign_to_production" id="assign_to_production" value='true' /> Assign to Production</label>
                                                 </div>
+                                                <div class="form-group ">
+                                                    <input type="hidden" name="image_id" id="image_id" value="<?php echo $this->articleParams["image_id"];?>">
+                                                    <button value="" type="button" class="btn btn-success" id="image_gallery" style="width:100%;"><i class="fa fa-picture-o"></i> <?php echo $imgGalleryText = $this->articleParams["image_id"] == "" ? 'Add Image' : 'Change Image';?></button>
+                                                </div>
+                                                <div class="form-group" id="gallery_image_300">
+                                                <?php if ($this->articleParams["image_id"] != '') {?>
+                                                <img src="<?php echo $this->articleParams["image_300"];?>" class="img-responsive" style="margin:0 auto;width:100%"/>
+                                                <button type="button" class="btn btn-danger" id="remove-image" onclick="removeImage();" style="width:100%;"><i class="fa fa-picture-o"></i> Remove Image</button>
+                                                <?php }
+?>
+                                                </div>
+                                            </div>
+                                            <div class="x_panel">
                                                 <div class="col-sm-12 text-center">
 
                                                 <?php
@@ -221,7 +244,6 @@ if ($this->articleParams['articleId'] != '') {
 ?>
 
                                                 </div>
-
                                             </div>
                                         </div>
                                     </form>
@@ -357,6 +379,12 @@ function addKeywords(){
         $("#keywords").addTag(keyword);
     }
 }
+
+function removeImage(){
+    $("#image_id").val('');
+    $("#gallery_image_300").empty();
+}
+
 function formatRepo (repo) {
     if (repo.loading) return repo.text;
 
@@ -588,7 +616,10 @@ tinymce.init({
         });
     }
 });
-
+$('#image_gallery').click(function() {
+    /*$('#imageModal img').attr('src', $(this).attr('data-img-url'));*/
+    $('#imageGalleryModal').modal('show');
+});
 
 </script>
 </body>

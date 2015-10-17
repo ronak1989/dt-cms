@@ -131,5 +131,26 @@ class ImageModel extends Database {
 			return false;
 		}
 	}
+
+	protected function deleteImage($image_id) {
+		$img_details = $this->getImageDetailsById($image_id);
+		$this->_modelQuery = 'DELETE from image_bank where status="inactive" and image_id=:image_id';
+		$this->query($this->_modelQuery);
+		$this->bindByValue('image_id', $image_id);
+		$this->execute();
+		if ($this->rowCount() == 1) {
+			unlink(_CONST_WEB_ROOT_PATH . $img_details[0]['image_original']);
+			unlink(_CONST_WEB_ROOT_PATH . $img_details[0]['image_1600']);
+			unlink(_CONST_WEB_ROOT_PATH . $img_details[0]['image_1280']);
+			unlink(_CONST_WEB_ROOT_PATH . $img_details[0]['image_615']);
+			unlink(_CONST_WEB_ROOT_PATH . $img_details[0]['image_300']);
+			unlink(_CONST_WEB_ROOT_PATH . $img_details[0]['image_100']);
+			unlink(_CONST_WEB_ROOT_PATH . $img_details[0]['image_77']);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }
 ?>

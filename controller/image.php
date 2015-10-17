@@ -88,10 +88,19 @@ class Image extends ImageModel {
 		require_once _CONST_VIEW_PATH . 'imagelist.tpl.php';
 	}
 
+	public function getImageGallery() {
+		self::$pageTitle = 'Image Gallery';
+		$data_url = '/image/latest/list';
+		$defaultParams['status'] = 'active';
+		$image_gallery = '1';
+		require_once _CONST_VIEW_PATH . 'imagelist.tpl.php';
+	}
+
 	public function getPendingImage() {
 		self::$pageTitle = 'Images Pending for Approval';
 		$data_url = '/image/latest/list';
 		$approve_url = '/image/approve/';
+		$disapprove_url = '/image/disapprove/';
 		$defaultParams['status'] = 'inactive';
 		require_once _CONST_VIEW_PATH . 'imagelist.tpl.php';
 	}
@@ -106,6 +115,19 @@ class Image extends ImageModel {
 			echo 'fail';
 		} else {
 			$operation_status = $this->_imageModel->activateImage($this->image_id);
+			if ($operation_status == true) {
+				echo 'success';
+			} else {
+				echo 'fail';
+			}
+		}
+	}
+
+	public function disapproveImage() {
+		if ($this->image_id == NULL) {
+			echo 'fail';
+		} else {
+			$operation_status = $this->_imageModel->deleteImage($this->image_id);
 			if ($operation_status == true) {
 				echo 'success';
 			} else {

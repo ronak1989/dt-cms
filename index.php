@@ -44,9 +44,11 @@ $router->map('GET', '/image/new', 'image#getImageUploadList', '');
 $router->map('GET', '/image/edit/[i:id]', 'image#modifyImageUploaded', '');
 $router->map('GET|POST', '/image/upload', 'image#uploadNewImage', '');
 $router->map('GET', '/image/latest', 'image#getImage', '');
+$router->map('GET', '/image/gallery', 'image#getImageGallery', '');
 $router->map('GET', '/image/pending-for-approval', 'image#getPendingImage', '');
 $router->map('GET', '/image/latest/list', 'image#getLatestImages', '');
 $router->map('POST', '/image/approve?/[i:id]?', 'image#approveImage', '');
+$router->map('POST', '/image/disapprove?/[i:id]?', 'image#disapproveImage', '');
 
 /** Ranking **/
 $router->map('GET', '/rank/cover-story', 'news#getCoverStoryPage', '');

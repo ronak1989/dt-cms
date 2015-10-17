@@ -81,7 +81,7 @@ class EditorModel extends Database {
 		$this->bindByValue('sub_category_id', $fields['news_subcategory']);
 		$this->bindByValue('source_id', $fields['news_source']);
 		$this->bindByValue('keywords', $fields['keywords']);
-		$this->bindByValue('image_id', $fields['articleImageId']);
+		$this->bindByValue('image_id', $fields['image_id']);
 		$this->bindByValue('related_story', $fields['related_story']);
 		$this->bindByValue('publish', $fields['publish']);
 		$this->bindByValue('transfer_to_newspublish_tbl', $fields['transfer_to_newspublish_tbl']);
@@ -136,7 +136,7 @@ class EditorModel extends Database {
 		$this->bindByValue('sub_category_id', $fields['news_subcategory']);
 		$this->bindByValue('source_id', $fields['news_source']);
 		$this->bindByValue('keywords', $fields['keywords']);
-		$this->bindByValue('image_id', $fields['articleImageId']);
+		$this->bindByValue('image_id', $fields['image_id']);
 		$this->bindByValue('related_story', $fields['related_story']);
 		$this->bindByValue('publish', $fields['publish']);
 		$this->bindByValue('transfer_to_newspublish_tbl', $fields['transfer_to_newspublish_tbl']);
@@ -180,7 +180,7 @@ class EditorModel extends Database {
 	}
 
 	protected function getArticleDetails($fields) {
-		$this->_modelQuery = 'SELECT nup.*, cu.employee_name as author_name, cu1.employee_name as publisher_name FROM `news_unpublish` nup LEFT JOIN cms_users cu ON nup.author_id = cu.cms_id LEFT JOIN cms_users cu1 ON nup.publisher_id = cu1.cms_id where autono = :autono';
+		$this->_modelQuery = 'SELECT nup.*, cu.employee_name as author_name, cu1.employee_name as publisher_name, img_bnk.image_300 FROM `news_unpublish` nup LEFT JOIN image_bank img_bnk ON img_bnk.image_id = nup.image_id LEFT JOIN cms_users cu ON nup.author_id = cu.cms_id LEFT JOIN cms_users cu1 ON nup.publisher_id = cu1.cms_id where autono = :autono';
 		$this->query($this->_modelQuery);
 		$this->bindByValue('autono', $fields['articleId']);
 		$this->_queryResult = $this->single();
@@ -206,7 +206,8 @@ class EditorModel extends Database {
 		$fields['news_subcategory'] = $this->_queryResult['sub_category_id'];
 		$fields['news_source'] = $this->_queryResult['source_id'];
 		$fields['keywords'] = $this->_queryResult['keywords'];
-		$fields['articleImageId'] = $this->_queryResult['image_id'];
+		$fields['image_id'] = $this->_queryResult['image_id'];
+		$fields['image_300'] = $this->_queryResult['image_300'];
 		$fields['related_story'] = $this->_queryResult['related_story'];
 		$fields['publish'] = $this->_queryResult['publish'];
 		$fields['transfer_to_newspublish_tbl'] = $this->_queryResult['transfer_to_newspublish_tbl'];
