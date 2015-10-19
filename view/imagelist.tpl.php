@@ -267,7 +267,7 @@ if ($image_gallery == '') {
 
         $(document.body).on('click','.story_img',function() {
             window.parent.$("#image_id").val($(this).attr('data-img-id'));
-            window.parent.$("#gallery_image_300").html("<img class='img-responsive' style='margin:0 auto;width:100%' src='"+$(this).attr('data-img-path')+"'/>");
+            window.parent.$("#gallery_image_300").html("<img class='img-responsive' style='margin:0 auto;width:100%' src='"+$(this).attr('data-img-url')+"'/>");
             window.parent.$("#gallery_image_300").append('<button type="button" class="btn btn-danger" id="remove-image" onclick="removeImage();" style="width:100%;"><i class="fa fa-picture-o"></i> Remove Image</button>');
             window.parent.$("#imageGalleryModal").modal('hide');
         });
@@ -306,7 +306,7 @@ if ($image_gallery == '') {
             var actions = '<div class="col-xs-12 text-center">'+approved_img+'&nbsp;&nbsp;'+disapprove_img+'</div><br><br>';
         }
         if (img_gallery == '1') {
-            story_img = '<div class="btn-group"><button class="btn btn-success btn-sm story_img" data-img-id="'+row.image_id+'" data-img-name="'+row.image_name+'" type="button"><i class="fa fa-picture-o"></i> Story </button></div>';
+            story_img = '<div class="btn-group"><button class="btn btn-success btn-sm story_img" data-img-id="'+row.image_id+'" data-img-url="'+row.image_300+'" type="button"><i class="fa fa-picture-o"></i> Story </button></div>';
             article_img = '<div class="btn-group" ><button aria-expanded="true" type="button" class="btn btn-primary dropdown-toggle btn-sm " data-toggle="dropdown"><i class="fa fa-file-image-o"></i> Editor <span class="caret"></span></button><ul class="dropdown-menu" role="menu" style="width:100%"><li><a class="article_img" href="javascript:void(0);" data-img-url="'+row.image_1600+'"><i class="fa fa-file-image-o"></i> 1600x900 </a></li><li><a class="article_img" href="javascript:void(0);" data-img-url="'+row.image_1280+'"><i class="fa fa-file-image-o"></i> 1280x720 </a></li><li class="divider"></li><li><a class="article_img" href="javascript:void(0);" data-img-url="'+row.image_615+'"><i class="fa fa-file-image-o"></i> 615x346 </a></li><li><a class="article_img" href="javascript:void(0);" data-img-url="'+row.image_300+'"><i class="fa fa-file-image-o"></i> 300x169</a></li><li class="divider"></li><li><a class="article_img" href="javascript:void(0);" data-img-url="'+row.image_100+'"><i class="fa fa-file-image-o"></i> 100x56</a></li><li><a class="article_img" href="javascript:void(0);" data-img-url="'+row.image_77+'"><i class="fa fa-file-image-o"></i> 77x43 </a></li></ul></div>';
             var actions = '<div class="col-xs-12 text-center">'+story_img+'&nbsp;&nbsp;'+article_img+'</div><br><br>';
         }
