@@ -77,7 +77,8 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <button class="btn btn-default" type="button" onclick="addKeywords();" value="<?php echo $this->articleParams['keywords'];?>">Add Keywords</button>
+                                                    <button class="btn btn-default" type="button" onclick="addKeywords();"><i class="fa fa-plus-circle"></i> Add Keywords</button>
+                                                    <button class="btn btn-default" type="button" onclick="addImageInsideEditor();"><i class="fa fa-file-image-o"></i> Add Images</button>
                                                 </div>
 
                                             </div>
@@ -370,9 +371,11 @@ $('#keywords').tagsInput({
     'delimiter': ',',
     onChange:revalidateField
 });
+
 function revalidateField(){
     $('#defaultForm').formValidation('revalidateField', 'keywords');
 }
+
 function addKeywords(){
     var keyword = tinyMCE.activeEditor.selection.getContent({format : 'text'});
     if(!$('#keywords').tagExist(keyword)){
@@ -598,9 +601,11 @@ tinymce.init({
         "localautosave advlist autolink lists link image charmap print preview hr anchor pagebreak",
         "searchreplace wordcount visualblocks visualchars code fullscreen",
         "insertdatetime media nonbreaking save table contextmenu directionality",
-        "emoticons template paste textcolor colorpicker textpattern imagetools"
+        "emoticons template paste textcolor colorpicker textpattern"
     ],
-
+    relative_urls : false,
+    remove_script_host : false,
+    convert_urls : true,
     content_css : "<?php echo _CONST_JS_PATH;?>tinymce/skins/modified.css",
     toolbar1: "localautosave | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent",
     toolbar2: "print preview media | forecolor backcolor emoticons | link image ",
@@ -620,7 +625,9 @@ $('#image_gallery').click(function() {
     /*$('#imageModal img').attr('src', $(this).attr('data-img-url'));*/
     $('#imageGalleryModal').modal('show');
 });
-
+function addImageInsideEditor(){
+    $('#imageGalleryModal').modal('show');
+}
 </script>
 </body>
 </html>

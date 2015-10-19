@@ -59,9 +59,9 @@ class News extends NewsModel {
 	public function getCoverStoryPage() {
 		$this->columnHeadings['ranking_list'] = array('data-title' => 'RANK', 'data-events' => 'operationEvents', 'data-formatter' => 'rankBox');
 		$data_url = '/news/latest/list';
-		$rank_url = '/ranked/cover-story/news/';
-		$update_url = '/rank/update/';
-		$delete_url = '/rank/remove/';
+		$rank_url = '/ranked/cover-story/news';
+		$update_url = '/rank/update';
+		$delete_url = '/rank/remove';
 		$rank_type = 'cover story';
 		$data['mainCategory'] = '<option value="">Please select Category to Search</option>';
 		foreach (parent::getNewsCategory() as $key => $value) {
@@ -73,9 +73,9 @@ class News extends NewsModel {
 	public function getHOPpage() {
 		$this->columnHeadings['ranking_list'] = array('data-title' => 'RANK', 'data-events' => 'operationEvents', 'data-formatter' => 'rankBox');
 		$data_url = '/news/latest/list';
-		$rank_url = '/ranked/hot-of-the-press/news/';
-		$update_url = '/rank/update/';
-		$delete_url = '/rank/remove/';
+		$rank_url = '/ranked/hot-of-the-press/news';
+		$update_url = '/rank/update';
+		$delete_url = '/rank/remove';
 		$rank_type = 'hot of the press';
 		$data['mainCategory'] = '<option value="">Please select Category to Search</option>';
 		foreach (parent::getNewsCategory() as $key => $value) {

@@ -50,6 +50,10 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                             Sub-Category : <strong><?php echo $data['subCategory'][$this->articleParams['news_subcategory']];?></strong>
                                             Source : <strong><?php echo $data['newsSource'][$this->articleParams['news_source']];?></strong>
                                             </div>
+                                            <div>
+                                                <img src="<?php echo $this->articleParams['image_1600'];?>" class="img-responsive" style="margin: 0 auto;">
+                                            </div>
+
                                         </div>
 
                                         <div class="col-md-12 col-lg-12 col-sm-12 news_content">
