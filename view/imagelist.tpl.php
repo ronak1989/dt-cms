@@ -273,7 +273,7 @@ if ($image_gallery == '') {
         });
 
         $(document.body).on('click','.article_img',function() {
-            window.parent.tinyMCE.activeEditor.execCommand('mceInsertContent', false, '<img src="http://local.cms.dalaltimes.com'+$(this).attr('data-img-url')+'" class="img-responsive" />');
+            window.parent.tinyMCE.activeEditor.execCommand('mceInsertContent', false, '<img src="'+$(this).attr('data-img-url')+'" class="img-responsive" />');
             window.parent.$("#imageGalleryModal").modal('hide');
         });
 
