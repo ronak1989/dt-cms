@@ -295,6 +295,11 @@
             this.$imgSrc.val(this.url);
             this.startCropper();
           }
+          $("#img_edit_tags").addTag(data.image_tags);
+          $("#img_edit_tags").attr('data-original-img-tags',data.image_tags);
+          $("#img_edit_name").val(data.image_name);
+          $("#img_edit_name").attr('data-original-img-name',data.image_name);
+          $("#img_id").val(data.image_id);
           $("#resize-container").show();
 
 

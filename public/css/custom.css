@@ -3601,7 +3601,7 @@ ul.timeline li {
     color: #fff !important;
 }
 
-.tag:after {
+/*.tag:after {
     content: " ";
     height: 30px;
     width: 0;
@@ -3613,7 +3613,7 @@ ul.timeline li {
     border-top: 14px solid transparent;
     border-bottom: 14px solid transparent;
     border-left: 11px solid #1ABB9C;
-}
+}*/
 
 .timeline h2.title {
     position: relative;
@@ -4677,7 +4677,7 @@ ul.project_files li a i {
 
 .caption {
     padding: 9px 5px;
-    background: #F7F7F7;
+    /*background: #F7F7F7;*/
 }
 
 .caption p {

@@ -520,10 +520,37 @@
 	"buffers":
 	[
 		{
+			"contents": "<!DOCTYPE html>\n<html lang=\"en\">\n<?php\ninclude_once _CONST_VIEW_PATH . 'header.php';\n?>\n<body class=\"nav-sm\">\n    <div class=\"container body\">\n        <div class=\"main_container\">\n            <!-- SIDEBARE MENU -->\n            <?php\ninclude_once _CONST_VIEW_PATH . 'sidebar_menu.php';\n?>\n            <!-- /SIDEBARE MENU -->\n            <!-- top navigation -->\n            <?php\ninclude_once _CONST_VIEW_PATH . 'top_nav.php';\n?>\n            <!-- /top navigation -->\n\n            <!-- page content -->\n            <div class=\"right_col\" role=\"main\">\n                <div class=\"\">\n                    <div class=\"page-title\">\n                        <div class=\"title_left\">\n                            <h3><?php echo self::$pageTitle;?></h3>\n                        </div>\n                    </div>\n                    <div class=\"clearfix\"></div>\n\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-sm-12 col-xs-12\">\n                            <div class=\"\" style=\"min-height:900px;\">\n                                <div class=\"x_title\">\n                                    <h2><?php echo self::$pageSubTitle;?></h2>\n                                    <ul class=\"nav navbar-right panel_toolbox MT3\">\n                                        <!-- <li><a class=\"btn btn-primary btn-xs\" style=\"background-color: #1479b8\" href='<?php echo $this->_data['url']['add'];?>'>Add New</a>\n                                        </li> -->\n                                    </ul>\n                                    <div class=\"clearfix\"></div>\n                                    <div class=\"modal fade\" id=\"imageGalleryModal\" role=\"dialog\" aria-labelledby=\"imageGalleryModalBox\" aria-hidden=\"true\">\n                                        <div class=\"modal-dialog\" style=\"width:90%;height: 90%\">\n                                            <div class=\"modal-content\">\n                                                <div class=\"modal-body text-center\">\n                                                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n                                                  <iframe src=\"/image/gallery\" width=\"100%\" height=\"500px\" ></iframe>\n                                                </div>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"x_content\">\n                                    <div class=\"clearfix\"></div>\n                                    <form id=\"defaultForm\" method=\"POST\" enctype=\"multipart/form-data\" class=\"form-horizontal form-label-left\" action=\"/news/editor/savearticle\">\n                                        <input type=\"hidden\" name=\"articleId\" id=\"articleId\" value=\"<?php echo $this->articleParams['articleId'];?>\" />\n                                        <div class=\"col-md-8 col-sm-12 col-xs-12\">\n                                            <div class=\"x_panel\">\n                                                <div class=\"form-group\">\n                                                    <label>Heading</label>\n                                                    <input type=\"text\" class=\"form-control\" name=\"heading\" name=\"heading\" autocomplete=\"off\" value=\"<?php echo $this->articleParams['heading'];?>\" />\n                                                    <span style=\"float:right;\">Max 70 chars</span>\n                                                </div>\n                                                <div class=\"form-group\">\n                                                    <label>SMS Heading</label>\n                                                    <input type=\"text\" class=\"form-control\" name=\"sms_heading\" name=\"sms_heading\" autocomplete=\"off\" value=\"<?php echo $this->articleParams['sms_heading'];?>\" />\n                                                    <span style=\"float:right;\">Max 70 chars</span>\n                                                </div>\n\n                                                <div class=\"form-group\">\n                                                    <label>Summary</label>\n                                                    <textarea type=\"text\" class=\"form-control\" name=\"summary\" id=\"summary\" autocomplete=\"off\"><?php echo $this->articleParams['summary'];?></textarea>\n                                                    <span style=\"float:right;\">Max 300 chars</span>\n                                                </div>\n\n                                                <div class=\"form-group\">\n                                                    <label>Story</label>\n                                                    <textarea class=\"show-editor\" name=\"news_content\" style=\"width: 100%; overflow: hidden; word-wrap: break-word; resize: horizontal; height: 250px;\"><?php echo $this->articleParams['news_content'];?></textarea>\n                                                </div>\n\n                                                <div class=\"form-group\">\n                                                    <button class=\"btn btn-default\" type=\"button\" onclick=\"addKeywords();\"><i class=\"fa fa-plus-circle\"></i> Add Keywords</button>\n                                                    <button class=\"btn btn-default\" type=\"button\" onclick=\"addImageInsideEditor();\"><i class=\"fa fa-file-image-o\"></i> Add Images</button>\n                                                </div>\n\n                                            </div>\n                                            <div class=\"x_panel\">\n                                                <div class=\"form-group\">\n                                                    <div class=\"text-center\">\n                                                        <strong>Add Attachments</strong>\n                                                    </div>\n                                                    <div class=\"fileupload-buttonbar\">\n                                                        <div class=\"col-sm-12\">\n                                                            <!-- The fileinput-button span is used to style the file input field as button -->\n                                                            <span class=\"btn btn-success fileinput-button\">\n                                                                <i class=\"glyphicon glyphicon-plus\"></i>\n                                                                <span>Add files...</span>\n                                                                <input type=\"file\" name=\"files[]\" multiple>\n                                                            </span>\n                                                            <button type=\"submit\" class=\"btn btn-primary start\">\n                                                                <i class=\"glyphicon glyphicon-upload\"></i>\n                                                                <span>Start upload</span>\n                                                            </button>\n                                                            <button type=\"reset\" class=\"btn btn-warning cancel\">\n                                                                <i class=\"glyphicon glyphicon-ban-circle\"></i>\n                                                                <span>Cancel upload</span>\n                                                            </button>\n                                                            <button type=\"button\" class=\"btn btn-danger delete\">\n                                                                <i class=\"glyphicon glyphicon-trash\"></i>\n                                                                <span>Delete</span>\n                                                            </button>\n                                                            <input type=\"checkbox\" class=\"toggle\">\n                                                            <!-- The global file processing state -->\n                                                            <span class=\"fileupload-process\"></span>\n                                                        </div>\n                                                        <div style=\"clear:both\"></div>\n                                                    </div>\n                                                    <div class=\"fileupload-progress fade\">\n                                                        <!-- The global progress bar -->\n                                                        <div class=\"progress progress-striped active\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\">\n                                                            <div class=\"progress-bar progress-bar-success\" style=\"width:0%;\"></div>\n                                                        </div>\n                                                        <!-- The extended global progress state -->\n                                                        <div class=\"progress-extended\">&nbsp;</div>\n                                                    </div>\n                                                    <!-- The table listing the files available for upload/download -->\n                                                    <table role=\"presentation\" class=\"table table-striped\"><tbody class=\"files\"></tbody></table>\n                                                </div>\n                                            </div>\n                                        </div>\n                                        <div class=\"col-sm-4\">\n                                            <div class=\"x_panel\">\n                                                <div class=\"form-group\">\n                                                    <label>Publish Date & Time</label>\n                                                    <div class=\"input-prepend input-group\">\n                                                        <span class=\"add-on input-group-addon\" id=\"pub_dt_icon\"><i class=\"glyphicon glyphicon-calendar fa fa-calendar\"></i></span>\n                                                        <input type=\"text\" readonly=\"readonly\" class=\"form-control date-picker\" value=\"<?php echo date('d-m-Y H:i:s');?>\" name=\"publish_date\" id=\"publish_date\" />\n                                                    </div>\n                                                </div>\n                                                <div class=\"form-group\">\n                                                    <label>Modified Date & Time</label>\n                                                    <div class=\"input-prepend input-group\">\n                                                        <span class=\"add-on input-group-addon\" id=\"mod_dt_icon\"><i class=\"glyphicon glyphicon-calendar fa fa-calendar\"></i></span>\n                                                        <input type=\"text\" readonly=\"readonly\" class=\"form-control date-picker\" value=\"<?php echo date('d-m-Y H:i:s');?>\" name=\"mod_date\" id=\"mod_date\" />\n                                                    </div>\n                                                </div>\n                                                <div class=\"form-group\">\n                                                    <label>Author Name</label>\n                                                    <input type=\"text\" class=\"form-control\" value=\"<?php echo $this->articleParams['author_name'];?>\" name=\"author_name\" readonly=\"readonly\" />\n                                                    <input type=\"hidden\" name=\"author_id\" value=\"<?php echo $this->articleParams['author_id'];?>\" />\n                                                </div>\n                                                <div class=\"form-group\">\n                                                    <label>Publisher Name <?php echo $this->articleParams['publisher_id'];?></label>\n                                                    <input type=\"text\" class=\"form-control\" name=\"publisher_name\" value=\"<?php echo $this->articleParams['publisher_name'];?>\" readonly=\"readonly\" />\n                                                    <input type=\"hidden\" name=\"publisher_id\" value=\"<?php echo $this->articleParams['publisher_id'];?>\" />\n                                                </div>\n                                                <div class=\"form-group\">\n                                                    <label>Category</label>\n                                                    <select class=\"form-control\" name=\"news_category\" id=\"news_category\">\n                                                        <option value=\"\">Please select News Category</option>\n                                                        <?php foreach ($data['mainCategory'] as $key => $value) {\n	if ($this->articleParams['news_category'] == $key) {\n		echo '<option value=\"' . $key . '\" selected>' . ucwords(strtolower($value)) . '</option>';\n	} else {\n		echo '<option value=\"' . $key . '\" >' . ucwords(strtolower($value)) . '</option>';\n	}\n\n}\n?>\n                                                    </select>\n                                                </div>\n                                                <div class=\"form-group\">\n                                                    <label>Sub Category</label>\n                                                    <select class=\"form-control\" name=\"news_subcategory\" id=\"news_subcategory\">\n                                                        <option value=\"\">Please select News Sub Category</option>\n                                                    </select>\n\n                                                </div>\n                                                <div class=\"form-group\">\n                                                    <label>Source</label>\n                                                    <select class=\"form-control\" name=\"news_source\" id=\"news_source\">\n                                                        <option value=\"\">Please select News Source</option>\n                                                        <?php foreach ($data['newsSource'] as $key => $value) {\n	if ($this->articleParams['news_source'] == $key) {\n		echo '<option value=\"' . $key . '\" selected>' . $value . '</option>';\n	} else {\n		echo '<option value=\"' . $key . '\">' . $value . '</option>';\n	}\n}\n?>\n                                                    </select>\n                                                    </select>\n                                                </div>\n\n                                                <div class=\"form-group\">\n                                                    <label>Keywords </label>\n                                                    <input type=\"text\" class=\"form-control\" value=\"<?php echo $this->articleParams['keywords'];?>\" name=\"keywords\" id=\"keywords\" />\n                                                </div>\n                                                <div class=\"form-group\">\n                                                     <select class=\"js-data-example-ajax\" style=\"width:100%\" name=\"related_story\" id=\"related_story\">\n                                                     <?php\nif (isset($this->articleParams['related_story'])) {\n	echo '<option value=\"' . $this->articleParams['related_story'] . '\" selected=\"selected\" >' . $this->articleParams['related_heading'] . ' (Autono:' . $this->articleParams['related_story'] . ')</option>';\n}\n?>\n                                                        </select>\n                                                </div>\n                                                <div class=\"form-group\">\n                                                    <label for=\"assign_to_production\"><input type=\"checkbox\" name=\"assign_to_production\" id=\"assign_to_production\" value='true' /> Assign to Production</label>\n                                                </div>\n                                                <div class=\"form-group \">\n                                                    <input type=\"hidden\" name=\"image_id\" id=\"image_id\" value=\"<?php echo $this->articleParams[\"image_id\"];?>\">\n                                                    <button value=\"\" type=\"button\" class=\"btn btn-success\" id=\"image_gallery\" style=\"width:100%;\"><i class=\"fa fa-picture-o\"></i> <?php echo $imgGalleryText = $this->articleParams[\"image_id\"] == \"\" ? 'Add Image' : 'Change Image';?></button>\n                                                </div>\n                                                <div class=\"form-group\" id=\"gallery_image_300\">\n                                                <?php if ($this->articleParams[\"image_id\"] != '') {?>\n                                                <img src=\"<?php echo $this->articleParams[\"image_300\"];?>\" class=\"img-responsive\" style=\"margin:0 auto;width:100%\"/>\n                                                <button type=\"button\" class=\"btn btn-danger\" id=\"remove-image\" onclick=\"removeImage();\" style=\"width:100%;\"><i class=\"fa fa-picture-o\"></i> Remove Image</button>\n                                                <?php }\n?>\n                                                </div>\n                                            </div>\n                                            <div class=\"x_panel\">\n                                                <div class=\"col-sm-12 text-center\">\n\n                                                <?php\nif ($this->articleParams['articleId'] != '') {\n	echo '\n\n                                                        <a href=\"/news/latest\" class=\"btn btn-dark\"><i class=\"fa fa-chevron-left\"></i> Back </a>\n\n\n                                                        <a href=\"/news/preview/' . $this->articleParams['articleId'] . '\" class=\"btn btn-success\"><i class=\"fa fa-eye  \"></i> Preview </a>\n\n\n                                                        <button type=\"submit\" class=\"btn btn-primary\" id=\"validateButton\"><i class=\"fa fa-floppy-o\"></i> Save </button>\n';\n} else {\n	echo '\n\n                                                        <a href=\"/news/latest\" class=\"btn btn-dark\"><i class=\"fa fa-chevron-left\"></i> Back </a>\n\n                                                        <button type=\"submit\" class=\"btn btn-primary\" id=\"validateButton\"><i class=\"fa fa-floppy-o\"></i> Save</button>\n';\n\n}\n?>\n\n                                                </div>\n                                            </div>\n                                        </div>\n                                    </form>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!-- /page content -->\n        </div>\n    </div>\n\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>bootstrap.min.js\"></script>\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>nicescroll/jquery.nicescroll.min.js\"></script>\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>custom.js\"></script>\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>/formvalidation/formValidation.js\"></script>\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>/formvalidation/framework/bootstrap.js\"></script>\n<!-- Datepicker -->\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>jquery.datetimepicker.full.js\"></script>\n<!-- select2 -->\n<script type=\"application/javascript\" src=\"<?php echo _CONST_JS_PATH;?>select/select2.full.js\"></script>\n\n<!-- editor -->\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>tinymce/tinymce.min.js\"></script>\n\n<!-- Tag Inputs -->\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>tags/jquery.tagsinput.js\"></script>\n\n\n<!-- The template to display files available for upload -->\n<script id=\"template-upload\" type=\"text/x-tmpl\">\n{% for (var i=0, file; file=o.files[i]; i++) { %}\n    <tr class=\"template-upload fade\">\n        <td>\n            <span class=\"preview\"></span>\n        </td>\n        <td>\n            <p class=\"name\">{%=file.name%}</p>\n            <strong class=\"error text-danger\"></strong>\n        </td>\n        <td>\n            <p class=\"size\">Processing...</p>\n            <div class=\"progress progress-striped active\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"0\"><div class=\"progress-bar progress-bar-success\" style=\"width:0%;\"></div></div>\n        </td>\n        <td>\n            {% if (!i && !o.options.autoUpload) { %}\n                <button class=\"btn btn-primary start\" disabled>\n                    <i class=\"glyphicon glyphicon-upload\"></i>\n                    <span>Start</span>\n                </button>\n            {% } %}\n            {% if (!i) { %}\n                <button class=\"btn btn-warning cancel\">\n                    <i class=\"glyphicon glyphicon-ban-circle\"></i>\n                    <span>Cancel</span>\n                </button>\n            {% } %}\n        </td>\n    </tr>\n{% } %}\n</script>\n<!-- The template to display files available for download -->\n<script id=\"template-download\" type=\"text/x-tmpl\">\n{% for (var i=0, file; file=o.files[i]; i++) { %}\n    <tr class=\"template-download fade\">\n        <td>\n            <span class=\"preview\">\n                {% if (file.thumbnailUrl) { %}\n                    <a href=\"{%=file.url%}\" title=\"{%=file.name%}\" download=\"{%=file.name%}\" data-gallery><img src=\"{%=file.thumbnailUrl%}\"></a>\n                {% } %}\n            </span>\n        </td>\n        <td>\n            {% if (!file.error) { %}\n                <input type=\"hidden\" name=\"uploaded_attachments[]\" value=\"{%=file.fileId%}\">\n            {% } %}\n            <p class=\"name\">\n                {% if (file.url) { %}\n                    <a href=\"{%=file.url%}\" title=\"{%=file.name%}\" download=\"{%=file.name%}\" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>\n                {% } else { %}\n                    <span>{%=file.name%}</span>\n                {% } %}\n            </p>\n            {% if (file.error) { %}\n                <div><span class=\"label label-danger\">Error</span> {%=file.error%}</div>\n            {% } %}\n        </td>\n        <td>\n            <span class=\"size\">{%=o.formatFileSize(file.size)%}</span>\n        </td>\n        <td>\n            {% if (file.deleteUrl) { %}\n                <button class=\"btn btn-danger delete\" data-type=\"{%=file.deleteType%}\" data-url=\"{%=file.deleteUrl%}\"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{\"withCredentials\":true}'{% } %}>\n                    <i class=\"glyphicon glyphicon-trash\"></i>\n                    <span>Delete</span>\n                </button>\n                <input type=\"checkbox\" name=\"delete\" value=\"1\" class=\"toggle\">\n            {% } else { %}\n                <button class=\"btn btn-warning cancel\">\n                    <i class=\"glyphicon glyphicon-ban-circle\"></i>\n                    <span>Cancel</span>\n                </button>\n            {% } %}\n        </td>\n    </tr>\n{% } %}\n</script>\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>jquery.ui.widget.js\"></script>\n<script type=\"text/javascript\" src=\"//blueimp.github.io/JavaScript-Templates/js/tmpl.min.js\"></script>\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>fileupload/jquery.iframe-transport.js\"></script>\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>fileupload/jquery.fileupload.js\"></script>\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>fileupload/jquery.fileupload-process.js\"></script>\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>fileupload/jquery.fileupload-validate.js\"></script>\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>fileupload/jquery.fileupload-ui.js\"></script>\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>fileupload/main.js\"></script>\n<script type=\"text/javascript\" src=\"<?php echo _CONST_JS_PATH;?>common.js\"></script>\n\n<script type=\"text/javascript\">\n$('#keywords').tagsInput({\n    'defaultText':'Keywords',\n    'removeWithBackspace' : false,\n    'width':'100%',\n    'delimiter': ',',\n    onChange:revalidateField\n});\n\nfunction revalidateField(){\n    $('#defaultForm').formValidation('revalidateField', 'keywords');\n}\n\nfunction addKeywords(){\n    var keyword = tinyMCE.activeEditor.selection.getContent({format : 'text'});\n    if(!$('#keywords').tagExist(keyword)){\n        $(\"#keywords\").addTag(keyword);\n    }\n}\n\nfunction removeImage(){\n    $(\"#image_id\").val('');\n    $(\"#gallery_image_300\").empty();\n}\n\nfunction formatRepo (repo) {\n    if (repo.loading) return repo.text;\n\n    var markup = '<div class=\"clearfix\">' +\n    '<div clas=\"col-sm-12\">' +\n    '<div class=\"clearfix\">' +\n    '<div class=\"col-sm-12\">' + repo.headline + '</div>' +\n    '</div>';\n\n\n    markup += '</div></div>';\n\n    return markup;\n}\n\nfunction formatRepoSelection (repo) {\n    console.log(repo.headline);\n    if(repo.id=='' || (typeof(repo.headline)=='undefined'))\n        return repo.text;\n    return '<strong>'+repo.headline+' (Autono '+repo.autono+')</strong>' || repo.text;\n}\n\n\n\n$(document).ready(function() {\n    loadNewsSubcategories('<?php echo $this->articleParams[\"news_category\"];?>','<?php echo $this->articleParams[\"news_subcategory\"];?>','news_subcategory','id');\n    $('#publish_date, #mod_date').datetimepicker({\n      format:'d-m-Y H:i:s',\n      lang:'en',\n      defaultDate:'<?php echo date(\"d-m-Y H:i:s\");?>',\n      maxDate:'<?php echo date(\"d-m-Y\");?>',\n      step:1\n    });\n\n    $('#pub_dt_icon').click(function(){\n        $('#publish_date').datetimepicker('show'); //support hide,show and destroy command\n    });\n\n    $('#mod_dt_icon').click(function(){\n        $('#mod_date').datetimepicker('show'); //support hide,show and destroy command\n    });\n\n\n\n\n    $(\".js-data-example-ajax\").select2({\n        placeholder: \"Search Related Story\",\n        allowClear: true,\n        id: function(e){return e.autono;},\n      ajax: {\n        url: \"/news/search/story\",\n        dataType: 'json',\n        delay: 250,\n\n        data: function (params) {\n          return {\n            search: params.term, // search term\n            page: params.page\n          };\n        },\n        processResults: function (data, page) {\n          // parse the results into the format expected by Select2.\n          // since we are using custom formatting functions we do not need to\n          // alter the remote JSON data\n          return {\n            results: data.rows\n          };\n        },\n        cache: true\n      },\n      escapeMarkup: function (markup) { return markup; }, // let our custom formatter work\n      minimumInputLength: 1,\n      templateResult: formatRepo, // omitted for brevity, see the source of this page\n      templateSelection: formatRepoSelection // omitted for brevity, see the source of this page\n    })\n    .on(\"change\", function() {\n          // fired to the original element when the dropdown closes\n          console.log(\"changed\");\n    })\n    .on(\"select2:close\", function() {\n          // fired to the original element when the dropdown closes\n          console.log(\"close\");\n    });\n\n    $('#news_category').on('change', function(e){\n        loadNewsSubcategories(this.value,'','news_subcategory','id');\n    });\n\n    $('#defaultForm').formValidation({\n        message: 'This value is not valid',\n        button: {\n            selector: '#validateButton',\n            disabled: 'disabled'\n        },\n//        live: 'disabled',\n        icon: {\n            valid: 'fa fa-check',\n            invalid: 'fa fa-times',\n            validating: 'fa fa-refresh'\n        },\n        excluded:':disabled',\n        fields: {\n            heading: {\n                message: 'Please provide appropriate Heading for the article',\n                validators: {\n                    notEmpty: {\n                        message: 'Please provide appropriate Heading for the article'\n                    },\n                    stringLength:{\n                        trim:true,\n                        max:70,\n                        message:'Article heading cant be more than 70 chars'\n                    }\n\n                }\n            },\n            sms_heading: {\n                message: 'Please provide appropriate SMS Heading for the article',\n                validators: {\n                    notEmpty: {\n                        message: 'Please provide appropriate SMS Heading for the article'\n                    },\n                    stringLength:{\n                        trim:true,\n                        max:70,\n                        message:'Article\\'s SMS Heading can\\'t be more than 70 chars'\n                    }\n                }\n            },\n            summary: {\n                message: 'Please provide short summary for the article',\n                validators: {\n                    notEmpty: {\n                        message: 'Article needs to have short summary'\n                    },\n                    stringLength:{\n                        trim:true,\n                        max:300,\n                        message:'Article\\'s summary can\\'t be more than 300 chars'\n                    }\n                }\n            },\n            news_content: {\n                message: 'Please provide story for the article',\n                validators: {\n                    callback: {\n                        message: 'Please provide story for the article',\n                        callback: function (value, validator, $field) {\n                            // Get the plain text without HTML\n                            var text = tinyMCE.activeEditor.getContent({\n                                format: 'text'\n                            });\n\n                            return text.length > 0;\n                        }\n                    }\n                }\n            },\n            keywords: {\n                message: 'Article need to have atleast one keyword',\n                validators: {\n                    callback: {\n                        message: 'Article need to have atleast one keyword',\n                        callback: function (value, validator, $field) {\n                            var text = $('#keywords').val();\n                            return text.length > 0;\n                        }\n                    }\n                }\n            },\n            news_category: {\n                message: 'Please select the News Category for the Article',\n                validators: {\n                    notEmpty: {\n                        message: 'Article needs to belong to any one of the category',\n                    },\n                }\n            },\n            news_subcategory: {\n                message: 'Please select the News Category for the Article',\n                validators: {\n                    notEmpty: {\n                        message: 'Article needs to belong to any one of the category',\n                    },\n                }\n            },\n            news_source: {\n                message: 'Please select the News Source for the Article',\n                validators: {\n                    notEmpty: {\n                        message: 'Article needs to belong to any one of the source',\n                    },\n                }\n            }\n\n\n        }\n    })\n    .on('success.form.fv', function(e) {\n        console.log('inside success');\n    })\n    .on('err.field.fv', function(e, data) {\n        console.log(data.field, data.validator);\n    });\n});\n\ntinymce.init({\n    selector: \"textarea.show-editor\",\n    theme: \"modern\",\n    plugins: [\n        \"localautosave advlist autolink lists link image charmap print preview hr anchor pagebreak\",\n        \"searchreplace wordcount visualblocks visualchars code fullscreen\",\n        \"insertdatetime media nonbreaking save table contextmenu directionality\",\n        \"emoticons template paste textcolor colorpicker textpattern\"\n    ],\n    relative_urls : false,\n    remove_script_host : false,\n    convert_urls : true,\n    content_css : \"<?php echo _CONST_JS_PATH;?>tinymce/skins/modified.css\",\n    toolbar1: \"localautosave | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent\",\n    toolbar2: \"paste_retain_style_properties preview media | forecolor backcolor emoticons | link image \",\n    image_advtab: true,\n     /*Excel copy-paste Utility :Starts*/\n    paste_retain_style_properties : \"all\",\n    paste_strip_class_attributes : \"none\",\n   //paste_remove_spans : true,\n  /*Excel copy-paste Utility :Ends*/\n    setup: function(editor){\n        editor.on('keyup', function(e) {\n            $('#defaultForm').formValidation('revalidateField', 'news_content');\n        });\n    }\n});\n$('#image_gallery').click(function() {\n    /*$('#imageModal img').attr('src', $(this).attr('data-img-url'));*/\n    $('#imageGalleryModal').modal('show');\n});\nfunction addImageInsideEditor(){\n    $('#imageGalleryModal').modal('show');\n}\n</script>\n</body>\n</html>\n",
 			"file": "view/editor.tpl.php",
+			"file_size": 33084,
+			"file_write_time": 130898249009125270,
 			"settings":
 			{
-				"buffer_size": 33223,
+				"buffer_size": 33108,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "view/imagelist.tpl.php",
+			"settings":
+			{
+				"buffer_size": 19795,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/dalal/detectmobilebrowser.php.txt",
+			"settings":
+			{
+				"buffer_size": 2099,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/dalal/Mobile-Detect-2.8.17/examples/session_example.php",
+			"settings":
+			{
+				"buffer_size": 4414,
 				"line_ending": "Unix"
 			}
 		},
@@ -536,10 +563,27 @@
 			}
 		},
 		{
-			"file": "view/imagelist.tpl.php",
+			"file": "/var/www/scripts/partner_list.csv",
 			"settings":
 			{
-				"buffer_size": 18541,
+				"buffer_size": 4176,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Satyanand - http://magazine.dalaltimes.com/?_brtr=TKz2bjuyBEeUqxvkPg/B0g==\nSmruti Ranjan Swain - http://magazine.dalaltimes.com/?_brtr=TKz2bjuyBEfsakS9dbnLvA==",
+			"settings":
+			{
+				"buffer_size": 159,
+				"line_ending": "Unix",
+				"name": "Satyanand - http://magazine.dalaltimes.com/?_brtr="
+			}
+		},
+		{
+			"file": "controller/news.php",
+			"settings":
+			{
+				"buffer_size": 5488,
 				"line_ending": "Unix"
 			}
 		},
@@ -548,14 +592,6 @@
 			"settings":
 			{
 				"buffer_size": 6462,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "view/preview.tpl.php",
-			"settings":
-			{
-				"buffer_size": 9573,
 				"line_ending": "Unix"
 			}
 		}
@@ -623,11 +659,17 @@
 	],
 	"file_history":
 	[
+		"/home/dalal/Mobile-Detect-2.8.17/export/exportToJSON.php",
+		"/home/dalal/Mobile-Detect-2.8.17/namespaced/Detection/MobileDetect.php",
+		"/home/dalal/Mobile-Detect-2.8.17/Mobile_Detect.php",
+		"/home/dalal/Mobile-Detect-2.8.17/Mobile_Detect.json",
+		"/var/www/dalaltimescms/view/preview.tpl.php",
+		"/var/www/dalaltimescms/view/imagelist.tpl.php",
+		"/var/www/dalaltimescms/view/newsRank.tpl.php",
 		"/var/www/dalaltimescms/model/editorModel.php",
 		"/var/www/dalaltimescms/controller/editor.php",
 		"/var/www/dalaltimescms/index.php",
 		"/var/www/dalaltimescms/controller/image.php",
-		"/var/www/dalaltimescms/view/imagelist.tpl.php",
 		"/var/www/scripts/partner_list.csv",
 		"/var/www/dalaltimescms/model/imageModel.php",
 		"/var/www/dalaltimescms/public/js/cropper/main2.js",
@@ -650,9 +692,7 @@
 		"/home/dalal/Documents/load-more-results/sql_demo.sql",
 		"/home/dalal/Documents/load-more-results/config.inc.php",
 		"/var/www/dalaltimescms/public/js/custom.js",
-		"/var/www/dalaltimescms/view/preview.tpl.php",
 		"/var/www/dalaltimescms/view/partneradd.tpl.php",
-		"/var/www/dalaltimescms/view/newsRank.tpl.php",
 		"/var/www/dalaltimescms/view/newlist.tpl.php",
 		"/var/www/dalaltimescms/view/header.php",
 		"/var/www/dalaltimescms/view/editor.tpl.php",
@@ -746,11 +786,7 @@
 		"/var/www/dalaltimescms/public/js/tinymce/skins/lightgray/skin.min.css",
 		"/var/www/dalaltimescms/public/js/tags/jquery.tagsinput.min.js",
 		"/var/www/dalaltimescms/class/class.formrender.php",
-		"/var/www/dalaltimescms/controller/user.php",
-		"/var/www/html/formvalidation-master/demo/remote.php",
-		"/var/www/html/formvalidation-master/demo/remote.html",
-		"/var/www/html/formvalidation-master/demo/date.html",
-		"/var/www/html/formvalidation-master/src/js/validator/remote.js"
+		"/var/www/dalaltimescms/controller/user.php"
 	],
 	"find":
 	{
@@ -772,6 +808,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"data-img-path",
+			"story_img",
+			"local",
+			"image_gallery",
+			"img_max",
 			"advimage",
 			"addIMage",
 			"tinymce",
@@ -894,12 +935,7 @@
 			"console",
 			"close",
 			"$avatarWidth",
-			"$avatarImgId",
-			"$image_id",
-			"cropper",
-			"shown",
-			"hiddenshown",
-			"hidden"
+			"$avatarImgId"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -907,6 +943,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"article_img",
 			"/image/upload",
 			"/news/image/upload",
 			"",
@@ -1033,8 +1070,7 @@
 			"",
 			"_router",
 			"$Spreadsheetdata",
-			"$sheet",
-			"', $data->sheets[0]['cells'][$i][$j]);\\n"
+			"$sheet"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1045,7 +1081,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -1054,15 +1090,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 33223,
+						"buffer_size": 33108,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								32608,
-								32608
+								32389,
+								32389
 							]
 						],
 						"settings":
@@ -1071,16 +1107,11 @@
 							"auto_complete": false,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -1091,36 +1122,41 @@
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
@@ -1132,198 +1168,197 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 11305.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "model/editorModel.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10923,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9189,
-								9189
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"auto_complete": false,
-							"bh_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2122.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "view/imagelist.tpl.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 18541,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								14519,
-								14519
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"auto_complete": false,
-							"bh_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5182.0,
+						"translation.y": 11375.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "controller/editor.php",
+					"buffer": 1,
+					"file": "view/imagelist.tpl.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6462,
+						"buffer_size": 19795,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13611,
+								13611
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5450.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/dalal/detectmobilebrowser.php.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2099,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								400,
+								400
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/dalal/Mobile-Detect-2.8.17/examples/session_example.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4414,
 						"regions":
 						{
 						},
@@ -1344,41 +1379,6 @@
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -1389,37 +1389,73 @@
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
 							],
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 456.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "view/preview.tpl.php",
+					"file": "model/editorModel.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9573,
+						"buffer_size": 10923,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1509,
-								1509
+								6184,
+								6184
 							]
 						],
 						"settings":
@@ -1433,41 +1469,6 @@
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -1478,21 +1479,408 @@
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
 							],
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 35.0,
-						"translation.y": 456.0,
+						"translation.x": 0.0,
+						"translation.y": 2122.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/var/www/scripts/partner_list.csv",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4176,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4176,
+								4176
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 159,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								159,
+								159
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_name": "Satyanand - http://magazine.dalaltimes.com/?_brtr=",
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"default_dir": "/var/www/ringthebell",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "controller/news.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5488,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5484,
+								5484
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete": false,
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1438.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "controller/editor.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6462,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4681,
+								4681
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1647.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1541,7 +1929,7 @@
 	"project": "dtcms.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":

@@ -76,7 +76,7 @@ if ($image_gallery == '') {
                                 </div>
                                 <div class="x_content">
                                     <div class="clearfix"></div>
-                                        <div id="status"></div>
+                                        <div id="operation_status"></div>
                                     <div>
                                         <div id="image_toolbar" class="well srch_panel">
                                             <div class="x_title">
@@ -241,9 +241,9 @@ if ($image_gallery == '') {
             $.post('<?php echo $approve_url;?>'+image_id, function(result) {
                 if(result=='success'){
                     $(_this).closest('.col-md-55').remove();
-                    $("#status").append('<div role="alert" class="alert alert-success alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Image <strong>'+$(_this).attr('data-img-name')+'</strong> has been approved.</div>');
+                    $("#operation_status").append('<div role="alert" class="alert alert-success alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Image <strong>'+$(_this).attr('data-img-name')+'</strong> has been approved.</div>');
                 }else{
-                    $("#status").append('<div role="alert" class="alert alert-danger alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Error while approving the image '+$(_this).attr('data-img-name')+'. Please try again!!!</div>');
+                    $("#operation_status").append('<div role="alert" class="alert alert-danger alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Error while approving the image '+$(_this).attr('data-img-name')+'. Please try again!!!</div>');
                 }
             }).fail(function(xhr, ajaxOptions, thrownError) {
 
@@ -256,9 +256,9 @@ if ($image_gallery == '') {
             $.post('<?php echo $disapprove_url;?>'+image_id, function(result) {
                 if(result=='success'){
                     $(_this).closest('.col-md-55').remove();
-                    $("#status").append('<div role="alert" class="alert alert-success alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Image <strong>'+$(_this).attr('data-img-name')+'</strong> has been deleted from the system.</div>');
+                    $("#operation_status").append('<div role="alert" class="alert alert-success alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Image <strong>'+$(_this).attr('data-img-name')+'</strong> has been deleted from the system.</div>');
                 }else{
-                    $("#status").append('<div role="alert" class="alert alert-danger alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Error while deleting the image '+$(_this).attr('data-img-name')+'. Please try again!!!</div>');
+                    $("#operation_status").append('<div role="alert" class="alert alert-danger alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Error while deleting the image '+$(_this).attr('data-img-name')+'. Please try again!!!</div>');
                 }
             }).fail(function(xhr, ajaxOptions, thrownError) {
 
@@ -299,11 +299,13 @@ if ($image_gallery == '') {
     function imageFormatter(row) {
         var approved_img = '';
         var disapprove_img = '';
+        var edit_img = '';
         var actions = '';
         if(row.status=='inactive'){
-            approved_img = '<div class="btn-group"><button class="btn btn-success btn-sm approve_img" data-img-id="'+row.image_id+'" data-img-name="'+row.image_name+'" type="button"><i class="fa fa-thumbs-o-up"></i> Approve</button></div>';
-            disapprove_img = '<div class="btn-group"><button class="btn btn-danger btn-sm disapprove_img" data-img-id="'+row.image_id+'" data-img-name="'+row.image_name+'" type="button"><i class="fa fa-thumbs-o-down"></i> Disapprove</button></div>';
-            var actions = '<div class="col-xs-12 text-center">'+approved_img+'&nbsp;&nbsp;'+disapprove_img+'</div><br><br>';
+            approved_img = '<div class="btn-group"><button class="btn btn-success btn-sm approve_img" data-img-id="'+row.image_id+'" data-img-name="'+row.image_name+'" type="button"><i class="fa fa-thumbs-o-up"></i> </button></div>';
+            disapprove_img = '<div class="btn-group"><button class="btn btn-danger btn-sm disapprove_img" data-img-id="'+row.image_id+'" data-img-name="'+row.image_name+'" type="button"><i class="fa fa-thumbs-o-down"></i> </button></div>';
+            edit_img = '<div class="btn-group"><a class="btn btn-danger btn-sm" href="/image/edit/'+row.image_id+'"><i class="fa fa-pencil-square-o"></i></a></div>';
+            var actions = '<div class="col-xs-12 text-center">'+approved_img+'&nbsp;&nbsp;'+disapprove_img+'&nbsp;&nbsp;'+edit_img+'</div><br><br>';
         }
         if (img_gallery == '1') {
             story_img = '<div class="btn-group"><button class="btn btn-success btn-sm story_img" data-img-id="'+row.image_id+'" data-img-url="'+row.image_300+'" type="button"><i class="fa fa-picture-o"></i> Story </button></div>';

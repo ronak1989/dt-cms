@@ -42,6 +42,7 @@ $router->map('GET', '/news/latest/list', 'news#getLatestNews', '');
 /** Image **/
 $router->map('GET', '/image/new', 'image#getImageUploadList', '');
 $router->map('GET', '/image/edit/[i:id]', 'image#modifyImageUploaded', '');
+$router->map('POST', '/image/edit/[i:id]', 'image#updateImageUploaded', '');
 $router->map('GET|POST', '/image/upload', 'image#uploadNewImage', '');
 $router->map('GET', '/image/latest', 'image#getImage', '');
 $router->map('GET', '/image/gallery', 'image#getImageGallery', '');

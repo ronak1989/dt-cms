@@ -152,5 +152,19 @@ class ImageModel extends Database {
 		}
 	}
 
+	protected function updateImage($image_id, $image_name, $image_keywords) {
+		$this->_modelQuery = 'UPDATE image_bank set image_name=:image_name, image_keywords=:image_keywords where status="inactive" and image_id=:image_id';
+		$this->query($this->_modelQuery);
+		$this->bindByValue('image_id', $image_id);
+		$this->bindByValue('image_keywords', $image_keywords);
+		$this->bindByValue('image_name', $image_name);
+		$this->execute();
+		if ($this->rowCount() == 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }
 ?>

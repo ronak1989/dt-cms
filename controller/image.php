@@ -46,7 +46,7 @@ class Image extends ImageModel {
 			$file = $_FILES['img_file'];
 			$orgimgName = $imgName = trim($_POST['img_name']);
 			$replace = array('!', '~', '`', '@', '#', '$', '%', '^', '&', '*', '*', '(', ')', '-', '_', '+', '=', '{', '}', ':', ';', "\"", "'", ",", "<", ">", "?", "/", ".", "|", "\\");
-			$imgName = str_replace($replace, " ", $imgName);
+			$imgName = strtolower(str_replace($replace, " ", $imgName));
 			$imgName = str_replace("  ", " ", $imgName);
 			$imgName = str_replace(" ", "-", $imgName);
 			$imgTags = $_POST['img_tags'];
@@ -75,6 +75,8 @@ class Image extends ImageModel {
 			'result' => $crop->getResult(),
 			'resizedList' => $crop->getResizeFileName(),
 			'image_id' => $image_id,
+			'image_name' => $orgimgName,
+			'image_tags' => $imgTags,
 		);
 
 		echo json_encode($response);
@@ -145,6 +147,15 @@ class Image extends ImageModel {
 		$data['image_size'][100] = $imgDetails[0]['image_100'];
 		$data['image_size'][77] = $imgDetails[0]['image_77'];
 		require_once _CONST_VIEW_PATH . 'image.tpl.php';
+	}
+
+	public function updateImageUploaded() {
+		$operation_status = $this->_imageModel->updateImage($this->image_id, $_POST['image_name'], $_POST['image_keywords']);
+		if ($operation_status == true) {
+			echo 'success';
+		} else {
+			echo 'fail';
+		}
 	}
 }
 ?>
