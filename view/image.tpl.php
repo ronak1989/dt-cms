@@ -100,14 +100,14 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                               <div class="form-group">
                                                                 Image Tags
                                                                 <input id="img_id" type="hidden" name="img_id" value="<?php echo $imgDetails[0]['image_id'];?>" />
-                                                                <input id="img_edit_tags" type="text" name="img_edit_tags" data-original-img-name="<?php echo $imgDetails[0]['image_keywords'];?>" class="tags form-control" style="display: inline-block" value="<?php echo $imgDetails[0]['image_keywords'];?>" />
+                                                                <input id="img_edit_tags" type="text" name="img_edit_tags" data-original-img-tags="<?php echo $imgDetails[0]['image_keywords'];?>" class="tags form-control" style="display: inline-block" value="<?php echo $imgDetails[0]['image_keywords'];?>" />
 
                                                               </div>
                                                           </div>
                                                           <div class="col-xs-6">
                                                               <div class="form-group">
                                                                 Image Name
-                                                                <input type="text" placeholder="" class="form-control" data-original-img-tags="<?php echo $imgDetails[0]['image_name'];?>" name="img_edit_name" id="img_edit_name" value="<?php echo $imgDetails[0]['image_name'];?>">
+                                                                <input type="text" placeholder="" class="form-control" data-original-img-name="<?php echo $imgDetails[0]['image_name'];?>" name="img_edit_name" id="img_edit_name" value="<?php echo $imgDetails[0]['image_name'];?>">
                                                               </div>
                                                               <div class="form-group text-center">
                                                                   <button class="btn btn-default" type="button" onclick="getImageEditParams();" id="edit_details">Update Image Name & Keywords</button>
@@ -457,12 +457,18 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
           alert('Image Name cannot be blank');
           error = 1;
         }
+        if($('#img_edit_name').val()==$('#img_edit_name').attr('data-original-img-name') && $('#img_edit_tags').val()==$('#img_edit_tags').attr('data-original-img-tags')){
+          alert('Please edit either Image Name or Keywords for updation');
+          return false;
+        }
         if(error==0){
           $("#edit_details").attr('disabled','true');
           var img_id = $("#img_id").val();
           $.post('/image/edit/'+img_id,{image_keywords:$('#img_edit_tags').val(),image_name:$('#img_edit_name').val()}, function(result) {
             $("#edit_details").removeAttr('disabled');
             if(result=='success'){
+                $('#img_edit_name').attr('data-original-img-name',$('#img_edit_name').val());
+                $('#img_edit_name').attr('data-original-img-tags',$('#img_edit_tags').val());
                 $("#operation_status").html('<div role="alert" class="alert alert-success alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Image Name & keywords has been updated.</div>');
             }else{
                 $("#operation_status").html('<div role="alert" class="alert alert-danger alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Error while Updating the image name & keywords. Please try again!!!</div>');
