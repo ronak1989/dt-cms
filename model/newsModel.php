@@ -240,7 +240,7 @@ class NewsModel extends EditorModel {
 		$result['corporate-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '2'), 'array');
 		$result['news-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '3'), 'array');
 		$result['investing-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '4'), 'array');
-		$result['earning-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '5'), 'array');
+		$result['earnings-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '5'), 'array');
 		$result['economy-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '7'), 'array');
 		/*echo '<pre>' . print_r($result) . '</pre>';
 		die();*/
