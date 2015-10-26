@@ -52,6 +52,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                     <div class="clearfix"></div>
                                     <form id="defaultForm" method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left" action="/news/editor/savearticle">
                                         <input type="hidden" name="articleId" id="articleId" value="<?php echo $this->articleParams['articleId'];?>" />
+                                        <input type="checkbox" name="publish" id="publish" value='true' <?php echo $this->articleParams['publish'];?> style="display: none;" />
                                         <div class="col-md-8 col-sm-12 col-xs-12">
                                             <div class="x_panel">
                                                 <div class="form-group">
