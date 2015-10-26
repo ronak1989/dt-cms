@@ -82,6 +82,16 @@ body{background-color:#fff;  height:100%; font-family: 'Sourcesanspro_Regular';
 .view-all{float:right;font-size:0.667em}
 .category-blocks{margin-top:5px;}
 .category-image{position:relative}
+.category-image::before {
+    background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 .subovrimg {position: absolute;z-index: 2;padding-top:2px;}
 .subsechead {font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;}
 .headovrimg {position: absolute;left: 0;right: 0;bottom: 0;padding: 10px 15px;    min-height: 20px;    font-size: 18px;    color: #fff;    line-height: 20px;    background:url(image-overlay.png);}
