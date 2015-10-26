@@ -60,6 +60,7 @@ class Editor extends EditorModel {
 		if (isset($params['keywords'])) {$this->articleParams['keywords'] = $params['keywords'];}
 		if (isset($params['image_id'])) {$this->articleParams['image_id'] = $params['image_id'] == '' ? NULL : $params['image_id'];}
 		if (isset($params['related_story'])) {$this->articleParams['related_story'] = $params['related_story'];}
+		if (isset($params['assign_to_production'])) {$this->articleParams['assign_to_production'] = $params['assign_to_production'];}
 		if (isset($params['search'])) {$this->articleParams['search'] = $params['search'];}
 		if (isset($params['publish']) && $params['publish'] == true) {
 			$this->articleParams['publish'] = '1';
@@ -140,8 +141,20 @@ class Editor extends EditorModel {
 		$data['mainCategory'] = $this->_editorModel->getNewsCategory();
 		$data['newsSource'] = $this->_editorModel->getNewsSource();
 		$this->articleParams = $this->_editorModel->getArticleDetails($this->articleParams);
-		$data['subCategory'] = $this->_editorModel->getNewsSubCategory($this->articleParams['news_subcategory']);
+		$data['subCategory'] = $this->_editorModel->getNewsSubCategory($this->articleParams['news_category']);
 		require_once _CONST_VIEW_PATH . 'preview.tpl.php';
+	}
+
+	public function getImageUploadList() {
+		$this->articleParams = $this->_editorModel->getArticleDetails($this->articleParams);
+		$data['operation'] = 'new';
+		$data['type'] = 'article';
+		$data['image_size'][1280] = 'http://placehold.it/1280x720';
+		$data['image_size'][615] = 'http://placehold.it/615x346';
+		$data['image_size'][300] = 'http://placehold.it/300x169';
+		$data['image_size'][100] = 'http://placehold.it/100x56';
+		$data['image_size'][77] = 'http://placehold.it/77x43';
+		require_once _CONST_VIEW_PATH . 'image.tpl.php';
 	}
 }
 ?>

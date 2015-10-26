@@ -1,0 +1,124 @@
+@media screen and (max-width:1200px) {
+	header {
+		width: 90%;
+		margin: 0 auto;
+	}
+}
+
+/* Responsive nav kicks in */
+	@media screen and (max-width:991px) {
+	}
+
+	@media screen and (max-width:640px) {
+	}
+
+	@media screen and (max-width:480px) {
+	}
+	@media screen and (max-device-width: 1024px) {
+		.carousel-control{width:4% !important}
+
+	}
+	/* #### Mobile Phones Portrait #### */
+	@media screen and (max-device-width: 480px) and (orientation: portrait){
+		/* some CSS here */
+		*{padding: 0;margin: 0;}
+		#hp-rank .rank-article {bottom: 0.667em;}
+		.carousel-control{width:4% !important}
+		#hp-rank .rank-article > h3 {font-size: 1.000em;color: #3D4351;line-height:15px !important; margin:10px;}
+		#hp-rank .article-category{background: #ffff00;font-size: 0.667em;text-transform: uppercase;color: #000000;	padding: 6px;}
+		.MA16{margin:16px;}
+		.PT16{padding-top:16px;}
+		.PTB16{padding:16px 0px;}
+		.PL16{padding-left:0px;}
+		.PR8{padding-right:0px;}
+		.PR16{padding-right:0px;}
+		.PL8{padding-left:0px;}
+	}
+
+	/* #### Mobile Phones Landscape #### */
+	@media screen and (max-device-width: 640px) and (orientation: landscape){
+		/* some CSS here */
+		*{padding: 0;margin: 0;}
+		.seperator{display:none;}
+		#hp-rank .rank-article {bottom: 0.667em;}
+		.carousel-control{width:4% !important}
+		#hp-rank .rank-article > h3 {font-size: 1.000em;color: #3D4351;line-height:15px !important; margin:10px;}
+		#hp-rank .article-category{background: #ffff00;font-size: 0.667em;text-transform: uppercase;color: #000000;	padding: 6px;}
+		.MA16{margin:16px;}
+		.PT16{padding-top:16px;}
+		.PTB16{padding:16px 0px;}
+		.PL16{padding-left:0px;}
+		.PR8{padding-right:0px;}
+		.PR16{padding-right:0px;}
+		.PL8{padding-left:0px;}
+	}
+	/* #### Mobile Phones Portrait or Landscape #### */
+	@media screen and (max-device-width: 640px){
+	  /* some CSS here */
+		/* some CSS here */
+		*{padding: 0;margin: 0;}
+		.seperator{display:none;}
+		#hp-rank .rank-article {bottom: 0.667em;}
+		.carousel-control{width:4% !important}
+		#hp-rank .rank-article > h3 {font-size: 1.000em;color: #3D4351;line-height:15px !important; margin:10px;}
+		#hp-rank .article-category{background: #ffff00;font-size: 0.667em;text-transform: uppercase;color: #000000;	padding: 6px;}
+		.MA16{margin:16px;}
+		.PT16{padding-top:16px;}
+		.PTB16{padding:16px 0px;}
+		.PL16{padding-left:0px;}
+		.PR8{padding-right:0px;}
+		.PR16{padding-right:0px;}
+		.PL8{padding-left:0px;}
+	}
+
+	/* #### iPhone 4+ Portrait or Landscape #### */
+	@media screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2){
+		/* some CSS here */
+		*{padding: 0;margin: 0;}
+		.seperator{display:none;}
+		#hp-rank .rank-article {bottom: 0.667em;}
+		.carousel-control{width:4% !important}
+		#hp-rank .rank-article > h3 {font-size: 1.000em;color: #3D4351;line-height:15px !important; margin:10px;}
+		#hp-rank .article-category{background: #ffff00;font-size: 0.667em;text-transform: uppercase;color: #000000;	padding: 6px;}
+		.MA16{margin:16px;}
+		.PT16{padding-top:16px;}
+		.PTB16{padding:16px 0px;}
+		.PL16{padding-left:0px;}
+		.PR8{padding-right:0px;}
+		.PR16{padding-right:0px;}
+		.PL8{padding-left:0px;}
+	}
+
+	@media only screen and (max-device-width: 667px) and (-webkit-device-pixel-ratio: 2) {
+		*{padding: 0;margin: 0;}
+		.seperator{display:none;}
+		#hp-rank .rank-article {bottom: 0.667em;}
+		.carousel-control{width:4% !important}
+		#hp-rank .rank-article > h3 {font-size: 1.000em;color: #3D4351;line-height:15px !important; margin:10px;}
+		#hp-rank .article-category{background: #ffff00;font-size: 0.667em;text-transform: uppercase;color: #000000;	padding: 6px;}
+		.MA16{margin:16px;}
+		.PT16{padding-top:16px;}
+		.PTB16{padding:16px 0px;}
+		.PL16{padding-left:0px;}
+		.PR8{padding-right:0px;}
+		.PR16{padding-right:0px;}
+		.PL8{padding-left:0px;}
+	}
+
+	@media screen and (min-device-width : 414px) and (-webkit-device-pixel-ratio: 3){
+		*{padding: 0;margin: 0;}
+		.seperator{display:none;}
+		#hp-rank .rank-article {bottom: 0.667em;}
+		.carousel-control{width:4% !important}
+		#hp-rank .rank-article > h3 {font-size: 1.000em;color: #3D4351;line-height:15px !important; margin:10px;}
+		#hp-rank .article-category{background: #ffff00;font-size: 0.667em;text-transform: uppercase;color: #000000;	padding: 6px;}
+		.MA16{margin:16px;}
+		.PT16{padding-top:16px;}
+		.PTB16{padding:16px 0px;}
+		.PL16{padding-left:0px;}
+		.PR8{padding-right:0px;}
+		.PR16{padding-right:0px;}
+		.PL8{padding-left:0px;}
+	}
+
+

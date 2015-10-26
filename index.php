@@ -41,6 +41,7 @@ $router->map('GET', '/news/latest/list', 'news#getLatestNews', '');
 
 /** Image **/
 $router->map('GET', '/image/new', 'image#getImageUploadList', '');
+$router->map('GET', '/news/image/[i:id]', 'editor#getImageUploadList', '');
 $router->map('GET', '/image/edit/[i:id]', 'image#modifyImageUploaded', '');
 $router->map('POST', '/image/edit/[i:id]', 'image#updateImageUploaded', '');
 $router->map('GET|POST', '/image/upload', 'image#uploadNewImage', '');
@@ -58,6 +59,8 @@ $router->map('GET', '/ranked/cover-story/news', 'news#getRankedCoverStory', '');
 $router->map('GET', '/ranked/hot-of-the-press/news', 'news#getRankedHOPStory', '');
 $router->map('POST', '/rank/update', 'news#updateRankedStories', '');
 $router->map('POST', '/rank/remove', 'news#removeRankedStories', '');
+/** Website **/
+$router->map('GET', '/homepage', 'news#getHomepage', '');
 
 $controller_name = null;
 $method_name = null;

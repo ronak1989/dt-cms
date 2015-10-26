@@ -59,6 +59,7 @@ if ($image_gallery == '') {
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="modal-body text-center">
+                                                <p></p>
                                                 <img src="#" class="img-responsive" style="margin: 0 auto;" />
                                             </div>
                                             <div class="modal-footer">
@@ -232,6 +233,12 @@ if ($image_gallery == '') {
 
         $(document.body).on('click','.img_max',function() {
             $('#imageModal img').attr('src', $(this).attr('data-img-url'));
+            if($(this).attr('data-story-headline')=='null'){
+                $('#imageModal p').html('');
+            }else{
+                $('#imageModal p').html($(this).attr('data-story-headline'));
+            }
+
             $('#imageModal').modal('show');
         });
 
@@ -301,6 +308,11 @@ if ($image_gallery == '') {
         var disapprove_img = '';
         var edit_img = '';
         var actions = '';
+        if(row.news_autono==null){
+            var ribbon_tag = '<div class="ribbon"><span>Image Bank</span></div>';
+        }else{
+            var ribbon_tag = '<div class="ribbon red"><span>Article Image</span></div>';
+        }
         if(row.status=='inactive'){
             approved_img = '<div class="btn-group"><button class="btn btn-success btn-sm approve_img" data-img-id="'+row.image_id+'" data-img-name="'+row.image_name+'" type="button"><i class="fa fa-thumbs-o-up"></i> </button></div>';
             disapprove_img = '<div class="btn-group"><button class="btn btn-danger btn-sm disapprove_img" data-img-id="'+row.image_id+'" data-img-name="'+row.image_name+'" type="button"><i class="fa fa-thumbs-o-down"></i> </button></div>';
@@ -325,6 +337,7 @@ if ($image_gallery == '') {
                            '<p>'+row.image_keywords+'</p>',
                         '</div>',
                     '</div>',
+
                 '</div>',
                 '<div class="caption text-center">',
                     actions,
@@ -333,21 +346,23 @@ if ($image_gallery == '') {
                             '<button aria-expanded="true" type="button" class="btn btn-primary dropdown-toggle btn-sm " style="width:100%" data-toggle="dropdown">Different Size <span class="caret"></span>',
                             '</button>',
                             '<ul class="dropdown-menu" role="menu" style="width:100%">',
-                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_1600+'"><i class="fa fa-file-image-o"></i> 1600x900 </a></li>',
-                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_1280+'"><i class="fa fa-file-image-o"></i> 1280x720 </a></li>',
+                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_1600+'" data-story-headline="'+row.headline+'"><i class="fa fa-file-image-o"></i> 1600x900 </a></li>',
+                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_1280+'" data-story-headline="'+row.headline+'"><i class="fa fa-file-image-o"></i> 1280x720 </a></li>',
                                 '<li class="divider"></li>',
-                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_615+'"><i class="fa fa-file-image-o"></i> 615x346 </a></li>',
-                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_300+'"><i class="fa fa-file-image-o"></i> 300x169</a></li>',
+                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_615+'" data-story-headline="'+row.headline+'"><i class="fa fa-file-image-o"></i> 615x346 </a></li>',
+                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_300+'" data-story-headline="'+row.headline+'"><i class="fa fa-file-image-o"></i> 300x169</a></li>',
                                 '<li class="divider"></li>',
-                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_100+'"><i class="fa fa-file-image-o"></i> 100x56</a></li>',
-                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_77+'"><i class="fa fa-file-image-o"></i> 77x43 </a></li>',
+                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_100+'" data-story-headline="'+row.headline+'"><i class="fa fa-file-image-o"></i> 100x56</a></li>',
+                                '<li><a class="img_max" href="javascript:void(0);" data-img-url="'+row.image_77+'" data-story-headline="'+row.headline+'"><i class="fa fa-file-image-o"></i> 77x43 </a></li>',
                             '</ul>',
                         '</div>',
                     '</div>',
                 '</div>',
-                '<div class="clearfix"></div>',
-            '</div>',
 
+                '<div class="clearfix"></div>',
+
+            '</div>',
+            ribbon_tag,
         '</div>'
 
         ].join('');
@@ -357,6 +372,56 @@ if ($image_gallery == '') {
 <style>
 .well .col-xs-12 {padding: 0px;}
 .well.profile_view{padding: 0px;}
+.ribbon {
+   position: absolute;
+   right: 2px; top: -2px;
+   z-index: 1;
+   overflow: hidden;
+   width: 100px; height: 100px;
+   text-align: right;
+}
+.ribbon span {
+   font-size: 10px;
+   color: #fff;
+   text-transform: uppercase;
+   text-align: center;
+   font-weight: bold; line-height: 20px;
+   transform: rotate(45deg);
+   width: 125px; display: block;
+   background: #79A70A;
+   background: linear-gradient(#9BC90D 0%, #79A70A 100%);
+   box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+   position: absolute;
+   top: 25px; right: -21px;
+}
+.ribbon span::before {
+   content: '';
+   position: absolute;
+   left: 0px; top: 100%;
+   z-index: -1;
+   border-left: 3px solid #79A70A;
+   border-right: 3px solid transparent;
+   border-bottom: 3px solid transparent;
+   border-top: 3px solid #79A70A;
+}
+.ribbon span::after {
+   content: '';
+   position: absolute;
+   right: 0%; top: 100%;
+   z-index: -1;
+   border-right: 3px solid #79A70A;
+   border-left: 3px solid transparent;
+   border-bottom: 3px solid transparent;
+   border-top: 3px solid #79A70A;
+}
+.red span {background: linear-gradient(#F70505 0%, #8F0808 100%);}
+.red span::before {border-left-color: #8F0808; border-top-color: #8F0808;}
+.red span::after {border-right-color: #8F0808; border-top-color: #8F0808;}
+
+.blue span {background: linear-gradient(#2989d8 0%, #1e5799 100%);}
+.blue span::before {border-left-color: #1e5799; border-top-color: #1e5799;}
+.blue span::after {border-right-color: #1e5799; border-top-color: #1e5799;}
+
 </style>
 </body>
 </html>

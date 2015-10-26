@@ -108,5 +108,10 @@ class News extends NewsModel {
 		$data = $this->_newsModel->searchResult($this->order, $this->offset, $this->limit, $this->searchParams);
 		echo $data;
 	}
+
+	public function getHomepage() {
+		$data = $this->_newsModel->getHomePageDetails();
+		require_once _CONST_VIEW_PATH . 'homepage.tpl.php';
+	}
 }
 ?>

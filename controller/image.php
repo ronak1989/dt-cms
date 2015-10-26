@@ -44,6 +44,7 @@ class Image extends ImageModel {
 			$src = $_POST['img_src'];
 			$data = $_POST['img_data'];
 			$file = $_FILES['img_file'];
+			$news_autono = $_POST['news_autono'];
 			$orgimgName = $imgName = trim($_POST['img_name']);
 			$replace = array('!', '~', '`', '@', '#', '$', '%', '^', '&', '*', '*', '(', ')', '-', '_', '+', '=', '{', '}', ':', ';', "\"", "'", ",", "<", ">", "?", "/", ".", "|", "\\");
 			$imgName = strtolower(str_replace($replace, " ", $imgName));
@@ -63,10 +64,11 @@ class Image extends ImageModel {
 			$imgDetails = $this->_imageModel->getImageDetailsById($image_id);
 		}
 
-		$crop = new CropAvatar($src, $data, $file, $operation, $imgName, $imgTags, $imgDetails, $destFile);
+		$crop = new CropAvatar($src, $data, $file, $operation, $imgName, $imgTags, $imgDetails, $destFile, $news_autono);
 		if ($operation == 'resize') {
 			if (is_null($crop->getMsg())) {
-				$image_id = $this->_imageModel->insertImageDetails($orgimgName, $imgTags, $crop->getResult(), $crop->getResizeFileName());
+				$image_id = $this->_imageModel->insertImageDetails($orgimgName, $imgTags, $crop->getResult(), $crop->getResizeFileName(), $news_autono);
+
 			}
 		}
 		$response = array(

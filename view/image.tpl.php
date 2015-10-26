@@ -50,12 +50,19 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                               <div class="img-body">
                                                                 <!-- Crop and preview -->
                                                                 <div class="row">
+                                                                  <?php if ($data['type'] == 'article') {?>
+                                                                  <div class="col-md-12">
+                                                                    <h4><strong>Heading :</strong> <?php echo $this->articleParams['heading'];?></h4>
+                                                                  </div>
+                                                                  <?php }
+?>
                                                                   <div class="col-md-3">
                                                                     <!-- Upload image and data -->
                                                                     <div class="img-upload">
                                                                       <input type="hidden" name="img_type" value="resize">
                                                                       <input type="hidden" class="img-src" name="img_src">
                                                                       <input type="hidden" class="img-data" name="img_data">
+                                                                      <input type="hidden" name="news_autono" value="<?php echo $this->articleParams['articleId'];?>">
                                                                       <div class="form-group">
                                                                         <label>Local upload</label>
                                                                         <input type="file" class="img-input" id="imgInput" name="img_file">

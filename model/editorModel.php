@@ -24,7 +24,7 @@ class EditorModel extends Database {
 			'6' => 'BUDGETS',
 			'7' => 'Economy',
 			'8' => 'MUTUAL FUNDS',
-			'9' => 'IPO',
+			/*'9' => 'IPO',*/
 			'10' => 'Wire News');
 	}
 
@@ -50,7 +50,7 @@ class EditorModel extends Database {
 			/*MUTUAL FUNDS*/
 			'8' => array('1' => 'MF-Analysis', '2' => 'MF-News', '3' => 'MF-Interview', '4' => 'MF Experts'),
 			/*IPO*/
-			'9' => array('1' => 'IPO - News', '2' => 'IPO - Issues Open', '3' => 'IPO - Tip', '4' => 'IPO - New Listings', '5' => 'IPO - Listing Strategy', '6' => 'IPO - Upcoming Issues'),
+			/*'9' => array('1' => 'IPO - News', '2' => 'IPO - Issues Open', '3' => 'IPO - Tip', '4' => 'IPO - New Listings', '5' => 'IPO - Listing Strategy', '6' => 'IPO - Upcoming Issues'),*/
 			/*Wire News*/
 			'10' => array());
 		return $subCategory[$newsCategoryId];
@@ -89,10 +89,17 @@ class EditorModel extends Database {
 		if ($this->execute()) {
 			$articleAutono = $this->lastInsertId();
 			foreach ($fields['uploaded_attachments'] as $key => $value) {
-				echo $this->_modelQuery = 'INSERT INTO `news_attachments` (article_id,attachment_id) VALUES (:article_id,:attachment_id);';
+				$this->_modelQuery = 'INSERT INTO `news_attachments` (article_id,attachment_id) VALUES (:article_id,:attachment_id);';
 				$this->query($this->_modelQuery);
 				$this->bindByValue('article_id', $articleAutono);
 				$this->bindByValue('attachment_id', $value);
+				$this->execute();
+			}
+			if ($fields['assign_to_production'] == 'true') {
+				$this->_modelQuery = 'INSERT INTO `required_image` (news_autono,last_updated_by) VALUES (:article_id,:last_updated_by) ON DUPICATE KEY';
+				$this->query($this->_modelQuery);
+				$this->bindByValue('article_id', $articleAutono);
+				$this->bindByValue('last_updated_by', $fields['last_updated_by']);
 				$this->execute();
 			}
 			$this->endTransaction();
@@ -143,7 +150,7 @@ class EditorModel extends Database {
 		$this->bindByValue('last_updated_by', $fields['last_updated_by']);
 		$this->bindByValue('autono', $fields['articleId']);
 		if ($this->execute()) {
-			$articleAutono = $this->lastInsertId();
+			$articleAutono = $fields['articleId'];
 			/*			foreach ($fields['uploaded_attachments'] as $key => $value) {
 			$this->_modelQuery = 'INSERT INTO `news_attachments` (article_id,attachment_id) VALUES (:article_id,:attachment_id);';
 			$this->query($this->_modelQuery);
@@ -151,6 +158,14 @@ class EditorModel extends Database {
 			$this->bindByValue('attachment_id', $value);
 			$this->execute();
 			}*/
+			if ($fields['assign_to_production'] == 'true') {
+				$this->_modelQuery = 'INSERT INTO `required_image` (news_autono,last_updated_by) VALUES (:article_id,:last_updated_by) ON DUPLICATE KEY UPDATE news_autono=:article_id';
+				$this->query($this->_modelQuery);
+				$this->bindByValue('article_id', $articleAutono);
+				$this->bindByValue('article_id', $articleAutono);
+				$this->bindByValue('last_updated_by', $fields['last_updated_by']);
+				$this->execute();
+			}
 			$this->endTransaction();
 			return $articleAutono;
 		} else {
