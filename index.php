@@ -4,6 +4,7 @@ date_default_timezone_set('Asia/Kolkata');
 require_once 'constants.php';
 require_once _CONST_WEB_ROOT_PATH . 'class/AltoRouter.php';
 $router = new AltoRouter();
+$router->addMatchTypes(array('cat-url' => '[a-z\-]++', 'news-url' => '[a-z0-9\-]++'));
 $router->map('GET', '/', 'dashboard#loadDashboard', '');
 $router->map('GET', '/login', 'authenticate#showLoginBox', '');
 $router->map('GET', '/logout', 'authenticate#logout', '');
@@ -61,10 +62,13 @@ $router->map('POST', '/rank/update', 'news#updateRankedStories', '');
 $router->map('POST', '/rank/remove', 'news#removeRankedStories', '');
 /** Website **/
 $router->map('GET', '/homepage', 'news#getHomepage', '');
+$router->map('GET', '/[cat-url:category]', 'news#getCategorylistingPage', '');
+$router->map('GET', '/[i:id]/[news-url]', 'news#getArticlePage', '');
 
 $controller_name = null;
 $method_name = null;
 $id = null;
+$category = null;
 $match = $router->match();
 if ($match) {
 	switch (trim($match['target'])) {
@@ -73,6 +77,9 @@ if ($match) {
 			$method_name = $match['params']['a'];
 			if (!empty($match['params']['id'])) {
 				$id = $match['params']['id'];
+			}
+			if (!empty($match['params']['category'])) {
+				$category = $match['params']['category'];
 			}
 			break;
 		default:
@@ -91,7 +98,12 @@ if ($match) {
 	}
 
 	require_once _CONST_CONTROLLER_PATH . $controller_name . '.php';
-	$obj = new $controller_name($id, $_REQUEST);
+	if ($controller_name == 'news') {
+		$obj = new $controller_name($id, $category, $_REQUEST);
+	} else {
+		$obj = new $controller_name($id, $_REQUEST);
+	}
+
 	if ($method_name == 'list') {
 		$method_name = "details";
 	}

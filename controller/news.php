@@ -15,7 +15,7 @@ class News extends NewsModel {
 	static $pageTitle = 'NEWS SECTION';
 	static $pageSubTitle = '';
 
-	public function __construct($id = NULL, $params = array()) {
+	public function __construct($id = NULL, $category = NULL, $params = array()) {
 		if (isset($_GET['limit'])) {$this->limit = $_GET['limit'];}
 		if (isset($_GET['offset'])) {$this->offset = $_GET['offset'];}
 		if (isset($_GET['order'])) {$this->order = $_GET['order'];}
@@ -112,6 +112,11 @@ class News extends NewsModel {
 	public function getHomepage() {
 		$data = $this->_newsModel->getHomePageDetails();
 		require_once _CONST_VIEW_PATH . 'homepage.tpl.php';
+	}
+
+	public function getCategorylistingPage() {
+		/*$data = $this->_newsModel->getHomePageDetails();*/
+		require_once _CONST_VIEW_PATH . 'category.tpl.php';
 	}
 }
 ?>

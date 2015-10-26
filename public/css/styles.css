@@ -53,7 +53,8 @@ body{background-color:#fff;  height:100%; font-family: 'Sourcesanspro_Regular';
 .rank-article {margin: auto 20;}
 #hp-rank {position:relative;}
 #hp-rank .item::before {
-    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    box-shadow: inset 0px 30px 100px 60px rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
     bottom: 0;
     content: "";
     display: block;
