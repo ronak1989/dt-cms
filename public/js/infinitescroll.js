@@ -142,7 +142,7 @@ function initPaginator() {
       last_scroll = scroll_pos;
       $(".scrollingcontent").each(function(index) {
         if (mostlyVisible(this)) {
-          history.replaceState(null, null, $(this).attr("data-url"));
+          history.replaceState({'scrollto':$(this).attr("data-url")}, null, $(this).attr("data-url"));
           return(false);
         }
       });
@@ -180,3 +180,8 @@ function primeCache() {
  } );
 }
 
+window.addEventListener("popstate", function(e) {
+
+  console.log("Location: " + document.location + ", state: " + JSON.stringify(e.state))
+
+});
