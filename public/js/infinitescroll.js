@@ -46,6 +46,7 @@ function loadFollowing() {
       $.each( categoryData['rows'], function( index, row ){
           generateHtml += detailsFormatter(row);
       });
+      generateHtml = '<div class="scrollingcontent" data-url="'+data.current_url+'"><ol class="stories-list">'+generateHtml+'</ol></div>';
       $('.scrollingcontent:last').after(generateHtml);
       next_data_url = data.next_data_url;
       next_data_cache = false;
@@ -69,7 +70,6 @@ function loadFollowing() {
 
 function loadPrevious() {
   if (prev_data_url=="") {
-    console.log('inside empty prev');
   } else {
     is_loading = 1; // note: this will break when the server doesn't respond
     function showPrevious(data) {
@@ -78,13 +78,13 @@ function loadPrevious() {
       $.each(categoryData['rows'], function( index, row ){
           generateHtml += detailsFormatter(row);
       });
+      generateHtml = '<div class="scrollingcontent" data-url="'+data.current_url+'"><ol class="stories-list">'+generateHtml+'</ol></div>';
       $('.scrollingcontent:first').before(generateHtml);
       item_height = $(".scrollingcontent:first").height();
       window.scrollTo(0, $(window).scrollTop()+item_height); // adjust scroll
       prev_data_url = data.prev_data_url;
       prev_data_cache = false;
       $.getJSON(prev_data_url, function(preview_data) {
-        console.log('444');
         prev_data_cache = preview_data;
       });
       if (hide_on_load) {
@@ -138,16 +138,15 @@ function initPaginator() {
     }
     // Adjust the URL based on the top item shown
     // for reasonable amounts of items
-    /*if (Math.abs(scroll_pos - last_scroll)>$(window).height()*0.1) {
+    if (Math.abs(scroll_pos - last_scroll)>$(window).height()*0.1) {
       last_scroll = scroll_pos;
-      $(".listitempage").each(function(index) {
+      $(".scrollingcontent").each(function(index) {
         if (mostlyVisible(this)) {
           history.replaceState(null, null, $(this).attr("data-url"));
-          $("#pagination").html($(this).attr("data-pagination"));
           return(false);
         }
       });
-    }*/
+    }
   });
   $(document).ready(function () {
     // if we have enough room, load the next batch

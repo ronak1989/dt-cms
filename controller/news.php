@@ -4,7 +4,7 @@ require_once _CONST_MODEL_PATH . $controller_name . 'Model.php';
 class News extends NewsModel {
 	private $access_roles = array();
 	private $_newsModel = NULL;
-	private $limit = 1;
+	private $limit = 10;
 	private $offset = 0;
 	private $order = "desc";
 	private $searchParams = array();
@@ -143,6 +143,12 @@ class News extends NewsModel {
 				$data['prev_url'] = '';
 				$data['prev_data_url'] = '';
 				$data['next_data_url'] = '';
+				if ($this->pg == 0) {
+					$data['current_url'] = _CONST_WEB_URL . '/' . $this->category;
+				} else {
+					$data['current_url'] = _CONST_WEB_URL . '/' . $this->category . '/' . $this->pg;
+				}
+
 				if ($this->pg > 0 && $this->pg - 1 > 0) {
 					$data['prev_url'] = _CONST_WEB_URL . '/' . $this->category . '/' . ($this->pg - 1);
 					$data['prev_data_url'] = $data['prev_url'] . '.json';
@@ -183,6 +189,12 @@ class News extends NewsModel {
 				$data['prev_url'] = '';
 				$data['prev_data_url'] = '';
 				$data['next_data_url'] = '';
+				$data['current_url'] = '';
+				if ($this->pg == 0) {
+					$data['current_url'] = _CONST_WEB_URL . '/' . $this->category;
+				} else {
+					$data['current_url'] = _CONST_WEB_URL . '/' . $this->category . '/' . $this->pg;
+				}
 				if ($this->pg > 0 && $this->pg - 1 > 0) {
 					$data['prev_url'] = _CONST_WEB_URL . '/' . $this->category . '/' . ($this->pg - 1);
 					$data['prev_data_url'] = $data['prev_url'] . '.json';

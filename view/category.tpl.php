@@ -127,10 +127,10 @@
             <div class="cateogry-list-title category-purple-bkgrnd">
                 <strong>All <?php echo $data['categoryName'];?> NEWS</strong>
             </div>
-            <div class="scrollingcontent">
+            <div class="scrollingcontent" data-url="<?php echo $data['current_url'];?>">
             <ol class="stories-list">
 <?php
-/*unset($data['categoryDetails']['rows'][0]);*/
+unset($data['categoryDetails']['rows'][0]);
 foreach ($data['categoryDetails']['rows'] as $key => $value) {
 	?>
                 <li class="stories-list-element">
