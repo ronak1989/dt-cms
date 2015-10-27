@@ -13,10 +13,10 @@
     <script src="<?php echo _CONST_JS_PATH;?>modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body id="top">
-<div class="wsmenucontainer clearfix mrginleft">
-  <div class="wsmenucontent overlapblackbg menuopen"></div>
+<div class="wsmenucontainer clearfix">
+  <div class="wsmenucontent overlapblackbg menuclose"></div>
   <div class="wsmenuexpandermain slideRight">
-    <a id="navToggle" class="animated-arrow slideLeft menuopen"><span></span></a>
+    <a id="navToggle" class="animated-arrow slideLeft menuclose"><span></span></a>
     <a href="" class="smallogo"><img src="<?php echo _CONST_IMAGE_URL;?>logo.png" alt=""></a>
     <a class="callusicon" href="tel:123456789"><span class="fa fa-phone"></span></a>
   </div>
