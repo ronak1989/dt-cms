@@ -250,8 +250,33 @@ class NewsModel extends EditorModel {
 		return $result;
 	}
 
-	protected function getCategoryDetails($categoryId) {
-		$result['categoryDetails'] = $this->getNewsDetails('desc', 0, 15, array('publish_status' => 1), 'array');
+	protected function getCategoryDetails($order, $offset, $limit, $search = array(), $return_type = 'json') {
+		$userList = $this->getNewsList($order, $offset, $limit, $search);
+		$category = $this->getNewsCategory();
+		$news_source = $this->getNewsSource();
+		$prev_cat = NULL;
+		foreach ($userList as $key => $value) {
+			if ($prev_cat != $value['category_id']) {
+				$prev_cat = $value['category_id'];
+				$sub_category = $this->getNewsSubCategory($value['category_id']);
+			}
+			$userList[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
+			$userList[$key]['category_name'] = $category[$value['category_id']];
+
+			$userList[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			$userList[$key]['news_source'] = $news_source[$value['source_id']];
+		}
+		/*if ($return_type == 'json') {
+		return json_encode(array("total" => (int) $total['cnt'], "rows" => $userList));
+		} else {
+		return array("total" => (int) $total['cnt'], "rows" => $userList);
+		}*/
+		//$result['categoryDetails'] = $this->getNewsDetails('desc', 0, 2, array('publish_status' => 1), 'array');
+		if ($return_type == 'json') {
+			$result['categoryDetails'] = json_encode(array("total" => (int) $total['cnt'], "rows" => $userList));
+		} else {
+			$result['categoryDetails'] = array("rows" => $userList);
+		}
 		return $result;
 	}
 }

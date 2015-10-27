@@ -62,13 +62,14 @@ $router->map('POST', '/rank/update', 'news#updateRankedStories', '');
 $router->map('POST', '/rank/remove', 'news#removeRankedStories', '');
 /** Website **/
 $router->map('GET', '/homepage', 'news#getHomepage', '');
-$router->map('GET', '/[cat-url:category]', 'news#getCategorylistingPage', '');
-$router->map('GET', '/[cat-url:category]', 'news#getCategorylistingPage', '');
+$router->map('GET', '/[cat-url:category]?/[i:pg]?', 'news#getCategorylistingPage', '');
+$router->map('GET', '/[cat-url:category]/[i:pg].json', 'news#getCategorylistingPageJson', '');
 $router->map('GET', '/[i:id]/[news-url]', 'news#getArticlePage', '');
 
 $controller_name = null;
 $method_name = null;
 $id = null;
+$pg = null;
 $category = null;
 $match = $router->match();
 if ($match) {
@@ -90,6 +91,9 @@ if ($match) {
 			if (!empty($match['params']['category'])) {
 				$category = $match['params']['category'];
 			}
+			if (!empty($match['params']['pg'])) {
+				$pg = $match['params']['pg'];
+			}
 			break;
 	}
 
@@ -100,7 +104,7 @@ if ($match) {
 
 	require_once _CONST_CONTROLLER_PATH . $controller_name . '.php';
 	if ($controller_name == 'news') {
-		$obj = new $controller_name($id, $category, $_REQUEST);
+		$obj = new $controller_name($id, $category, $pg, $_REQUEST);
 	} else {
 		$obj = new $controller_name($id, $_REQUEST);
 	}

@@ -4,12 +4,13 @@ require_once _CONST_MODEL_PATH . $controller_name . 'Model.php';
 class News extends NewsModel {
 	private $access_roles = array();
 	private $_newsModel = NULL;
-	private $limit = 10;
+	private $limit = 1;
 	private $offset = 0;
 	private $order = "desc";
 	private $searchParams = array();
 	private $rankParams = array();
 	private $category = NULL;
+	private $pg = 0;
 	private $_commonFunction = NULL;
 
 	private $columnHeadings = array('modified_date' => 'LAST MODIFIED DATE', 'autono' => 'AUTO NO', 'headline' => 'HEADLINE', 'category_name' => 'CATEGORY', 'sub_category_name' => 'SUB CATEGORY', 'operations' => array('data-title' => 'Actions', 'data-events' => 'operationEvents', 'data-formatter' => 'operationFormatter', 'data-width' => '20%', 'data-align' => 'center'));
@@ -18,8 +19,9 @@ class News extends NewsModel {
 	static $pageTitle = 'NEWS SECTION';
 	static $pageSubTitle = '';
 
-	public function __construct($id = NULL, $category = NULL, $params = array()) {
+	public function __construct($id = NULL, $category = NULL, $pg = 0, $params = array()) {
 		$this->category = $category;
+		$this->pg = $pg;
 		if (isset($_GET['limit'])) {$this->limit = $_GET['limit'];}
 		if (isset($_GET['offset'])) {$this->offset = $_GET['offset'];}
 		if (isset($_GET['order'])) {$this->order = $_GET['order'];}
@@ -127,11 +129,75 @@ class News extends NewsModel {
 		reset($news_category);
 		if (in_array($this->category, $catUrl)) {
 			$catId = array_search($this->category, $catUrl);
-			$data = $this->_newsModel->getCategoryDetails($catId);
-			$data['categoryName'] = strtoupper($news_category[$catId]);
-			require_once _CONST_VIEW_PATH . 'category.tpl.php';
+			$this->searchParams['category_id'] = $catId;
+			$this->searchParams['publish'] = 1;
+			$totalCnt = $this->_newsModel->getNewsCount($this->searchParams)['cnt'];
+			$totalPages = ceil(($totalCnt / $this->limit) - 1);
+			$this->offset = $this->pg * $this->limit;
+			$this->pg;
+			if ($this->pg > $totalPages) {
+				/* redirect to main url of listing page */
+			} else {
+				$data = $this->_newsModel->getCategoryDetails($this->order, $this->offset, $this->limit, $this->searchParams, 'array');
+				$data['next_url'] = '';
+				$data['prev_url'] = '';
+				$data['prev_data_url'] = '';
+				$data['next_data_url'] = '';
+				if ($this->pg > 0 && $this->pg - 1 > 0) {
+					$data['prev_url'] = _CONST_WEB_URL . '/' . $this->category . '/' . ($this->pg - 1);
+					$data['prev_data_url'] = $data['prev_url'] . '.json';
+				} else if ($this->pg > 0 && $this->pg - 1 == 0) {
+					$data['prev_url'] = _CONST_WEB_URL . '/' . $this->category;
+					$data['prev_data_url'] = $data['prev_url'] . '/0.json';
+				}
+				if ($this->pg >= 0 && $this->pg + 1 <= $totalPages) {
+					$data['next_url'] = _CONST_WEB_URL . '/' . $this->category . '/' . ($this->pg + 1);
+					$data['next_data_url'] = $data['next_url'] . '.json';
+				}
+				$data['categoryName'] = strtoupper($news_category[$catId]);
+				require_once _CONST_VIEW_PATH . 'category.tpl.php';
+			}
 		} else {
-			echo "444";die();
+		}
+	}
+
+	public function getCategorylistingPageJson() {
+		$news_category = parent::getNewsCategory();
+		foreach ($news_category as $key => $value) {
+			$catUrl[$key] = $this->_commonFunction->sanitizeString($value);
+		}
+		reset($news_category);
+		if (in_array($this->category, $catUrl)) {
+			$catId = array_search($this->category, $catUrl);
+			$this->searchParams['category_id'] = $catId;
+			$this->searchParams['publish'] = 1;
+			$totalCnt = $this->_newsModel->getNewsCount($this->searchParams)['cnt'];
+			$totalPages = ceil(($totalCnt / $this->limit) - 1);
+			$this->offset = $this->pg * $this->limit;
+			$this->pg;
+			if ($this->pg > $totalPages) {
+				/* redirect to main url of listing page */
+			} else {
+				$data = $this->_newsModel->getCategoryDetails($this->order, $this->offset, $this->limit, $this->searchParams, 'json');
+				$data['next_url'] = '';
+				$data['prev_url'] = '';
+				$data['prev_data_url'] = '';
+				$data['next_data_url'] = '';
+				if ($this->pg > 0 && $this->pg - 1 > 0) {
+					$data['prev_url'] = _CONST_WEB_URL . '/' . $this->category . '/' . ($this->pg - 1);
+					$data['prev_data_url'] = $data['prev_url'] . '.json';
+				} else if ($this->pg > 0 && $this->pg - 1 == 0) {
+					$data['prev_url'] = _CONST_WEB_URL . '/' . $this->category;
+					$data['prev_data_url'] = $data['prev_url'] . '/0.json';
+				}
+				if ($this->pg >= 0 && $this->pg + 1 <= $totalPages) {
+					$data['next_url'] = _CONST_WEB_URL . '/' . $this->category . '/' . ($this->pg + 1);
+					$data['next_data_url'] = $data['next_url'] . '.json';
+				}
+				$data['categoryName'] = strtoupper($news_category[$catId]);
+				echo json_encode($data);
+			}
+		} else {
 		}
 	}
 }

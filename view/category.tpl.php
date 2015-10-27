@@ -10,6 +10,15 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo _CONST_CSS_PATH;?>styles.css">
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo _CONST_CSS_PATH;?>queries.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- <link rel="canonical" href="/items?page=3" /> -->
+    <?php if ($data['next_url'] != '') {?>
+    <link rel="next" href="<?php echo $data['next_url']?>"/>
+    <?php }
+?>
+    <?php if ($data['prev_url'] != '') {?>
+    <link rel="prev" href="<?php echo $data['prev_url']?>"/>
+    <?php }
+?>
     <script src="<?php echo _CONST_JS_PATH;?>modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body id="top">
@@ -112,15 +121,16 @@
         </div>
     </section>
 </div>
-<div class="category-section" style="">
+<div class="category-section"  style="">
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 PT16 PL16 PR16">
     	<div class="col-xs-12">
             <div class="cateogry-list-title category-purple-bkgrnd">
                 <strong>All <?php echo $data['categoryName'];?> NEWS</strong>
             </div>
+            <div class="scrollingcontent">
             <ol class="stories-list">
 <?php
-unset($data['categoryDetails']['rows'][0]);
+/*unset($data['categoryDetails']['rows'][0]);*/
 foreach ($data['categoryDetails']['rows'] as $key => $value) {
 	?>
                 <li class="stories-list-element">
@@ -152,7 +162,7 @@ foreach ($data['categoryDetails']['rows'] as $key => $value) {
 }
 ?>
             </ol>
-
+            </div>
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 PT16 PL16 PR16">
@@ -189,8 +199,14 @@ foreach ($data['categoryDetails']['rows'] as $key => $value) {
      <!--Main Menu File-->
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo _CONST_CSS_PATH;?>webslidemenu.css">
     <script type="text/javascript" language="javascript" src="<?php echo _CONST_JS_PATH;?>webslidemenu.js"></script>
+    <script type="text/javascript" language="javascript" src="<?php echo _CONST_JS_PATH;?>infinitescroll.js"></script>
     <!--Main Menu File-->
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <script>
+        initPaginator();
+        next_data_url = '<?php echo $data["next_data_url"]?>';
+        prev_data_url = '<?php echo $data["prev_data_url"]?>';
+        primeCache();
+    </script>
 </div>
 <style>
 .stories-list {
