@@ -142,7 +142,7 @@ function initPaginator() {
       last_scroll = scroll_pos;
       $(".scrollingcontent").each(function(index) {
         if (mostlyVisible(this)) {
-          history.replaceState({'scrollto':$(this).attr("data-url")}, null, $(this).attr("data-url"));
+          history.replaceState(null, null, $(this).attr("data-url"));
           return(false);
         }
       });
