@@ -1,4 +1,5 @@
 <?php
+require_once _CONST_CLASS_PATH . 'class.functions.php';
 require_once _CONST_MODEL_PATH . $controller_name . 'Model.php';
 class News extends NewsModel {
 	private $access_roles = array();
@@ -8,6 +9,8 @@ class News extends NewsModel {
 	private $order = "desc";
 	private $searchParams = array();
 	private $rankParams = array();
+	private $category = NULL;
+	private $_commonFunction = NULL;
 
 	private $columnHeadings = array('modified_date' => 'LAST MODIFIED DATE', 'autono' => 'AUTO NO', 'headline' => 'HEADLINE', 'category_name' => 'CATEGORY', 'sub_category_name' => 'SUB CATEGORY', 'operations' => array('data-title' => 'Actions', 'data-events' => 'operationEvents', 'data-formatter' => 'operationFormatter', 'data-width' => '20%', 'data-align' => 'center'));
 	private $rankColumnHeadings = array('modified_date' => 'LAST MODIFIED DATE', 'autono' => 'AUTO NO', 'headline' => 'HEADLINE', 'category_name' => 'CATEGORY', 'rank' => 'RANKED', 'caption' => array('data-title' => 'Caption ', 'data-events' => 'operationEvents', 'data-formatter' => 'rankCaption'), 'operations' => array('data-title' => 'Actions', 'data-events' => 'operationEvents', 'data-formatter' => 'rankActions'));
@@ -16,6 +19,7 @@ class News extends NewsModel {
 	static $pageSubTitle = '';
 
 	public function __construct($id = NULL, $category = NULL, $params = array()) {
+		$this->category = $category;
 		if (isset($_GET['limit'])) {$this->limit = $_GET['limit'];}
 		if (isset($_GET['offset'])) {$this->offset = $_GET['offset'];}
 		if (isset($_GET['order'])) {$this->order = $_GET['order'];}
@@ -39,6 +43,7 @@ class News extends NewsModel {
 			$this->searchParams['headline'] = $_GET['search'];
 			$this->searchParams['keywords'] = $_GET['search'];
 		}
+		$this->_commonFunction = new CommonFunctions();
 		$this->_newsModel = new NewsModel(NULL, NULL);
 	}
 
@@ -115,8 +120,19 @@ class News extends NewsModel {
 	}
 
 	public function getCategorylistingPage() {
-		/*$data = $this->_newsModel->getHomePageDetails();*/
-		require_once _CONST_VIEW_PATH . 'category.tpl.php';
+		$news_category = parent::getNewsCategory();
+		foreach ($news_category as $key => $value) {
+			$catUrl[$key] = $this->_commonFunction->sanitizeString($value);
+		}
+		reset($news_category);
+		if (in_array($this->category, $catUrl)) {
+			$catId = array_search($this->category, $catUrl);
+			$data = $this->_newsModel->getCategoryDetails($catId);
+			$data['categoryName'] = strtoupper($news_category[$catId]);
+			require_once _CONST_VIEW_PATH . 'category.tpl.php';
+		} else {
+			echo "444";die();
+		}
 	}
 }
 ?>

@@ -1,4 +1,5 @@
 <?php
+
 require_once _CONST_MODEL_PATH . 'editorModel.php';
 class NewsModel extends EditorModel {
 
@@ -66,7 +67,7 @@ class NewsModel extends EditorModel {
 			$where_condition = 'where ' . implode(' and ', $where_condition);
 		}
 
-		$this->_modelQuery = 'select nu.modified_date, nu.autono, nu.headline, nu.category_id, nu.sub_category_id, nu.summary, ib.*  from news_unpublish nu LEFT JOIN image_bank ib ON ib.image_id = nu.image_id ' . $where_condition . ' order by nu.modified_date ' . $order . ' limit ' . $offset . ',' . $limit . '';
+		$this->_modelQuery = 'select nu.modified_date, nu.autono, nu.headline, nu.category_id, nu.sub_category_id, nu.summary, nu.source_id, ib.*  from news_unpublish nu LEFT JOIN image_bank ib ON ib.image_id = nu.image_id ' . $where_condition . ' order by nu.modified_date ' . $order . ' limit ' . $offset . ',' . $limit . '';
 		$this->query($this->_modelQuery);
 
 		return $this->resultset();
@@ -76,6 +77,7 @@ class NewsModel extends EditorModel {
 		$total = $this->getNewsCount($search);
 		$userList = $this->getNewsList($order, $offset, $limit, $search);
 		$category = $this->getNewsCategory();
+		$news_source = $this->getNewsSource();
 		$prev_cat = NULL;
 		foreach ($userList as $key => $value) {
 			if ($prev_cat != $value['category_id']) {
@@ -86,11 +88,12 @@ class NewsModel extends EditorModel {
 			$userList[$key]['category_name'] = $category[$value['category_id']];
 
 			$userList[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			$userList[$key]['news_source'] = $news_source[$value['source_id']];
 		}
 		if ($return_type == 'json') {
 			return json_encode(array("total" => (int) $total['cnt'], "rows" => $userList));
 		} else {
-			return $userList;
+			return array("total" => (int) $total['cnt'], "rows" => $userList);
 		}
 
 	}
@@ -117,7 +120,7 @@ class NewsModel extends EditorModel {
 		if ($return_type == 'json') {
 			return json_encode(array("total" => (int) $total, "rows" => $this->_queryResult));
 		} else {
-			return $this->_queryResult;
+			return array("total" => (int) $total, "rows" => $this->_queryResult);
 		}
 
 	}
@@ -232,18 +235,23 @@ class NewsModel extends EditorModel {
 	}
 
 	protected function getHomePageDetails() {
-		$result['cover-story-details'] = $this->getRankedStoryDetails('cover story', 'array');
-		$result['hot-of-the-press'] = $this->getNewsDetails('desc', 0, 15, array('publish_status' => 1), 'array');
-		$result['forecaster'] = $this->getNewsDetails('desc', 0, 1, array('publish_status' => 1, 'subcategory_id' => 16), 'array');
-		$result['chart-of-the-day'] = $this->getNewsDetails('desc', 0, 1, array('publish_status' => 1, 'subcategory_id' => 17), 'array');
-		$result['market-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '1', 'exclude_sub_category_id' => array('16', '17')), 'array');
-		$result['corporate-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '2'), 'array');
-		$result['news-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '3'), 'array');
-		$result['investing-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '4'), 'array');
-		$result['earnings-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '5'), 'array');
-		$result['economy-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '7'), 'array');
+		$result['cover-story-details'] = $this->getRankedStoryDetails('cover story', 'array')['rows'];
+		$result['hot-of-the-press'] = $this->getNewsDetails('desc', 0, 15, array('publish_status' => 1), 'array')['rows'];
+		$result['forecaster'] = $this->getNewsDetails('desc', 0, 1, array('publish_status' => 1, 'subcategory_id' => 16), 'array')['rows'];
+		$result['chart-of-the-day'] = $this->getNewsDetails('desc', 0, 1, array('publish_status' => 1, 'subcategory_id' => 17), 'array')['rows'];
+		$result['market-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '1', 'exclude_sub_category_id' => array('16', '17')), 'array')['rows'];
+		$result['corporate-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '2'), 'array')['rows'];
+		$result['news-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '3'), 'array')['rows'];
+		$result['investing-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '4'), 'array')['rows'];
+		$result['earnings-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '5'), 'array')['rows'];
+		$result['economy-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '7'), 'array')['rows'];
 		/*echo '<pre>' . print_r($result) . '</pre>';
 		die();*/
+		return $result;
+	}
+
+	protected function getCategoryDetails($categoryId) {
+		$result['categoryDetails'] = $this->getNewsDetails('desc', 0, 15, array('publish_status' => 1), 'array');
 		return $result;
 	}
 }

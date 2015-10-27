@@ -63,6 +63,7 @@ $router->map('POST', '/rank/remove', 'news#removeRankedStories', '');
 /** Website **/
 $router->map('GET', '/homepage', 'news#getHomepage', '');
 $router->map('GET', '/[cat-url:category]', 'news#getCategorylistingPage', '');
+$router->map('GET', '/[cat-url:category]', 'news#getCategorylistingPage', '');
 $router->map('GET', '/[i:id]/[news-url]', 'news#getArticlePage', '');
 
 $controller_name = null;
@@ -78,9 +79,6 @@ if ($match) {
 			if (!empty($match['params']['id'])) {
 				$id = $match['params']['id'];
 			}
-			if (!empty($match['params']['category'])) {
-				$category = $match['params']['category'];
-			}
 			break;
 		default:
 			$class_params = explode("#", $match['target']);
@@ -88,6 +86,9 @@ if ($match) {
 			$method_name = $class_params[1];
 			if (!empty($match['params']['id'])) {
 				$id = $match['params']['id'];
+			}
+			if (!empty($match['params']['category'])) {
+				$category = $match['params']['category'];
 			}
 			break;
 	}

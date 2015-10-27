@@ -9,6 +9,7 @@ $(function() {
    * @return {undefined}
    */
   var backdrop = function() {
+    $(".bigmegamenu").show();
     $(headings)["removeClass"]("menuclose")["addClass"]("menuopen");
   };
   /**

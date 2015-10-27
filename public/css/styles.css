@@ -105,6 +105,7 @@ body{background-color:#fff;  height:100%; font-family: 'Sourcesanspro_Regular';
 #category-news > ul li.last{border-bottom:none;}
 
 .hot-press{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;background:#e33827;text-align:center; margin-top:5px}
+.cateogry-list-title{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:6px;text-align:center; margin-top:6px}
 #press-news{background:#eeeff1; }
 #press-news > ul{list-style-type: none;max-height:750px; overflow-y: visible;overflow-x: hidden;padding:0px 10px 10px 10px;}
 #press-news > ul li{border-bottom:1px solid #9d9fa2;padding:10px; overflow:hidden;  }
