@@ -43,7 +43,7 @@
 	?>
                 <span class="seperator">|</span>
                 <li>
-                  <span class="wsmenu-click"><i class="wsmenu-arrow fa fa-angle-down"></i></span><a href="<?php echo $value['url'];?>"><i class="fa fa-align-justify"></i>&nbsp;&nbsp;<?php echo $value['name'];?></a>
+                  <a href="<?php echo $value['url'];?>"><i class="fa fa-align-justify"></i>&nbsp;&nbsp;<?php echo $value['name'];?></a>
                 </li>
 
                 <?php

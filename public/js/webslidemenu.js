@@ -10,6 +10,7 @@ $(function() {
    */
   var backdrop = function() {
     $(".bigmegamenu").show();
+    $(".seperator").hide();
     $(headings)["removeClass"]("menuclose")["addClass"]("menuopen");
   };
   /**
@@ -17,6 +18,7 @@ $(function() {
    */
   var _element = function() {
     $(headings)["removeClass"]("menuopen")["addClass"]("menuclose");
+    $(".seperator").show();
   };
   $("#navToggle")["click"](function() {
     if (emptyJ["hasClass"]("menuopen")) {
