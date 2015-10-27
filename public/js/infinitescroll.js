@@ -8,6 +8,14 @@ var prev_data_cache;
 var last_scroll = 0;
 var is_loading = 0; // simple lock to prevent loading when loading
 var hide_on_load = false; // ID that can be hidden when content has been loaded
+var spinner_class = '';
+var spinner_div = '';
+function spinner(background_class){
+  if(typeof(background_class)==undefined){
+    background_class = '';
+  }
+  return '<div class="spinner"><div class="rect1 '+background_class+'"></div>&nbsp;<div class="rect2 '+background_class+'"></div>&nbsp;<div class="rect3 '+background_class+'"></div>&nbsp;<div class="rect4 '+background_class+'"></div>&nbsp;<div class="rect5 '+background_class+'"></div>&nbsp;</div>';
+}
 function detailsFormatter(row){
   return [
       '<li class="stories-list-element">',
@@ -37,9 +45,9 @@ function detailsFormatter(row){
 }
 function loadFollowing() {
   if (next_data_url=="") {
-    console.log('inside empty next');
   } else {
     is_loading = 1; // note: this will break when the server doesn't respond
+    $('.scrollingcontent:last').after(spinner_div);
     function showFollowing(data) {
       var categoryData = JSON.parse(data.categoryDetails);
       generateHtml = '';
@@ -51,17 +59,17 @@ function loadFollowing() {
       next_data_url = data.next_data_url;
       next_data_cache = false;
       $.getJSON(next_data_url, function(preview_data) {
-        console.log('222');
         next_data_cache = preview_data;
       });
     }
     if (next_data_cache) {
       showFollowing(next_data_cache);
+      $('.spinner').remove();
       is_loading = 0;
     } else {
       $.getJSON(next_data_url, function(data) {
-        console.log('333');
         showFollowing(data);
+        $('.spinner').remove();
         is_loading = 0;
       });
     }
@@ -72,6 +80,7 @@ function loadPrevious() {
   if (prev_data_url=="") {
   } else {
     is_loading = 1; // note: this will break when the server doesn't respond
+    $('.scrollingcontent:first').after(spinner_div);
     function showPrevious(data) {
       var categoryData = JSON.parse(data.categoryDetails);
       generateHtml = '';
@@ -94,11 +103,12 @@ function loadPrevious() {
     }
     if (prev_data_cache) {
       showPrevious(prev_data_cache);
+      $('.spinner').remove();
       is_loading = 0;
     } else {
       $.getJSON(prev_data_url, function(data) {
-        console.log('555');
         showPrevious(data);
+        $('.spinner').remove();
         is_loading = 0;
       });
     }
@@ -117,22 +127,20 @@ function mostlyVisible(element) {
 }
 
 function initPaginator() {
+  spinner_div = spinner(spinner_class);
+  console.log(spinner_div);
   $(window).scroll(function() {
 
     // handle scroll events to update content
     var scroll_pos = $(window).scrollTop();
     if (scroll_pos >= 0.9*($(document).height() - $(window).height())) {
       if (is_loading==0){
-        console.log('next_data_url => '+next_data_url); // replaced when loading more
-        console.log('prev_data_url => '+prev_data_url); // replaced when loading more
         loadFollowing();
       }
     }
     /*console.log(0.9*$("#mycarousel").height());*/
     if (scroll_pos <= 0.9*$("#mycarousel").height()) {
       if (is_loading==0){
-        console.log('next_data_url => '+next_data_url); // replaced when loading more
-        console.log('prev_data_url => '+prev_data_url); // replaced when loading more
         loadPrevious();
       }
     }
@@ -152,8 +160,6 @@ function initPaginator() {
     // if we have enough room, load the next batch
     if ($(window).height()>($("#mycarousel").height()+$(".scrollingcontent").height())) {
       if (next_data_url!="") {
-        console.log('next_data_url => '+next_data_url); // replaced when loading more
-        console.log('prev_data_url => '+prev_data_url); // replaced when loading more
         loadFollowing();
       } else {
         /*var filler = document.createElement("div");
@@ -172,16 +178,6 @@ function initPaginator() {
 }
 
 function primeCache() {
-  $.getJSON(prev_data_url, function(data) { prev_data_cache=data;        console.log('next_data_url => '+next_data_url); // replaced when loading more
-        console.log('prev_data_url => '+prev_data_url); // replaced when loading more
- } );
-  $.getJSON(next_data_url, function(data) { next_data_cache=data;        console.log('next_data_url => '+next_data_url); // replaced when loading more
-        console.log('prev_data_url => '+prev_data_url); // replaced when loading more
- } );
+  $.getJSON(prev_data_url, function(data) { prev_data_cache=data;});
+  $.getJSON(next_data_url, function(data) { next_data_cache=data;});
 }
-
-window.addEventListener("popstate", function(e) {
-
-  console.log("Location: " + document.location + ", state: " + JSON.stringify(e.state))
-
-});

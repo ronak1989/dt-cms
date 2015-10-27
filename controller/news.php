@@ -4,7 +4,7 @@ require_once _CONST_MODEL_PATH . $controller_name . 'Model.php';
 class News extends NewsModel {
 	private $access_roles = array();
 	private $_newsModel = NULL;
-	private $limit = 10;
+	private $limit = 3;
 	private $offset = 0;
 	private $order = "desc";
 	private $searchParams = array();
@@ -118,15 +118,25 @@ class News extends NewsModel {
 
 	public function getHomepage() {
 		$data = $this->_newsModel->getHomePageDetails();
+		$news_category = parent::getNewsCategory();
+		$menuUrl = array();
+		foreach ($news_category as $key => $value) {
+			$catUrl[$key] = $this->_commonFunction->sanitizeString($value);
+			$menuUrl[$key]['name'] = ucwords(strtolower($value));
+			$menuUrl[$key]['url'] = _CONST_WEB_URL . '/' . $catUrl[$key];
+		}
 		require_once _CONST_VIEW_PATH . 'homepage.tpl.php';
 	}
 
 	public function getCategorylistingPage() {
 		$news_category = parent::getNewsCategory();
+		$menuUrl = array();
 		foreach ($news_category as $key => $value) {
 			$catUrl[$key] = $this->_commonFunction->sanitizeString($value);
+			$menuUrl[$key]['name'] = ucwords(strtolower($value));
+			$menuUrl[$key]['url'] = _CONST_WEB_URL . '/' . $catUrl[$key];
 		}
-		reset($news_category);
+
 		if (in_array($this->category, $catUrl)) {
 			$catId = array_search($this->category, $catUrl);
 			$this->searchParams['category_id'] = $catId;
@@ -139,6 +149,7 @@ class News extends NewsModel {
 				/* redirect to main url of listing page */
 			} else {
 				$data = $this->_newsModel->getCategoryDetails($this->order, $this->offset, $this->limit, $this->searchParams, 'array');
+				$data['background_color_cls'] = 'category-purple-bkgrnd';
 				$data['next_url'] = '';
 				$data['prev_url'] = '';
 				$data['prev_data_url'] = '';
@@ -172,6 +183,7 @@ class News extends NewsModel {
 		foreach ($news_category as $key => $value) {
 			$catUrl[$key] = $this->_commonFunction->sanitizeString($value);
 		}
+
 		reset($news_category);
 		if (in_array($this->category, $catUrl)) {
 			$catId = array_search($this->category, $catUrl);
@@ -190,6 +202,7 @@ class News extends NewsModel {
 				$data['prev_data_url'] = '';
 				$data['next_data_url'] = '';
 				$data['current_url'] = '';
+				$menu['menu_url'] = $catUrl;
 				if ($this->pg == 0) {
 					$data['current_url'] = _CONST_WEB_URL . '/' . $this->category;
 				} else {

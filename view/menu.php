@@ -37,44 +37,18 @@
               <nav class="wsmenu slideLeft clearfix menuopen">
               <ul class="mobile-sub wsmenu-list">
                 <li>
-                  <a href="./Sedna - A Free HTML5_CSS3 website by Peter Finlan_files/Sedna - A Free HTML5_CSS3 website by Peter Finlan.html" class="active">Home</a>
+                  <a href="<?php echo _CONST_WEB_URL;?>/homepage" class="active">Home</a>
                 </li>
+                <?php foreach ($menuUrl as $key => $value) {
+	?>
                 <span class="seperator">|</span>
                 <li>
-                  <span class="wsmenu-click"><i class="wsmenu-arrow fa fa-angle-down"></i></span><a href=""><i class="fa fa-align-justify"></i>&nbsp;&nbsp;Market</a>
+                  <span class="wsmenu-click"><i class="wsmenu-arrow fa fa-angle-down"></i></span><a href="<?php echo $value['url'];?>"><i class="fa fa-align-justify"></i>&nbsp;&nbsp;<?php echo $value['name'];?></a>
                 </li>
-                <span class="seperator">|</span>
-                <li>
-                  <span class="wsmenu-click"><i class="wsmenu-arrow fa fa-angle-down"></i></span><a href=""><i class="fa fa-align-justify"></i>&nbsp;&nbsp;Economy</a>
-                </li>
-                <span class="seperator">|</span>
-                <li>
-                  <span class="wsmenu-click"><i class="wsmenu-arrow fa fa-angle-down"></i></span><a href=""><i class="fa fa-align-justify"></i>&nbsp;&nbsp;Wisdom</a>
-                </li>
-                <span class="seperator">|</span>
-                <li>
-                  <span class="wsmenu-click"><i class="wsmenu-arrow fa fa-angle-down"></i></span><a href=""><i class="fa fa-align-justify"></i>&nbsp;&nbsp;Funds</a>
-                </li>
-                <span class="seperator">|</span>
-                <li>
-                  <span class="wsmenu-click"><i class="wsmenu-arrow fa fa-angle-down"></i></span><a href=""><i class="fa fa-align-justify"></i>&nbsp;&nbsp;Investing</a>
-                </li>
-                <span class="seperator">|</span>
-                <li>
-                  <span class="wsmenu-click"><i class="wsmenu-arrow fa fa-angle-down"></i></span><a href=""><i class="fa fa-align-justify"></i>&nbsp;&nbsp;Business</a>
-                </li>
-                <span class="seperator">|</span>
-                <li>
-                  <span class="wsmenu-click"><i class="wsmenu-arrow fa fa-angle-down"></i></span><a href=""><i class="fa fa-align-justify"></i>&nbsp;&nbsp;DT FORECASTER</a>
-                </li>
-                <span class="seperator">|</span>
-                <li>
-                  <span class="wsmenu-click"><i class="wsmenu-arrow fa fa-angle-down"></i></span><a href=""><i class="fa fa-align-justify"></i>&nbsp;&nbsp;Chart of the Day</a>
-                </li>
-                <span class="seperator">|</span>
-                <li>
-                  <span class="wsmenu-click"><i class="wsmenu-arrow fa fa-angle-down"></i></span><a href=""><i class="fa fa-align-justify"></i>&nbsp;&nbsp;Gallery</a>
-                </li>
+
+                <?php
+}
+?>
               </ul>
             </nav>
           </div>

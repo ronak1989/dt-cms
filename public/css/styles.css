@@ -48,6 +48,59 @@ body{background-color:#fff;  height:100%; font-family: 'Sourcesanspro_Regular';
 .PR8{padding-right:8px;}
 .PR16{padding-right:16px;}
 .PL8{padding-left:8px;}
+/*** Spinner **/
+.spinner {
+  margin: 20px auto;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: #333;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
 
 /*** Carousal **/
 .rank-article {margin: auto 20;}
@@ -70,13 +123,13 @@ body{background-color:#fff;  height:100%; font-family: 'Sourcesanspro_Regular';
 .full-screen { background-size: cover;  background-position: center;  background-repeat: no-repeat;}
 
 /*** news category ****/
-.category-red-bkgrnd{background: #d71920;}
-.category-blue-bkgrnd{background: #0b527e;}
-.category-green-bkgrnd{background: #527f22;}
-.category-pink-bkgrnd{background: #c72966;}
-.category-purple-bkgrnd{background: #68237e;}
-.category-orange-bkgrnd{background: #bf5d00;}
-.category-yellow-bkgrnd{background: #f3b802;}
+.category-red-bkgrnd{background: #d71920 !important;}
+.category-blue-bkgrnd{background: #0b527e !important;}
+.category-green-bkgrnd{background: #527f22 !important;}
+.category-pink-bkgrnd{background: #c72966 !important;}
+.category-purple-bkgrnd{background: #68237e !important;}
+.category-orange-bkgrnd{background: #bf5d00 !important;}
+.category-yellow-bkgrnd{background: #f3b802 !important;}
 .category-section{margin:5px 0px;}
 .news-category{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;}
 
@@ -1210,3 +1263,5 @@ you can use the generic selector below, but it's slower:
 
 .icon-dribbble:before {
   content: "\e063"; }
+
+

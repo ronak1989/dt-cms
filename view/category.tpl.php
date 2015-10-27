@@ -27,10 +27,12 @@ include_once _CONST_VIEW_PATH . 'menu.php';
 <div class="category-section"  style="">
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 PT16 PL16 PR16">
     	<div class="col-xs-12">
-            <div class="cateogry-list-title category-purple-bkgrnd">
+            <div class="cateogry-list-title <?php echo $data['background_color_cls'];?>">
                 <strong>All <?php echo $data['categoryName'];?> NEWS</strong>
             </div>
+
             <div class="scrollingcontent" data-url="<?php echo $data['current_url'];?>">
+
             <ol class="stories-list">
 <?php
 unset($data['categoryDetails']['rows'][0]);
@@ -73,9 +75,7 @@ foreach ($data['categoryDetails']['rows'] as $key => $value) {
             Hot of the Press
         </div>
         <div id="press-news">
-            <ul>
 
-            </ul>
         </div>
     </div>
 
@@ -87,9 +87,11 @@ include_once _CONST_VIEW_PATH . 'website_footer.php';
     <script type="text/javascript" language="javascript" src="<?php echo _CONST_JS_PATH;?>infinitescroll.js"></script>
     <!--Main Menu File-->
     <script>
+        spinner_class = '<?php echo $data["background_color_cls"];?>';
         initPaginator();
         next_data_url = '<?php echo $data["next_data_url"]?>';
         prev_data_url = '<?php echo $data["prev_data_url"]?>';
+
         primeCache();
     </script>
 </div>
