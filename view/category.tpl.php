@@ -26,7 +26,7 @@ include_once _CONST_VIEW_PATH . 'menu.php';
 </div>
 <div class="category-section"  style="">
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 PT16 PL16 PR16">
-    	<div class="col-xs-12">
+        <div class="col-xs-12">
             <div class="cateogry-list-title <?php echo $data['background_color_cls'];?>">
                 <strong>All <?php echo $data['categoryName'];?> NEWS</strong>
             </div>
@@ -39,7 +39,7 @@ unset($data['categoryDetails']['rows'][0]);
 foreach ($data['categoryDetails']['rows'] as $key => $value) {
 	?>
                 <li class="stories-list-element">
-                    <a title="<?php echo $value['headline'];?>" class="story-link" href="">
+                    <a title="<?php echo $value['headline'];?>" class="story-link" href="<?php echo $value['news_url'];?>">
                         <figure >
                           <img alt="<?php echo $value['headline'];?>" src="<?php echo $value['image_300'];?>" class="img-responsive">
                         </figure>

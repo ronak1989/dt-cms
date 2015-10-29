@@ -61,9 +61,12 @@ $router->map('GET', '/ranked/hot-of-the-press/news', 'news#getRankedHOPStory', '
 $router->map('POST', '/rank/update', 'news#updateRankedStories', '');
 $router->map('POST', '/rank/remove', 'news#removeRankedStories', '');
 /** Website **/
+#Homepage URL
 $router->map('GET', '/homepage', 'news#getHomepage', '');
+#Category URL
 $router->map('GET', '/[cat-url:category]?/[i:pg]?', 'news#getCategorylistingPage', '');
 $router->map('GET', '/[cat-url:category]/[i:pg].json', 'news#getCategorylistingPageJson', '');
+#Article URL
 $router->map('GET', '/[i:id]/[news-url]', 'news#getArticlePage', '');
 
 $controller_name = null;

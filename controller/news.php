@@ -12,6 +12,7 @@ class News extends NewsModel {
 	private $category = NULL;
 	private $pg = 0;
 	private $_commonFunction = NULL;
+	private $_autono = NULL;
 
 	private $columnHeadings = array('modified_date' => 'LAST MODIFIED DATE', 'autono' => 'AUTO NO', 'headline' => 'HEADLINE', 'category_name' => 'CATEGORY', 'sub_category_name' => 'SUB CATEGORY', 'operations' => array('data-title' => 'Actions', 'data-events' => 'operationEvents', 'data-formatter' => 'operationFormatter', 'data-width' => '20%', 'data-align' => 'center'));
 	private $rankColumnHeadings = array('modified_date' => 'LAST MODIFIED DATE', 'autono' => 'AUTO NO', 'headline' => 'HEADLINE', 'category_name' => 'CATEGORY', 'rank' => 'RANKED', 'caption' => array('data-title' => 'Caption ', 'data-events' => 'operationEvents', 'data-formatter' => 'rankCaption'), 'operations' => array('data-title' => 'Actions', 'data-events' => 'operationEvents', 'data-formatter' => 'rankActions'));
@@ -22,6 +23,7 @@ class News extends NewsModel {
 	public function __construct($id = NULL, $category = NULL, $pg = 0, $params = array()) {
 		$this->category = $category;
 		$this->pg = $pg;
+		$this->_autono = $id;
 		if (isset($_GET['limit'])) {$this->limit = $_GET['limit'];}
 		if (isset($_GET['offset'])) {$this->offset = $_GET['offset'];}
 		if (isset($_GET['order'])) {$this->order = $_GET['order'];}
@@ -224,6 +226,22 @@ class News extends NewsModel {
 			}
 		} else {
 		}
+	}
+
+	public function getArticlePage() {
+		$news_category = parent::getNewsCategory();
+		$menuUrl = array();
+		foreach ($news_category as $key => $value) {
+			$catUrl[$key] = $this->_commonFunction->sanitizeString($value);
+			$menuUrl[$key]['name'] = ucwords(strtolower($value));
+			$menuUrl[$key]['url'] = _CONST_WEB_URL . '/' . $catUrl[$key];
+		}
+		reset($news_category);
+		$menuClass = 'bkgrnd_blk';
+		$data = $this->_newsModel->getArticleById($this->_autono);
+		$data['article-details']['category_url'] = $catUrl[$data['article-details']['news_category']];
+		$data['article-details']['category_name'] = $news_category[$data['article-details']['news_category']];
+		require_once _CONST_VIEW_PATH . 'article.tpl.php';
 	}
 }
 ?>

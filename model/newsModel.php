@@ -8,6 +8,7 @@ class NewsModel extends EditorModel {
 
 	public function __construct($cmsUserId = NULL, $cmsUserParams = array()) {
 		parent::__construct();
+		$this->_commonFunction = new CommonFunctions();
 	}
 
 	protected function getNewsCount($search = array()) {
@@ -89,6 +90,7 @@ class NewsModel extends EditorModel {
 
 			$userList[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
 			$userList[$key]['news_source'] = $news_source[$value['source_id']];
+			$userList[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
 		}
 		if ($return_type == 'json') {
 			return json_encode(array("total" => (int) $total['cnt'], "rows" => $userList));
@@ -116,6 +118,7 @@ class NewsModel extends EditorModel {
 				$this->_queryResult[$key]['caption'] = '';
 			}
 			$this->_queryResult[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			$this->_queryResult[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
 		}
 		if ($return_type == 'json') {
 			return json_encode(array("total" => (int) $total, "rows" => $this->_queryResult));
@@ -230,6 +233,7 @@ class NewsModel extends EditorModel {
 			$userList[$key]['category_name'] = $category[$value['category_id']];
 
 			$userList[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			$userList[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
 		}
 		return json_encode(array("total" => (int) $total['cnt'], "rows" => $userList));
 	}
@@ -265,6 +269,7 @@ class NewsModel extends EditorModel {
 
 			$userList[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
 			$userList[$key]['news_source'] = $news_source[$value['source_id']];
+			$userList[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
 		}
 		/*if ($return_type == 'json') {
 		return json_encode(array("total" => (int) $total['cnt'], "rows" => $userList));
@@ -277,6 +282,11 @@ class NewsModel extends EditorModel {
 		} else {
 			$result['categoryDetails'] = array("rows" => $userList);
 		}
+		return $result;
+	}
+
+	protected function getArticleById($autono) {
+		$result['article-details'] = $this->getArticleDetails(array('articleId' => $autono));
 		return $result;
 	}
 }

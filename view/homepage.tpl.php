@@ -19,10 +19,12 @@ include_once _CONST_VIEW_PATH . 'menu.php';
 	?>
         <div class="item <?php echo $class;?>">
           <img src="<?php echo $value['image_1600'];?>" alt="<?php echo $value['image_name'];?>">
+          <a href="<?php echo $value['news_url'];?>">
           <div class="rank-article">
             <span class="article-category"><?php echo $caption;?></span>
             <h3><?php echo $value['headline'];?></h3>
           </div>
+          </a>
         </div>
 <?php }
 ?>
@@ -51,7 +53,7 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                     	<img style="cursor: pointer; width:100%;" src="<?php echo $data['market-widget'][0]['image_300'];?>">
                     </a>
                     <div class="headovrimg">
-                    	<a href="" class="category-img-heading"><?php echo $data['market-widget'][0]['headline'];?></a>
+                    	<a href="<?php echo $data['market-widget'][0]['news_url'];?>" class="category-img-heading"><?php echo $data['market-widget'][0]['headline'];?></a>
                      </div>
                  </div>
                 <div class="news-category category-purple-bkgrnd visible-xs-block">
@@ -66,7 +68,7 @@ $total_articles = count($data['market-widget']);
 foreach ($data['market-widget'] as $key => $value) {
 	$li_class = ($total_articles == $key) ? 'last' : '';
 	?>
-    <li class="<?php echo $li_class;?>"><i class="fa fa-arrow-right"></i><a href="#"><?php echo $value['headline'];?></a></li>
+    <li class="<?php echo $li_class;?>"><i class="fa fa-arrow-right"></i><a href="<?php echo $value['news_url'];?>"><?php echo $value['headline'];?></a></li>
 <?php
 }
 ?>
@@ -82,7 +84,7 @@ foreach ($data['market-widget'] as $key => $value) {
                     	<img style="cursor: pointer; width:100%;" src="<?php echo $data['corporate-widget'][0]['image_300'];?>">
                     </a>
                     <div class="headovrimg">
-                    	<a href="" class="category-img-heading"><?php echo $data['corporate-widget'][0]['headline'];?></a>
+                    	<a href="<?php echo $data['corporate-widget'][0]['news_url'];?>" class="category-img-heading"><?php echo $data['corporate-widget'][0]['headline'];?></a>
                      </div>
                  </div>
                 <div class="news-category category-green-bkgrnd visible-xs-block">
@@ -97,7 +99,7 @@ $total_articles = count($data['corporate-widget']);
 foreach ($data['corporate-widget'] as $key => $value) {
 	$li_class = ($total_articles == $key) ? 'last' : '';
 	?>
-    <li class="<?php echo $li_class;?>"><i class="fa fa-arrow-right"></i><a href="#"><?php echo $value['headline'];?></a></li>
+    <li class="<?php echo $li_class;?>"><i class="fa fa-arrow-right"></i><a href="<?php echo $value['news_url'];?>"><?php echo $value['headline'];?></a></li>
 <?php
 }
 ?>
@@ -115,7 +117,7 @@ foreach ($data['corporate-widget'] as $key => $value) {
                     	<img style="cursor: pointer; width:100%;" src="<?php echo $data['news-widget'][0]['image_300'];?>">
                     </a>
                     <div class="headovrimg">
-                    	<a href="" class="category-img-heading"><?php echo $data['news-widget'][0]['headline'];?></a>
+                    	<a href="<?php echo $data['news-widget'][0]['news_url'];?>" class="category-img-heading"><?php echo $data['news-widget'][0]['headline'];?></a>
                      </div>
                  </div>
                 <div class="news-category category-blue-bkgrnd visible-xs-block">
@@ -130,7 +132,7 @@ $total_articles = count($data['news-widget']);
 foreach ($data['news-widget'] as $key => $value) {
 	$li_class = ($total_articles == $key) ? 'last' : '';
 	?>
-    <li class="<?php echo $li_class;?>"><i class="fa fa-arrow-right"></i><a href="#"><?php echo $value['headline'];?></a></li>
+    <li class="<?php echo $li_class;?>"><i class="fa fa-arrow-right"></i><a href="<?php echo $value['news_url'];?>"><?php echo $value['headline'];?></a></li>
 <?php
 }
 ?>
@@ -146,7 +148,7 @@ foreach ($data['news-widget'] as $key => $value) {
                     	<img style="cursor: pointer; width:100%;" src="<?php echo $data['investing-widget'][0]['image_300'];?>">
                     </a>
                     <div class="headovrimg">
-                    	<a href="" class="category-img-heading"><?php echo $data['investing-widget'][0]['headline'];?></a>
+                    	<a href="<?php echo $data['investing-widget'][0]['news_url'];?>" class="category-img-heading"><?php echo $data['investing-widget'][0]['headline'];?></a>
                      </div>
                  </div>
                 <div class="news-category category-pink-bkgrnd visible-xs-block">
@@ -161,7 +163,7 @@ $total_articles = count($data['investing-widget']);
 foreach ($data['investing-widget'] as $key => $value) {
 	$li_class = ($total_articles == $key) ? 'last' : '';
 	?>
-    <li class="<?php echo $li_class;?>"><i class="fa fa-arrow-right"></i><a href="#"><?php echo $value['headline'];?></a></li>
+    <li class="<?php echo $li_class;?>"><i class="fa fa-arrow-right"></i><a href="<?php echo $value['news_url'];?>"><?php echo $value['headline'];?></a></li>
 <?php
 }
 ?>
@@ -182,7 +184,7 @@ foreach ($data['hot-of-the-press'] as $key => $value) {
 	$li_class = ($total_hot_stories == $key) ? 'last' : '';
 
 	?>
-                <li class="<?php echo $li_class;?>"><img src="<?php echo $value['image_77'];?>" style="float:left;padding-right:10px" /><p><?php echo $value['headline'];?></p></li>
+                <li class="<?php echo $li_class;?>"><a href="<?php echo $value['news_url'];?>"><img src="<?php echo $value['image_77'];?>" style="float:left;padding-right:10px" /><p><?php echo $value['headline'];?></p></a></li>
                 <?php }
 ?>
             </ul>
@@ -193,15 +195,17 @@ foreach ($data['hot-of-the-press'] as $key => $value) {
              <div class="forecaster-block">
                 The Forecaster
             </div>
-        	<div class="forecaster-img">
-            	<img src="<?php echo $data['forecaster']['0']['image_300'];?>" class="img-responsive" width="100%;">
-            </div>
-            <div class="forecaster-heading">
-            	<?php echo $data['forecaster']['0']['headline'];?>
-            </div>
-            <div class="forecaster-description">
-            	<?php echo $data['forecaster']['0']['summary'];?>
-            </div>
+            <a href="<?php echo $data['forecaster'][0]['news_url'];?>">
+            	<div class="forecaster-img">
+                	<img src="<?php echo $data['forecaster']['0']['image_300'];?>" class="img-responsive" width="100%;">
+                </div>
+                <div class="forecaster-heading">
+                	<?php echo $data['forecaster']['0']['headline'];?>
+                </div>
+                <div class="forecaster-description">
+                	<?php echo $data['forecaster']['0']['summary'];?>
+                </div>
+            </a>
             <span style="float:right">Read More</span>
         </div>
         <div style="clear:both"></div>
@@ -224,7 +228,7 @@ foreach ($data['hot-of-the-press'] as $key => $value) {
                 <img style="cursor: pointer; width:100%;" src="<?php echo $data['earnings-widget'][0]['image_300'];?>">
             </a>
             <div class="headovrimg">
-                <a href="" class="category-img-heading"><?php echo $data['earnings-widget'][0]['headline'];?></a>
+                <a href="<?php echo $data['earnings-widget'][0]['news_url'];?>" class="category-img-heading"><?php echo $data['earnings-widget'][0]['headline'];?></a>
              </div>
          </div>
     	<div class="news-category category-orange-bkgrnd visible-xs-block">
@@ -239,7 +243,7 @@ $total_articles = count($data['earnings-widget']);
 foreach ($data['earnings-widget'] as $key => $value) {
 	$li_class = ($total_articles == $key) ? 'last' : '';
 	?>
-    <li class="<?php echo $li_class;?>"><i class="fa fa-arrow-right"></i><a href="#"><?php echo $value['headline'];?></a></li>
+    <li class="<?php echo $li_class;?>"><i class="fa fa-arrow-right"></i><a href="<?php echo $value['news_url'];?>"><?php echo $value['headline'];?></a></li>
 <?php
 }
 ?>
@@ -255,7 +259,7 @@ foreach ($data['earnings-widget'] as $key => $value) {
                 <img style="cursor: pointer; width:100%;" src="<?php echo $data['economy-widget'][0]['image_300'];?>">
             </a>
             <div class="headovrimg">
-                <a href="" class="category-img-heading"><?php echo $data['economy-widget'][0]['headline'];?></a>
+                <a href="<?php echo $data['economy-widget'][0]['news_url'];?>" class="category-img-heading"><?php echo $data['economy-widget'][0]['headline'];?></a>
              </div>
          </div>
     	<div class="news-category category-yellow-bkgrnd visible-xs-block">
@@ -270,7 +274,7 @@ $total_articles = count($data['economy-widget']);
 foreach ($data['economy-widget'] as $key => $value) {
 	$li_class = ($total_articles == $key) ? 'last' : '';
 	?>
-    <li class="<?php echo $li_class;?>"><i class="fa fa-arrow-right"></i><a href="#"><?php echo $value['headline'];?></a></li>
+    <li class="<?php echo $li_class;?>"><i class="fa fa-arrow-right"></i><a href="<?php echo $value['news_url'];?>"><?php echo $value['headline'];?></a></li>
 <?php
 }
 ?>
@@ -282,15 +286,17 @@ foreach ($data['economy-widget'] as $key => $value) {
              <div class="chart-of-the-day-title">
                 Chart of the Day
             </div>
-        	<div class="chart-of-the-day-img">
-            	<img src="<?php echo $data['chart-of-the-day']['0']['image_300'];?>" class="img-responsive" width="100%;">
-            </div>
-            <div class="chart-of-the-day-headline">
-            	<?php echo $data['chart-of-the-day']['0']['headline'];?>
-            </div>
-            <div class="chart-of-the-day-desc">
-            	<?php echo $data['chart-of-the-day']['0']['summary'];?>
-            </div>
+            <a href="<?php echo $data['chart-of-the-day'][0]['news_url'];?>">
+            	<div class="chart-of-the-day-img">
+                	<img src="<?php echo $data['chart-of-the-day']['0']['image_300'];?>" class="img-responsive" width="100%;">
+                </div>
+                <div class="chart-of-the-day-headline">
+                	<?php echo $data['chart-of-the-day']['0']['headline'];?>
+                </div>
+                <div class="chart-of-the-day-desc">
+                	<?php echo $data['chart-of-the-day']['0']['summary'];?>
+                </div>
+            </a>
         </div>
     </div>
 	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 PT16 PL16 PR16">

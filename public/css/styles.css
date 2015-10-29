@@ -101,7 +101,8 @@ body{background-color:#fff;  height:100%; font-family: 'Sourcesanspro_Regular';
     -webkit-transform: scaleY(1.0);
   }
 }
-
+/** Menu **/
+.bkgrnd_blk{background-color: #000000;}
 /*** Carousal **/
 .rank-article {margin: auto 20;}
 #hp-rank {position:relative;}
@@ -186,6 +187,27 @@ body{background-color:#fff;  height:100%; font-family: 'Sourcesanspro_Regular';
 .copyright p{ color:#FFFFFF;}
 .copyright a{ color:#FFFFFF; font-size:1.008em; line-height:1.200em;}
 .footer-company-trademark {color:#FFFFFF;}
+/** Article PAGE CSS **/
+#news-section{margin:72px 0 20px;clear:both;}
+.article{display: block;}
+.article-block{padding-top:30px;}
+#breadcrumb-block{margin:0 auto;max-width: 940px;}
+.breadcrumb {background-color: unset;}
+.breadcrumb > li > a {color:#d98621;}
+.breadcrumb > li + li:before {color: #807e7d;content: "> ";padding: 0 5px;line-height: 16px;}
+article > header {margin:0 auto;max-width: 940px;transition:none;position:unset;min-height: unset;}
+article > header > h1 {font-size:45px;line-height:48px;color:#000000;}
+article > header > .byline {margin-top:10px;font-size: 15px;line-height: 18px;}
+article > header > .byline > .article-source {color:#d98621;}
+article > header > .byline > .article-timestamp {color:#464646;}
+article > header > .byline > span + span:before {color: #464646;content: "| ";padding: 0 5px;}
+.article-image {position:relative;padding-top:10px;}
+.article-image img {width:100%;}
+.article-image-slug{position:absolute;bottom:0;right:0;padding:20px;width:100%;color:#ffffff;background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;}
+.article-image-slug > span + span:before{content: "/ ";padding: 0 5px;}
+.article-body{padding:20px 0;font-size:16px;line-height: 18px;color:#000000;}
+.article-content{border-right:2px solid #cccccc;}
+.stick{position:fixed;}
 p {  font-size: 1em;  color: rgba(28, 54, 83, 0.6);  padding-bottom: 10px; }
 h1 {  font-size: 4em; }
 h2 {
@@ -546,6 +568,7 @@ header {
   /*border-bottom: solid 1px rgba(255, 255, 255, 0.2);*/
   position: relative;
   /*width: 1170px;*/
+  min-height: 72px;
   margin: 0 auto;
   -webkit-transition: padding 300ms ease-in-out;
           transition: padding 300ms ease-in-out; }

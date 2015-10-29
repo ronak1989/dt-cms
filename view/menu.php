@@ -8,7 +8,7 @@
   <!--[if lt IE 8]>
   <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-  <section class="navigation">
+  <section class="navigation <?php echo $menuClass;?>">
       <header>
         <div class="logo">
           <a>

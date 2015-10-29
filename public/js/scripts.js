@@ -44,9 +44,13 @@ $(document).ready(function() {
 	/***************** Header BG Scroll ******************/
 
 	$(function() {
+		/*var s = $("#news-widget");
+		var header_height = $(".navigation").height();
+		var floating_space =  $('.article-content').height();
+		console.log(floating_space);
+    var pos = s.offset();*/
 		$(window).scroll(function() {
 			var scroll = $(window).scrollTop();
-
 			if (scroll >= 20) {
 				$('section.navigation').addClass('fixed');
 				$('header').css({
@@ -72,6 +76,16 @@ $(document).ready(function() {
 					"top": "48px",
 				});
 			}
+
+			/*if (scroll+header_height >= pos.top && header_height + s.height()+30 < floating_space) {
+          s.addClass("stick");
+          s.css({'top':header_height+30});
+      } else {
+      	 console.log(scroll+header_height)
+          s.removeClass("stick");
+          s.css({'top':''});
+      }*/
+
 		});
 		$('#horizontal-nav-toggle').on('click',function(){
 			var scroll = $(window).scrollTop();
