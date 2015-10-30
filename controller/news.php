@@ -241,6 +241,7 @@ class News extends NewsModel {
 		$data = $this->_newsModel->getArticleById($this->_autono);
 		$data['article-details']['category_url'] = $catUrl[$data['article-details']['news_category']];
 		$data['article-details']['category_name'] = $news_category[$data['article-details']['news_category']];
+		$metaTags['title'] = $data['article-details']['heading'];
 		require_once _CONST_VIEW_PATH . 'article.tpl.php';
 	}
 }

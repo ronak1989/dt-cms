@@ -5,9 +5,9 @@ class CommonFunctions {
 
 	public function sanitizeString($string) {
 		$replace = array('!', '~', '`', '@', '#', '$', '%', '^', '&', '*', '*', '(', ')', '-', '_', '+', '=', '{', '}', ':', ';', "\"", "'", ",", "<", ">", "?", "/", ".", "|", "\\");
-		$string = strtolower(str_replace($replace, " ", $string));
-		$string = str_replace("  ", " ", $string);
-		$string = str_replace(" ", "-", $string);
+		$string = strtolower(str_replace($replace, " ", trim($string)));
+		$string = str_replace("  ", " ", trim($string));
+		$string = str_replace(" ", "-", trim($string));
 		return $string;
 	}
 }

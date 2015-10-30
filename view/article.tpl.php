@@ -10,7 +10,7 @@ include_once _CONST_VIEW_PATH . 'menu.php';
 ?>
 <div id="news-section">
     <div id="news-block">
-        <article id="article-<?php echo $data['article-details']['articleId'];?>" class="article article-block">
+        <article id="article-<?php echo $data['article-details']['articleId'];?>" data-id=<?php echo $data['article-details']['articleId'];?>  class="article article-block first">
             <div id="breadcrumb-block">
                 <ul class="breadcrumb">
                     <li><a href="<?php echo _CONST_WEB_URL;?>"><i class="fa fa-home fa-lg"></i></a></li>
@@ -56,8 +56,22 @@ include_once _CONST_VIEW_PATH . 'menu.php';
 <?php
 include_once _CONST_VIEW_PATH . 'website_footer.php';
 ?>
+<script src="<?php echo _CONST_JS_PATH;?>infinite_scroll.js"></script>
+<!-- <script src="<?php echo _CONST_JS_PATH;?>scrollspy.js"></script>
+<script src="<?php echo _CONST_JS_PATH;?>jquery.history.js"></script> -->
 <script>
-var windw = this;
+var load_story = 0;
+var ARTICLE_LOADED = <?php echo $data['article-details']['articleId'];?>;
+var DT_SS = <?php echo json_encode($data['suggested-stories'], JSON_FORCE_OBJECT);?>;
+var DT_SS_LENGTH = Object.keys(DT_SS).length;
+
+$('#news-block').cleverInfiniteScroll({
+    contentsWrapperSelector: '#news-block',
+    contentSelector: '.article-block',
+    nextSelector: '#next',
+    loadImage: 'ajax-loader.gif'
+});
+/*var windw = this;
 var header_height = $(".navigation").height();
 $.fn.followTo = function ( ) {
     var $this = this,
@@ -78,7 +92,7 @@ $.fn.followTo = function ( ) {
     $(window).scroll(setPosition);
 };
 
-$('#news-widget').followTo();
+$('#news-widget').followTo();*/
 </script>
 </body>
 </html>

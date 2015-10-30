@@ -87,6 +87,7 @@ class NewsModel extends EditorModel {
 			}
 			$userList[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
 			$userList[$key]['category_name'] = $category[$value['category_id']];
+			$userList[$key]['category_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
 
 			$userList[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
 			$userList[$key]['news_source'] = $news_source[$value['source_id']];
@@ -114,6 +115,7 @@ class NewsModel extends EditorModel {
 			}
 			$this->_queryResult[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
 			$this->_queryResult[$key]['category_name'] = $category[$value['category_id']];
+			$this->_queryResult[$key]['category_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
 			if ($this->_queryResult[$key]['caption'] == null) {
 				$this->_queryResult[$key]['caption'] = '';
 			}
@@ -231,6 +233,7 @@ class NewsModel extends EditorModel {
 			}
 			$userList[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
 			$userList[$key]['category_name'] = $category[$value['category_id']];
+			$userList[$key]['category_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
 
 			$userList[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
 			$userList[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
@@ -266,6 +269,7 @@ class NewsModel extends EditorModel {
 			}
 			$userList[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
 			$userList[$key]['category_name'] = $category[$value['category_id']];
+			$userList[$key]['category_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
 
 			$userList[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
 			$userList[$key]['news_source'] = $news_source[$value['source_id']];
@@ -285,8 +289,38 @@ class NewsModel extends EditorModel {
 		return $result;
 	}
 
+	protected function getAllRankedStoryDetails($type, $return_type = 'json') {
+		$this->_modelQuery = 'select nup.*, nr.rank, nr.caption, ib.*  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" order by nr.rank';
+		$this->query($this->_modelQuery);
+		$this->_queryResult = $this->resultset();
+		$total = count($this->_queryResult);
+		$category = $this->getNewsCategory();
+		$prev_cat = NULL;
+		foreach ($this->_queryResult as $key => $value) {
+			if ($prev_cat != $value['category_id']) {
+				$prev_cat = $value['category_id'];
+				$sub_category = $this->getNewsSubCategory($value['category_id']);
+			}
+			$this->_queryResult[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
+			$this->_queryResult[$key]['category_name'] = $category[$value['category_id']];
+			$this->_queryResult[$key]['category_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
+			if ($this->_queryResult[$key]['caption'] == null) {
+				$this->_queryResult[$key]['caption'] = '';
+			}
+			$this->_queryResult[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			$this->_queryResult[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
+		}
+		if ($return_type == 'json') {
+			return json_encode(array("total" => (int) $total, "rows" => $this->_queryResult));
+		} else {
+			return array("total" => (int) $total, "rows" => $this->_queryResult);
+		}
+
+	}
+
 	protected function getArticleById($autono) {
 		$result['article-details'] = $this->getArticleDetails(array('articleId' => $autono));
+		$result['suggested-stories'] = $this->getAllRankedStoryDetails('hot of the press', 'array')['rows'];
 		return $result;
 	}
 }
