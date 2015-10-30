@@ -38,6 +38,7 @@
     var generateHiddenSpans = function(_title, _path) {
       return "<span class='hidden-title' style='display:none'>" + _title + "</span><span class='hidden-url' style='display:none'>" + _path + "</span>";
     },
+    $active_article = null,
     generateArticlePage = function(_articleDetails){
       return [
       '<article id="article-'+_articleDetails.autono+'" class="article article-block">',
@@ -67,7 +68,7 @@
                     '</div>',
                 '</div>',
                 '<div class="col-md-4 col-lg-3 hidden-sm hidden-xs">',
-                    '<div id="news-widget" style="background-color: #000;height:200px;">',
+                    '<div class="news-widget" style="background-color: #000;height:200px;">',
                     '[WIDGET]',
                     '</div>',
                 '</div>',
@@ -77,6 +78,14 @@
             '<div class="clearfix"></div>',
         '</article>'
         ].join('');
+    },
+    $widgetPos = {'top_position':0,'widget_height':0,'bumperPos':0,'widget_block':null},
+    widgetFollow = function (active_article) {
+      var widget_block = active_article.find('.news-widget');
+      $widgetPos.top_position =  widget_block.offset().top,
+      $widgetPos.widget_height = widget_block.outerHeight(true),
+      $widgetPos.bumperPos = active_article.find('.article-content').offset().top+active_article.find('.article-content').outerHeight(true);
+      $widgetPos.widget_block = widget_block;
     },
     setTitleAndHistory = function(_title, _path) {
       // Set history
@@ -93,6 +102,8 @@
         // If it has changed
         $(settings.contentSelector).removeClass("active");
         $(_value).addClass("active");
+        $active_article = $(_value);
+        widgetFollow($(_value));
         setTitleAndHistory(title, path);
       }
     };
@@ -109,6 +120,8 @@
     // Set hidden span elements and history
     $(settings.contentSelector + ":last").append(generateHiddenSpans(title, path));
     $(settings.contentSelector).addClass("active");
+    $active_article = $(settings.contentSelector);
+    widgetFollow($(settings.contentSelector));
     /*setTitleAndHistory(title, path);*/
 
     /**
@@ -121,6 +134,7 @@
       $.data(this, "scrollTimer", window.setTimeout(function() {
         // Get current scroll position
         currentScroll = $(window).scrollTop();
+
 
         // Detect whether it's scrolling up or down by comparing current scroll location and last scroll location
         if(currentScroll > lastScroll) {
@@ -149,7 +163,13 @@
         // Renew last scroll position
         lastScroll = currentScroll;
       }, 200));
-
+      if($(window).scrollTop() + header_height > $widgetPos.top_position && $(window).scrollTop()+header_height+ $widgetPos.widget_height< $widgetPos.bumperPos){
+        $widgetPos.widget_block.addClass("stick");
+        $widgetPos.widget_block.css({'top':header_height+30});
+      }else{
+        $widgetPos.widget_block.removeClass("stick");
+        $widgetPos.widget_block.css({'top':''});
+      }
       if($(window).scrollTop() + windowHeight + threshold >= documentHeight) {
         // If scrolling close to the bottom
         if(load_story < DT_SS_LENGTH) {

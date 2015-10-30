@@ -44,7 +44,7 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-3 hidden-sm hidden-xs">
-                    <div id="news-widget" style="background-color: #000;height:200px;">
+                    <div class="news-widget" style="background-color: #000;height:200px;">
                     [WIDGET]
                     </div>
                 </div>
@@ -61,6 +61,8 @@ include_once _CONST_VIEW_PATH . 'website_footer.php';
 <script src="<?php echo _CONST_JS_PATH;?>jquery.history.js"></script> -->
 <script>
 var load_story = 0;
+var windw = this;
+var header_height = $(".navigation").height();
 var ARTICLE_LOADED = <?php echo $data['article-details']['articleId'];?>;
 var DT_SS = <?php echo json_encode($data['suggested-stories'], JSON_FORCE_OBJECT);?>;
 var DT_SS_LENGTH = Object.keys(DT_SS).length;
@@ -71,9 +73,8 @@ $('#news-block').cleverInfiniteScroll({
     nextSelector: '#next',
     loadImage: 'ajax-loader.gif'
 });
-/*var windw = this;
-var header_height = $(".navigation").height();
-$.fn.followTo = function ( ) {
+
+/*$.fn.followTo = function ( ) {
     var $this = this,
         $window = $(windw),
         $top_position = $this.offset().top,
