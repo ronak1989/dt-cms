@@ -21,10 +21,16 @@ $(document).ready(function() {
 	  pause: "true"
 	});
 	var $item = $('.carousel .item');
+	var $wWidth = $(window).width();
 	var $wHeight = $(window).height();
+	if($wWidth<780){
+		$item.height($wHeight-70);
+		$item.addClass('full-screen');
+	}else{
+		$item.height($wHeight);
+		$item.addClass('full-screen');
+	}
 
-	$item.height($wHeight);
-	$item.addClass('full-screen');
 
 	$('.carousel img').each(function() {
 	  var $src = $(this).attr('src');
