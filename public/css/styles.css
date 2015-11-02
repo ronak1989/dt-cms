@@ -126,7 +126,7 @@ body{background-color:#fff;  height:100%; font-family: 'Roboto Slab', serif;
 #category-news{padding:16px 0px 0px 0px;}
 #category-news > ul{list-style:none;}
 #category-news > ul li {position:relative; margin:5px;border-bottom:1px solid #e60000;}
-#category-news > ul li a{position:relative; display:inline-block; padding-left:35px;font-size:0.867em; color:#000000; line-height:1.200em;padding-bottom:10px;}
+#category-news > ul li a{position:relative; display:inline-block; padding-left:22px;font-size:0.867em; color:#000000; line-height:1.200em;padding-bottom:10px;}
 #category-news > ul li i{position:absolute; padding-right:25px;color:#e60000;}
 #category-news > ul li.last{border-bottom:none;}
 
