@@ -3,42 +3,14 @@
 Typography
 ========================================================================== */
 
-@font-face {
-    font-family: 'Sourcesanspro_Bold';
-    src: url('../fonts/sourcesanspro-bold-webfont.eot');
-    src: url('../fonts/sourcesanspro-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/sourcesanspro-bold-webfont.woff') format('woff'),
-         url('../fonts/sourcesanspro-bold-webfont.ttf') format('truetype'),
-         url('../fonts/sourcesanspro-bold-webfont.svg#Sourcesanspro_Bold') format('svg');
-    font-weight: normal;
-    font-style: normal;}
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 
-
-@font-face {
-    font-family: 'Sourcesanspro_Regular';
-    src: url('../fonts/sourcesanspro-regular-webfont.eot');
-    src: url('../fonts/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/sourcesanspro-regular-webfont.woff') format('woff'),
-         url('../fonts/sourcesanspro-regular-webfont.ttf') format('truetype'),
-         url('../fonts/sourcesanspro-regular-webfont.svg#Sourcesanspro_Regular') format('svg');
-    font-weight: normal;
-    font-style: normal;}
-
-
-@font-face {
-    font-family: 'Sourcesanspro_Semibold';
-    src: url('../fonts/sourcesanspro-semibold-webfont.eot');
-    src: url('../fonts/sourcesanspro-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/sourcesanspro-semibold-webfont.woff') format('woff'),
-         url('../fonts/sourcesanspro-semibold-webfont.ttf') format('truetype'),
-         url('../fonts/sourcesanspro-semibold-webfont.svg#Sourcesanspro_Semibold') format('svg');
-    font-weight: normal;
-    font-style: normal;}
-
-body{background-color:#fff;  height:100%; font-family: 'Sourcesanspro_Regular';
+body{background-color:#fff;  height:100%; font-family: 'Roboto Slab', serif;
     font-size: 1em; /* 1 */
     -webkit-text-size-adjust: 1em; /* 2 */
-    -ms-text-size-adjust: 1em; /* 2 */}
+    -ms-text-size-adjust: 1em; /* 2 */
+   color:#000000;}
 
 .col-xs-12 {padding-right:0px;padding-left:0px}
 .MA16{margin:16px;}
@@ -119,8 +91,8 @@ body{background-color:#fff;  height:100%; font-family: 'Sourcesanspro_Regular';
 }
 #hp-rank .rank-article {position: absolute;left: 10%;bottom: 3.000em;}
 .carousel-control{width:4% !important}
-#hp-rank .rank-article > h3 {font-size: 3.000em;color: #FFFFFF;line-height:41px !important;margin:10px 0px;}
-#hp-rank .article-category{background: #ffff00;font-size: 1.467em;text-transform: uppercase;color: #000000;	padding: 6px;}
+#hp-rank .rank-article > h3 {font-size: 3.000em;color: #FFFFFF;line-height:1em !important;margin:10px 0px;}
+#hp-rank .article-category{background: #ffff00;font-size: 1.800em;text-transform: uppercase;color: #000000;	padding: 6px;font-family: 'Roboto', sans-serif;}
 .full-screen { background-size: cover;  background-position: center;  background-repeat: no-repeat;}
 
 /*** news category ****/
@@ -148,33 +120,33 @@ body{background-color:#fff;  height:100%; font-family: 'Sourcesanspro_Regular';
     top: 0;
 }
 .subovrimg {position: absolute;z-index: 2;padding-top:2px;}
-.subsechead {font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;}
+.subsechead {font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;font-family: 'Roboto', sans-serif;}
 .headovrimg {position: absolute;left: 0;right: 0;bottom: 0;padding: 10px 15px;    min-height: 20px;    font-size: 18px;    color: #fff;    line-height: 20px;    background:url(image-overlay.png);}
 .category-img-heading{    font-size: 18px;    color: #fff;    line-height: 20px;    }
 #category-news{padding:16px 0px 0px 0px;}
 #category-news > ul{list-style:none;}
-#category-news > ul li {position:relative; margin:5px;border-bottom:1px solid #bb131a;}
-#category-news > ul li a{position:relative; display:inline-block; padding-left:35px;font-size:0.867em; color:#838383; line-height:1.200em;padding-bottom:10px;}
-#category-news > ul li i{position:absolute; padding-right:25px;color:#cc0000;}
+#category-news > ul li {position:relative; margin:5px;border-bottom:1px solid #e60000;}
+#category-news > ul li a{position:relative; display:inline-block; padding-left:35px;font-size:0.867em; color:#000000; line-height:1.200em;padding-bottom:10px;}
+#category-news > ul li i{position:absolute; padding-right:25px;color:#e60000;}
 #category-news > ul li.last{border-bottom:none;}
 
 .hot-press{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;background:#e33827;text-align:center; margin-top:5px}
 .cateogry-list-title{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:6px;text-align:center; margin-top:6px}
 #press-news{background:#eeeff1; }
 #press-news > ul{list-style-type: none;max-height:750px; overflow-y: visible;overflow-x: hidden;padding:0px 10px 10px 10px;}
-#press-news > ul li{border-bottom:1px solid #9d9fa2;padding:10px; overflow:hidden;  }
+#press-news > ul li{border-bottom:1px solid #000000;padding:10px; overflow:hidden;  }
 #press-news > ul li.last{border-bottom:none;}
-#press-news > ul li p{font-size:0.867em; color:#4a4a4a; line-height:1.200em;padding-bottom:10px;}
+#press-news > ul li p{font-size:0.867em; color:#000000; line-height:1.200em;padding-bottom:10px;}
 
-.forecaster-block{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;background:#509fc6;text-align:center;margin-top:5px}
-.forecaster-heading{background:#3f97b5;padding:10px;color:#FFFFFF;font-size:1.000em; line-height:1em}
-.forecaster-description {padding:10px;color:#8a8b8c;font-size:1em; line-height:1em}
+.forecaster-block{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;background:#000000;text-align:center;margin-top:5px}
+.forecaster-heading{background:#000000;padding:10px 10px 0;color:#FFFFFF;font-size:1.000em; line-height:1em;font-family: 'Roboto Slab', sans-serif;}
+.forecaster-description {padding:10px;color:#FFFFFF;font-size:1em; line-height:1em;background:#000000;font-family: 'Roboto',serif;}
 .middle-align{margin:0 auto;}
 .ads-container{margin:15px 0px 0px 0px}
 
 .chart-of-the-day-title{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;background:#509fc6;text-align:center;}
-.chart-of-the-day-headline {padding:5px 10px 0px 10px;color:#636466;font-size:1.200em; line-height:1.200em; font-weight:bold;}
-.chart-of-the-day-desc{padding:5px 10px 0px 10px;color:#636466;font-size:1em; line-height:1em}
+.chart-of-the-day-headline {padding:5px 10px 0px 10px;color:#000000;font-size:1.200em; line-height:1.200em; font-weight:bold;}
+.chart-of-the-day-desc{padding:5px 10px 0px 10px;color:#000000;font-size:1em; line-height:1em}
 
 .twitter-container{}
 
@@ -206,7 +178,7 @@ article > header > .byline > span + span:before {color: #464646;content: "| ";pa
 .article-image-slug{position:absolute;bottom:0;right:0;padding:20px;width:100%;color:#ffffff;background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;}
 .article-image-slug > span + span:before{content: "/ ";padding: 0 5px;}
 .article-body{padding:20px 0;font-size:16px;line-height: 18px;color:#000000;}
-.stick{position:fixed;}
+.stick{position:fixed;padding-right:15px;}
 p {  font-size: 1em;  color: rgba(28, 54, 83, 0.6);  padding-bottom: 10px; }
 h1 {  font-size: 4em; }
 h2 {
@@ -295,7 +267,7 @@ Global Styles
 
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Roboto Slab', serif;
   font-weight: 300;
   color: rgba(28, 54, 83, 0.6);
   -webkit-text-size-adjust: 100%; }
@@ -314,7 +286,7 @@ ul li {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.800em;
   font-weight: normal;
   line-height: 1.4;
@@ -627,663 +599,4 @@ header {
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
           transform: translateX(-50%); }
-
-/* ==========================================================================
-Intro
-========================================================================== */
-.intro span.icon {
-  font-size: 2.667em;
-  color: #FF5274;
-  font-weight: bold; }
-
-.intro-icon {
-  display: inline-block;
-  vertical-align: top;
-  padding: 6px 0 0 0;
-  margin-right: 20px;
-  width: 40px; }
-
-.intro-content {
-  display: inline-block;
-  width: 80%; }
-
-/* ==========================================================================
-Features-stack
-========================================================================== */
-.features {
-  position: relative; }
-  .features p {
-    margin-bottom: 0;
-    padding-bottom: 0; }
-  .features h3 {
-    margin: 0 0 20px 0; font-size:22px; }
-  .features span.icon {
-    font-size: 35px;
-    color: #FF5274;
-    font-weight: bold; }
-  .features .feature-icon {
-    display: inline-block;
-    vertical-align: top;
-    padding: 6px 0 0 0;
-    margin-right: 20px;
-    width: 35px; }
-  .features .feature-content {
-    display: inline-block;
-    width: 75%; }
-  .features .intro-icon {
-    display: inline-block;
-    vertical-align: top;
-    padding: 6px 0 0 0;
-    margin-right: 20px; }
-  .features .intro-content {
-    display: inline-block;
-    width: 80%; }
-  .features ul.features-stack {
-    margin-top: 50px; }
-  .features ul.features-stack li {
-    margin-top: 20px;
-    padding-bottom: 20px;
-    border-bottom: solid 1px #E6E9EA; }
-  .features ul.features-stack li:last-child {
-    padding-bottom: 0px;
-    border-bottom: none; }
-  .features .ipad-wrap {
-    width: 706px;
-    height: 1002px;
-    background: url("ipad-device.png") no-repeat center center;
-    z-index: 1; }
-  .features .iphone-wrap {
-    width: 304px;
-    height: 620px;
-    background: url("iphone6.png") no-repeat center center;
-    position: absolute;
-    left: 530px;
-    bottom: 129px;
-    z-index: 2; }
-  .features .device-showcase {
-    position: absolute;
-    bottom: -365px;
-    right: 61%; }
-
-.features .responsive-feature-img, .features-extra .responsive-feature-img {
-  display: none; }
-
-.devices {
-  position: relative; }
-
-/* ==========================================================================
-.features-extra
-========================================================================== */
-.features-extra {
-  position: relative;
-  z-index:3; }
-  .features-extra .btn {
-    margin-top: 20px; }
-  .features-extra .macbook-wrap {
-    position: absolute;
-    width: 916px;
-    height: 540px;
-    background: url("macbook-pro.png") no-repeat center center;
-    top: 114px;
-    z-index: 4;
-    left: 50%; }
-
-/* ==========================================================================
-.hero-strip
-========================================================================== */
-.hero-strip {
-  margin-top: 120px;
-  background: #333844 url("polygonal-bg.jpg") no-repeat center center;
-  padding-bottom: 190px;
-  position: relative; }
-  .hero-strip i {
-    font-family: "Nunito", sans-serif;
-    font-weight: 300;
-    font-size: 25px;
-    color: #F69D52;
-    vertical-align: top;
-    margin-left: -8px;
-    font-style: normal; }
-  .hero-strip h2 {
-    color: #fff;
-    margin: 0 0 20px 0; .hero-strip h2 }
-  .hero-strip p {
-    color: #ACB1B4; }
-  .hero-strip .btn {
-    margin-top: 10px; }
-  .hero-strip .logo-placeholder {
-    width: 230px;
-    height: 230px;
-    position: absolute;
-    bottom: -285px;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-            transform: translateX(-50%); }
-
-/* ==========================================================================
-.blog-intro
-========================================================================== */
-.blog-intro {
-  padding-top: 160px; }
-  .blog-intro h3 {
-    margin-bottom: 70px; }
-  .blog-intro .leftcol {
-    padding-right: 100px;
-    border-right: solid 1px #E6E9EA; }
-  .blog-intro .rightcol {
-    padding-left: 100px; }
-
-/* ==========================================================================
-.blog
-========================================================================== */
-.blog {
-  padding-bottom: 120px; }
-  .blog img {
-    width: 100%;
-    height: auto;
-    -webkit-transition: all 300ms ease-in-out;
-    transition: all 300ms ease-in-out; }
-  .blog h2 {
-    font-size: 11px;
-    color: #ACB1B4;
-    font-weight: 500;
-    text-transform: uppercase;
-    margin-top: 35px; }
-  .blog .btn {
-    margin-top: 20px; }
-  .blog .blog-img-wrap {
-    position: relative;
-    overflow: hidden; }
-    .blog .blog-img-wrap .overlay {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.5);
-      -webkit-transition: all 300ms ease-in-out;
-      transition: all 300ms ease-in-out;
-      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-      filter: alpha(opacity=0);
-      opacity: 0; }
-    .blog .blog-img-wrap i {
-      color: #fff;
-      font-size: 20px;
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      top: 25px;
-      right: 35px; }
-  .blog .blog-img-wrap:hover img, .blog .blog-img-wrap:focus img {
-    -ms-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1); }
-  .blog .blog-img-wrap:hover .overlay, .blog .blog-img-wrap:focus .overlay {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
-    filter: alpha(opacity=1);
-    opacity: 1;
-    z-index: 9; }
-  .blog figcaption i {
-    margin-left: 5px;
-    font-size: 15px; }
-  .blog figcaption a.blog-post-title {
-    color: rgba(28, 54, 83, 0.6); }
-  .blog figcaption a.blog-post-title:hover, .blog figcaption a.blog-post-title:focus {
-    color: #3D4351; }
-
-/* ==========================================================================
-.testimonial-slider
-========================================================================== */
-.testimonial-slider {
-  background: url("testimonials-bg.jpg") no-repeat center center;
-  background-size: cover; }
-  .testimonial-slider .avatar {
-    width: 82px;
-    height: 82px;
-    margin: 0 auto;
-    vertical-align: middle;
-    overflow: hidden;
-    border-radius: 50%;
-    border: solid 3px #fff;
-    background-color: #fff; }
-    .testimonial-slider .avatar img {
-      width: 82px;
-      height: auto; }
-  .testimonial-slider h2 {
-    color: #fff;
-    font-size: 40px;
-    font-weight: 300;
-    font-style: italic;
-    margin: 30px 0; }
-  .testimonial-slider p {
-    color: #ACB1B4;
-    text-transform: uppercase;
-    letter-spacing: 2px; }
-
-/* ==========================================================================
-Sign up form
-========================================================================== */
-.sign-up .signup-form .sign-up-btn {
-  padding: 15px 0;
-  border-radius: 3px;
-  width: 80%;
-  font-size: 13px; }
-.sign-up .signup-form .form-input-group {
-  width: 80%;
-  height: 55px;
-  margin: 0 auto 10px;
-  border-radius: 5px;
-  border: solid 1px #E6E9EA;
-  text-align: left;
-  position: relative; }
-  .sign-up .signup-form .form-input-group i {
-    color: #FF5274;
-    font-size: 14px; }
-  .sign-up .signup-form .form-input-group i:after {
-    content: "";
-    height: 30px;
-    width: 1px;
-    border-right: solid 1px #E6E9EA;
-    position: absolute;
-    top: 50%;
-    left: 30px;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%); }
-  .sign-up .signup-form .form-input-group i.fa-lock {
-    font-size: 18px;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-    margin-left: 20px; }
-  .sign-up .signup-form .form-input-group i.fa-envelope {
-    font-size: 14px;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-    margin-left: 20px; }
-  .sign-up .signup-form .form-input-group input {
-    padding-left: 68px;
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
-    border: none; }
-  .sign-up .signup-form .form-input-group input::-webkit-input-placeholder {
-    color: #BCC1C3; }
-  .sign-up .signup-form .form-input-group input:-moz-placeholder {
-    color: #BCC1C3; }
-  .sign-up .signup-form .form-input-group input::-moz-placeholder {
-    color: #BCC1C3; }
-  .sign-up .signup-form .form-input-group input:-ms-input-placeholder {
-    color: #BCC1C3; }
-
-/* ==========================================================================
-To top
-========================================================================== */
-.to-top {
-  height: 60px;
-  background-color: #495061; }
-  .to-top .to-top-wrap {
-    height: 60px;
-    width: 70px;
-    position: absolute;
-    right: 0;
-    text-align: center; }
-    .to-top .to-top-wrap a {
-      display: block;
-      width: 100%;
-      height: 100%;
-      color: #fff;
-      background-color: rgba(0, 0, 0, 0.15); }
-    .to-top .to-top-wrap a:hover, .to-top .to-top-wrap a:focus {
-      background-color: rgba(0, 0, 0, 0.4); }
-    .to-top .to-top-wrap i {
-      font-size: 30px;
-      line-height: 55px; }
-  .to-top .row {
-    position: relative; }
-
-/* ==========================================================================
-Icon font (http://www.elegantthemes.com/blog/freebie-of-the-week/free-line-style-icons)
-========================================================================== */
-@font-face {
-  font-family: 'et-line';
-  src: url("../fonts/et-line.eot");
-  src: url("../fonts/et-line.eot?#iefix") format("embedded-opentype"), url("../fonts/et-line.woff") format("woff"), url("../fonts/et-line.ttf") format("truetype"), url("../fonts/et-line.svg#et-line") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
-[data-icon]:before {
-  font-family: 'et-line';
-  content: attr(data-icon);
-  speak: none;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  display: inline-block; }
-
-/* Use the following CSS code if you want to have a class per icon */
-/*
-Instead of a list of all class selectors,
-you can use the generic selector below, but it's slower:
-[class*="icon-"] {
-*/
-.icon-mobile, .icon-laptop, .icon-desktop, .icon-tablet, .icon-phone, .icon-document, .icon-documents, .icon-search, .icon-clipboard, .icon-newspaper, .icon-notebook, .icon-book-open, .icon-browser, .icon-calendar, .icon-presentation, .icon-picture, .icon-pictures, .icon-video, .icon-camera, .icon-printer, .icon-toolbox, .icon-briefcase, .icon-wallet, .icon-gift, .icon-bargraph, .icon-grid, .icon-expand, .icon-focus, .icon-edit, .icon-adjustments, .icon-ribbon, .icon-hourglass, .icon-lock, .icon-megaphone, .icon-shield, .icon-trophy, .icon-flag, .icon-map, .icon-puzzle, .icon-basket, .icon-envelope, .icon-streetsign, .icon-telescope, .icon-gears, .icon-key, .icon-paperclip, .icon-attachment, .icon-pricetags, .icon-lightbulb, .icon-layers, .icon-pencil, .icon-tools, .icon-tools-2, .icon-scissors, .icon-paintbrush, .icon-magnifying-glass, .icon-circle-compass, .icon-linegraph, .icon-mic, .icon-strategy, .icon-beaker, .icon-caution, .icon-recycle, .icon-anchor, .icon-profile-male, .icon-profile-female, .icon-bike, .icon-wine, .icon-hotairballoon, .icon-globe, .icon-genius, .icon-map-pin, .icon-dial, .icon-chat, .icon-heart, .icon-cloud, .icon-upload, .icon-download, .icon-target, .icon-hazardous, .icon-piechart, .icon-speedometer, .icon-global, .icon-compass, .icon-lifesaver, .icon-clock, .icon-aperture, .icon-quote, .icon-scope, .icon-alarmclock, .icon-refresh, .icon-happy, .icon-sad, .icon-facebook, .icon-twitter, .icon-googleplus, .icon-rss, .icon-tumblr, .icon-linkedin, .icon-dribbble {
-  font-family: 'et-line';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  display: inline-block; }
-
-.icon-mobile:before {
-  content: "\e000"; }
-
-.icon-laptop:before {
-  content: "\e001"; }
-
-.icon-desktop:before {
-  content: "\e002"; }
-
-.icon-tablet:before {
-  content: "\e003"; }
-
-.icon-phone:before {
-  content: "\e004"; }
-
-.icon-document:before {
-  content: "\e005"; }
-
-.icon-documents:before {
-  content: "\e006"; }
-
-.icon-search:before {
-  content: "\e007"; }
-
-.icon-clipboard:before {
-  content: "\e008"; }
-
-.icon-newspaper:before {
-  content: "\e009"; }
-
-.icon-notebook:before {
-  content: "\e00a"; }
-
-.icon-book-open:before {
-  content: "\e00b"; }
-
-.icon-browser:before {
-  content: "\e00c"; }
-
-.icon-calendar:before {
-  content: "\e00d"; }
-
-.icon-presentation:before {
-  content: "\e00e"; }
-
-.icon-picture:before {
-  content: "\e00f"; }
-
-.icon-pictures:before {
-  content: "\e010"; }
-
-.icon-video:before {
-  content: "\e011"; }
-
-.icon-camera:before {
-  content: "\e012"; }
-
-.icon-printer:before {
-  content: "\e013"; }
-
-.icon-toolbox:before {
-  content: "\e014"; }
-
-.icon-briefcase:before {
-  content: "\e015"; }
-
-.icon-wallet:before {
-  content: "\e016"; }
-
-.icon-gift:before {
-  content: "\e017"; }
-
-.icon-bargraph:before {
-  content: "\e018"; }
-
-.icon-grid:before {
-  content: "\e019"; }
-
-.icon-expand:before {
-  content: "\e01a"; }
-
-.icon-focus:before {
-  content: "\e01b"; }
-
-.icon-edit:before {
-  content: "\e01c"; }
-
-.icon-adjustments:before {
-  content: "\e01d"; }
-
-.icon-ribbon:before {
-  content: "\e01e"; }
-
-.icon-hourglass:before {
-  content: "\e01f"; }
-
-.icon-lock:before {
-  content: "\e020"; }
-
-.icon-megaphone:before {
-  content: "\e021"; }
-
-.icon-shield:before {
-  content: "\e022"; }
-
-.icon-trophy:before {
-  content: "\e023"; }
-
-.icon-flag:before {
-  content: "\e024"; }
-
-.icon-map:before {
-  content: "\e025"; }
-
-.icon-puzzle:before {
-  content: "\e026"; }
-
-.icon-basket:before {
-  content: "\e027"; }
-
-.icon-envelope:before {
-  content: "\e028"; }
-
-.icon-streetsign:before {
-  content: "\e029"; }
-
-.icon-telescope:before {
-  content: "\e02a"; }
-
-.icon-gears:before {
-  content: "\e02b"; }
-
-.icon-key:before {
-  content: "\e02c"; }
-
-.icon-paperclip:before {
-  content: "\e02d"; }
-
-.icon-attachment:before {
-  content: "\e02e"; }
-
-.icon-pricetags:before {
-  content: "\e02f"; }
-
-.icon-lightbulb:before {
-  content: "\e030"; }
-
-.icon-layers:before {
-  content: "\e031"; }
-
-.icon-pencil:before {
-  content: "\e032"; }
-
-.icon-tools:before {
-  content: "\e033"; }
-
-.icon-tools-2:before {
-  content: "\e034"; }
-
-.icon-scissors:before {
-  content: "\e035"; }
-
-.icon-paintbrush:before {
-  content: "\e036"; }
-
-.icon-magnifying-glass:before {
-  content: "\e037"; }
-
-.icon-circle-compass:before {
-  content: "\e038"; }
-
-.icon-linegraph:before {
-  content: "\e039"; }
-
-.icon-mic:before {
-  content: "\e03a"; }
-
-.icon-strategy:before {
-  content: "\e03b"; }
-
-.icon-beaker:before {
-  content: "\e03c"; }
-
-.icon-caution:before {
-  content: "\e03d"; }
-
-.icon-recycle:before {
-  content: "\e03e"; }
-
-.icon-anchor:before {
-  content: "\e03f"; }
-
-.icon-profile-male:before {
-  content: "\e040"; }
-
-.icon-profile-female:before {
-  content: "\e041"; }
-
-.icon-bike:before {
-  content: "\e042"; }
-
-.icon-wine:before {
-  content: "\e043"; }
-
-.icon-hotairballoon:before {
-  content: "\e044"; }
-
-.icon-globe:before {
-  content: "\e045"; }
-
-.icon-genius:before {
-  content: "\e046"; }
-
-.icon-map-pin:before {
-  content: "\e047"; }
-
-.icon-dial:before {
-  content: "\e048"; }
-
-.icon-chat:before {
-  content: "\e049"; }
-
-.icon-heart:before {
-  content: "\e04a"; }
-
-.icon-cloud:before {
-  content: "\e04b"; }
-
-.icon-upload:before {
-  content: "\e04c"; }
-
-.icon-download:before {
-  content: "\e04d"; }
-
-.icon-target:before {
-  content: "\e04e"; }
-
-.icon-hazardous:before {
-  content: "\e04f"; }
-
-.icon-piechart:before {
-  content: "\e050"; }
-
-.icon-speedometer:before {
-  content: "\e051"; }
-
-.icon-global:before {
-  content: "\e052"; }
-
-.icon-compass:before {
-  content: "\e053"; }
-
-.icon-lifesaver:before {
-  content: "\e054"; }
-
-.icon-clock:before {
-  content: "\e055"; }
-
-.icon-aperture:before {
-  content: "\e056"; }
-
-.icon-quote:before {
-  content: "\e057"; }
-
-.icon-scope:before {
-  content: "\e058"; }
-
-.icon-alarmclock:before {
-  content: "\e059"; }
-
-.icon-refresh:before {
-  content: "\e05a"; }
-
-.icon-happy:before {
-  content: "\e05b"; }
-
-.icon-sad:before {
-  content: "\e05c"; }
-
-.icon-facebook:before {
-  content: "\e05d"; }
-
-.icon-twitter:before {
-  content: "\e05e"; }
-
-.icon-googleplus:before {
-  content: "\e05f"; }
-
-.icon-rss:before {
-  content: "\e060"; }
-
-.icon-tumblr:before {
-  content: "\e061"; }
-
-.icon-linkedin:before {
-  content: "\e062"; }
-
-.icon-dribbble:before {
-  content: "\e063"; }
-
 

@@ -199,14 +199,18 @@ foreach ($data['hot-of-the-press'] as $key => $value) {
             	<div class="forecaster-img">
                 	<img src="<?php echo $data['forecaster']['0']['image_300'];?>" class="img-responsive" width="100%;">
                 </div>
-                <div class="forecaster-heading">
+                <!-- <div class="forecaster-heading">
                 	<?php echo $data['forecaster']['0']['headline'];?>
-                </div>
+                </div> -->
                 <div class="forecaster-description">
-                	<?php echo $data['forecaster']['0']['summary'];?>
+                	<div>
+                        <?php echo $data['forecaster']['0']['summary'];?>
+                    </div>
+                    <span style="float:right">Read More</span>
+                    <div class="clearfix"></div>
                 </div>
             </a>
-            <span style="float:right">Read More</span>
+
         </div>
         <div style="clear:both"></div>
         <div class="ads-container">

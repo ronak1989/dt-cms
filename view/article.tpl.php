@@ -44,8 +44,21 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-3 hidden-sm hidden-xs">
-                    <div class="news-widget" style="background-color: #000;height:200px;">
-                    [WIDGET]
+                    <div class="news-widget">
+                        <div class="tabbable full-width-tabs">
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="active"><a href="#tab-one" data-toggle="tab">Tab 1</a></li>
+                                <li><a href="#tab-two" data-toggle="tab">Tab 2</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab-one">
+                                    I'm in Tab 1.
+                                </div>
+                                <div class="tab-pane" id="tab-two">
+                                    Howdy, I'm in Tab 2. Howdy, I'm in Tab 2. Howdy, I'm in Tab 2. Howdy, I'm in Tab 2.
+                                </div>
+                            </div>
+                        </div> <!-- /tabbable -->
                     </div>
                 </div>
             </div>
@@ -57,8 +70,7 @@ include_once _CONST_VIEW_PATH . 'menu.php';
 include_once _CONST_VIEW_PATH . 'website_footer.php';
 ?>
 <script src="<?php echo _CONST_JS_PATH;?>infinite_scroll.js"></script>
-<!-- <script src="<?php echo _CONST_JS_PATH;?>scrollspy.js"></script>
-<script src="<?php echo _CONST_JS_PATH;?>jquery.history.js"></script> -->
+<!-- <script src="<?php echo _CONST_JS_PATH;?>jquery.history.js"></script> -->
 <script>
 var load_story = 0;
 var windw = this;
@@ -74,26 +86,37 @@ $('#news-block').cleverInfiniteScroll({
     loadImage: 'ajax-loader.gif'
 });
 
-/*$.fn.followTo = function ( ) {
-    var $this = this,
-        $window = $(windw),
-        $top_position = $this.offset().top,
-        $widgetHeight = $this.outerHeight(true),
-        $articleContent = $('.article-content'),
-        bumperPos = $articleContent.offset().top+$articleContent.outerHeight(true);
-        setPosition = function(){
-            if ($window.scrollTop()+header_height > $top_position && $window.scrollTop()+header_height+ $widgetHeight< bumperPos) {
-                $this.addClass("stick");
-                $this.css({'top':header_height+30});
-            } else {
-                $this.removeClass("stick");
-                $this.css({'top':''});
-            }
-        };
-    $(window).scroll(setPosition);
-};
-
-$('#news-widget').followTo();*/
 </script>
+<style>
+.full-width-tabs > ul.nav.nav-tabs {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border:0px;
+    background-color: #000000;
+}
+.full-width-tabs > ul.nav.nav-tabs > li {
+    float: none;
+    display: table-cell;
+    width:100%;
+}
+.full-width-tabs > ul.nav.nav-tabs > li > a,.full-width-tabs > ul.nav.nav-tabs > li > a:focus,.full-width-tabs > ul.nav.nav-tabs > li > a:hover {
+    outline: none;
+    text-align: center;
+    border-radius: unset !important;
+    color: #FFFFFF;
+    margin-right:unset;
+
+    border: none;
+    background-color: inherit;
+}
+
+.full-width-tabs > ul.nav.nav-tabs > li.active > a {
+    outline: none;
+    border-bottom: 5px solid #cc0000;
+    margin-right: 0;
+}
+
+</style>
 </body>
 </html>

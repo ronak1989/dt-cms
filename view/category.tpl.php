@@ -129,7 +129,7 @@ include_once _CONST_VIEW_PATH . 'website_footer.php';
 .stories-list-element a,
 .stories-list-element a:active,
 .stories-list-element a:focus {
-    color: #555555;
+    color: #000000;
     text-decoration: none;
     padding-bottom: 10px;
 }
@@ -181,7 +181,8 @@ include_once _CONST_VIEW_PATH . 'website_footer.php';
 }
 .stories-list-element h5.section {
     font-size: 0.75em;
-    padding: 0 0 0.625em 0
+    padding: 0 0 0.625em 0;
+    font-weight: 700;
 }
 @media (min-width: 750px) {
     .stories-list-element h5.section {
@@ -192,7 +193,8 @@ include_once _CONST_VIEW_PATH . 'website_footer.php';
     font-size: 0.875em;
     line-height: 1.85714em;
     font-weight: 400;
-    padding: 0
+    padding: 0;
+    color:#000000;
 }
 @media (min-width: 750px) {
     .stories-list-element h3 {
@@ -235,6 +237,7 @@ include_once _CONST_VIEW_PATH . 'website_footer.php';
 }
 .stories-list-element .summary {
     margin-top: 0.66667em;
+    font-weight: normal;
 }
 
 </style>
