@@ -4,7 +4,7 @@ require_once _CONST_MODEL_PATH . $controller_name . 'Model.php';
 class News extends NewsModel {
 	private $access_roles = array();
 	private $_newsModel = NULL;
-	private $limit = 3;
+	private $limit = 10;
 	private $offset = 0;
 	private $order = "desc";
 	private $searchParams = array();
