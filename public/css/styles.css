@@ -315,7 +315,6 @@ article > header > .byline > span + span:before {color: #464646;content: "| ";pa
 .article-image-slug > span + span:before{content: "/ ";padding: 0 5px;}
 .article-body{padding:20px 0;font-size:16px;line-height: 18px;color:#000000;}
 .stick{position:fixed;padding-right:15px;}
-p {  font-size: 1em;  color: rgba(28, 54, 83, 0.6);  padding-bottom: 10px; }
 h1 {  font-size: 4em; }
 h2 {
   font-size: 2.667em;
