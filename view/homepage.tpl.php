@@ -47,19 +47,17 @@ include_once _CONST_VIEW_PATH . 'menu.php';
     	<div class="col-xs-12">
 		    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 category-blocks PL16">
             	<div class="hidden-xs category-image">
-                	<a class="subovrimg" href="">
+                	<a class="subovrimg" href="<?php echo $data['market-widget'][0]['category_url'];?>">
                     	<span class="subsechead category-purple-bkgrnd " >Markets</span>
                     </a>
-                    <a href="">
-                    	<img style="cursor: pointer; width:100%;" src="<?php echo $data['market-widget'][0]['image_300'];?>">
-                    </a>
+                  	<img style="cursor: pointer; width:100%;" src="<?php echo $data['market-widget'][0]['image_300'];?>">
                     <div class="headovrimg">
                     	<a href="<?php echo $data['market-widget'][0]['news_url'];?>" class="category-img-heading"><?php echo $data['market-widget'][0]['headline'];?></a>
                      </div>
                  </div>
                 <div class="news-category category-purple-bkgrnd visible-xs-block">
                     Markets
-                    <span class="view-all">View All >></span>
+                    <span class="view-all"><a href="<?php echo $data['market-widget'][0]['category_url'];?>">View All >></a></span>
                 </div>
                 <div id="category-news">
                     <ul>
@@ -78,19 +76,17 @@ foreach ($data['market-widget'] as $key => $value) {
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 category-blocks PL16">
             	<div class="hidden-xs category-image">
-                	<a class="subovrimg" href="">
+                	<a class="subovrimg" href="<?php echo $data['corporate-widget'][0]['category_url'];?>">
                     	<span class="subsechead category-green-bkgrnd" >Corporates</span>
                     </a>
-                    <a href="">
-                    	<img style="cursor: pointer; width:100%;" src="<?php echo $data['corporate-widget'][0]['image_300'];?>">
-                    </a>
+                   	<img style="cursor: pointer; width:100%;" src="<?php echo $data['corporate-widget'][0]['image_300'];?>">
                     <div class="headovrimg">
                     	<a href="<?php echo $data['corporate-widget'][0]['news_url'];?>" class="category-img-heading"><?php echo $data['corporate-widget'][0]['headline'];?></a>
                      </div>
                  </div>
                 <div class="news-category category-green-bkgrnd visible-xs-block">
                     Corporates
-                    <span class="view-all">View All >></span>
+                    <span class="view-all"><a href="<?php echo $data['corporate-widget'][0]['category_url'];?>">View All >></a></span>
                 </div>
                 <div id="category-news">
                     <ul>
@@ -111,19 +107,17 @@ foreach ($data['corporate-widget'] as $key => $value) {
         <div class="col-xs-12">
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 category-blocks PL16">
             	<div class="hidden-xs category-image">
-                	<a class="subovrimg" href="">
+                	<a class="subovrimg" href="<?php echo $data['news-widget'][0]['category_url'];?>">
                     	<span class="subsechead category-blue-bkgrnd" >News</span>
                     </a>
-                    <a href="">
-                    	<img style="cursor: pointer; width:100%;" src="<?php echo $data['news-widget'][0]['image_300'];?>">
-                    </a>
+                   	<img style="cursor: pointer; width:100%;" src="<?php echo $data['news-widget'][0]['image_300'];?>">
                     <div class="headovrimg">
                     	<a href="<?php echo $data['news-widget'][0]['news_url'];?>" class="category-img-heading"><?php echo $data['news-widget'][0]['headline'];?></a>
                      </div>
                  </div>
                 <div class="news-category category-blue-bkgrnd visible-xs-block">
                     News
-                    <span class="view-all">View All >></span>
+                    <span class="view-all"><a href="<?php echo $data['news-widget'][0]['category_url'];?>">View All >></a></span>
                 </div>
                 <div id="category-news">
                     <ul>
@@ -142,19 +136,17 @@ foreach ($data['news-widget'] as $key => $value) {
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 category-blocks PL16">
             	<div class="hidden-xs category-image">
-                	<a class="subovrimg" href="">
+                	<a class="subovrimg" href="<?php echo $data['investing-widget'][0]['category_url'];?>">
                     	<span class="subsechead category-pink-bkgrnd">Investing</span>
                     </a>
-                    <a href="">
-                    	<img style="cursor: pointer; width:100%;" src="<?php echo $data['investing-widget'][0]['image_300'];?>">
-                    </a>
+                   	<img style="cursor: pointer; width:100%;" src="<?php echo $data['investing-widget'][0]['image_300'];?>">
                     <div class="headovrimg">
                     	<a href="<?php echo $data['investing-widget'][0]['news_url'];?>" class="category-img-heading"><?php echo $data['investing-widget'][0]['headline'];?></a>
                      </div>
                  </div>
                 <div class="news-category category-pink-bkgrnd visible-xs-block">
                     Investing
-                    <span class="view-all">View All >></span>
+                    <span class="view-all"><a href="<?php echo $data['investing-widget'][0]['category_url'];?>">View All >></a></span>
                 </div>
                 <div id="category-news">
                     <ul>
@@ -226,19 +218,17 @@ foreach ($data['hot-of-the-press'] as $key => $value) {
 <div class="category-section">
 	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 PT16 PL16">
     	<div class="category-image hidden-xs">
-            <a class="subovrimg" href="">
+            <a class="subovrimg" href="<?php echo $data['earnings-widget'][0]['category_url'];?>">
                 <span class="subsechead category-orange-bkgrnd">Earnings</span>
             </a>
-            <a href="">
-                <img style="cursor: pointer; width:100%;" src="<?php echo $data['earnings-widget'][0]['image_300'];?>">
-            </a>
+            <img style="cursor: pointer; width:100%;" src="<?php echo $data['earnings-widget'][0]['image_300'];?>">
             <div class="headovrimg">
                 <a href="<?php echo $data['earnings-widget'][0]['news_url'];?>" class="category-img-heading"><?php echo $data['earnings-widget'][0]['headline'];?></a>
              </div>
          </div>
     	<div class="news-category category-orange-bkgrnd visible-xs-block">
             Earnings
-            <span class="view-all">View All >></span>
+            <span class="view-all"><a href="<?php echo $data['earnings-widget'][0]['category_url'];?>">View All >></a></span>
         </div>
         <div id="category-news">
             <ul>
@@ -257,19 +247,17 @@ foreach ($data['earnings-widget'] as $key => $value) {
     </div>
 	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 PT16 PL16">
     	<div class="hidden-xs category-image">
-            <a class="subovrimg" href="">
+            <a class="subovrimg" href="<?php echo $data['economy-widget'][0]['category_url'];?>">
                 <span class="subsechead category-yellow-bkgrnd">Economy</span>
             </a>
-            <a href="">
-                <img style="cursor: pointer; width:100%;" src="<?php echo $data['economy-widget'][0]['image_300'];?>">
-            </a>
+            <img style="cursor: pointer; width:100%;" src="<?php echo $data['economy-widget'][0]['image_300'];?>">
             <div class="headovrimg">
                 <a href="<?php echo $data['economy-widget'][0]['news_url'];?>" class="category-img-heading"><?php echo $data['economy-widget'][0]['headline'];?></a>
              </div>
          </div>
     	<div class="news-category category-yellow-bkgrnd visible-xs-block">
             Economy
-            <span class="view-all">View All >></span>
+            <span class="view-all"><a href="<?php echo $data['economy-widget'][0]['category_url'];?>">View All >></a></span>
         </div>
         <div id="category-news">
             <ul>

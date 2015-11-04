@@ -233,9 +233,11 @@ body.has-active-menu {
 .category-orange-bkgrnd{background: #bf5d00 !important;}
 .category-yellow-bkgrnd{background: #f3b802 !important;}
 .category-section{margin:5px 0px;}
+.category-section a {color:#FFFFFF;}
 .news-category{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;}
 
 .view-all{float:right;font-size:0.667em}
+.view-all a {color:#FFF;text-decoration: none;}
 .category-blocks{margin-top:5px;}
 .category-image{position:relative}
 .category-image::before {
