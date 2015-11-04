@@ -5,6 +5,7 @@ include_once _CONST_VIEW_PATH . 'website_tags.php';
 ?>
 </head>
 <body id="top">
+<div id="body-container">
 <?php
 include_once _CONST_VIEW_PATH . 'menu.php';
 ?>
@@ -174,7 +175,7 @@ foreach ($data['investing-widget'] as $key => $value) {
     </div>
     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 PT16 PL16">
         <div class="hot-press">
-            Hot of the Press
+            Hot off the Press
         </div>
         <div id="press-news">
             <ul>
@@ -315,6 +316,6 @@ include_once _CONST_VIEW_PATH . 'website_footer.php';
 ?>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>
-
+</div>
 </body>
 </html>

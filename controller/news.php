@@ -151,6 +151,7 @@ class News extends NewsModel {
 				/* redirect to main url of listing page */
 			} else {
 				$data = $this->_newsModel->getCategoryDetails($this->order, $this->offset, $this->limit, $this->searchParams, 'array');
+				$data['news-widget'] = $this->_newsModel->getNewsWidgetDetails();
 				$data['background_color_cls'] = 'category-purple-bkgrnd';
 				$data['next_url'] = '';
 				$data['prev_url'] = '';
@@ -239,10 +240,24 @@ class News extends NewsModel {
 		reset($news_category);
 		$menuClass = 'bkgrnd_blk';
 		$data = $this->_newsModel->getArticleById($this->_autono);
+		$data['news-widget'] = $this->_newsModel->getNewsWidgetDetails();
 		$data['article-details']['category_url'] = $catUrl[$data['article-details']['news_category']];
 		$data['article-details']['category_name'] = $news_category[$data['article-details']['news_category']];
 		$metaTags['title'] = $data['article-details']['heading'];
 		require_once _CONST_VIEW_PATH . 'article.tpl.php';
+	}
+
+	public function getSearchPage() {
+		$news_category = parent::getNewsCategory();
+		$menuUrl = array();
+		foreach ($news_category as $key => $value) {
+			$catUrl[$key] = $this->_commonFunction->sanitizeString($value);
+			$menuUrl[$key]['name'] = ucwords(strtolower($value));
+			$menuUrl[$key]['url'] = _CONST_WEB_URL . '/' . $catUrl[$key];
+		}
+		reset($news_category);
+		$menuClass = 'bkgrnd_blk';
+		require_once _CONST_VIEW_PATH . 'search.tpl.php';
 	}
 }
 ?>

@@ -11,8 +11,10 @@
       </div>
     </div>
 </footer>
+<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="<?php echo _CONST_JS_PATH;?>pushmenu.js"></script>
     <script src="<?php echo _CONST_JS_PATH;?>scripts.js"></script>
     <!--<script src="./Sedna - A Free HTML5_CSS3 website by Peter Finlan_files/classie.js"></script>-->
 

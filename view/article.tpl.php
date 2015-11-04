@@ -5,6 +5,7 @@ include_once _CONST_VIEW_PATH . 'website_tags.php';
 ?>
 </head>
 <body id="top">
+<div id="body-container">
 <?php
 include_once _CONST_VIEW_PATH . 'menu.php';
 ?>
@@ -26,7 +27,6 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                 </div>
             </header>
             <figure class="article-image size-extra-large ">
-                <picture>
                     <source srcset="<?php echo $data['article-details']['image_1600'];?>" media="(min-width: 1280px)">
                     <source srcset="<?php echo $data['article-details']['image_1280'];?>, <?php echo $data['article-details']['image_1600'];?> 2x" media="(min-width: 769px)">
                     <source srcset="<?php echo $data['article-details']['image_615'];?>, <?php echo $data['article-details']['image_1280'];?> 2x" media="(min-width: 450px)">
@@ -44,18 +44,42 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-3 hidden-sm hidden-xs">
-                    <div class="news-widget">
+                    <div id="news-widget">
                         <div class="tabbable full-width-tabs">
                             <ul class="nav nav-tabs nav-justified">
-                                <li class="active"><a href="#tab-one" data-toggle="tab">Tab 1</a></li>
-                                <li><a href="#tab-two" data-toggle="tab">Tab 2</a></li>
+                                <li class="active"><a href="#tab-one" data-toggle="tab">LATEST</a></li>
+                                <li><a href="#tab-two" data-toggle="tab">TOP 10</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab-one">
-                                    I'm in Tab 1.
+                                    <div class="news-widget">
+                                        <ul>
+                                            <?php
+$total_latest_stories = count($data['news-widget']['latest']) - 1;
+foreach ($data['news-widget']['latest'] as $key => $value) {
+	$li_class = ($total_latest_stories == $key) ? 'last' : '';
+
+	?>
+                                          <li class="<?php echo $li_class;?>"><a href="<?php echo $value['news_url'];?>"><img src="<?php echo $value['image_77'];?>" style="float:left;padding-right:10px" /><p><?php echo $value['headline'];?></p></a></li>
+                <?php }
+?>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="tab-pane" id="tab-two">
-                                    Howdy, I'm in Tab 2. Howdy, I'm in Tab 2. Howdy, I'm in Tab 2. Howdy, I'm in Tab 2.
+                                    <div class="news-widget">
+                                        <ul>
+                                            <?php
+$top_stories = count($data['news-widget']['top_10']) - 1;
+foreach ($data['news-widget']['top_10'] as $key => $value) {
+	$li_class = ($top_stories == $key) ? 'last' : '';
+
+	?>
+                                          <li class="<?php echo $li_class;?>"><a href="<?php echo $value['news_url'];?>"><img src="<?php echo $value['image_77'];?>" style="float:left;padding-right:10px" /><p><?php echo $value['headline'];?></p></a></li>
+                <?php }
+?>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div> <!-- /tabbable -->
@@ -69,12 +93,14 @@ include_once _CONST_VIEW_PATH . 'menu.php';
 <?php
 include_once _CONST_VIEW_PATH . 'website_footer.php';
 ?>
+</div>
+
+<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
 <script src="<?php echo _CONST_JS_PATH;?>infinite_scroll.js"></script>
 <!-- <script src="<?php echo _CONST_JS_PATH;?>jquery.history.js"></script> -->
 <script>
 var load_story = 0;
 var windw = this;
-var header_height = $(".navigation").height();
 var ARTICLE_LOADED = <?php echo $data['article-details']['articleId'];?>;
 var DT_SS = <?php echo json_encode($data['suggested-stories'], JSON_FORCE_OBJECT);?>;
 var DT_SS_LENGTH = Object.keys(DT_SS).length;

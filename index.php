@@ -63,6 +63,8 @@ $router->map('POST', '/rank/remove', 'news#removeRankedStories', '');
 /** Website **/
 #Homepage URL
 $router->map('GET', '/homepage', 'news#getHomepage', '');
+#SEARCH URL
+$router->map('GET', '/search', 'news#getSearchPage', '');
 #Category URL
 $router->map('GET', '/[cat-url:category]?/[i:pg]?', 'news#getCategorylistingPage', '');
 $router->map('GET', '/[cat-url:category]/[i:pg].json', 'news#getCategorylistingPageJson', '');

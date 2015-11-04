@@ -1,11 +1,17 @@
 @media screen and (max-width:1200px) {
 	header {
-		width: 90%;
+		width: 100%;
 		margin: 0 auto;
 	}
 }
 
 /* Responsive nav kicks in */
+	@media screen and (min-width:390px) {
+		.dark #search input[type="text"]{width:60%;}
+		.share-dark{padding-top:20px;}
+		.share-dark a {font-size: 3em;}
+
+	}
 	@media screen and (max-width:991px) {
 	}
 
@@ -13,6 +19,7 @@
 	}
 
 	@media screen and (max-width:480px) {
+
 	}
 	@media screen and (max-device-width: 1024px) {
 		.carousel-control{width:4% !important}

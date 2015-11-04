@@ -1,4 +1,29 @@
 $(document).ready(function() {
+	header_height = $(".navigation").height();
+	var menuSearchBtn = document.querySelector('#c-button--search');
+		menuSearchBtn.addEventListener('click', function(e) {
+		    e.preventDefault;
+		    menuSearch.open();
+		});
+
+		var shareIcons = new Menu({
+		    wrapper: '#body-container',
+		    type: 'shareicons',
+		    menuOpenerClass: '.c-button',
+		    maskId: '#c-mask'
+		});
+
+		var shareIconsBtn = document.querySelector('#c-button--shareicons');
+		var shareIconsBtnMobile = document.querySelector('#c-button--shareicons-mob');
+
+		shareIconsBtn.addEventListener('click', function(e) {
+		    e.preventDefault;
+		    shareIcons.open();
+		});
+		/*shareIconsBtnMobile.addEventListener('click', function(e) {
+		e.preventDefault;
+		    shareIcons.open();
+		});*/
 
 	/***************** Nav Transformicon ******************/
 
@@ -14,6 +39,7 @@ $(document).ready(function() {
 		$('.header-nav').toggleClass('open');
 
 	});
+
 
 	/****************** HP Slider ***************/
 	$('.carousel').carousel({
@@ -152,6 +178,8 @@ $(document).ready(function() {
 					});
 				}
 			}
+			shareIconsBtn.close();
+			menuSearchBtn.close();
 		});
 	});
 });

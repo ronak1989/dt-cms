@@ -5,6 +5,7 @@ include_once _CONST_VIEW_PATH . 'website_tags.php';
 ?>
 </head>
 <body id="top">
+<div id="body-container">
 <?php
 include_once _CONST_VIEW_PATH . 'menu.php';
 ?>
@@ -15,10 +16,12 @@ include_once _CONST_VIEW_PATH . 'menu.php';
           <div id="hp-rank" class="carousel-inner" role="listbox">
             <div class="item active">
               <img src="<?php echo $data['categoryDetails']['rows'][0]['image_1600'];?>" alt="<?php echo $data['categoryDetails']['rows'][0]['image_name'];?>">
+              <a href="<?php echo $data['categoryDetails']['rows'][0]['news_url'];?>">
               <div class="rank-article">
                 <span class="article-category"><?php echo strtoupper($data['categoryDetails']['rows'][0]['category_name']);?></span>
                 <h3><?php echo $data['categoryDetails']['rows'][0]['headline'];?></h3>
               </div>
+              </a>
             </div>
           </div>
         </div>
@@ -71,11 +74,45 @@ foreach ($data['categoryDetails']['rows'] as $key => $value) {
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 PT16 PL16 PR16">
-        <div class="hot-press">
-            Hot of the Press
-        </div>
-        <div id="press-news">
+        <div id="news-widget">
+            <div class="tabbable full-width-tabs">
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="#tab-one" data-toggle="tab">LATEST</a></li>
+                    <li><a href="#tab-two" data-toggle="tab">TOP 10</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab-one">
+                        <div class="news-widget">
+                            <ul>
+                                <?php
+$total_latest_stories = count($data['news-widget']['latest']) - 1;
+foreach ($data['news-widget']['latest'] as $key => $value) {
+	$li_class = ($total_latest_stories == $key) ? 'last' : '';
 
+	?>
+                              <li class="<?php echo $li_class;?>"><a href="<?php echo $value['news_url'];?>"><img src="<?php echo $value['image_77'];?>" style="float:left;padding-right:10px" /><p><?php echo $value['headline'];?></p></a></li>
+    <?php }
+?>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab-two">
+                        <div class="news-widget">
+                            <ul>
+                                <?php
+$top_stories = count($data['news-widget']['top_10']) - 1;
+foreach ($data['news-widget']['top_10'] as $key => $value) {
+	$li_class = ($top_stories == $key) ? 'last' : '';
+
+	?>
+                              <li class="<?php echo $li_class;?>"><a href="<?php echo $value['news_url'];?>"><img src="<?php echo $value['image_77'];?>" style="float:left;padding-right:10px" /><p><?php echo $value['headline'];?></p></a></li>
+    <?php }
+?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- /tabbable -->
         </div>
     </div>
 
@@ -94,6 +131,7 @@ include_once _CONST_VIEW_PATH . 'website_footer.php';
 
         primeCache();
     </script>
+</div>
 </div>
 <style>
 .stories-list {

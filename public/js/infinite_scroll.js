@@ -39,7 +39,12 @@
       return "<span class='hidden-title' style='display:none'>" + _title + "</span><span class='hidden-url' style='display:none'>" + _path + "</span>";
     },
     $active_article = null,
-    generateArticlePage = function(_articleDetails){
+    generateArticlePage = function(_articleDetails,_newsWidget){
+      console.log(_newsWidget);
+      _newsWidget = _newsWidget.replace("tab-two", 'rhs-'+_articleDetails.autono+'-two');
+      _newsWidget = _newsWidget.replace("tab-one", 'rhs-'+_articleDetails.autono+'-one');
+      _newsWidget = _newsWidget.replace("tab-one", 'rhs-'+_articleDetails.autono+'-one');
+      _newsWidget = _newsWidget.replace("tab-two", 'rhs-'+_articleDetails.autono+'-two');
       return [
       '<article id="article-'+_articleDetails.autono+'" class="article article-block">',
             '<header>',
@@ -68,8 +73,8 @@
                     '</div>',
                 '</div>',
                 '<div class="col-md-4 col-lg-3 hidden-sm hidden-xs">',
-                    '<div class="news-widget" style="background-color: #000;height:200px;">',
-                    '[WIDGET]',
+                    '<div class="news-widget">',
+                    _newsWidget,
                     '</div>',
                 '</div>',
             '</div>',
@@ -79,6 +84,7 @@
         '</article>'
         ].join('');
     },
+    $newsWidget = null,
     $widgetPos = {'top_position':0,'widget_height':0,'bumperPos':0,'widget_block':null},
     widgetFollow = function (active_article) {
       var widget_block = active_article.find('.news-widget');
@@ -102,8 +108,8 @@
         // If it has changed
         $(settings.contentSelector).removeClass("active");
         $(_value).addClass("active");
-        $active_article = $(_value);
-        widgetFollow($(_value));
+        /*$active_article = $(_value);
+        widgetFollow($(_value));*/
         setTitleAndHistory(title, path);
       }
     };
@@ -120,8 +126,9 @@
     // Set hidden span elements and history
     $(settings.contentSelector + ":last").append(generateHiddenSpans(title, path));
     $(settings.contentSelector).addClass("active");
-    $active_article = $(settings.contentSelector);
-    widgetFollow($(settings.contentSelector));
+    $newsWidget = $(settings.contentSelector).find('#news-widget').html();
+    /*$active_article = $(settings.contentSelector);*/
+    /*widgetFollow($(settings.contentSelector));*/
     /*setTitleAndHistory(title, path);*/
 
     /**
@@ -163,13 +170,13 @@
         // Renew last scroll position
         lastScroll = currentScroll;
       }, 200));
-      if($(window).scrollTop() + header_height > $widgetPos.top_position && $(window).scrollTop()+header_height+ $widgetPos.widget_height< $widgetPos.bumperPos){
+      /*if($(window).scrollTop() + header_height > $widgetPos.top_position && $(window).scrollTop()+header_height+ $widgetPos.widget_height< $widgetPos.bumperPos){
         $widgetPos.widget_block.addClass("stick");
         $widgetPos.widget_block.css({'top':header_height+30});
       }else{
         $widgetPos.widget_block.removeClass("stick");
         $widgetPos.widget_block.css({'top':''});
-      }
+      }*/
       if($(window).scrollTop() + windowHeight + threshold >= documentHeight) {
         // If scrolling close to the bottom
         if(load_story < DT_SS_LENGTH) {
@@ -186,7 +193,7 @@
           if(typeof(res)!='undefined'){
             // If the page has link, call ajax
             $(settings.contentsWrapperSelector).append('<div class="spinner"><div class="rect1 "></div>&nbsp;<div class="rect2 "></div>&nbsp;<div class="rect3 "></div>&nbsp;<div class="rect4 "></div>&nbsp;<div class="rect5 "></div>&nbsp;</div>');
-            $(settings.contentsWrapperSelector).append(generateArticlePage(res));
+            $(settings.contentsWrapperSelector).append(generateArticlePage(res,$newsWidget));
             documentHeight = $(document).height();
             $contents = $(settings.contentSelector);
             $(".spinner").remove();

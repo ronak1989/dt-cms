@@ -8,8 +8,8 @@
   <!--[if lt IE 8]>
   <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-  <section class="navigation <?php echo $menuClass;?>">
-      <header>
+  <section  class="navigation <?php echo $menuClass;?>">
+      <header style="padding:10px 0;">
         <div class="logo">
           <a>
             <!--[if gte IE 10]><!-->
@@ -23,15 +23,13 @@
             |
             <i class="fa fa-bolt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i>
             |
-            <i class="fa fa-share-alt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i>
-            |
-            <i class="fa fa-ellipsis-h fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i>
+            <a href="javascript:void(0);" id="c-button--shareicons" class="c-button"><i class="fa fa-share-alt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
         </div>
         <div id="header-search-input"></div>
         <div class="left">
           <a href="javascript:void(0);" id="horizontal-nav-toggle"><i class="fa fa-bars fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
           |
-          <a href=""><i class="fa fa-search fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
+          <a href="javascript:void(0);" id="c-button--search" class="c-button"><i class="fa fa-search fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
         </div>
           <div class="header-content bigmegamenu clearfix">
               <nav class="wsmenu slideLeft clearfix menuopen">
@@ -51,7 +49,43 @@
 ?>
               </ul>
             </nav>
+
+
           </div>
+          <nav id="c-menu--search" class="c-menu c-menu--search">
+            <!--  -->
+            <div class="dark">
+              <form method="get" action="/search" id="search">
+                <input name="q" type="text" size="40" placeholder="Search..." />
+                <label for="search-input"><i class="fa fa-search"></i></label>
+                <button class="c-menu__close">X</button>
+              </form>
+
+            </div>
+          </nav><!-- /c-menu search -->
+          <nav id="c-menu--shareicons" class="c-menu c-menu--shareicons">
+            <!--  -->
+            <div class="share-dark">
+                <a href="">
+                  <i class="fa fa-facebook-official "></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-pinterest"></i>
+                </a>
+                <a href="" class="pintrest">
+                  <i class="fa fa-linkedin-square"></i>
+                </a>
+                <a href="" class="pintrest">
+                  <i class="fa fa-google-plus-square"></i>
+                </a>
+                <button class="c-menu__close">X</button>
+            </div>
+          </nav><!-- /c-menu search -->
       </header>
   </section>
 </div>
+
+
