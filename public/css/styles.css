@@ -274,7 +274,10 @@ body.has-active-menu {
 .news-widget > ul li{border-bottom:1px solid #000000;padding:10px; overflow:hidden;  }
 .news-widget > ul li.last{border-bottom:none;}
 .news-widget > ul li p{font-size:0.867em; color:#000000; line-height:1.200em;padding-bottom:10px;}
-
+.full-width-tabs > ul.nav.nav-tabs {display: table;width: 100%;table-layout: fixed;border:0px;background-color: #000000;}
+.full-width-tabs > ul.nav.nav-tabs > li {float: none;display: table-cell;width:100%;}
+.full-width-tabs > ul.nav.nav-tabs > li > a,.full-width-tabs > ul.nav.nav-tabs > li > a:focus,.full-width-tabs > ul.nav.nav-tabs > li > a:hover {outline: none;text-align: center;border-radius: unset !important;color: #FFFFFF;margin-right:unset;border: none;background-color: inherit;}
+.full-width-tabs > ul.nav.nav-tabs > li.active > a {outline: none;border-bottom: 5px solid #cc0000;margin-right: 0;}
 
 .forecaster-block{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;background:#000000;text-align:center;margin-top:5px}
 .forecaster-heading{background:#000000;padding:10px 10px 0;color:#FFFFFF;font-size:1.000em; line-height:1em;font-family: 'Roboto Slab', sans-serif;}

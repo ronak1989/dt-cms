@@ -115,36 +115,5 @@ $('#news-block').cleverInfiniteScroll({
 });
 
 </script>
-<style>
-.full-width-tabs > ul.nav.nav-tabs {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-    border:0px;
-    background-color: #000000;
-}
-.full-width-tabs > ul.nav.nav-tabs > li {
-    float: none;
-    display: table-cell;
-    width:100%;
-}
-.full-width-tabs > ul.nav.nav-tabs > li > a,.full-width-tabs > ul.nav.nav-tabs > li > a:focus,.full-width-tabs > ul.nav.nav-tabs > li > a:hover {
-    outline: none;
-    text-align: center;
-    border-radius: unset !important;
-    color: #FFFFFF;
-    margin-right:unset;
-
-    border: none;
-    background-color: inherit;
-}
-
-.full-width-tabs > ul.nav.nav-tabs > li.active > a {
-    outline: none;
-    border-bottom: 5px solid #cc0000;
-    margin-right: 0;
-}
-
-</style>
 </body>
 </html>
