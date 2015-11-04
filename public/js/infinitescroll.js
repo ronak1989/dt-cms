@@ -19,7 +19,7 @@ function spinner(background_class){
 function detailsFormatter(row){
   return [
       '<li class="stories-list-element">',
-          '<a title="'+row.headline+'" class="story-link" href="">',
+          '<a title="'+row.headline+'" class="story-link" href="'+row.news_url+'">',
               '<figure >',
                 '<img alt="'+row.headline+'" src="'+row.image_300+'" class="img-responsive">',
               '</figure>',
