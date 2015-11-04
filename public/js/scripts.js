@@ -1,4 +1,14 @@
 $(document).ready(function() {
+	$('#q').bind("searchkey",function(e){
+	   //do stuff here
+	   $("#search").submit();
+	});
+	$('#q').keyup(function(e){
+    if(e.keyCode == 13)
+    {
+        $(this).trigger("searchkey");
+    }
+	});
 	header_height = $(".navigation").height();
 	var menuSearchBtn = document.querySelector('#c-button--search');
 		menuSearchBtn.addEventListener('click', function(e) {

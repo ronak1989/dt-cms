@@ -56,7 +56,7 @@
             <!--  -->
             <div class="dark">
               <form method="get" action="/search" id="search">
-                <input name="q" type="text" size="40" placeholder="Search..." />
+                <input name="q" id="q" type="text" size="40" placeholder="Search..." />
                 <label for="search-input"><i class="fa fa-search"></i></label>
                 <button class="c-menu__close">X</button>
               </form>
@@ -66,19 +66,19 @@
           <nav id="c-menu--shareicons" class="c-menu c-menu--shareicons">
             <!--  -->
             <div class="share-dark">
-                <a href="">
+                <a href="https://www.facebook.com/dalaltimes" target="_blank">
                   <i class="fa fa-facebook-official "></i>
                 </a>
-                <a href="">
+                <a href="https://twitter.com/dalaltimes" target="_blank">
                   <i class="fa fa-twitter"></i>
                 </a>
-                <a href="">
+                <a href="https://plus.google.com/101688308367249815536/about/p/pub" target="_blank">
                   <i class="fa fa-pinterest"></i>
                 </a>
-                <a href="" class="pintrest">
+                <a href="https://www.linkedin.com/company/dalal-times" target="_blank">
                   <i class="fa fa-linkedin-square"></i>
                 </a>
-                <a href="" class="pintrest">
+                <a href="https://in.pinterest.com/dalaltimes/" target="_blank">
                   <i class="fa fa-google-plus-square"></i>
                 </a>
                 <button class="c-menu__close">X</button>
