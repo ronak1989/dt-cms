@@ -26,11 +26,13 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                     <span class="article-timestamp"><?php echo $data['article-details']['publish_date'];?></span>
                 </div>
             </header>
+
             <figure class="article-image size-extra-large ">
-                    <source srcset="<?php echo $data['article-details']['image_1600'];?>" media="(min-width: 1280px)">
-                    <source srcset="<?php echo $data['article-details']['image_1280'];?>, <?php echo $data['article-details']['image_1600'];?> 2x" media="(min-width: 769px)">
-                    <source srcset="<?php echo $data['article-details']['image_615'];?>, <?php echo $data['article-details']['image_1280'];?> 2x" media="(min-width: 450px)">
-                    <img itemprop="image" srcset="<?php echo $data['article-details']['image_300'];?>" alt="" title="" class="img-responsive">
+                <picture>
+                  <source srcset="<?php echo $data['article-details']['image_1600'];?>" media="(min-width: 1280px)">
+                  <source srcset="<?php echo $data['article-details']['image_1280'];?>, <?php echo $data['article-details']['image_1600'];?> 2x" media="(min-width: 769px)">
+                  <source srcset="<?php echo $data['article-details']['image_615'];?>, <?php echo $data['article-details']['image_1280'];?> 2x" media="(min-width: 450px)">
+                  <img itemprop="image" srcset="<?php echo $data['article-details']['image_300'];?>" alt="" title="" class="img-responsive">
                 </picture>
                 <figcaption class="article-image-slug">
                     <span class="image-name"><i class="fa fa-camera fa-lg"></i> [IMAGE NAME]</span>
