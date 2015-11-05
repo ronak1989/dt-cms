@@ -105,10 +105,10 @@ if ($match) {
 			break;
 	}
 
-	if (!isset($_SESSION['_loggedIn']) && $_GET['route'] != 'validate' && $_GET['route'] != 'reset-password') {
-		$controller_name = 'authenticate';
-		$method_name = 'showLoginBox';
-	}
+	/*if (!isset($_SESSION['_loggedIn']) && $_GET['route'] != 'validate' && $_GET['route'] != 'reset-password') {
+	$controller_name = 'authenticate';
+	$method_name = 'showLoginBox';
+	}*/
 
 	require_once _CONST_CONTROLLER_PATH . $controller_name . '.php';
 	if ($controller_name == 'news') {
