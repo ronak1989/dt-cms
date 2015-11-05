@@ -62,17 +62,17 @@ $router->map('POST', '/rank/update', 'news#updateRankedStories', '');
 $router->map('POST', '/rank/remove', 'news#removeRankedStories', '');
 /** Website **/
 #Homepage URL
-$router->map('GET', '/homepage', 'news#getHomepage', '');
+$router->map('GET', '/homepage', 'news#getHomepage', 'WEBSITE_HOMEPAGE');
 #SEARCH URL
-$router->map('GET', '/search', 'news#getSearchPage', '');
+$router->map('GET', '/search', 'news#getSearchPage', 'WEBSITE_SEARCH');
 #LATEST NEWS URL
-$router->map('GET', '/latest-news?/[i:pg]?', 'news#getLatestNewsPage', '');
-$router->map('GET', '/latest-news/[i:pg].json', 'news#getCategorylistingPageJson', '');
+$router->map('GET', '/latest-news?/[i:pg]?', 'news#getLatestNewsPage', 'WEBSITE_LATESTNEWS');
+$router->map('GET', '/latest-news/[i:pg].json', 'news#getCategorylistingPageJson', 'WEBSITE_LATESTNEWS_JSON');
 #Category URL
-$router->map('GET', '/[cat-url:category]?/[i:pg]?', 'news#getCategorylistingPage', '');
-$router->map('GET', '/[cat-url:category]/[i:pg].json', 'news#getCategorylistingPageJson', '');
+$router->map('GET', '/[cat-url:category]?/[i:pg]?', 'news#getCategorylistingPage', 'WEBSITE_CATEGORYPAGE');
+$router->map('GET', '/[cat-url:category]/[i:pg].json', 'news#getCategorylistingPageJson', 'WEBSITE_CATEGORYPAGE_JSON');
 #Article URL
-$router->map('GET', '/[i:id]/[news-url]', 'news#getArticlePage', '');
+$router->map('GET', '/[i:id]/[news-url]', 'news#getArticlePage', 'WEBSITE_ARTICLEPAGE');
 
 $controller_name = null;
 $method_name = null;
@@ -105,10 +105,10 @@ if ($match) {
 			break;
 	}
 
-	/*if (!isset($_SESSION['_loggedIn']) && $_GET['route'] != 'validate' && $_GET['route'] != 'reset-password') {
-	$controller_name = 'authenticate';
-	$method_name = 'showLoginBox';
-	}*/
+	if (!isset($_SESSION['_loggedIn']) && $_GET['route'] != 'validate' && $_GET['route'] != 'reset-password' && (strpos($match['name'], 'WEBSITE') === false)) {
+		$controller_name = 'authenticate';
+		$method_name = 'showLoginBox';
+	}
 
 	require_once _CONST_CONTROLLER_PATH . $controller_name . '.php';
 	if ($controller_name == 'news') {
