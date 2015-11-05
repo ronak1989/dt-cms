@@ -3,9 +3,8 @@
       <div class="row">
         <div class="col-sm-12 text-center">
           <div class="copyright">
-            <p><a href="#">About Us</a> | <a href="#">Products and Services</a> | <a href="#">Careers</a> | <a href="#">Sitemap</a> | <a href="#">Feedback</a></p>
-            <p><a href="#">Contact Us</a> | <a href="#">Archive</a> | <a href="#">Blog / Opinion</a> | <a href="#">Disclaimer</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a> | <a href="#">Grievance Redressal Policy</a></p>
-            <p class="footer-company-trademark">&copy; <span>Dalaltimes.com</span> 2015, all right reserved</p>
+            <p><a href="http://info.dalaltimes.com/#about" target="_new">About Us</a> | <a href="http://info.dalaltimes.com/#product" target="_new">Products and Services</a> | <a href="http://info.dalaltimes.com/#carrer" target="_new">Careers</a> | <a href="#">Feedback</a> | <a href="http://info.dalaltimes.com/#contact" target="_new">Contact Us</a> | <a href="http://info.dalaltimes.com/#privacy" target="_new">Privacy Policy</a> | <a href="http://info.dalaltimes.com/#terms" target="_new">Terms & Conditions</a></p>
+            <p class="footer-company-trademark">&copy; <span>Dalaltimes.com</span> <?php echo date("Y")?>, all right reserved</p>
           </div>
         </div>
       </div>
