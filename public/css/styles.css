@@ -319,8 +319,11 @@ article > header > .byline > span + span:before {color: #464646;content: "| ";pa
 .article-image-slug{position:absolute;bottom:0;right:0;padding:20px;width:100%;color:#ffffff;background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;}
 .article-image-slug > span + span:before{content: "/ ";padding: 0 5px;}
 .article-body{padding:20px 0;font-size:16px;line-height: 18px;color:#000000;}
-.social-share-block{text-align: center;}
-.share-btn {display: inline-block;color: #ffffff;border: none;padding: 0.5em;width: 4em;box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);outline: none;text-align: center;}
+.social-share-block{text-align: center;margin: 10px 0 15px;padding:15px; border-bottom: 1px solid #ccc;}
+.social-share-block > ul { display: table;width: 100%}
+.social-share-block > ul li  { display: table-cell;padding-right:5px;}
+.social-share-block > ul li a { display: block;}
+.share-btn {display: inline-block;color: #ffffff;border: none;padding: 0.5em;box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);outline: none;text-align: center;}
 .share-btn:hover {color: #eeeeee;}
 .share-btn:active {position: relative;top: 2px;box-shadow: none;color: #e2e2e2;outline: none;}
 .share-btn.twitter     { background: #55acee; }

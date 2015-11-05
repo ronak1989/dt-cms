@@ -19,6 +19,20 @@ class News extends NewsModel {
 
 	static $pageTitle = 'NEWS SECTION';
 	static $pageSubTitle = '';
+	static $socialTags = array(
+		'og:title' => 'Dalaltimes',
+		'og:type' => 'website',
+		'og:image' => _CONST_WEB_URL . '/public/images/dalaltimes.jpg',
+		'og:url' => _CONST_WEB_URL,
+		'og:description' => 'Dalal Times is a research-based financial portal covering stocks, commodities, companies and the economy.  Manage your finance with our online Investment Portfolio, All Stat Pages, Stock Trading News.',
+		'og:site_name' => 'Dalaltimes',
+		'twitter:card' => 'summary',
+		'twitter:url' => 'https://twitter.com/dalaltimes',
+		'twitter:title' => 'Dalaltimes',
+		'twitter:description' => 'Dalal Times is a research-based financial portal covering stocks, commodities, companies and the economy.  Manage your finance with our online Investment Portfolio, All Stat Pages, Stock Trading News.',
+		'twitter:image' => _CONST_WEB_URL . '/public/images/dalaltimes.jpg',
+		'twitter:site' => '@dalaltimes',
+	);
 
 	public function __construct($id = NULL, $category = NULL, $pg = 0, $params = array()) {
 		$this->category = $category;
@@ -240,6 +254,15 @@ class News extends NewsModel {
 		reset($news_category);
 		$menuClass = 'bkgrnd_blk';
 		$data = $this->_newsModel->getArticleById($this->_autono);
+		static::$socialTags['og:title'] = $data['article-details']['heading'];
+		static::$socialTags['og:type'] = 'article';
+		static::$socialTags['og:image'] = _CONST_WEB_URL . $data['article-details']['image_300'];
+		static::$socialTags['og:url'] = $data['article-details']['news_url'];
+		static::$socialTags['og:description'] = $data['article-details']['summary'];
+		static::$socialTags['twitter:url'] = $data['article-details']['news_url'];
+		static::$socialTags['twitter:title'] = $data['article-details']['heading'];
+		static::$socialTags['twitter:description'] = $data['article-details']['summary'];
+		static::$socialTags['twitter:image'] = _CONST_WEB_URL . $data['article-details']['image_300'];
 		$data['news-widget'] = $this->_newsModel->getNewsWidgetDetails();
 		$data['article-details']['category_url'] = $catUrl[$data['article-details']['news_category']];
 		$data['article-details']['category_name'] = $news_category[$data['article-details']['news_category']];

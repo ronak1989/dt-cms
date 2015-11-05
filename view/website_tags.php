@@ -10,11 +10,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- <link rel="canonical" href="/items?page=3" /> -->
     <?php if ($data['next_url'] != '') {?>
-    <link rel="next" href="<?php echo $data['next_url']?>"/>
+    <link rel="next" href="<?php echo $data['next_url'];?>"/>
     <?php }
 ?>
     <?php if ($data['prev_url'] != '') {?>
-    <link rel="prev" href="<?php echo $data['prev_url']?>"/>
+    <link rel="prev" href="<?php echo $data['prev_url'];?>"/>
     <?php }
 ?>
-    <script src="<?php echo _CONST_JS_PATH;?>modernizr-2.8.3-respond-1.4.2.min.js"></script>
+<?php
+foreach (static::$socialTags as $key => $value) {
+	?>
+	<meta property="<?php echo $key;?>" content="<?php echo $value;?>"/>
+<?php }
+?>

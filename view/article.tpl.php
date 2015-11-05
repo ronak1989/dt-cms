@@ -43,32 +43,74 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                 <div class="col-md-8 col-lg-7 col-lg-offset-2 article-content">
                     <div class="social-share-block">
                         <!-- Twitter -->
-                        <a href="http://twitter.com/share?url=https://github.com/gschier/html-share-buttons&text=HMTL%20Share%20Buttons&via=GregorySchier" target="_blank" class="share-btn twitter">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-
-                        <!-- Google Plus -->
-                        <a href="https://plus.google.com/share?url=https://github.com/gschier/html-share-buttons" target="_blank" class="share-btn google-plus">
-                            <i class="fa fa-google-plus"></i>
-                        </a>
-
-                        <!-- Facebook -->
-                        <a href="http://www.facebook.com/sharer/sharer.php?u=https://github.com/gschier/html-share-buttons" target="_blank" class="share-btn facebook">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-
-                        <!-- LinkedIn -->
-                        <a href="http://www.linkedin.com/shareArticle?url=https://github.com/gschier/html-share-buttons&title=HMTL%20Share%20Buttons&summary=HMTL%20Share%20Buttons&source=http://schier.co/blog/2014/10/22/pure-html-share-buttons.html" target="_blank" class="share-btn linkedin">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-
-                        <!-- Email -->
-                        <a href="mailto:?subject=HMTL%20Share%20Buttons&body=https://github.com/gschier/html-share-buttons" target="_blank" class="share-btn email">
-                            <i class="fa fa-envelope"></i>
-                        </a>
+                        <ul>
+                            <li>
+                                <a href="http://twitter.com/share?url=<?php echo $data['article-details']['news_url'];?>&text=<?php echo $data['article-details']['heading'];?>&via=dalaltimes" target="_blank" class="share-btn twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                            <!-- Google Plus -->
+                                <a href="https://plus.google.com/share?url=<?php echo $data['article-details']['news_url'];?>" target="_blank" class="share-btn google-plus">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <!-- Facebook -->
+                                <a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $data['article-details']['news_url'];?>" target="_blank" class="share-btn facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <!-- LinkedIn -->
+                                <a href="http://www.linkedin.com/shareArticle?url=<?php echo $data['article-details']['news_url'];?>&title=<?php echo $data['article-details']['heading'];?>&summary=<?php echo $data['article-details']['summary'];?>&source=<?php echo _CONST_WEB_URL;?>" target="_blank" class="share-btn linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <!-- Email -->
+                                <a href="mailto:?subject=<?php echo $data['article-details']['heading'];?>&body=<?php echo $data['article-details']['summary'];?> <br> <a href='<?php echo $data['article-details']['news_url'];?>'>Click here to read more</a>" target="_blank" class="share-btn email">
+                                    <i class="fa fa-envelope"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                     <div>
                         <?php echo $data['article-details']['news_content'];?>
+                    </div>
+                    <div class="social-share-block">
+                        <!-- Twitter -->
+                        <ul>
+                            <li>
+                                <a href="http://twitter.com/share?url=<?php echo $data['article-details']['news_url'];?>&text=<?php echo $data['article-details']['heading'];?>&via=dalaltimes" target="_blank" class="share-btn twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                            <!-- Google Plus -->
+                                <a href="https://plus.google.com/share?url=<?php echo $data['article-details']['news_url'];?>" target="_blank" class="share-btn google-plus">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <!-- Facebook -->
+                                <a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $data['article-details']['news_url'];?>" target="_blank" class="share-btn facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <!-- LinkedIn -->
+                                <a href="http://www.linkedin.com/shareArticle?url=<?php echo $data['article-details']['news_url'];?>&title=<?php echo $data['article-details']['heading'];?>&summary=<?php echo $data['article-details']['summary'];?>&source=<?php echo _CONST_WEB_URL;?>" target="_blank" class="share-btn linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <!-- Email -->
+                                <a href="mailto:?subject=<?php echo $data['article-details']['heading'];?>&body=<?php echo $data['article-details']['summary'];?> <br> <a href='<?php echo $data['article-details']['news_url'];?>'>Click here to read more</a>" target="_blank" class="share-btn email">
+                                    <i class="fa fa-envelope"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-3 hidden-sm hidden-xs">
@@ -128,6 +170,7 @@ include_once _CONST_VIEW_PATH . 'website_footer.php';
 <!-- <script src="<?php echo _CONST_JS_PATH;?>jquery.history.js"></script> -->
 <script>
 var load_story = 0;
+var _CONST_WEB_URL = '<?php echo _CONST_WEB_URL;?>';
 var windw = this;
 var ARTICLE_LOADED = <?php echo $data['article-details']['articleId'];?>;
 var DT_SS = <?php echo json_encode($data['suggested-stories'], JSON_FORCE_OBJECT);?>;

@@ -220,6 +220,7 @@ class EditorModel extends Database {
 		$fields['news_category'] = $this->_queryResult['category_id'];
 		$fields['news_subcategory'] = $this->_queryResult['sub_category_id'];
 		$fields['news_source'] = $this->_queryResult['source_id'];
+		$fields['news_source_name'] = $this->_queryResult['source_id'];
 		$fields['keywords'] = $this->_queryResult['keywords'];
 		$fields['image_id'] = $this->_queryResult['image_id'];
 		$fields['image_300'] = $this->_queryResult['image_300'];

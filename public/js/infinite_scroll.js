@@ -39,8 +39,41 @@
       return "<span class='hidden-title' style='display:none'>" + _title + "</span><span class='hidden-url' style='display:none'>" + _path + "</span>";
     },
     $active_article = null,
+    generateSocialButtons = function(_heading,_summary,_url){
+      return [
+        '<div class="social-share-block">',
+          '<ul>',
+              '<li>',
+                  '<a href="http://twitter.com/share?url='+_url+'&text='+_heading+'&via=dalaltimes" target="_blank" class="share-btn twitter">',
+                      '<i class="fa fa-twitter"></i>',
+                  '</a>',
+              '</li>',
+              '<li>',
+                  '<a href="https://plus.google.com/share?url='+_url+'" target="_blank" class="share-btn google-plus">',
+                      '<i class="fa fa-google-plus"></i>',
+                  '</a>',
+              '</li>',
+              '<li>',
+                  '<a href="http://www.facebook.com/sharer/sharer.php?u='+_url+'" target="_blank" class="share-btn facebook">',
+                      '<i class="fa fa-facebook"></i>',
+                  '</a>',
+              '</li>',
+              '<li>',
+                  '<a href="http://www.linkedin.com/shareArticle?url='+_url+'&title='+_heading+'&summary='+_summary+'&source='+_CONST_WEB_URL+'" target="_blank" class="share-btn linkedin">',
+                      '<i class="fa fa-linkedin"></i>',
+                  '</a>',
+              '</li>',
+              '<li>',
+                  '<a href="mailto:?subject='+_heading+'&body='+_summary+' <br> <a href=\''+_url+'\'>Click here to read more</a>" target="_blank" class="share-btn email">',
+                      '<i class="fa fa-envelope"></i>',
+                  '</a>',
+              '</li>',
+          '</ul>',
+      '</div>'
+    ].join('');
+    },
     generateArticlePage = function(_articleDetails,_newsWidget){
-      console.log(_newsWidget);
+      var social_buttons = generateSocialButtons(encodeURIComponent(_articleDetails.headline),encodeURIComponent(_articleDetails.summary),encodeURIComponent(_articleDetails.news_url));
       _newsWidget = _newsWidget.replace("tab-two", 'rhs-'+_articleDetails.autono+'-two');
       _newsWidget = _newsWidget.replace("tab-one", 'rhs-'+_articleDetails.autono+'-one');
       _newsWidget = _newsWidget.replace("tab-one", 'rhs-'+_articleDetails.autono+'-one');
@@ -50,7 +83,7 @@
             '<header>',
                 '<h1>'+_articleDetails.headline+'</h1>',
                 '<div class="byline">',
-                    '<span class="article-source"></span>',
+                    '<span class="article-source">'+_articleDetails.news_source_name+'</span>',
                     '<span class="article-timestamp">'+_articleDetails.publish_date+'</span>',
                 '</div>',
             '</header>',
@@ -68,9 +101,11 @@
             '</figure>',
             '<div class="article-body">',
                 '<div class="col-md-8 col-lg-7 col-lg-offset-2 article-content">',
+                    social_buttons,
                     '<div>',
                         _articleDetails.content,
                     '</div>',
+                    social_buttons,
                 '</div>',
                 '<div class="col-md-4 col-lg-3 hidden-sm hidden-xs">',
                     '<div class="news-widget">',
@@ -95,7 +130,7 @@
     },
     setTitleAndHistory = function(_title, _path) {
       // Set history
-      history.pushState(null, _title, _path);
+      history.replaceState(null, _title, _path);
       // Set title
       $("title").html(_title);
     },

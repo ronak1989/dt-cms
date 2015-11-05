@@ -301,6 +301,7 @@ class NewsModel extends EditorModel {
 		$this->_queryResult = $this->resultset();
 		$total = count($this->_queryResult);
 		$category = $this->getNewsCategory();
+		$news_source = $this->getNewsSource();
 		$prev_cat = NULL;
 		foreach ($this->_queryResult as $key => $value) {
 			if ($prev_cat != $value['category_id']) {
@@ -309,6 +310,7 @@ class NewsModel extends EditorModel {
 			}
 			$this->_queryResult[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
 			$this->_queryResult[$key]['category_name'] = $category[$value['category_id']];
+			$this->_queryResult[$key]['news_source_name'] = $news_source[$value['source_id']];
 			$this->_queryResult[$key]['category_url'] = _CONST_WEB_URL . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
 			if ($this->_queryResult[$key]['caption'] == null) {
 				$this->_queryResult[$key]['caption'] = '';
@@ -325,7 +327,10 @@ class NewsModel extends EditorModel {
 	}
 
 	protected function getArticleById($autono) {
+		$news_source = $this->getNewsSource();
 		$result['article-details'] = $this->getArticleDetails(array('articleId' => $autono));
+		$result['article-details']['news_url'] = _CONST_WEB_URL . '/' . $result['article-details']['articleId'] . '/' . $this->_commonFunction->sanitizeString($result['article-details']['heading']);
+		$result['article-details']['news_source_name'] = $news_source[$result['article-details']['news_source']];
 		$result['suggested-stories'] = $this->getAllRankedStoryDetails('hot of the press', 'array')['rows'];
 		return $result;
 	}
