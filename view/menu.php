@@ -2,8 +2,8 @@
   <div class="wsmenucontent overlapblackbg menuclose"></div>
   <div class="wsmenuexpandermain slideRight">
     <a id="navToggle" class="animated-arrow slideLeft menuclose"><span></span></a>
-    <a href="" class="smallogo"><img src="<?php echo _CONST_IMAGE_URL;?>logo.png" alt=""></a>
-    <a class="callusicon" href="tel:123456789"><span class="fa fa-phone"></span></a>
+    <a href="<?php echo _CONST_WEB_URL;?>/homepage" class="smallogo"><img src="<?php echo _CONST_IMAGE_URL;?>logo.png" alt=""></a>
+    <a class="callusicon" id="c-button--search-mob" class="c-button"><span class="fa fa-search"></span></a>
   </div>
   <!--[if lt IE 8]>
   <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -11,7 +11,7 @@
   <section  class="navigation <?php echo $menuClass;?>">
       <header style="padding:10px 0;">
         <div class="logo">
-          <a>
+          <a href="<?php echo _CONST_WEB_URL;?>/homepage">
             <!--[if gte IE 10]><!-->
             <!-- DT LOGO -->
               <img src="<?php echo _CONST_IMAGE_URL;?>logo.png">
@@ -21,7 +21,7 @@
         <div class="right">
             <i class="fa fa-user fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i>
             |
-            <i class="fa fa-bolt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i>
+            <a href="<?php echo _CONST_WEB_URL;?>/latest-news"><i class="fa fa-bolt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
             |
             <a href="javascript:void(0);" id="c-button--shareicons" class="c-button"><i class="fa fa-share-alt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
         </div>
@@ -87,5 +87,13 @@
       </header>
   </section>
 </div>
-
+<div class="mobile-footerheader">
+  <nav>
+    <ul class="nav nav-justified">
+      <li><a href="#"><i class="fa fa-user fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
+      <li><a href="<?php echo _CONST_WEB_URL;?>/latest-news"><i class="fa fa-bolt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
+      <li><a href="javascript:void(0);" id="c-button--shareicons-mob" class="c-button"><i class="fa fa-share-alt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
+    </ul>
+  </nav>
+</div>
 

@@ -11,7 +11,13 @@ $(document).ready(function() {
 	});
 	header_height = $(".navigation").height();
 	var menuSearchBtn = document.querySelector('#c-button--search');
+	var menuSearchBtnMob = document.querySelector('#c-button--search-mob');
 		menuSearchBtn.addEventListener('click', function(e) {
+		    e.preventDefault;
+		    menuSearch.open();
+		});
+
+		menuSearchBtnMob.addEventListener('click', function(e) {
 		    e.preventDefault;
 		    menuSearch.open();
 		});
@@ -30,10 +36,10 @@ $(document).ready(function() {
 		    e.preventDefault;
 		    shareIcons.open();
 		});
-		/*shareIconsBtnMobile.addEventListener('click', function(e) {
+		shareIconsBtnMobile.addEventListener('click', function(e) {
 		e.preventDefault;
 		    shareIcons.open();
-		});*/
+		});
 
 	/***************** Nav Transformicon ******************/
 

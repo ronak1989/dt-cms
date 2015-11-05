@@ -455,7 +455,7 @@ html, body, iframe, h1, h2, h3, h4, h5, h6{margin:0px; padding:0px; border:0px; 
 
 
 @media only screen and (min-width: 781px) {
-
+.mobile-footerheader {display: none;}
 .wsmenu-list li:hover > .wsmenu-submenu{display:block !important;}
 .wsmenu-submenu li:hover > .wsmenu-submenu-sub{display:block !important;}
 .wsmenu-submenu-sub li:hover > .wsmenu-submenu-sub-sub{display:block !important;}
@@ -467,6 +467,7 @@ html, body, iframe, h1, h2, h3, h4, h5, h6{margin:0px; padding:0px; border:0px; 
 
 /*------------------------------------ Mobile CSS ---------------------------------------------*/
 @media only screen and (max-width: 780px) {
+.mobile-footerheader {display: block;}
 .features-extra{ z-index:0 !important; }
 .hero h1{ font-size:2.600em !important; line-height:53px !important; margin-bottom:18px;}
 .logo{ display:none !important; }
@@ -787,15 +788,17 @@ html, body, iframe, h1, h2, h3, h4, h5, h6{margin:0px; padding:0px; border:0px; 
 	}
 
 .callusicon{
-	color: #c9c9c9;
+	color: #ffffff;
     font-size: 1.667em;
     height: 25px;
     position: fixed;
     right: 15px;
-    top: 13px;
+    top: 20px;
     transition: all 0.4s ease-in-out 0s;
     width: 25px;
     z-index: 2;
+    text-decoration: none;
+    cursor: pointer;
 	-webkit-transition:all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
@@ -803,7 +806,7 @@ html, body, iframe, h1, h2, h3, h4, h5, h6{margin:0px; padding:0px; border:0px; 
 	transition: all 0.4s ease-in-out;
 	}
 
-.callusicon:focus, callusicon:hover {
+.callusicon:focus, .callusicon:hover {
     color: #fff !important;
 }
 

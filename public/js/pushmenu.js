@@ -77,6 +77,7 @@
    * Open Menu.
    */
   Menu.prototype.open = function() {
+    $('.carousel').carousel('pause');
     $('.bigmegamenu').hide();
     this.body.classList.add('has-active-menu');
     this.wrapper.classList.add('has-' + this.options.type);
@@ -90,6 +91,7 @@
    * Close Menu.
    */
   Menu.prototype.close = function() {
+    $('.carousel').carousel('cycle');
     this.body.classList.remove('has-active-menu');
     this.wrapper.classList.remove('has-' + this.options.type);
     this.menu.style.height = '0px';
