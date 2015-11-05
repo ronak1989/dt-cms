@@ -12,6 +12,7 @@ include_once _CONST_VIEW_PATH . 'website_tags.php';
 include_once _CONST_VIEW_PATH . 'menu.php';
 ?>
 <div id="news-section">
+    <a href="https://www.facebook.com/dialog/share?app_id=145634995501895&display=popup&href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer">SHARED</a>
     <div id="news-block">
         <article id="article-<?php echo $data['article-details']['articleId'];?>" data-id=<?php echo $data['article-details']['articleId'];?>  class="article article-block first">
             <div id="breadcrumb-block">

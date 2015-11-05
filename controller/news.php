@@ -257,6 +257,9 @@ class News extends NewsModel {
 		static::$socialTags['og:title'] = $data['article-details']['heading'];
 		static::$socialTags['og:type'] = 'article';
 		static::$socialTags['og:image'] = _CONST_WEB_URL . $data['article-details']['image_1600'];
+		static::$socialTags['og:image:height'] = 900;
+		static::$socialTags['og:image:width'] = 1600;
+
 		static::$socialTags['og:url'] = $data['article-details']['news_url'];
 		static::$socialTags['og:description'] = $data['article-details']['summary'];
 		static::$socialTags['twitter:url'] = $data['article-details']['news_url'];
@@ -267,6 +270,7 @@ class News extends NewsModel {
 		$data['article-details']['category_url'] = $catUrl[$data['article-details']['news_category']];
 		$data['article-details']['category_name'] = $news_category[$data['article-details']['news_category']];
 		$metaTags['title'] = $data['article-details']['heading'];
+		$metaTags['description'] = $data['article-details']['summary'];
 		require_once _CONST_VIEW_PATH . 'article.tpl.php';
 	}
 
