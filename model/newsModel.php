@@ -68,7 +68,7 @@ class NewsModel extends EditorModel {
 			$where_condition = 'where ' . implode(' and ', $where_condition);
 		}
 
-		$this->_modelQuery = 'select nu.modified_date, nu.autono, nu.headline, nu.category_id, nu.sub_category_id, nu.summary, nu.source_id, ib.*  from news_unpublish nu LEFT JOIN image_bank ib ON ib.image_id = nu.image_id ' . $where_condition . ' order by nu.modified_date ' . $order . ' limit ' . $offset . ',' . $limit . '';
+		$this->_modelQuery = 'select nu.modified_date, nu.autono, nu.headline, nu.category_id, nu.sub_category_id, nu.summary, nu.source_id, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nu LEFT JOIN image_bank ib ON ib.image_id = nu.image_id ' . $where_condition . ' order by nu.modified_date ' . $order . ' limit ' . $offset . ',' . $limit . '';
 		$this->query($this->_modelQuery);
 
 		return $this->resultset();
@@ -102,7 +102,7 @@ class NewsModel extends EditorModel {
 	}
 
 	protected function getRankedStoryDetails($type, $return_type = 'json') {
-		$this->_modelQuery = 'select nup.modified_date, nup.autono, nup.headline, nup.category_id, nup.sub_category_id, nr.rank, nr.caption, ib.*  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" order by nr.rank';
+		$this->_modelQuery = 'select nup.modified_date, nup.autono, nup.headline, nup.category_id, nup.sub_category_id, nr.rank, nr.caption, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" order by nr.rank';
 		$this->query($this->_modelQuery);
 		$this->_queryResult = $this->resultset();
 		$total = count($this->_queryResult);
@@ -296,7 +296,7 @@ class NewsModel extends EditorModel {
 	}
 
 	protected function getAllRankedStoryDetails($type, $return_type = 'json') {
-		$this->_modelQuery = 'select nup.*, nr.rank, nr.caption, ib.*  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" order by nr.rank';
+		$this->_modelQuery = 'select nup.*, nr.rank, nr.caption, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" order by nr.rank';
 		$this->query($this->_modelQuery);
 		$this->_queryResult = $this->resultset();
 		$total = count($this->_queryResult);
