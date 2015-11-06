@@ -297,7 +297,7 @@ class NewsModel extends EditorModel {
 
 	protected function getAllRankedStoryDetails($type, $return_type = 'json', $exclude_autono = array()) {
 		if (!empty($exclude_autono)) {
-			echo $this->_modelQuery = 'select nup.*, nr.rank, nr.caption, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" and nr.autono not in (' . implode(',', $exclude_autono) . ') order by nr.rank limit 1';
+			$this->_modelQuery = 'select nup.modified_date, nup.autono, nup.headline, nup.category_id, nup.sub_category_id, nup.summary, nup.source_id, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" and nr.autono not in (' . implode(',', $exclude_autono) . ') order by nr.rank limit 1';
 		} else {
 			$this->_modelQuery = 'select nup.*, nr.rank, nr.caption, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" order by nr.rank';
 		}
@@ -351,7 +351,6 @@ class NewsModel extends EditorModel {
 		$result['left-col'] = $this->getNewsList('asc', 0, 1, $search_params)[0];
 		$exclude_autono = array($articleId, $result['left-col']['autono']);
 		$result['right-col'] = $this->getAllRankedStoryDetails('cover story', 'array', $exclude_autono)['rows'];
-		print_r($result);
 	}
 }
 ?>
