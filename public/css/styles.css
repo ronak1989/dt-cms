@@ -332,7 +332,9 @@ article > header > .byline > span + span:before {color: #464646;content: "| ";pa
 .share-btn.facebook    { background: #3B5998; }
 .share-btn.linkedin    { background: #4875B4; }
 .share-btn.email       { background: #444444; }
-
+.relatedarticle-block{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;background:#444444;text-align:center;margin-top:5px}
+.relatedarticle-heading{background:#000000;padding:10px 10px 0;color:#FFFFFF;font-size:1.000em; line-height:1em;font-family: 'Roboto Slab', sans-serif;}
+.relatedarticle-description {padding:10px;color:#FFFFFF;font-size:1em; line-height:1em;background:#dd4b39;font-family: 'Roboto',serif;}
 .stick{position:fixed;padding-right:15px;}
 
 .mobile-footerheader{position:fixed;background-color:#000;bottom:0px;left:0px;right:0px;margin-bottom:0px;z-index:999;display: none;}

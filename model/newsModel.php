@@ -295,8 +295,13 @@ class NewsModel extends EditorModel {
 		return $result;
 	}
 
-	protected function getAllRankedStoryDetails($type, $return_type = 'json') {
-		$this->_modelQuery = 'select nup.*, nr.rank, nr.caption, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" order by nr.rank';
+	protected function getAllRankedStoryDetails($type, $return_type = 'json', $exclude_autono = array()) {
+		if (!empty($exclude_autono)) {
+			echo $this->_modelQuery = 'select nup.*, nr.rank, nr.caption, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" and nr.autono not in (' . implode(',', $exclude_autono) . ') order by nr.rank limit 1';
+		} else {
+			$this->_modelQuery = 'select nup.*, nr.rank, nr.caption, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" order by nr.rank';
+		}
+
 		$this->query($this->_modelQuery);
 		$this->_queryResult = $this->resultset();
 		$total = count($this->_queryResult);
@@ -333,6 +338,20 @@ class NewsModel extends EditorModel {
 		$result['article-details']['news_source_name'] = $news_source[$result['article-details']['news_source']];
 		$result['suggested-stories'] = $this->getAllRankedStoryDetails('hot of the press', 'array')['rows'];
 		return $result;
+	}
+
+	protected function getRelatedNewsWidgetDetails($articleId, $related_autono, $category_id) {
+		$search_params['publish_status'] = 1;
+		if ($related_autono != '') {
+			$search_params['autono'] = $related_autono;
+		} else {
+			$search_params['category_id'] = $category_id;
+		}
+
+		$result['left-col'] = $this->getNewsList('asc', 0, 1, $search_params)[0];
+		$exclude_autono = array($articleId, $result['left-col']['autono']);
+		$result['right-col'] = $this->getAllRankedStoryDetails('cover story', 'array', $exclude_autono)['rows'];
+		print_r($result);
 	}
 }
 ?>

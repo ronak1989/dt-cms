@@ -17,6 +17,11 @@ function spinner(background_class){
   return '<div class="spinner"><div class="rect1 '+background_class+'"></div>&nbsp;<div class="rect2 '+background_class+'"></div>&nbsp;<div class="rect3 '+background_class+'"></div>&nbsp;<div class="rect4 '+background_class+'"></div>&nbsp;<div class="rect5 '+background_class+'"></div>&nbsp;</div>';
 }
 function detailsFormatter(row){
+  if(row.news_source=='null'){
+    row.news_source = '';
+  }else{
+    row.news_source = row.news_source + ' | ';
+  }
   return [
       '<li class="stories-list-element">',
           '<a title="'+row.headline+'" class="story-link" href="'+row.news_url+'">',
@@ -31,7 +36,7 @@ function detailsFormatter(row){
                       row.headline,
                   '</h3>',
                   '<div class="byline">',
-                      '<div class="timestamp">'+row.news_source+' | '+row.modified_date+'</div>',
+                      '<div class="timestamp">'+row.news_source+row.modified_date+'</div>',
                       '<div class="clearfix"></div>',
                   '</div>',
                   '<div class="summary">',

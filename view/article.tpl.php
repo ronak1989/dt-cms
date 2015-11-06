@@ -114,6 +114,46 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                             </li>
                         </ul>
                     </div>
+                    <div class='related-story'>
+                        <div class="col-xs-12">
+                            <div class="col-xs-12 col-sm-6 col-md-6 PL16 PR16">
+                                <div class="relatedarticle-block">
+                                    &nbsp;
+                                </div>
+                                <a href="http://local.cms.dalaltimes.com/11/mkts-tank-in-last-hour-trade-nifty-below-7800">
+                                    <div class="relatedarticle-img">
+                                        <img width="100%;" class="img-responsive" src="/images/2015/oct-16/gemma-arterton_300.jpeg">
+                                    </div>
+                                    <!-- <div class="forecaster-heading">
+                                        Mkts tank in last hour trade, Nifty below 7800                </div> -->
+                                    <div class="relatedarticle-description">
+                                        <div>
+                                            Metals in red, adv-decl gives negative crossover
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 PL16 PR16">
+                                <div class="relatedarticle-block">
+                                   &nbsp;
+                                </div>
+                                <a href="http://local.cms.dalaltimes.com/11/mkts-tank-in-last-hour-trade-nifty-below-7800">
+                                    <div class="relatedarticle-img">
+                                        <img width="100%;" class="img-responsive" src="/images/2015/oct-16/gemma-arterton_300.jpeg">
+                                    </div>
+                                    <!-- <div class="forecaster-heading">
+                                        Mkts tank in last hour trade, Nifty below 7800                </div> -->
+                                    <div class="relatedarticle-description">
+                                        <div>
+                                            Metals in red, adv-decl gives negative crossover
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4 col-lg-3 hidden-sm hidden-xs">
                     <div id="news-widget">
