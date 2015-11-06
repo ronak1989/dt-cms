@@ -347,7 +347,7 @@ class News extends NewsModel {
 		if ($this->pg > $totalPages) {
 			/* redirect to main url of listing page */
 		} else {
-			$data['categoryDetails'] = $this->_newsModel->getNewsDetails($this->order, $this->offset, $this->limit, $this->searchParams, 'array');
+			$data['categoryDetails'] = $this->_newsModel->getNewsDetails($this->order, $this->offset, $this->limit, $this->searchParams, 'json');
 			$data['next_url'] = '';
 			$data['prev_url'] = '';
 			$data['prev_data_url'] = '';
@@ -372,7 +372,6 @@ class News extends NewsModel {
 			$data['categoryName'] = strtoupper($news_category[$catId]);
 			echo json_encode($data);
 		}
-
 	}
 }
 ?>
