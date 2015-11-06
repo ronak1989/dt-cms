@@ -348,6 +348,7 @@ class News extends NewsModel {
 			/* redirect to main url of listing page */
 		} else {
 			$data['categoryDetails'] = $this->_newsModel->getNewsDetails($this->order, $this->offset, $this->limit, $this->searchParams, 'array');
+			print_r($data['categoryDetails']);
 			$data['next_url'] = '';
 			$data['prev_url'] = '';
 			$data['prev_data_url'] = '';
