@@ -319,7 +319,8 @@ article > header > .byline > span + span:before {color: #464646;content: "| ";pa
 .article-image img {width:100%;}
 .article-image-slug{position:absolute;bottom:0;right:0;padding:20px;width:100%;color:#ffffff;background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;}
 .article-image-slug > span + span:before{content: "/ ";padding: 0 5px;}
-.article-content{padding:20px 0;color:#000000;font: 20px/30px 'Roboto Slab', serif;}
+.article-body{padding:20px 0;color:#000000;}
+.article-content{font: 20px/30px "Roboto Slab",serif;}
 .social-share-block{text-align: center;margin: 10px 0 15px;padding:15px; border-bottom: 1px solid #ccc;}
 .social-share-block > ul { display: table;width: 100%}
 .social-share-block > ul li  { display: table-cell;padding-right:5px;}
