@@ -67,7 +67,7 @@ $router->map('GET', '/homepage', 'news#getHomepage', 'WEBSITE_HOMEPAGE');
 $router->map('GET', '/search', 'news#getSearchPage', 'WEBSITE_SEARCH');
 #LATEST NEWS URL
 $router->map('GET', '/latest-news?/[i:pg]?', 'news#getLatestNewsPage', 'WEBSITE_LATESTNEWS');
-$router->map('GET', '/latest-news/[i:pg].json', 'news#getCategorylistingPageJson', 'WEBSITE_LATESTNEWS_JSON');
+$router->map('GET', '/latest-news/[i:pg].json', 'news#getLatestNewsPageJson', 'WEBSITE_LATESTNEWS_JSON');
 #Category URL
 $router->map('GET', '/[cat-url:category]?/[i:pg]?', 'news#getCategorylistingPage', 'WEBSITE_CATEGORYPAGE');
 $router->map('GET', '/[cat-url:category]/[i:pg].json', 'news#getCategorylistingPageJson', 'WEBSITE_CATEGORYPAGE_JSON');
