@@ -66,7 +66,7 @@ $(document).ready(function() {
 	var $wWidth = $(window).width();
 	var $wHeight = $(window).height();
 	if($wWidth<780){
-		$item.height($wHeight-70);
+		$item.height($wHeight-65);
 		$item.addClass('full-screen');
 	}else{
 		$item.height($wHeight);

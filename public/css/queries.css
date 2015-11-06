@@ -13,13 +13,30 @@
 
 	}
 	@media screen and (max-width:991px) {
+		#hp-rank .rank-article {position: absolute;left: 10%;bottom: 3.000em;}
+		#hp-rank .rank-article > h3 {font-size: 2.500em;color: #FFFFFF;line-height:1em !important;margin:10px 0px;}
+		#hp-rank .article-category{background: #ffff00;font-size: 1.300em;text-transform: uppercase;color: #000000;	padding: 6px;font-family: 'Roboto', sans-serif;}
+		article > header > h1 {font-size:35px;line-height:38px;color:#000000;}
+	}
+	@media screen and (max-width:780px) {
+		#news-section{margin:10px 0 20px;}
+		#search-section{padding:20px;}
+		article > header > h1 {font-size:25px;line-height:28px;color:#000000;}
 	}
 
 	@media screen and (max-width:640px) {
+		#hp-rank .rank-article {position: absolute;left: 10%;bottom: 3.000em;}
+		#hp-rank .rank-article > h3 {font-size: 2.000em;color: #FFFFFF;line-height:1em !important;margin:10px 0px;}
+		#hp-rank .article-category{background: #ffff00;font-size: 1.000em;text-transform: uppercase;color: #000000;	padding: 6px;font-family: 'Roboto', sans-serif;}
 	}
 
 	@media screen and (max-width:480px) {
-
+		#hp-rank .rank-article {position: absolute;left: 10%;bottom: 3.000em;}
+		#hp-rank .rank-article > h3 {font-size: 1.000em;color: #FFFFFF;line-height:1em !important;margin:10px 0px;}
+		#hp-rank .article-category{background: #ffff00;font-size: 0.800em;text-transform: uppercase;color: #000000;	padding: 6px;font-family: 'Roboto', sans-serif;}
+		article > header > h1 {font-size:20px;line-height:23px;color:#000000;}
+		article > header > .byline {font-size: 12px;line-height: 15px;}
+		.article-image-slug{font-size: 12px;line-height: 15px;}
 	}
 	@media screen and (max-device-width: 1024px) {
 		.carousel-control{width:4% !important}

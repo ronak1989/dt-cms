@@ -223,6 +223,7 @@ body.has-active-menu {
 #hp-rank .rank-article > h3 {font-size: 3.000em;color: #FFFFFF;line-height:1em !important;margin:10px 0px;}
 #hp-rank .article-category{background: #ffff00;font-size: 1.800em;text-transform: uppercase;color: #000000;	padding: 6px;font-family: 'Roboto', sans-serif;}
 .full-screen { background-size: cover;  background-position: center;  background-repeat: no-repeat;}
+#mycarousel{margin-top:-2px;}
 
 /*** news category ****/
 .category-red-bkgrnd{background: #d71920 !important;}
@@ -304,11 +305,11 @@ body.has-active-menu {
 #news-section{margin:72px 0 20px;clear:both;}
 .article{display: block;}
 .article-block{padding-top:30px;}
-#breadcrumb-block{margin:0 auto;max-width: 940px;}
+#breadcrumb-block{margin:0 auto;max-width: 970px;}
 .breadcrumb {background-color: unset;}
 .breadcrumb > li > a {color:#d98621;}
 .breadcrumb > li + li:before {color: #807e7d;content: "> ";padding: 0 5px;line-height: 16px;}
-article > header {margin:0 auto;max-width: 940px;transition:none;position:unset;min-height: unset;}
+article > header {margin:0 auto;max-width: 970px;transition:none;position:unset;min-height: unset;padding: 0 15px;}
 article > header > h1 {font-size:45px;line-height:48px;color:#000000;}
 article > header > .byline {margin-top:10px;font-size: 15px;line-height: 18px;}
 article > header > .byline > .article-source {color:#d98621;}
@@ -335,9 +336,11 @@ article > header > .byline > span + span:before {color: #464646;content: "| ";pa
 .stick{position:fixed;padding-right:15px;}
 
 .mobile-footerheader{position:fixed;background-color:#000;bottom:0px;left:0px;right:0px;margin-bottom:0px;z-index:999;display: none;}
-.mobile-footerheader > nav > ul > li > a{ border-right:1px solid #FFFFFF;color:#FFFFFF;}
+.mobile-footerheader > nav > ul > li > a{ border-right:1px solid #FFFFFF;color:#FFFFFF;margin-bottom: unset;}
 .mobile-footerheader > nav > ul > li > a:hover{ color:#000000;}
-.mobile-footerheader > nav > ul > li { display: table-cell !important;width: 1% !important}
+.mobile-footerheader > nav > ul > li { display: table-cell !important;width: 1%
+  !important}
+#search-section{min-height: 600px; padding:104px 20px 20px;}
 h1 {  font-size: 4em; }
 h2 {
   font-size: 2.667em;

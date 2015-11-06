@@ -456,18 +456,19 @@ html, body, iframe, h1, h2, h3, h4, h5, h6{margin:0px; padding:0px; border:0px; 
 
 @media only screen and (min-width: 781px) {
 .mobile-footerheader {display: none;}
+footer{padding-bottom:0px;}
 .wsmenu-list li:hover > .wsmenu-submenu{display:block !important;}
 .wsmenu-submenu li:hover > .wsmenu-submenu-sub{display:block !important;}
 .wsmenu-submenu-sub li:hover > .wsmenu-submenu-sub-sub{display:block !important;}
 .wsmenu-list li:hover > .megamenu{display:block !important;}
-
-
 }
 
 
 /*------------------------------------ Mobile CSS ---------------------------------------------*/
 @media only screen and (max-width: 780px) {
 .mobile-footerheader {display: block;}
+footer{padding-bottom:30px;}
+#breadcrumb-block{display: none;}
 .features-extra{ z-index:0 !important; }
 .hero h1{ font-size:2.600em !important; line-height:53px !important; margin-bottom:18px;}
 .logo{ display:none !important; }

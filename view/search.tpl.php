@@ -11,7 +11,7 @@ include_once _CONST_VIEW_PATH . 'menu.php';
 ?>
 <div id="search-section">
     <div class="clearfix"></div>
-    <div id="search-block" style="min-height: 600px; padding-top: 84px;margin:0px 20px;">
+    <div id="search-block">
         <div id='cse' style='width: 100%;'>Loading</div>
     </div>
     <div class="clearfix"></div>
