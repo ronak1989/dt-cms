@@ -17,15 +17,17 @@ class EditorModel extends Database {
 		 */
 		return array(
 			'1' => 'MARKETS',
+			'7' => 'Economy',
 			'2' => 'Corporates',
-			'3' => 'News',
 			'4' => 'Investing',
+			'3' => 'News',
 			'5' => 'EARNINGS',
 			'6' => 'BUDGETS',
-			'7' => 'Economy',
 			'8' => 'MUTUAL FUNDS',
 			/*'9' => 'IPO',*/
-			'10' => 'Wire News');
+			/*'10' => 'Wire News',*/
+			'11' => 'Chart of the Day',
+			'12' => 'The Forecaster');
 	}
 
 	protected function getNewsSubCategory($newsCategoryId) {
@@ -34,9 +36,9 @@ class EditorModel extends Database {
 		 */
 		$subCategory = array(
 			/*Market*/
-			'1' => array('1' => 'Local Markets', '2' => 'Mark To Market', '3' => 'F&O Cues', '4' => 'Hot Money (FII Activity)', '5' => 'Funds (MF & DII Activity)', '6' => 'Market Outlook', '7' => 'Chart Check', '8' => 'Commodities', '9' => 'Currencies', '10' => 'Bonds', '11' => 'International Markets', '12' => 'Hot Cake (Buzzing)', '13' => 'Astrology', '14' => 'Heard On Street', '15' => 'IPO', '16' => 'The Forecaster', '17' => 'Chart of the Day', '18' => 'Morning Calls'),
+			'1' => array('1' => 'Local Markets', '2' => 'Mark To Market', '3' => 'F&O Cues', '4' => 'Hot Money (FII Activity)', '5' => 'Funds (MF & DII Activity)', '6' => 'Market Outlook', '7' => 'Chart Check', '8' => 'Commodities', '9' => 'Currencies', '10' => 'Bonds', '11' => 'International Markets', '12' => 'Hot Cake (Buzzing)', '13' => 'Astrology', '14' => 'Heard On Street', '15' => 'IPO', /*'16' => 'The Forecaster', '17' => 'Chart of the Day',*/'18' => 'Morning Calls'),
 			/*Corporates*/
-			'2' => array('1' => 'Corporate Buzz', '2' => 'M&A Action', '3' => 'Deal Street', '4' => 'CEO Speaks/Mangement Corner', '5' => 'Legal'),
+			'2' => array('1' => 'Corporate Buzz', '2' => 'M&A Action', '3' => 'Deal Street', '4' => 'CEO Speaks/Mangement Corner', '5' => 'Legal', '6' => 'Startup Digest', '7' => 'Expert Speak'),
 			/*News*/
 			'3' => array('1' => 'Politics', '2' => 'World', '3' => 'Sports', '4' => 'Tech', '5' => 'Hastag', '6' => 'Current Affairs', '7' => 'Features', '8' => 'Press Release', '9' => 'Lifestyle'),
 			/*Investing*/
@@ -48,11 +50,15 @@ class EditorModel extends Database {
 			/*Economy*/
 			'7' => array('1' => 'Budget', '2' => 'Decoder', '3' => 'World Economy', '4' => '360 Degree', '5' => 'Micros', '6' => 'Macros', '7' => 'Policy Makers'),
 			/*MUTUAL FUNDS*/
-			'8' => array('1' => 'MF-Analysis', '2' => 'MF-News', '3' => 'MF-Interview', '4' => 'MF Experts'),
+			/*'8' => array('1' => 'MF-Analysis', '2' => 'MF-News', '3' => 'MF-Interview', '4' => 'MF Experts'),*/
+			'8' => array(),
 			/*IPO*/
 			/*'9' => array('1' => 'IPO - News', '2' => 'IPO - Issues Open', '3' => 'IPO - Tip', '4' => 'IPO - New Listings', '5' => 'IPO - Listing Strategy', '6' => 'IPO - Upcoming Issues'),*/
+			'9' => array(),
 			/*Wire News*/
-			'10' => array());
+			'10' => array(),
+			'11' => array(),
+			'12' => array());
 		return $subCategory[$newsCategoryId];
 	}
 

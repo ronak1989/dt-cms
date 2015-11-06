@@ -61,14 +61,14 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                     <span style="float:right;">Max 70 chars</span>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>SMS Heading</label>
+                                                    <label>Social Sharing Caption</label>
                                                     <input type="text" class="form-control" name="sms_heading" name="sms_heading" autocomplete="off" value="<?php echo $this->articleParams['sms_heading'];?>" />
                                                     <span style="float:right;">Max 70 chars</span>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Summary</label>
-                                                    <textarea type="text" class="form-control" name="summary" id="summary" autocomplete="off"><?php echo $this->articleParams['summary'];?></textarea>
+                                                    <textarea type="text" class="form-control" name="summary" id="summary" autocomplete="off" style="line-height: unset !important;"><?php echo $this->articleParams['summary'];?></textarea>
                                                     <span style="float:right;">Max 300 chars</span>
                                                 </div>
 
@@ -571,7 +571,7 @@ $(document).ready(function() {
                 message: 'Please select the News Category for the Article',
                 validators: {
                     notEmpty: {
-                        message: 'Article needs to belong to any one of the category',
+                        message: 'Article needs to belong to any one of the Sub category',
                     },
                 }
             },

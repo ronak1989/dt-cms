@@ -323,6 +323,17 @@ foreach ($this->columnHeadings as $data_field => $col_dtls) {
             if($caption_val==''){
                 $(this).hide();
                 $(this).next().show();
+                $(this).next().html('Add Caption').show()
+                $.post('<?php echo $update_url;?>',{
+                    rank_type: $('#rank_type').val(),
+                    rank_autono: row.autono,
+                    rank: row.rank,
+                    rank_caption: ''
+                },function(data, status){
+                    console.log(status);
+                    console.log(data);
+                });
+                alert('Removed Caption for rank '+row.rank);
             }else if(validateAlphanumeric($caption_val)){
                 $(this).hide();
                 if($caption_val == $(this).next().text()){

@@ -26,6 +26,9 @@
             <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
+                    <li>
+                        <a href="<?php echo _CONST_WEB_URL;?>"><i class="fa fa-home"></i></a>
+                    </li>
                     <li><a><i class="fa fa-th-list"></i> Masters <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
                             <li>

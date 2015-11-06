@@ -6,14 +6,22 @@ function loadNewsSubcategories(category, selected_subcategory, populateId, type)
             type: 'post',
             data: {category_id:category},
             success: function( response, textStatus, jQxhr ){
-                var options = '<option value="">Please select News Sub Category</option>';
+                console.log(response.length);
+                var options = '';
+                var cnt =0;
                 $.each(response, function(subCatId,subCatName) {
+                    cnt++;
                     if(selected_subcategory==subCatId){
                         options += '<option value="'+subCatId+'" selected>'+subCatName+'</option>';
                     }else{
                         options += '<option value="'+subCatId+'">'+subCatName+'</option>';
                     }
                 });
+                if(cnt==0){
+                    options = '<option value="0">Please select News Sub Category</option>';
+                }else{
+                    options = '<option value="">Please select News Sub Category</option>'+options;
+                }
                 switch(type){
                     case 'object':
                         populateId.html(options);

@@ -260,16 +260,19 @@ if ($image_gallery == '') {
         $(document.body).on('click','.disapprove_img',function() {
             var _this = this;
             var image_id = $(this).attr('data-img-id');
-            $.post('<?php echo $disapprove_url;?>'+image_id, function(result) {
-                if(result=='success'){
-                    $(_this).closest('.col-md-55').remove();
-                    $("#operation_status").append('<div role="alert" class="alert alert-success alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Image <strong>'+$(_this).attr('data-img-name')+'</strong> has been deleted from the system.</div>');
-                }else{
-                    $("#operation_status").append('<div role="alert" class="alert alert-danger alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Error while deleting the image '+$(_this).attr('data-img-name')+'. Please try again!!!</div>');
-                }
-            }).fail(function(xhr, ajaxOptions, thrownError) {
+            var confirm_status = confirm("Are you sure you want to Delete this image?");
+            if(confirm_status==true){
+                $.post('<?php echo $disapprove_url;?>'+image_id, function(result) {
+                    if(result=='success'){
+                        $(_this).closest('.col-md-55').remove();
+                        $("#operation_status").append('<div role="alert" class="alert alert-success alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Image <strong>'+$(_this).attr('data-img-name')+'</strong> has been deleted from the system.</div>');
+                    }else{
+                        $("#operation_status").append('<div role="alert" class="alert alert-danger alert-dismissible fade in"><button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">×</span></button>Error while deleting the image '+$(_this).attr('data-img-name')+'. Please try again!!!</div>');
+                    }
+                }).fail(function(xhr, ajaxOptions, thrownError) {
 
-            });
+                });
+            }
         });
 
         $(document.body).on('click','.story_img',function() {
@@ -283,7 +286,7 @@ if ($image_gallery == '') {
             window.parent.tinyMCE.activeEditor.execCommand('mceInsertContent', false, '<img src="'+$(this).attr('data-img-url')+'" class="img-responsive" />');
             window.parent.$("#imageGalleryModal").modal('hide');
         });
-
+        $('.search_collapse-link').trigger('click');
     });
 
     function operationFormatter(value, row, index) {

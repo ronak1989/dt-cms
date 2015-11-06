@@ -33,10 +33,9 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                             <div class="" style="min-height:900px;">
                                 <div class="x_title">
                                     <h2><?php echo self::$pageSubTitle;?></h2>
-                                    <ul class="nav navbar-right panel_toolbox MT3">
-                                        <!-- <li><a class="btn btn-primary btn-xs" style="background-color: #1479b8" href='<?php echo $this->_data['url']['add'];?>'>Add New</a>
-                                        </li> -->
-                                    </ul>
+                                    <!-- <ul class="nav navbar-right panel_toolbox MT3">
+
+                                    </ul> -->
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
@@ -136,6 +135,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                                   <li>
                                                                       <div class='form-group'>
                                                                           <a class="btn btn-dark text-right" href="/image/new"><i class="fa fa-pencil"></i> Upload New Image </a>
+                                                                          <a class="btn btn-primary text-right" style="background-color: #1479b8" href="/image/pending-for-approval"><i class="fa fa-thumbs-up "></i> Approve Image </a>
                                                                       </div>
                                                                   </li>
                                                               </ul>

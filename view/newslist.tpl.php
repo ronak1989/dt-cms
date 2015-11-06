@@ -291,6 +291,8 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
     });
 
     function unpublished_news_queryParams(params) {
+        params['offset'] = 0;
+        params['limit'] = 10;
         $('#unpublished_news_toolbar').find('input[name], input[hidden],select[name]').each(function () {
             params[$(this).attr('name')] = $(this).val();
         });
@@ -298,6 +300,8 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
     }
 
     function published_news_queryParams(params) {
+        params['offset'] = 0;
+        params['limit'] = 10;
         $('#published_news_toolbar').find('input[name], input[hidden],select[name]').each(function () {
             params[$(this).attr('name')] = $(this).val();
         });

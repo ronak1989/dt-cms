@@ -18,7 +18,7 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                 <ul class="breadcrumb">
                     <li><a href="<?php echo _CONST_WEB_URL;?>"><i class="fa fa-home fa-lg"></i></a></li>
                     <li><a href="<?php echo $data['article-details']['category_url'];?>"><?php echo $data['article-details']['category_name'];?></a></li>
-                    <li class="active" id="lp"><?php echo $data['article-details']['heading'];?></li>
+                    <li class="active" id="lp"><?php echo $data['article-details']['subcategory_name'];?></li>
                 </ul>
             </div>
             <header>
@@ -77,7 +77,7 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                             </li>
                         </ul>
                     </div>
-                    <div>
+                    <div class="article-content">
                         <?php echo $data['article-details']['news_content'];?>
                     </div>
                     <div class="social-share-block">

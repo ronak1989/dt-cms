@@ -86,6 +86,7 @@ class News extends NewsModel {
 		$update_url = '/rank/update';
 		$delete_url = '/rank/remove';
 		$rank_type = 'cover story';
+		static::$pageTitle = 'COVER STORY RANKING';
 		$data['mainCategory'] = '<option value="">Please select Category to Search</option>';
 		foreach (parent::getNewsCategory() as $key => $value) {
 			$data['mainCategory'] .= '<option value="' . $key . '">' . ucwords(strtolower($value)) . '</option>';
@@ -100,6 +101,7 @@ class News extends NewsModel {
 		$update_url = '/rank/update';
 		$delete_url = '/rank/remove';
 		$rank_type = 'hot of the press';
+		static::$pageTitle = 'Hot of the press Ranking';
 		$data['mainCategory'] = '<option value="">Please select Category to Search</option>';
 		foreach (parent::getNewsCategory() as $key => $value) {
 			$data['mainCategory'] .= '<option value="' . $key . '">' . ucwords(strtolower($value)) . '</option>';
@@ -258,7 +260,8 @@ class News extends NewsModel {
 		$data['related-news'] = $this->_newsModel->getRelatedNewsWidgetDetails($data['article-details']['articleId'], $data['article-details']['related_story'], $data['article-details']['news_category']);
 		$data['article-details']['category_url'] = $catUrl[$data['article-details']['news_category']];
 		$data['article-details']['category_name'] = $news_category[$data['article-details']['news_category']];
-
+		$news_subcategory = parent::getNewsSubCategory($data['article-details']['news_category']);
+		$data['article-details']['subcategory_name'] = $news_subcategory[$data['article-details']['news_subcategory']];
 		static::$socialTags['og:title'] = $data['article-details']['heading'];
 		static::$socialTags['og:type'] = 'article';
 		static::$socialTags['og:image'] = _CONST_WEB_URL . $data['article-details']['image_1600'];
