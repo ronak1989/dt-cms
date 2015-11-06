@@ -13,7 +13,7 @@
 
 	}
 	@media screen and (max-width:991px) {
-		#hp-rank .rank-article {position: absolute;left: 10%;bottom: 3.000em;}
+		#hp-rank .rank-article {position: absolute;left: 10%;bottom: 2.500em;}
 		#hp-rank .rank-article > h3 {font-size: 2.500em;color: #FFFFFF;line-height:1em !important;margin:10px 0px;}
 		#hp-rank .article-category{background: #ffff00;font-size: 1.300em;text-transform: uppercase;color: #000000;	padding: 6px;font-family: 'Roboto', sans-serif;}
 		article > header > h1 {font-size:35px;line-height:38px;color:#000000;}
@@ -25,13 +25,13 @@
 	}
 
 	@media screen and (max-width:640px) {
-		#hp-rank .rank-article {position: absolute;left: 10%;bottom: 3.000em;}
+		#hp-rank .rank-article {position: absolute;left: 10%;bottom: 2.000em;}
 		#hp-rank .rank-article > h3 {font-size: 2.000em;color: #FFFFFF;line-height:1em !important;margin:10px 0px;}
 		#hp-rank .article-category{background: #ffff00;font-size: 1.000em;text-transform: uppercase;color: #000000;	padding: 6px;font-family: 'Roboto', sans-serif;}
 	}
 
 	@media screen and (max-width:480px) {
-		#hp-rank .rank-article {position: absolute;left: 10%;bottom: 3.000em;}
+		#hp-rank .rank-article {position: absolute;left: 10%;bottom: 1.000em;}
 		#hp-rank .rank-article > h3 {font-size: 1.000em;color: #FFFFFF;line-height:1em !important;margin:10px 0px;}
 		#hp-rank .article-category{background: #ffff00;font-size: 0.800em;text-transform: uppercase;color: #000000;	padding: 6px;font-family: 'Roboto', sans-serif;}
 		article > header > h1 {font-size:20px;line-height:23px;color:#000000;}
