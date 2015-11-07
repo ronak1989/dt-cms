@@ -25,12 +25,14 @@
 	}
 
 	@media screen and (max-width:640px) {
+		.article-content{font: 18px/28px "Roboto Slab",serif;}
 		#hp-rank .rank-article {position: absolute;left: 10%;bottom: 2.000em;}
 		#hp-rank .rank-article > h3 {font-size: 2.000em;color: #FFFFFF;line-height:1em !important;margin:10px 0px;}
 		#hp-rank .article-category{background: #ffff00;font-size: 1.000em;text-transform: uppercase;color: #000000;	padding: 6px;font-family: 'Roboto', sans-serif;}
 	}
 
 	@media screen and (max-width:480px) {
+		.article-content{font: 16px/26px "Roboto Slab",serif;}
 		#hp-rank .rank-article {position: absolute;left: 10%;bottom: 1.000em;}
 		#hp-rank .rank-article > h3 {font-size: 1.000em;color: #FFFFFF;line-height:1em !important;margin:10px 0px;}
 		#hp-rank .article-category{background: #ffff00;font-size: 0.800em;text-transform: uppercase;color: #000000;	padding: 6px;font-family: 'Roboto', sans-serif;}

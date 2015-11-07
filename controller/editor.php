@@ -85,9 +85,12 @@ class Editor extends EditorModel {
 			if ($this->articleParams['publisher_id'] == 0) {
 				$this->articleParams['publisher_id'] = NULL;
 			}
+			$this->articleParams['mod_date'] = date('Y-m-d H:i:s');
 		} else {
 			$this->articleParams['author_id'] = base64_decode($_SESSION['_cmsId']);
 			$this->articleParams['author_name'] = base64_decode($_SESSION['_employeeName']);
+			$this->articleParams['publish_date'] = date('Y-m-d H:i:s');
+			$this->articleParams['mod_date'] = date('Y-m-d H:i:s');
 		}
 
 		$data['mainCategory'] = $this->_editorModel->getNewsCategory();

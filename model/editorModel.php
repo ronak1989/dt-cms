@@ -185,11 +185,15 @@ class EditorModel extends Database {
 		$this->_modelQuery = 'UPDATE `news_unpublish` set
 			`publish` = :publish,
 			`transfer_to_newspublish_tbl` = :transfer_to_newspublish_tbl,
+			`publish_date` = :publish_date,
+			`publisher_id` = :publisher_id,
 			`last_updated_by` = :last_updated_by where autono = :autono';
 		$this->query($this->_modelQuery);
 		$this->bindByValue('publish', $fields['publish']);
 		$this->bindByValue('transfer_to_newspublish_tbl', $fields['transfer_to_newspublish_tbl']);
 		$this->bindByValue('last_updated_by', $fields['last_updated_by']);
+		$this->bindByValue('publisher_id', $fields['last_updated_by']);
+		$this->bindByValue('publish_date', date('Y-m-d H:i:s'));
 		$this->bindByValue('autono', $fields['articleId']);
 		if ($this->execute()) {
 			$this->endTransaction();

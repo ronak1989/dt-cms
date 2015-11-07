@@ -133,14 +133,14 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                     <label>Publish Date & Time</label>
                                                     <div class="input-prepend input-group">
                                                         <span class="add-on input-group-addon" id="pub_dt_icon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
-                                                        <input type="text" readonly="readonly" class="form-control date-picker" value="<?php echo date('d-m-Y H:i:s');?>" name="publish_date" id="publish_date" />
+                                                        <input type="text" readonly="readonly" class="form-control date-picker" value="<?php echo $this->articleParams['publish_date'];?>" name="publish_date" id="publish_date" />
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Modified Date & Time</label>
                                                     <div class="input-prepend input-group">
                                                         <span class="add-on input-group-addon" id="mod_dt_icon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
-                                                        <input type="text" readonly="readonly" class="form-control date-picker" value="<?php echo date('d-m-Y H:i:s');?>" name="mod_date" id="mod_date" />
+                                                        <input type="text" readonly="readonly" class="form-control date-picker" value="<?php echo $this->articleParams['mod_date'];?>" name="mod_date" id="mod_date" />
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
