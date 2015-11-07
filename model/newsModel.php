@@ -341,6 +341,9 @@ class NewsModel extends EditorModel {
 		$search_params['publish_status'] = 1;
 		$search_params['category_id'] = $category_id;
 		$result['left-col'] = $this->getNewsDetails('desc', 0, 1, $search_params, 'array')['rows'][0];
+		if ($result['left-col']['autono'] == $articleId) {
+			$result['left-col'] = $this->getNewsDetails('desc', 1, 2, $search_params, 'array')['rows'][0];
+		}
 		unset($search_params['category_id']);
 		$search_params['autono'] = $related_autono;
 		$result['right-col'] = $this->getNewsDetails('desc', 0, 1, $search_params, 'array')['rows'][0];
