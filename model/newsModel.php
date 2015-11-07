@@ -42,7 +42,7 @@ class NewsModel extends EditorModel {
 		if (!empty($where_condition)) {
 			$where_condition = 'where ' . implode(' and ', $where_condition);
 		}
-		$this->_modelQuery = 'select count(1) as cnt from news_unpublish ' . $where_condition;
+		echo $this->_modelQuery = 'select count(1) as cnt from news_unpublish ' . $where_condition;
 		$this->query($this->_modelQuery);
 		return $this->single();
 	}
@@ -362,7 +362,10 @@ class NewsModel extends EditorModel {
 		} else {
 			$search_params['exclude_autono'][] = $articleIds;
 		}
-		$search_params['exclude_autono'][] = $related_autono;
+		if ($related_autono != '') {
+			$search_params['exclude_autono'][] = $related_autono;
+		}
+
 		$result['left-col'] = $this->getNewsDetails('desc', 0, 1, $search_params, 'array')['rows'][0];
 
 		unset($search_params['category_id']);
