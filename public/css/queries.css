@@ -13,6 +13,7 @@
 
 	}
 	@media screen and (max-width:991px) {
+		#category-news > ul li {position:relative; margin:5px;border-bottom:1px solid #e60000;min-height: 45px;}
 		#hp-rank .rank-article {position: absolute;left: 10%;bottom: 2.500em;}
 		#hp-rank .rank-article > h3 {font-size: 2.500em;color: #FFFFFF;line-height:1em !important;margin:10px 0px;}
 		#hp-rank .article-category{background: #ffff00;font-size: 1.300em;text-transform: uppercase;color: #000000;	padding: 6px;font-family: 'Roboto', sans-serif;}
