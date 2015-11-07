@@ -334,8 +334,12 @@ class NewsModel extends EditorModel {
 			$this->_queryResult[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
 			$this->_queryResult[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
 			$last_related_autono[] = $value['autono'];
+
 			$this->_queryResult[$key]['related-news'] = $this->getRelatedNewsWidgetDetails($last_related_autono, $value['related_story'], $value['category_id']);
-			$last_related_autono[] = $this->_queryResult[$key]['related-news']['left-col']['autono'];
+			if ($this->_queryResult[$key]['related-news']['left-col']['autono'] != '') {
+				$last_related_autono[] = $this->_queryResult[$key]['related-news']['left-col']['autono'];
+			}
+
 		}
 		if ($return_type == 'json') {
 			return json_encode(array("total" => (int) $total, "rows" => $this->_queryResult));
@@ -350,6 +354,7 @@ class NewsModel extends EditorModel {
 		$result['article-details'] = $this->getArticleDetails(array('articleId' => $autono));
 		$result['article-details']['news_url'] = _CONST_WEB_URL . '/' . $result['article-details']['articleId'] . '/' . $this->_commonFunction->sanitizeString($result['article-details']['heading']);
 		$result['article-details']['news_source_name'] = $news_source[$result['article-details']['news_source']];
+		$result['related-news'] = $this->getRelatedNewsWidgetDetails($result['article-details']['articleId'], $result['article-details']['related_story'], $result['article-details']['news_category']);
 		$result['suggested-stories'] = $this->getAllRankedStoryDetails('hot of the press', 'array')['rows'];
 		return $result;
 	}
@@ -370,11 +375,14 @@ class NewsModel extends EditorModel {
 
 		unset($search_params['category_id']);
 		if ($related_autono == '' || $related_autono == NULL || $related_autono == '0') {
-			$search_params['exclude_autono'][] = $result['left-col']['autono'];
+			if ($result['left-col']['autono'] != '') {
+				$search_params['exclude_autono'][] = $result['left-col']['autono'];
+			}
 		} else {
 			unset($search_params['exclude_autono']);
 			$search_params['autono'] = $related_autono;
 		}
+
 		$result['right-col'] = $this->getNewsDetails('desc', 0, 1, $search_params, 'array')['rows'][0];
 		return $result;
 	}

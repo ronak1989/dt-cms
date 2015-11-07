@@ -72,12 +72,40 @@
       '</div>'
     ].join('');
     },
+    generateRelatedStoryBlock = function(_details){
+      return[
+        '<div class="col-xs-12 col-sm-6 col-md-6 PL16 PR16">',
+          '<div class="relatedarticle-block">',
+              '&nbsp;',
+          '</div>',
+          '<a href="'+_details.news_url+'">',
+              '<div class="relatedarticle-img">',
+                  '<img width="100%;" class="img-responsive" src="'+_CONST_WEB_URL + _details.image_300+'">',
+              '</div>',
+              '<div class="relatedarticle-description">',
+                  '<div>',
+                      _details.headline,
+                  '</div>',
+                  '<div class="clearfix"></div>',
+              '</div>',
+          '</a>',
+        '</div>'
+      ].join('');
+    },
     generateArticlePage = function(_articleDetails,_newsWidget){
       var social_buttons = generateSocialButtons(encodeURIComponent(_articleDetails.headline),encodeURIComponent(_articleDetails.summary),encodeURIComponent(_articleDetails.news_url));
       _newsWidget = _newsWidget.replace("tab-two", 'rhs-'+_articleDetails.autono+'-two');
       _newsWidget = _newsWidget.replace("tab-one", 'rhs-'+_articleDetails.autono+'-one');
       _newsWidget = _newsWidget.replace("tab-one", 'rhs-'+_articleDetails.autono+'-one');
       _newsWidget = _newsWidget.replace("tab-two", 'rhs-'+_articleDetails.autono+'-two');
+      var leftcol = '';
+      var rightcol = '';
+      if(_articleDetails['related-news']['left-col']!=null){
+        leftcol = generateRelatedStoryBlock(_articleDetails['related-news']['left-col']);
+      }
+      if(_articleDetails['related-news']['right-col']!=null){
+        rightcol = generateRelatedStoryBlock(_articleDetails['related-news']['right-col']);
+      }
       return [
       '<article id="article-'+_articleDetails.autono+'" class="article article-block">',
             '<header>',
@@ -108,38 +136,8 @@
                     social_buttons,
                     '<div class="related-story">',
                         '<div class="col-xs-12">',
-                            '<div class="col-xs-12 col-sm-6 col-md-6 PL16 PR16">',
-                                '<div class="relatedarticle-block">',
-                                    '&nbsp;',
-                                '</div>',
-                                '<a href="'+_articleDetails["related-news"]["left-col"].news_url+'">',
-                                    '<div class="relatedarticle-img">',
-                                        '<img width="100%;" class="img-responsive" src="'+_CONST_WEB_URL + _articleDetails["related-news"]["left-col"].image_300+'">',
-                                    '</div>',
-                                    '<div class="relatedarticle-description">',
-                                        '<div>',
-                                            _articleDetails["related-news"]["left-col"].headline,
-                                        '</div>',
-                                        '<div class="clearfix"></div>',
-                                    '</div>',
-                                '</a>',
-                            '</div>',
-                            '<div class="col-xs-12 col-sm-6 col-md-6 PL16 PR16">',
-                                '<div class="relatedarticle-block">',
-                                   '&nbsp;',
-                                '</div>',
-                                '<a href="'+_articleDetails["related-news"]["right-col"].news_url+'">',
-                                    '<div class="relatedarticle-img">',
-                                        '<img width="100%;" class="img-responsive" src="'+_CONST_WEB_URL + _articleDetails["related-news"]["right-col"].image_300+'">',
-                                    '</div>',
-                                    '<div class="relatedarticle-description">',
-                                        '<div>',
-                                            _articleDetails["related-news"]["right-col"].headline,
-                                        '</div>',
-                                        '<div class="clearfix"></div>',
-                                    '</div>',
-                                '</a>',
-                            '</div>',
+                            leftcol,
+                            rightcol,
                         '</div>',
                     '</div>',
                 '</div>',
