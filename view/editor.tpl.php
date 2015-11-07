@@ -435,7 +435,7 @@ $(document).ready(function() {
 
 
     $(".js-data-example-ajax").select2({
-        placeholder: "Search Related Story",
+        placeholder: "Search Off the Topic Story",
         allowClear: true,
         id: function(e){return e.autono;},
       ajax: {
@@ -580,6 +580,14 @@ $(document).ready(function() {
                 validators: {
                     notEmpty: {
                         message: 'Article needs to belong to any one of the source',
+                    },
+                }
+            },
+            related_story:{
+                message: 'Please Provide the `OFF THE TOPIC` story for this article',
+                validators: {
+                    notEmpty: {
+                        message: 'Please Provide the `OFF THE TOPIC` story for this article',
                     },
                 }
             }

@@ -295,42 +295,35 @@ class NewsModel extends EditorModel {
 		return $result;
 	}
 
-	protected function getAllRankedStoryDetails($type, $return_type = 'json', $exclude_autono = array(), $get_related_news = false) {
-		if (!empty($exclude_autono)) {
-			$modelQuery = 'select nup.modified_date, nup.autono, nup.headline, nup.category_id, nup.sub_category_id, nup.summary, nup.source_id, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" and nr.autono not in (' . implode(',', $exclude_autono) . ') order by nr.rank limit 1';
-		} else {
-			$modelQuery = 'select nup.*, nr.rank, nr.caption, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" order by nr.rank';
-		}
+	protected function getAllRankedStoryDetails($type, $return_type = 'json') {
+		$this->_modelQuery = 'select nup.*, nr.rank, nr.caption, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" order by nr.rank';
 
-		$this->query($modelQuery);
-		$queryResult = $this->resultset();
-		$total = count($queryResult);
+		$this->query($this->_modelQuery);
+		$this->_queryResult = $this->resultset();
+		$total = count($this->_queryResult);
 		$category = $this->getNewsCategory();
 		$news_source = $this->getNewsSource();
 		$prev_cat = NULL;
-		$cnt = 0;
-		foreach ($queryResult as $key => $value) {
+		foreach ($this->_queryResult as $key => $value) {
 			if ($prev_cat != $value['category_id']) {
 				$prev_cat = $value['category_id'];
 				$sub_category = $this->getNewsSubCategory($value['category_id']);
 			}
-			$queryResult[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
-			$queryResult[$key]['category_name'] = $category[$value['category_id']];
-			$queryResult[$key]['news_source_name'] = $news_source[$value['source_id']];
-			$queryResult[$key]['category_url'] = _CONST_WEB_URL . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
-			if ($queryResult[$key]['caption'] == null) {
-				$queryResult[$key]['caption'] = '';
+			$this->_queryResult[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
+			$this->_queryResult[$key]['category_name'] = $category[$value['category_id']];
+			$this->_queryResult[$key]['news_source_name'] = $news_source[$value['source_id']];
+			$this->_queryResult[$key]['category_url'] = _CONST_WEB_URL . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
+			if ($this->_queryResult[$key]['caption'] == null) {
+				$this->_queryResult[$key]['caption'] = '';
 			}
-			$queryResult[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
-			$queryResult[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
-			if ($get_related_news == true) {
-				$queryResult[$key]['related-news'] = $this->getRelatedNewsWidgetDetails($value['autono'], $value['related_story'], $value['category_id'], false);
-			}
+			$this->_queryResult[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			$this->_queryResult[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
+			$this->_queryResult[$key]['related-news'] = $this->getRelatedNewsWidgetDetails($value['autono'], $value['related_story'], $value['category_id']);
 		}
 		if ($return_type == 'json') {
-			return json_encode(array("total" => (int) $total, "rows" => $queryResult));
+			return json_encode(array("total" => (int) $total, "rows" => $this->_queryResult));
 		} else {
-			return array("total" => (int) $total, "rows" => $queryResult);
+			return array("total" => (int) $total, "rows" => $this->_queryResult);
 		}
 
 	}
@@ -340,21 +333,17 @@ class NewsModel extends EditorModel {
 		$result['article-details'] = $this->getArticleDetails(array('articleId' => $autono));
 		$result['article-details']['news_url'] = _CONST_WEB_URL . '/' . $result['article-details']['articleId'] . '/' . $this->_commonFunction->sanitizeString($result['article-details']['heading']);
 		$result['article-details']['news_source_name'] = $news_source[$result['article-details']['news_source']];
-		$result['suggested-stories'] = $this->getAllRankedStoryDetails('hot of the press', 'array', array(), true)['rows'];
+		$result['suggested-stories'] = $this->getAllRankedStoryDetails('hot of the press', 'array')['rows'];
 		return $result;
 	}
 
-	protected function getRelatedNewsWidgetDetails($articleId, $related_autono, $category_id, $getRelated = false) {
+	protected function getRelatedNewsWidgetDetails($articleId, $related_autono, $category_id) {
 		$search_params['publish_status'] = 1;
-		if ($related_autono != '' && $related_autono != '0') {
-			$search_params['autono'] = $related_autono;
-		} else {
-			$search_params['category_id'] = $category_id;
-		}
-
+		$search_params['category_id'] = $category_id;
 		$result['left-col'] = $this->getNewsList('asc', 0, 1, $search_params)[0];
-		$exclude_autono = array($articleId, $result['left-col']['autono']);
-		$result['right-col'] = $this->getAllRankedStoryDetails('cover story', 'array', $exclude_autono, $getRelated)['rows'][0];
+		unset($search_params['category_id']);
+		$search_params['autono'] = $related_autono;
+		$result['right-col'] = $this->getNewsList('asc', 0, 1, $search_params)[0];
 		return $result;
 	}
 }
