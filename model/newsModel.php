@@ -28,6 +28,13 @@ class NewsModel extends EditorModel {
 			if (isset($search['date_range']) && !empty($search['date_range'][0]) && !empty($search['date_range'][1])) {
 				$where_condition[] .= ' modified_date BETWEEN "' . $search['date_range'][0] . '" and "' . $search['date_range'][1] . '"';
 			}
+			if (isset($search['exclude_autono'])) {
+				if (is_array($search['exclude_autono'])) {
+					$where_condition[] .= ' autono NOT IN (' . implode(",", $search['exclude_autono']) . ')';
+				} else if ($search['exclude_autono'] != '') {
+					$where_condition[] .= ' autono != "' . $search['exclude_autono'] . '"';
+				}
+			}
 			if (isset($search['headline']) && $search['headline'] != '') {
 				$where_condition[] .= ' headline like "%' . $search['headline'] . '%"';
 			}
@@ -56,6 +63,13 @@ class NewsModel extends EditorModel {
 			}
 			if (isset($search['exclude_subcategory_id']) && $search['exclude_subcategory_id'] != '') {
 				$where_condition[] .= ' nu.sub_category_id NOT IN (' . implode(',', $search['exclude_subcategory_id']) . ')';
+			}
+			if (isset($search['exclude_autono'])) {
+				if (is_array($search['exclude_autono'])) {
+					$where_condition[] .= ' nu.autono NOT IN (' . implode(",", $search['exclude_autono']) . ')';
+				} else if ($search['exclude_autono'] != '') {
+					$where_condition[] .= ' nu.autono != "' . $search['exclude_autono'] . '"';
+				}
 			}
 			if (isset($search['date_range']) && !empty($search['date_range'][0]) && !empty($search['date_range'][1])) {
 				$where_condition[] .= ' nu.modified_date BETWEEN "' . $search['date_range'][0] . '" and "' . $search['date_range'][1] . '"';
@@ -304,6 +318,7 @@ class NewsModel extends EditorModel {
 		$category = $this->getNewsCategory();
 		$news_source = $this->getNewsSource();
 		$prev_cat = NULL;
+		$last_related_autono = array();
 		foreach ($this->_queryResult as $key => $value) {
 			if ($prev_cat != $value['category_id']) {
 				$prev_cat = $value['category_id'];
@@ -318,7 +333,8 @@ class NewsModel extends EditorModel {
 			}
 			$this->_queryResult[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
 			$this->_queryResult[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
-			$this->_queryResult[$key]['related-news'] = $this->getRelatedNewsWidgetDetails($value['autono'], $value['related_story'], $value['category_id']);
+			$last_related_autono[] = $value['autono'];
+			$this->_queryResult[$key]['related-news'] = $this->getRelatedNewsWidgetDetails($last_related_autono, $value['related_story'], $value['category_id']);
 		}
 		if ($return_type == 'json') {
 			return json_encode(array("total" => (int) $total, "rows" => $this->_queryResult));
@@ -337,14 +353,14 @@ class NewsModel extends EditorModel {
 		return $result;
 	}
 
-	protected function getRelatedNewsWidgetDetails($articleId, $related_autono, $category_id) {
+	protected function getRelatedNewsWidgetDetails($articleIds, $related_autono, $category_id) {
 		$search_params['publish_status'] = 1;
 		$search_params['category_id'] = $category_id;
+		$search_params['exclude_autono'] = $articleIds;
 		$result['left-col'] = $this->getNewsDetails('desc', 0, 1, $search_params, 'array')['rows'][0];
-		if ($result['left-col']['autono'] == $articleId) {
-			$result['left-col'] = $this->getNewsDetails('desc', 1, 2, $search_params, 'array')['rows'][0];
-		}
+
 		unset($search_params['category_id']);
+		unset($search_params['exclude_autono']);
 		$search_params['autono'] = $related_autono;
 		$result['right-col'] = $this->getNewsDetails('desc', 0, 1, $search_params, 'array')['rows'][0];
 		return $result;
