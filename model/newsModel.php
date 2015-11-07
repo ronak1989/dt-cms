@@ -357,7 +357,12 @@ class NewsModel extends EditorModel {
 	protected function getRelatedNewsWidgetDetails($articleIds, $related_autono, $category_id) {
 		$search_params['publish_status'] = 1;
 		$search_params['category_id'] = $category_id;
-		$search_params['exclude_autono'] = $articleIds;
+		if (is_array($articleIds)) {
+			$search_params['exclude_autono'] = $articleIds;
+		} else {
+			$search_params['exclude_autono'][] = $articleIds;
+		}
+
 		$result['left-col'] = $this->getNewsDetails('desc', 0, 1, $search_params, 'array')['rows'][0];
 
 		unset($search_params['category_id']);
