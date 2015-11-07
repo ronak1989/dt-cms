@@ -335,6 +335,7 @@ class NewsModel extends EditorModel {
 			$this->_queryResult[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
 			$last_related_autono[] = $value['autono'];
 			$this->_queryResult[$key]['related-news'] = $this->getRelatedNewsWidgetDetails($last_related_autono, $value['related_story'], $value['category_id']);
+			$last_related_autono[] = $this->_queryResult[$key]['related-news']['left-col']['autono'];
 		}
 		if ($return_type == 'json') {
 			return json_encode(array("total" => (int) $total, "rows" => $this->_queryResult));
