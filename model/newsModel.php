@@ -362,7 +362,7 @@ class NewsModel extends EditorModel {
 		} else {
 			$search_params['exclude_autono'][] = $articleIds;
 		}
-
+		$search_params['exclude_autono'][] = $related_autono;
 		$result['left-col'] = $this->getNewsDetails('desc', 0, 1, $search_params, 'array')['rows'][0];
 
 		unset($search_params['category_id']);
