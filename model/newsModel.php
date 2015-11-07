@@ -42,7 +42,7 @@ class NewsModel extends EditorModel {
 		if (!empty($where_condition)) {
 			$where_condition = 'where ' . implode(' and ', $where_condition);
 		}
-		echo $this->_modelQuery = 'select count(1) as cnt from news_unpublish ' . $where_condition;
+		$this->_modelQuery = 'select count(1) as cnt from news_unpublish ' . $where_condition;
 		$this->query($this->_modelQuery);
 		return $this->single();
 	}
