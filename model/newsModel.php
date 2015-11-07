@@ -361,8 +361,12 @@ class NewsModel extends EditorModel {
 		$result['left-col'] = $this->getNewsDetails('desc', 0, 1, $search_params, 'array')['rows'][0];
 
 		unset($search_params['category_id']);
-		unset($search_params['exclude_autono']);
-		$search_params['autono'] = $related_autono;
+		if ($related_autono == '' || $related_autono == NULL || $related_autono == '0') {
+			$search_params['exclude_autono'][] = $result['left-col']['autono'];
+		} else {
+			unset($search_params['exclude_autono']);
+			$search_params['autono'] = $related_autono;
+		}
 		$result['right-col'] = $this->getNewsDetails('desc', 0, 1, $search_params, 'array')['rows'][0];
 		return $result;
 	}
