@@ -339,6 +339,9 @@ class NewsModel extends EditorModel {
 			if ($this->_queryResult[$key]['related-news']['left-col']['autono'] != '') {
 				$last_related_autono[] = $this->_queryResult[$key]['related-news']['left-col']['autono'];
 			}
+			if ($this->_queryResult[$key]['related-news']['right-col']['autono'] != '') {
+				$last_related_autono[] = $this->_queryResult[$key]['related-news']['right-col']['autono'];
+			}
 
 		}
 		if ($return_type == 'json') {
