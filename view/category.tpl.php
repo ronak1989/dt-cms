@@ -56,7 +56,6 @@ foreach ($data['categoryDetails']['rows'] as $key => $value) {
                                 <?php echo $value['headline'];?>
                             </h3>
                             <div class="byline">
-                                <!-- <div class="author" itemprop="author">Poonam Agarwal</div> -->
                                 <div class="timestamp"><?php echo $value['news_source'];?> | <?php echo $value['modified_date'];?></div>
                                 <div class="clearfix"></div>
                             </div>
