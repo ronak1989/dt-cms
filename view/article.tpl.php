@@ -71,7 +71,7 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                             </li>
                             <li>
                                 <!-- Email -->
-                                <a href="mailto:?subject=<?php echo $data['article-details']['heading'];?>&body=<?php echo $data['article-details']['summary'];?> <br> <a href='<?php echo $data['article-details']['news_url'];?>'>Click here to read more</a>" target="_blank" class="share-btn email">
+                                <a href="mailto:?subject=<?php echo htmlspecialchars($data['article-details']['heading']);?>&body=<?php echo htmlspecialchars($data['article-details']['summary']);?> <br> <a href='<?php echo $data['article-details']['news_url'];?>'>Click here to read more</a>" target="_blank" class="share-btn email">
                                     <i class="fa fa-envelope"></i>
                                 </a>
                             </li>
@@ -108,7 +108,7 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                             </li>
                             <li>
                                 <!-- Email -->
-                                <a href="mailto:?subject=<?php echo $data['article-details']['heading'];?>&body=<?php echo $data['article-details']['summary'];?> <br> <a href='<?php echo $data['article-details']['news_url'];?>'>Click here to read more</a>" target="_blank" class="share-btn email">
+                                <a href="mailto:?subject=<?php echo htmlspecialchars($data['article-details']['heading']);?>&body=<?php echo htmlspecialchars($data['article-details']['summary']);?> <br> <a href='<?php echo $data['article-details']['news_url'];?>'>Click here to read more</a>" target="_blank" class="share-btn email">
                                     <i class="fa fa-envelope"></i>
                                 </a>
                             </li>
