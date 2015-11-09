@@ -263,6 +263,12 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
         loadNewsSubcategories(this.value,'',object,'object');
     });
 
+    var $nup_offset = 0;
+    var $nup_limit = 10;
+    var $np_offset = 0;
+    var $np_limit = 10;
+    var $np_searched_clicked = false;
+    var $nup_searched_clicked = false;
 
     var $ranked_news_table = $('#unpublished_news'),
         $nup_searh = $('#nup_search'),
@@ -282,17 +288,22 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                 console.log(start.toISOString(), end.toISOString(), label);
             });
         $np_searh.click(function () {
+            $np_searched_clicked = true;
             $published_news_table.bootstrapTable('refresh');
         });
 
         $nup_searh.click(function () {
+            $nup_searched_clicked = true;
             $ranked_news_table.bootstrapTable('refresh');
         });
     });
 
     function unpublished_news_queryParams(params) {
-        params['offset'] = 0;
-        params['limit'] = 10;
+        if($nup_searched_clicked==true){
+            $nup_searched_clicked = false;
+            params['offset'] = 0;
+            params['limit'] = 10;
+        }
         $('#unpublished_news_toolbar').find('input[name], input[hidden],select[name]').each(function () {
             params[$(this).attr('name')] = $(this).val();
         });
@@ -300,8 +311,11 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
     }
 
     function published_news_queryParams(params) {
-        params['offset'] = 0;
-        params['limit'] = 10;
+        if($np_searched_clicked==true){
+            $np_searched_clicked = false;
+            params['offset'] = 0;
+            params['limit'] = 10;
+        }
         $('#published_news_toolbar').find('input[name], input[hidden],select[name]').each(function () {
             params[$(this).attr('name')] = $(this).val();
         });

@@ -130,12 +130,38 @@ class ImageModel extends Database {
 	}
 
 	protected function activateImage($image_id) {
+		$this->beginTransaction();
+		$this->_modelQuery = 'SELECT * from required_image where image_id=:image_id ';
+		$this->query($this->_modelQuery);
+		$this->bindByValue('image_id', $image_id);
+		$result = $this->single();
 		$this->_modelQuery = 'UPDATE image_bank set status="active" where image_id=:image_id';
 		$this->query($this->_modelQuery);
 		$this->bindByValue('image_id', $image_id);
 		if ($this->execute()) {
+			if ($result !== false) {
+				$this->_modelQuery = 'UPDATE news_unpublish set image_id=:image_id where autono=:news_autono';
+				$this->query($this->_modelQuery);
+				$this->bindByValue('image_id', $image_id);
+				$this->bindByValue('news_autono', $result['news_autono']);
+				if ($this->execute()) {
+					$this->_modelQuery = 'DELETE FROM required_image where image_id=:image_id';
+					$this->query($this->_modelQuery);
+					$this->bindByValue('image_id', $image_id);
+					if ($this->execute()) {
+						$this->endTransaction();
+					} else {
+						$this->cancelTransaction();
+					}
+				} else {
+					$this->cancelTransaction();
+				}
+			} else {
+				$this->endTransaction();
+			}
 			return true;
 		} else {
+			$this->cancelTransaction();
 			return false;
 		}
 	}
