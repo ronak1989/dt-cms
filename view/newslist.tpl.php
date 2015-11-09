@@ -302,7 +302,6 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
         if($nup_searched_clicked==true){
             $nup_searched_clicked = false;
             params['offset'] = 0;
-            params['limit'] = 10;
         }
         $('#unpublished_news_toolbar').find('input[name], input[hidden],select[name]').each(function () {
             params[$(this).attr('name')] = $(this).val();
@@ -314,7 +313,6 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
         if($np_searched_clicked==true){
             $np_searched_clicked = false;
             params['offset'] = 0;
-            params['limit'] = 10;
         }
         $('#published_news_toolbar').find('input[name], input[hidden],select[name]').each(function () {
             params[$(this).attr('name')] = $(this).val();
