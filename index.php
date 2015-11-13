@@ -49,7 +49,8 @@ $router->map('GET|POST', '/image/upload', 'image#uploadNewImage', '');
 $router->map('GET', '/image/latest', 'image#getImage', '');
 $router->map('GET', '/image/gallery', 'image#getImageGallery', '');
 $router->map('GET', '/image/pending-for-approval', 'image#getPendingImage', '');
-$router->map('GET', '/image/assigned-to-production', 'image#getProductionAssignedImageList', '');
+$router->map('GET', '/image/assigned-to-production', 'image#getProductionAssignedImage', '');
+$router->map('GET', '/image/assigned-to-production/list', 'image#getProductionAssignedImageList', '');
 $router->map('GET', '/image/latest/list', 'image#getLatestImages', '');
 $router->map('POST', '/image/approve?/[i:id]?', 'image#approveImage', '');
 $router->map('POST', '/image/disapprove?/[i:id]?', 'image#disapproveImage', '');
@@ -81,6 +82,7 @@ $id = null;
 $pg = null;
 $category = null;
 $match = $router->match();
+
 if ($match) {
 	switch (trim($match['target'])) {
 		case '':

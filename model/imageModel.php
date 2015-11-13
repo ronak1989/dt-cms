@@ -130,6 +130,80 @@ class ImageModel extends Database {
 		return json_encode(array("total" => (int) $total['cnt'], "rows" => $imageList));
 	}
 
+	protected function getProductionAssignedImageCount($search = array()) {
+		$where_condition = array();
+		if (isset($search['publish_status'])) {
+			$where_condition[] = ' nup.publish = "' . $search['publish_status'] . '"';
+		}
+		if (isset($search['autono']) && $search['autono'] != '') {
+			$where_condition[] .= ' nup.autono = "' . $search['autono'] . '"';
+		} else {
+			if (isset($search['date_range']) && !empty($search['date_range'][0]) && !empty($search['date_range'][1])) {
+				$where_condition[] .= ' nup.modified_date BETWEEN "' . $search['date_range'][0] . '" and "' . $search['date_range'][1] . '"';
+			}
+
+			if (isset($search['headline']) && $search['headline'] != '') {
+				$where_condition[] .= ' nup.headline like "%' . $search['headline'] . '%"';
+			}
+		}
+		if (!empty($where_condition)) {
+			$where_condition = 'where ri.image_id is NULL and ' . implode(' and ', $where_condition);
+		}
+		$this->_modelQuery = 'select count(1) as cnt from news_unpublish nup INNER JOIN required_image ri on ri.news_autono = nup.autono ' . $where_condition;
+		$this->query($this->_modelQuery);
+		return $this->single();
+	}
+
+	protected function getProductionAssignedImageList($order, $offset, $limit, $search = array()) {
+		$where_condition = array();
+		if (isset($search['publish_status'])) {
+			$where_condition[] = ' nu.publish = "' . $search['publish_status'] . '"';
+		}
+		if (isset($search['autono']) && $search['autono'] != '') {
+			$where_condition[] .= ' nu.autono = "' . $search['autono'] . '"';
+		} else {
+			if (isset($search['category_id']) && $search['category_id'] != '') {
+				$where_condition[] .= ' nu.category_id = "' . $search['category_id'] . '"';
+			}
+			if (isset($search['subcategory_id']) && $search['subcategory_id'] != '') {
+				$where_condition[] .= ' nu.sub_category_id = "' . $search['subcategory_id'] . '"';
+			}
+			if (isset($search['exclude_subcategory_id']) && $search['exclude_subcategory_id'] != '') {
+				$where_condition[] .= ' nu.sub_category_id NOT IN (' . implode(',', $search['exclude_subcategory_id']) . ')';
+			}
+			if (isset($search['exclude_autono'])) {
+				if (is_array($search['exclude_autono'])) {
+					$where_condition[] .= ' nu.autono NOT IN (' . implode(",", $search['exclude_autono']) . ')';
+				} else if ($search['exclude_autono'] != '') {
+					$where_condition[] .= ' nu.autono != "' . $search['exclude_autono'] . '"';
+				}
+			}
+			if (isset($search['date_range']) && !empty($search['date_range'][0]) && !empty($search['date_range'][1])) {
+				$where_condition[] .= ' nu.modified_date BETWEEN "' . $search['date_range'][0] . '" and "' . $search['date_range'][1] . '"';
+			}
+			if (isset($search['headline']) && $search['headline'] != '') {
+				$where_condition[] .= ' nu.headline like "%' . $search['headline'] . '%"';
+			}
+		}
+		if (!empty($where_condition)) {
+			$where_condition = 'where ri.image_id is NULL and ' . implode(' and ', $where_condition);
+		}
+
+		$this->_modelQuery = 'select nu.publish_date as modified_date, nu.autono, nu.headline from news_unpublish nu INNER JOIN required_image ri ON ri.news_autono = nu.autono ' . $where_condition . ' order by nu.publish_date ' . $order . ' limit ' . $offset . ',' . $limit . '';
+		$this->query($this->_modelQuery);
+
+		return $this->resultset();
+	}
+
+	protected function getProductionAssignedImageDetails($order, $offset, $limit, $search = array()) {
+		$total = $this->getProductionAssignedImageCount($search);
+		$imageList = $this->getProductionAssignedImageList($order, $offset, $limit, $search);
+		foreach ($imageList as $key => $value) {
+			$imageList[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
+		}
+		return json_encode(array("total" => (int) $total['cnt'], "rows" => $imageList));
+	}
+
 	protected function activateImage($image_id) {
 		$this->beginTransaction();
 		$this->_modelQuery = 'SELECT * from required_image where image_id=:image_id ';

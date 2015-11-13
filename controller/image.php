@@ -11,6 +11,7 @@ class Image extends ImageModel {
 
 	static $pageTitle = 'IMAGE SECTION';
 	static $pageSubTitle = '';
+	private $columnHeadings = array('modified_date' => 'LAST MODIFIED DATE', 'autono' => 'AUTO NO', 'headline' => 'HEADLINE', 'operations' => array('data-title' => 'Actions', 'data-events' => 'operationEvents', 'data-formatter' => 'operationFormatter', 'data-width' => '20%', 'data-align' => 'center'));
 
 	private $db = NULL;
 	public function __construct($id = NULL, $params = array()) {
@@ -21,6 +22,10 @@ class Image extends ImageModel {
 		if (isset($_GET['status'])) {$this->searchParams['status'] = $_GET['status'];}
 		if (isset($_GET['image_keywords'])) {$this->searchParams['image_keywords'] = $_GET['image_keywords'];}
 		if (isset($_GET['image_name'])) {$this->searchParams['image_name'] = $_GET['image_name'];}
+		if (isset($_GET['publish'])) {$this->searchParams['publish_status'] = $_GET['publish'];}
+		if (isset($_GET['autono'])) {$this->searchParams['autono'] = $_GET['autono'];}
+		if (isset($_GET['headline'])) {$this->searchParams['headline'] = $_GET['headline'];}
+		if (isset($_GET['subcategory_id'])) {$this->searchParams['subcategory_id'] = $_GET['subcategory_id'];}
 		if (isset($_GET['modified_date']) && $_GET['modified_date'] != '') {
 			$this->searchParams['date_range'] = explode(' - ', $_GET['modified_date']);
 			$this->searchParams['date_range']['0'] = date('Y-m-d H:i:s', strtotime($this->searchParams['date_range']['0'] . ' 00:00:00'));
@@ -159,6 +164,16 @@ class Image extends ImageModel {
 		} else {
 			echo 'fail';
 		}
+	}
+
+	public function getProductionAssignedImage() {
+		$data_url = '/image/assigned-to-production/list';
+		require_once _CONST_VIEW_PATH . 'productionassignedlist.tpl.php';
+	}
+
+	public function getProductionAssignedImageList() {
+		$data = $this->_imageModel->getProductionAssignedImageDetails($this->order, $this->offset, $this->limit, $this->searchParams);
+		echo $data;
 	}
 }
 ?>

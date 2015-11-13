@@ -25,7 +25,7 @@
             |
             <a href="javascript:void(0);" id="c-button--shareicons" class="c-button"><i class="fa fa-share-alt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
             |
-            <a href="javascript:void(0);" id="c-button--products-service" class="c-button"><i class="fa fa-cogs fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
+            <a href="javascript:void(0);" id="c-button--products-service" class="c-button"><i class="fa fa-briefcase fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
         </div>
         <div id="header-search-input"></div>
         <div class="left">
@@ -112,7 +112,7 @@
       <li><a href="#"><i class="fa fa-user fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
       <li><a href="<?php echo _CONST_WEB_URL;?>/latest-news"><i class="fa fa-bolt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
       <li><a href="javascript:void(0);" id="c-button--shareicons-mob" class="c-button"><i class="fa fa-share-alt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
-      <li><a href="javascript:void(0);" id="c-button--products-service-mob" class="c-button"><i class="fa fa-cogs fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
+      <li><a href="javascript:void(0);" id="c-button--products-service-mob" class="c-button"><i class="fa fa-briefcase fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
     </ul>
   </nav>
 </div>
