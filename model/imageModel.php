@@ -11,8 +11,8 @@ class ImageModel extends Database {
 		parent::__construct();
 	}
 
-	protected function insertImageDetails($image_name, $keywords, $original_img, $resized_list, $news_autono) {
-		$this->_modelQuery = 'INSERT INTO `image_bank` (`image_name`,`image_keywords`,`image_original`,`image_1600`,`image_1280`,`image_615`,`image_300`,`image_100`,`image_77`,`image_uploaded_by`) VALUES (:image_name,:image_keywords,:image_original,:image_1600,:image_1280,:image_615,:image_300,:image_100,:image_77,:image_uploaded_by)';
+	protected function insertImageDetails($image_name, $keywords, $original_img, $resized_list, $news_autono, $img_courtesy) {
+		$this->_modelQuery = 'INSERT INTO `image_bank` (`image_name`,`image_keywords`,`image_original`,`image_1600`,`image_1280`,`image_615`,`image_300`,`image_100`,`image_77`,`image_uploaded_by`,`image_courtesy`) VALUES (:image_name,:image_keywords,:image_original,:image_1600,:image_1280,:image_615,:image_300,:image_100,:image_77,:image_uploaded_by,:image_courtesy)';
 		$this->query($this->_modelQuery);
 		$this->bindByValue('image_name', $image_name);
 		$this->bindByValue('image_keywords', $keywords);
@@ -24,6 +24,7 @@ class ImageModel extends Database {
 		$this->bindByValue('image_100', $resized_list['100']);
 		$this->bindByValue('image_77', $resized_list['77']);
 		$this->bindByValue('image_uploaded_by', base64_decode($_SESSION['_cmsId']));
+		$this->bindByValue('image_courtesy', $img_courtesy);
 		if ($this->execute()) {
 			$image_id = $this->lastInsertId();
 			if ($news_autono != '') {
@@ -190,11 +191,12 @@ class ImageModel extends Database {
 		}
 	}
 
-	protected function updateImage($image_id, $image_name, $image_keywords) {
-		$this->_modelQuery = 'UPDATE image_bank set image_name=:image_name, image_keywords=:image_keywords where status="inactive" and image_id=:image_id';
+	protected function updateImage($image_id, $image_name, $image_keywords, $image_courtesy) {
+		$this->_modelQuery = 'UPDATE image_bank set image_name=:image_name, image_keywords=:image_keywords , image_courtesy=:image_courtesy where status="inactive" and image_id=:image_id';
 		$this->query($this->_modelQuery);
 		$this->bindByValue('image_id', $image_id);
 		$this->bindByValue('image_keywords', $image_keywords);
+		$this->bindByValue('image_courtesy', $image_courtesy);
 		$this->bindByValue('image_name', $image_name);
 		$this->execute();
 		if ($this->rowCount() == 1) {

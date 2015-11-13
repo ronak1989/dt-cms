@@ -51,6 +51,7 @@ class Image extends ImageModel {
 			$imgName = str_replace("  ", " ", $imgName);
 			$imgName = str_replace(" ", "-", $imgName);
 			$imgTags = $_POST['img_tags'];
+			$img_courtesy = $_POST['img_courtesy'];
 			$operation = 'resize';
 			$imgDetails = array();
 		} else {
@@ -67,7 +68,7 @@ class Image extends ImageModel {
 		$crop = new CropAvatar($src, $data, $file, $operation, $imgName, $imgTags, $imgDetails, $destFile, $news_autono);
 		if ($operation == 'resize') {
 			if (is_null($crop->getMsg())) {
-				$image_id = $this->_imageModel->insertImageDetails($orgimgName, $imgTags, $crop->getResult(), $crop->getResizeFileName(), $news_autono);
+				$image_id = $this->_imageModel->insertImageDetails($orgimgName, $imgTags, $crop->getResult(), $crop->getResizeFileName(), $news_autono, $img_courtesy);
 
 			}
 		}
@@ -152,7 +153,7 @@ class Image extends ImageModel {
 	}
 
 	public function updateImageUploaded() {
-		$operation_status = $this->_imageModel->updateImage($this->image_id, $_POST['image_name'], $_POST['image_keywords']);
+		$operation_status = $this->_imageModel->updateImage($this->image_id, $_POST['image_name'], $_POST['image_keywords'], $_POST['image_courtesy']);
 		if ($operation_status == true) {
 			echo 'success';
 		} else {

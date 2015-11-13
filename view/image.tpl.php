@@ -75,6 +75,10 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                                         <input id="img_tags" type="text" name="img_tags" class="tags form-control" value="" style="display: inline-block" />
                                                                       </div>
                                                                       <div class="form-group">
+                                                                        <label >Image Courtesy</label>
+                                                                        <input id="img_courtesy" type="text" name="img_courtesy" class="tags form-control" value="" style="display: inline-block" />
+                                                                      </div>
+                                                                      <div class="form-group">
                                                                         <button type="submit" class="btn btn-primary btn-block img-save">Done</button>
                                                                       </div>
                                                                     </div>
@@ -114,6 +118,10 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                               <div class="form-group">
                                                                 Image Name
                                                                 <input type="text" placeholder="" class="form-control" data-original-img-name="<?php echo $imgDetails[0]['image_name'];?>" name="img_edit_name" id="img_edit_name" value="<?php echo $imgDetails[0]['image_name'];?>">
+                                                              </div>
+                                                              <div class="form-group">
+                                                                Image Courtesy
+                                                                <input type="text" placeholder="" class="form-control" data-original-img-name="<?php echo $imgDetails[0]['image_name'];?>" name="img_edit_courtesy" id="img_edit_courtesy" value="<?php echo $imgDetails[0]['image_courtesy'];?>">
                                                               </div>
                                                               <div class="form-group text-center">
                                                                   <button class="btn btn-default" type="button" onclick="getImageEditParams();" id="edit_details">Update Image Name & Keywords</button>
@@ -471,7 +479,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
         if(error==0){
           $("#edit_details").attr('disabled','true');
           var img_id = $("#img_id").val();
-          $.post('/image/edit/'+img_id,{image_keywords:$('#img_edit_tags').val(),image_name:$('#img_edit_name').val()}, function(result) {
+          $.post('/image/edit/'+img_id,{image_keywords:$('#img_edit_tags').val(),image_name:$('#img_edit_name').val(),image_courtesy:$('#img_edit_courtesy').val()}, function(result) {
             $("#edit_details").removeAttr('disabled');
             if(result=='success'){
                 $('#img_edit_name').attr('data-original-img-name',$('#img_edit_name').val());
