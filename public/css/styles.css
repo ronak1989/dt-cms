@@ -286,13 +286,13 @@ body.has-active-menu {
 
 .forecaster-block{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;background:#000000;text-align:center;margin-top:5px}
 .forecaster-heading{background:#000000;padding:10px 10px 0;color:#FFFFFF;font-size:1.000em; line-height:1em;font-family: 'Roboto Slab', sans-serif;}
-.forecaster-description {padding:10px;color:#FFFFFF;font-size:0.867em; line-height:1em;background:#000000;font-family: 'Roboto Slab',sans-serif;}
+.forecaster-description {padding:10px;color:#FFFFFF;font-size:0.867em; line-height:1.2em;background:#000000;font-family: 'Roboto Slab',sans-serif;}
 .middle-align{margin:0 auto;}
 .ads-container{margin:15px 0px 0px 0px}
 
 .chart-of-the-day-title{font-size: 0.800em;text-transform: uppercase;color: #FFFFFF;padding:5px;background:#509fc6;text-align:center;}
 .chart-of-the-day-headline {padding:5px 10px 0px 10px;color:#000000;font-size:1.200em; line-height:1.200em; font-weight:bold;}
-.chart-of-the-day-desc{padding:5px 10px 0px 10px;color:#000000;font-size:0.867em; line-height:1em}
+.chart-of-the-day-desc{padding:5px 10px 0px 10px;color:#000000;font-size:0.867em; line-height:1.2em}
 
 .twitter-container{}
 
