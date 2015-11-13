@@ -64,7 +64,7 @@ class EditorModel extends Database {
 
 	protected function getNewsSource() {
 		return array(
-			'1' => 'Dalaltimes',
+			'1' => 'Team Dalal Times',
 			'2' => 'PTI',
 			'3' => 'Reuters',
 		);
@@ -222,6 +222,7 @@ class EditorModel extends Database {
 		$fields['summary'] = $this->_queryResult['summary'];
 		$fields['news_content'] = $this->_queryResult['content'];
 		$fields['publish_date'] = date('Y-m-d H:i:s', strtotime($this->_queryResult['publish_date']));
+		$fields['disp_date'] = date('M d, Y H:iA', strtotime($this->_queryResult['publish_date']));
 		$fields['mod_date'] = date('Y-m-d H:i:s', strtotime($this->_queryResult['mod_date']));
 		$fields['author_id'] = $this->_queryResult['author_id'];
 		$fields['author_name'] = $this->_queryResult['author_name'];

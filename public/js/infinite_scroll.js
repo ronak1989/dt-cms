@@ -112,7 +112,7 @@
                 '<h1>'+_articleDetails.headline+'</h1>',
                 '<div class="byline">',
                     '<span class="article-source">'+_articleDetails.news_source_name+'</span>',
-                    '<span class="article-timestamp">'+_articleDetails.publish_date+'</span>',
+                    '<span class="article-timestamp">'+_articleDetails.disp_date+'</span>',
                 '</div>',
             '</header>',
             '<figure class="article-image size-extra-large ">',

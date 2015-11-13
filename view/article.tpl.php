@@ -25,7 +25,7 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                 <h1><?php echo $data['article-details']['heading'];?></h1>
                 <div class="byline">
                     <span class="article-source"><?php echo $data['article-details']['news_source_name'];?></span>
-                    <span class="article-timestamp"><?php echo $data['article-details']['publish_date'];?></span>
+                    <span class="article-timestamp"><?php echo $data['article-details']['disp_date'];?></span>
                 </div>
             </header>
 
@@ -117,9 +117,9 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                     <div class='related-story'>
                         <div class="col-xs-12">
                             <div class="col-xs-12 col-sm-6 col-md-6 PL16 PR16">
-                                <div class="relatedarticle-block">
+                                <!-- <div class="relatedarticle-block">
                                     &nbsp;
-                                </div>
+                                </div> -->
                                 <a href="<?php echo $data['related-news']['left-col']['news_url'];?>">
                                     <div class="relatedarticle-img">
                                         <img width="100%;" class="img-responsive" src="<?php echo _CONST_WEB_URL . $data['related-news']['left-col']['image_300'];?>">
@@ -135,9 +135,9 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                                 </a>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6 PL16 PR16">
-                                <div class="relatedarticle-block">
+                                <!-- <div class="relatedarticle-block">
                                    &nbsp;
-                                </div>
+                                </div> -->
                                 <a href="<?php echo $data['related-news']['right-col']['news_url'];?>">
                                     <div class="relatedarticle-img">
                                         <img width="100%;" class="img-responsive" src="<?php echo _CONST_WEB_URL . $data['related-news']['right-col']['image_300'];?>">
@@ -160,7 +160,7 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                         <div class="tabbable full-width-tabs">
                             <ul class="nav nav-tabs nav-justified">
                                 <li class="active"><a href="#tab-one" data-toggle="tab">LATEST</a></li>
-                                <li><a href="#tab-two" data-toggle="tab">TOP 10</a></li>
+                                <li><a href="#tab-two" data-toggle="tab">Must Read</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab-one">

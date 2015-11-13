@@ -41,6 +41,24 @@ $(document).ready(function() {
 		    shareIcons.open();
 		});
 
+		var productService = new Menu({
+		    wrapper: '#body-container',
+		    type: 'products-service',
+		    menuOpenerClass: '.c-button',
+		    maskId: '#c-mask'
+		});
+
+		var productServiceBtn = document.querySelector('#c-button--products-service');
+		var productServiceBtnMobile = document.querySelector('#c-button--products-service-mob');
+		productServiceBtn.addEventListener('click', function(e) {
+		    e.preventDefault;
+		    productService.open();
+		});
+		productServiceBtnMobile.addEventListener('click', function(e) {
+				e.preventDefault;
+		    productService.open();
+		});
+
 	/***************** Nav Transformicon ******************/
 
 	/* When user clicks the Icon */

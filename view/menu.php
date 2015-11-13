@@ -24,12 +24,15 @@
             <a href="<?php echo _CONST_WEB_URL;?>/latest-news"><i class="fa fa-bolt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
             |
             <a href="javascript:void(0);" id="c-button--shareicons" class="c-button"><i class="fa fa-share-alt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
+            |
+            <a href="javascript:void(0);" id="c-button--products-service" class="c-button"><i class="fa fa-cogs fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
         </div>
         <div id="header-search-input"></div>
         <div class="left">
           <a href="javascript:void(0);" id="horizontal-nav-toggle"><i class="fa fa-bars fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
           |
           <a href="javascript:void(0);" id="c-button--search" class="c-button"><i class="fa fa-search fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
+
         </div>
           <div class="header-content bigmegamenu clearfix">
               <nav class="wsmenu slideLeft clearfix menuopen">
@@ -38,6 +41,10 @@
                   <a href="<?php echo _CONST_WEB_URL;?>/homepage" class="active">Home</a>
                 </li>
                 <?php foreach ($menuUrl as $key => $value) {
+	if (in_array(strtolower($value['name']), array("", 'budgets', 'mutual funds', 'chart of the day', 'the forecaster'))) {
+		continue;
+	}
+
 	?>
                 <span class="seperator">|</span>
                 <li>
@@ -63,6 +70,18 @@
 
             </div>
           </nav><!-- /c-menu search -->
+          <nav id="c-menu--products-service" class="c-menu c-menu--products-service">
+            <!--  -->
+            <div class="share-prodcuts">
+                <a href="http://dtx30.dalaltimes.com/" target="_blank">
+                  DTX30
+                </a>
+                <a href="http://magazine.dalaltimes.com" target="_blank">
+                  Dalal Times Magazine
+                </a>
+                <button class="c-menu__close">X</button>
+            </div>
+          </nav>
           <nav id="c-menu--shareicons" class="c-menu c-menu--shareicons">
             <!--  -->
             <div class="share-dark">
@@ -93,6 +112,7 @@
       <li><a href="#"><i class="fa fa-user fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
       <li><a href="<?php echo _CONST_WEB_URL;?>/latest-news"><i class="fa fa-bolt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
       <li><a href="javascript:void(0);" id="c-button--shareicons-mob" class="c-button"><i class="fa fa-share-alt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
+      <li><a href="javascript:void(0);" id="c-button--products-service-mob" class="c-button"><i class="fa fa-cogs fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
     </ul>
   </nav>
 </div>
