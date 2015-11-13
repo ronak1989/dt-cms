@@ -205,7 +205,6 @@ foreach ($data['hot-of-the-press'] as $key => $value) {
                 	<div>
                         <?php echo $data['forecaster']['0']['summary'];?>
                     </div>
-                    <span style="float:right">Read More</span>
                     <div class="clearfix"></div>
                 </div>
             </a>
