@@ -73,6 +73,9 @@
                             <li>
                                 <a href="/image/pending-for-approval">Approve Images</a>
                             </li>
+                            <li>
+                                <a href="/image/assigned-to-production">Assigned for Production</a>
+                            </li>
                         </ul>
                     </li>
                     <li><a><i class="fa fa-users "></i> Partner <span class="fa fa-chevron-down"></span></a>
