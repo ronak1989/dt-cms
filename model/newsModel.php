@@ -102,7 +102,7 @@ class NewsModel extends EditorModel {
 			$userList[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
 			$userList[$key]['disp_date'] = date('M d, Y H:iA', strtotime($value['modified_date']));
 
-			$userList[$key]['ago_date'] = $this->_commonFunction;
+			$userList[$key]['ago_date'] = $this->_commonFunction->humanTiming(strtotime($value['modified_date']));
 			$userList[$key]['category_name'] = $category[$value['category_id']];
 			$userList[$key]['category_url'] = _CONST_WEB_URL . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
 
@@ -137,6 +137,7 @@ class NewsModel extends EditorModel {
 			}
 			$this->_queryResult[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
 			$this->_queryResult[$key]['disp_date'] = date('M d, Y H:iA', strtotime($value['modified_date']));
+			$this->_queryResult[$key]['ago_date'] = $this->_commonFunction->humanTiming(strtotime($value['modified_date']));
 			$this->_queryResult[$key]['category_name'] = $category[$value['category_id']];
 			$this->_queryResult[$key]['category_url'] = _CONST_WEB_URL . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
 			if ($this->_queryResult[$key]['caption'] == null) {
@@ -256,6 +257,7 @@ class NewsModel extends EditorModel {
 			}
 			$userList[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
 			$userList[$key]['disp_date'] = date('M d, Y H:iA', strtotime($value['modified_date']));
+			$userList[$key]['ago_date'] = $this->_commonFunction->humanTiming(strtotime($value['modified_date']));
 			$userList[$key]['category_name'] = $category[$value['category_id']];
 			$userList[$key]['category_url'] = _CONST_WEB_URL . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
 
@@ -299,6 +301,7 @@ class NewsModel extends EditorModel {
 			}
 			$userList[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
 			$userList[$key]['disp_date'] = date('M d, Y H:iA', strtotime($value['modified_date']));
+			$userList[$key]['ago_date'] = $this->_commonFunction->humanTiming(strtotime($value['modified_date']));
 			$userList[$key]['category_name'] = $category[$value['category_id']];
 			$userList[$key]['category_url'] = _CONST_WEB_URL . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
 
@@ -337,6 +340,7 @@ class NewsModel extends EditorModel {
 			}
 			$this->_queryResult[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
 			$this->_queryResult[$key]['disp_date'] = date('M d, Y H:iA', strtotime($value['modified_date']));
+			$this->_queryResult[$key]['ago_date'] = $this->_commonFunction->humanTiming(strtotime($value['modified_date']));
 			$this->_queryResult[$key]['category_name'] = $category[$value['category_id']];
 			$this->_queryResult[$key]['news_source_name'] = $news_source[$value['source_id']];
 			$this->_queryResult[$key]['category_url'] = _CONST_WEB_URL . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
@@ -385,6 +389,7 @@ class NewsModel extends EditorModel {
 			}
 			$this->_queryResult[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
 			$this->_queryResult[$key]['disp_date'] = date('M d, Y H:iA', strtotime($value['modified_date']));
+			$this->_queryResult[$key]['ago_date'] = $this->_commonFunction->humanTiming(strtotime($value['modified_date']));
 			$this->_queryResult[$key]['category_name'] = $category[$value['category_id']];
 			$this->_queryResult[$key]['news_source_name'] = $news_source[$value['source_id']];
 			$this->_queryResult[$key]['category_url'] = _CONST_WEB_URL . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);

@@ -180,7 +180,10 @@ foreach ($data['hot-of-the-press'] as $key => $value) {
 	$li_class = ($total_hot_stories == $key) ? 'last' : '';
 
 	?>
-                <li class="<?php echo $li_class;?>"><a href="<?php echo $value['news_url'];?>"><img src="<?php echo $value['image_77'];?>" style="float:left;padding-right:10px" /><p><?php echo $value['headline'];?></p></a></li>
+                <li class="<?php echo $li_class;?>">
+                    <a href="<?php echo $value['news_url'];?>"><img src="<?php echo $value['image_77'];?>" style="float:left;padding-right:10px" /><p><?php echo $value['headline'];?></p></a>
+                    <em style="float:right;font-size:0.7em;line-height:0em;"><?php echo $value['ago_date'] . ' ago';?></em>
+                </li>
                 <?php }
 ?>
             </ul>
