@@ -212,10 +212,14 @@ foreach ($data['hot-of-the-press'] as $key => $value) {
         </div>
         <div style="clear:both"></div>
         <div class="ads-container">
-        	<img src="http://placehold.it/300x250" class="img-responsive middle-align" >
+            <a href="http://magazine.dalaltimes.com/" target="_blank" style="text-decoration: none;">
+        	   <img src="http://placehold.it/300x250" class="img-responsive middle-align" >
+            </a>
         </div>
         <div class="ads-container">
-        	<img src="http://placehold.it/300x150" class="img-responsive middle-align" >
+            <a href="http://ringthebell.dalaltimes.com/" target="_blank" style="text-decoration: none;">
+        	<img src="<?php echo _CONST_IMAGE_URL;?>rtb_promo.jpg" class="img-responsive middle-align" >
+            </a>
         </div>
     </div>
 </div>
