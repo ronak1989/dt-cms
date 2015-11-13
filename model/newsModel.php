@@ -270,8 +270,8 @@ class NewsModel extends EditorModel {
 	protected function getHomePageDetails() {
 		$result['cover-story-details'] = $this->getRankedStoryDetails('cover story', 'array', 4)['rows'];
 		$result['hot-of-the-press'] = $this->getNewsDetails('desc', 0, 15, array('publish_status' => 1), 'array')['rows'];
-		$result['forecaster'] = $this->getNewsDetails('desc', 0, 1, array('publish_status' => 1, 'category_id' => 11), 'array')['rows'];
-		$result['chart-of-the-day'] = $this->getNewsDetails('desc', 0, 1, array('publish_status' => 1, 'category_id' => 12), 'array')['rows'];
+		$result['forecaster'] = $this->getNewsDetails('desc', 0, 1, array('publish_status' => 1, 'category_id' => 12), 'array')['rows'];
+		$result['chart-of-the-day'] = $this->getNewsDetails('desc', 0, 1, array('publish_status' => 1, 'category_id' => 11), 'array')['rows'];
 		$result['market-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '1', 'exclude_sub_category_id' => array('16', '17')), 'array')['rows'];
 		$result['corporate-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '2'), 'array')['rows'];
 		$result['news-widget'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1, 'category_id' => '3'), 'array')['rows'];
