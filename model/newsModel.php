@@ -362,13 +362,78 @@ class NewsModel extends EditorModel {
 
 	}
 
+	protected function getArticleCategoryStoryDetails($type, $return_type = 'json') {
+		$this->_modelQuery = 'select nup.*, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nup INNER JOIN image_bank ib ON ib.image_id = nup.image_id order by nup.publish_date desc limit 10';
+
+		$this->query($this->_modelQuery);
+		$this->_queryResult = $this->resultset();
+		$total = count($this->_queryResult);
+		$category = $this->getNewsCategory();
+		$news_source = $this->getNewsSource();
+		$prev_cat = NULL;
+		$last_related_autono = array();
+		foreach ($this->_queryResult as $key => $value) {
+			$last_related_autono[] = $value['autono'];
+		}
+		reset($this->_queryResult);
+		foreach ($this->_queryResult as $key => $value) {
+			if ($prev_cat != $value['category_id']) {
+				$prev_cat = $value['category_id'];
+				$sub_category = $this->getNewsSubCategory($value['category_id']);
+			}
+			$this->_queryResult[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
+			$this->_queryResult[$key]['disp_date'] = date('M d, Y H:iA', strtotime($value['modified_date']));
+			$this->_queryResult[$key]['category_name'] = $category[$value['category_id']];
+			$this->_queryResult[$key]['news_source_name'] = $news_source[$value['source_id']];
+			$this->_queryResult[$key]['category_url'] = _CONST_WEB_URL . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
+			if ($this->_queryResult[$key]['caption'] == null) {
+				$this->_queryResult[$key]['caption'] = '';
+			}
+			$this->_queryResult[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			$this->_queryResult[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
+
+			$this->_queryResult[$key]['related-news'] = $this->getRelatedNewsWidgetDetails($last_related_autono, $value['related_story'], $value['category_id']);
+			if ($this->_queryResult[$key]['related-news']['left-col']['autono'] != '') {
+				$last_related_autono[] = $this->_queryResult[$key]['related-news']['left-col']['autono'];
+			}
+			if ($this->_queryResult[$key]['related-news']['right-col']['autono'] != '') {
+				$last_related_autono[] = $this->_queryResult[$key]['related-news']['right-col']['autono'];
+			}
+
+		}
+		if ($return_type == 'json') {
+			return json_encode(array("total" => (int) $total, "rows" => $this->_queryResult));
+		} else {
+			return array("total" => (int) $total, "rows" => $this->_queryResult);
+		}
+
+	}
+
+	private function getCoverStoryAutonos($type) {
+		$this->_modelQuery = 'select nup.autono from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono where nr.type="' . $type . '" order by nr.rank';
+		$this->query($this->_modelQuery);
+		$this->_queryResult = $this->resultset();
+		$related_autono = array();
+		$related_autono[] = NULL;
+		foreach ($this->_queryResult as $key => $value) {
+			$related_autono[] = $value['autono'];
+		}
+		return $related_autono;
+	}
+
 	protected function getArticleById($autono) {
 		$news_source = $this->getNewsSource();
 		$result['article-details'] = $this->getArticleDetails(array('articleId' => $autono));
+		$ranked_story = $this->getCoverStoryAutonos('cover story');
 		$result['article-details']['news_url'] = _CONST_WEB_URL . '/' . $result['article-details']['articleId'] . '/' . $this->_commonFunction->sanitizeString($result['article-details']['heading']);
 		$result['article-details']['news_source_name'] = $news_source[$result['article-details']['news_source']];
 		$result['related-news'] = $this->getRelatedNewsWidgetDetails($result['article-details']['articleId'], $result['article-details']['related_story'], $result['article-details']['news_category']);
-		$result['suggested-stories'] = $this->getAllRankedStoryDetails('hot of the press', 'array')['rows'];
+		if (in_array($autono, $ranked_story)) {
+			$result['suggested-stories'] = $this->getAllRankedStoryDetails('cover story', 'array')['rows'];
+		} else {
+			$result['suggested-stories'] = $this->getArticleCategoryStoryDetails('cover story', 'array')['rows'];
+		}
+
 		return $result;
 	}
 
