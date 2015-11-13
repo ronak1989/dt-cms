@@ -101,6 +101,8 @@ class NewsModel extends EditorModel {
 			}
 			$userList[$key]['modified_date'] = date('d-m-Y H:i:s', strtotime($value['modified_date']));
 			$userList[$key]['disp_date'] = date('M d, Y H:iA', strtotime($value['modified_date']));
+
+			$userList[$key]['ago_date'] = $this->_commonFunction;
 			$userList[$key]['category_name'] = $category[$value['category_id']];
 			$userList[$key]['category_url'] = _CONST_WEB_URL . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
 
@@ -362,8 +364,8 @@ class NewsModel extends EditorModel {
 
 	}
 
-	protected function getArticleCategoryStoryDetails($type, $return_type = 'json') {
-		$this->_modelQuery = 'select nup.*, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nup INNER JOIN image_bank ib ON ib.image_id = nup.image_id order by nup.publish_date desc limit 10';
+	protected function getArticleCategoryStoryDetails($cat_id, $return_type = 'json') {
+		$this->_modelQuery = 'select nup.*, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nup INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nup.category_id="' . $cat_id . '" order by nup.publish_date desc limit 10';
 
 		$this->query($this->_modelQuery);
 		$this->_queryResult = $this->resultset();
@@ -431,7 +433,7 @@ class NewsModel extends EditorModel {
 		if (in_array($autono, $ranked_story)) {
 			$result['suggested-stories'] = $this->getAllRankedStoryDetails('cover story', 'array')['rows'];
 		} else {
-			$result['suggested-stories'] = $this->getArticleCategoryStoryDetails('cover story', 'array')['rows'];
+			$result['suggested-stories'] = $this->getArticleCategoryStoryDetails($result['article-details']['news_category'], 'array')['rows'];
 		}
 
 		return $result;
