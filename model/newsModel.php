@@ -293,8 +293,8 @@ class NewsModel extends EditorModel {
 	}
 
 	protected function getNewsWidgetDetails() {
-		$result['top_10'] = $this->getRankedStoryDetails('cover story', 'array')['rows'];
-		$result['latest'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1), 'array')['rows'];
+		$result['top_10'] = $this->getRankedStoryDetails('cover story', 'array', 5)['rows'];
+		$result['latest'] = $this->getNewsDetails('desc', 0, 5, array('publish_status' => 1), 'array_CONST_WEB_URL')['rows'];
 		return $result;
 	}
 
