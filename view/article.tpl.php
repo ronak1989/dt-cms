@@ -18,7 +18,13 @@ include_once _CONST_VIEW_PATH . 'menu.php';
                 <ul class="breadcrumb">
                     <li><a href="<?php echo _CONST_WEB_URL; ?>"><i class="fa fa-home fa-lg"></i></a></li>
                     <li><a href="<?php echo $data['article-details']['category_url']; ?>"><?php echo $data['article-details']['category_name']; ?></a></li>
+<?php
+if ($data['article-details']['subcategory_name'] != '') {
+	?>
                     <li class="active" id="lp"><?php echo $data['article-details']['subcategory_name']; ?></li>
+<?php
+}
+?>
                 </ul>
             </div>
             <header>
