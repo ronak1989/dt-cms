@@ -229,7 +229,7 @@ class EditorModel extends Database {
 	}
 
 	protected function getArticleDetails($fields) {
-		$this->_modelQuery = 'SELECT nup.*, cu.employee_name as author_name, cu1.employee_name as publisher_name, img_bnk.image_300, img_bnk.image_615, img_bnk.image_100, img_bnk.image_77, img_bnk.image_1280, img_bnk.image_1600 FROM `news_unpublish` nup LEFT JOIN image_bank img_bnk ON img_bnk.image_id = nup.image_id LEFT JOIN cms_users cu ON nup.author_id = cu.cms_id LEFT JOIN cms_users cu1 ON nup.publisher_id = cu1.cms_id where autono = :autono';
+		$this->_modelQuery = 'SELECT nup.*, cu.employee_name as author_name, cu1.employee_name as publisher_name, img_bnk.image_300, img_bnk.image_615, img_bnk.image_100, img_bnk.image_77, img_bnk.image_1280, img_bnk.image_1600,img_bnk.image_courtesy,img_bnk.image_name FROM `news_unpublish` nup LEFT JOIN image_bank img_bnk ON img_bnk.image_id = nup.image_id LEFT JOIN cms_users cu ON nup.author_id = cu.cms_id LEFT JOIN cms_users cu1 ON nup.publisher_id = cu1.cms_id where autono = :autono';
 		$this->query($this->_modelQuery);
 		$this->bindByValue('autono', $fields['articleId']);
 		$this->_queryResult = $this->single();
@@ -258,6 +258,8 @@ class EditorModel extends Database {
 		$fields['news_source_name'] = $this->_queryResult['source_id'];
 		$fields['keywords'] = $this->_queryResult['keywords'];
 		$fields['image_id'] = $this->_queryResult['image_id'];
+		$fields['image_courtesy'] = $this->_queryResult['image_courtesy'];
+		$fields['image_name'] = $this->_queryResult['image_name'];
 		$fields['image_300'] = $this->_queryResult['image_300'];
 		$fields['image_615'] = $this->_queryResult['image_615'];
 		$fields['image_100'] = $this->_queryResult['image_100'];
