@@ -67,11 +67,27 @@ class News extends NewsModel {
 
 	public function getNews() {
 		$data_url = '/news/latest/list';
+		$delete_url = '/news/editor/deletearticle';
 		$data['mainCategory'] = '<option value="">Please select Category to Search</option>';
 		foreach (parent::getNewsCategory() as $key => $value) {
 			$data['mainCategory'] .= '<option value="' . $key . '">' . ucwords(strtolower($value)) . '</option>';
 		}
 		require_once _CONST_VIEW_PATH . 'newslist.tpl.php';
+	}
+
+	public function getDeletedNews() {
+		$data_url = '/deleted-news/latest/list';
+		$data['mainCategory'] = '<option value="">Please select Category to Search</option>';
+		foreach (parent::getNewsCategory() as $key => $value) {
+			$data['mainCategory'] .= '<option value="' . $key . '">' . ucwords(strtolower($value)) . '</option>';
+		}
+		require_once _CONST_VIEW_PATH . 'deletednewslist.tpl.php';
+	}
+
+	public function getLatestDeletedNews() {
+		$this->searchParams['tbl'] = 'deleted_news';
+		$data = $this->_newsModel->getNewsDetails($this->order, $this->offset, $this->limit, $this->searchParams);
+		echo $data;
 	}
 
 	public function getLatestNews() {

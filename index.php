@@ -30,15 +30,19 @@ $router->map('POST', '/api/input-validate', 'validation#checkInput', '');
 
 /**** EDITOR ****/
 $router->map('GET|POST', '/news/editor/compose?/[i:id]?', 'editor#compose', '');
+$router->map('GET|POST', '/deleted-news/editor/compose/[i:id]', 'editor#deletedNewsCompose', '');
 $router->map('GET', '/news/preview/[i:id]', 'editor#preview', '');
 $router->map('GET|POST', '/news/editor/savearticle', 'editor#savearticle', '');
+$router->map('POST', '/news/editor/deletearticle', 'editor#deletearticle', '');
 $router->map('POST', '/news/editor/publisharticle', 'editor#publisharticle', '');
 $router->map('POST', '/news/editor/loadsubcategories', 'editor#loadsubcategories', '');
 $router->map('GET|POST|PATCH|PUT|DELETE', '/news/upload_attachment', 'editor#uploadAttachment', '');
 $router->map('GET|POST', '/news/search/story', 'news#searchStory', '');
 /** News **/
 $router->map('GET', '/news/latest', 'news#getNews', '');
+$router->map('GET', '/deleted-news/latest', 'news#getDeletedNews', '');
 $router->map('GET', '/news/latest/list', 'news#getLatestNews', '');
+$router->map('GET', '/deleted-news/latest/list', 'news#getLatestDeletedNews', '');
 
 /** Image **/
 $router->map('GET', '/image/new', 'image#getImageUploadList', '');
@@ -82,7 +86,6 @@ $id = null;
 $pg = null;
 $category = null;
 $match = $router->match();
-
 if ($match) {
 	switch (trim($match['target'])) {
 		case '':

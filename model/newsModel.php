@@ -42,7 +42,12 @@ class NewsModel extends EditorModel {
 		if (!empty($where_condition)) {
 			$where_condition = 'where ' . implode(' and ', $where_condition);
 		}
-		$this->_modelQuery = 'select count(1) as cnt from news_unpublish ' . $where_condition;
+		if (isset($search['tbl'])) {
+			$table = $search['tbl'];
+		} else {
+			$table = 'news_unpublish';
+		}
+		$this->_modelQuery = 'select count(1) as cnt from ' . $table . ' ' . $where_condition;
 		$this->query($this->_modelQuery);
 		return $this->single();
 	}
@@ -81,8 +86,12 @@ class NewsModel extends EditorModel {
 		if (!empty($where_condition)) {
 			$where_condition = 'where ' . implode(' and ', $where_condition);
 		}
-
-		$this->_modelQuery = 'select nu.publish_date as modified_date, nu.autono, nu.headline, nu.category_id, nu.sub_category_id, nu.summary, nu.source_id, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from news_unpublish nu LEFT JOIN image_bank ib ON ib.image_id = nu.image_id ' . $where_condition . ' order by nu.publish_date ' . $order . ' limit ' . $offset . ',' . $limit . '';
+		if (isset($search['tbl'])) {
+			$table = $search['tbl'];
+		} else {
+			$table = 'news_unpublish';
+		}
+		$this->_modelQuery = 'select nu.publish_date as modified_date, nu.autono, nu.headline, nu.category_id, nu.sub_category_id, nu.summary, nu.source_id, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77  from ' . $table . ' nu LEFT JOIN image_bank ib ON ib.image_id = nu.image_id ' . $where_condition . ' order by nu.publish_date ' . $order . ' limit ' . $offset . ',' . $limit . '';
 		$this->query($this->_modelQuery);
 
 		return $this->resultset();
@@ -310,10 +319,10 @@ class NewsModel extends EditorModel {
 			$userList[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
 		}
 		/*if ($return_type == 'json') {
-		return json_encode(array("total" => (int) $total['cnt'], "rows" => $userList));
-		} else {
-		return array("total" => (int) $total['cnt'], "rows" => $userList);
-		}*/
+			return json_encode(array("total" => (int) $total['cnt'], "rows" => $userList));
+			} else {
+			return array("total" => (int) $total['cnt'], "rows" => $userList);
+		*/
 		//$result['categoryDetails'] = $this->getNewsDetails('desc', 0, 2, array('publish_status' => 1), 'array');
 		if ($return_type == 'json') {
 			$result['categoryDetails'] = json_encode(array("total" => (int) $total['cnt'], "rows" => $userList));

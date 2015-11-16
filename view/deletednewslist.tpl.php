@@ -69,7 +69,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                         <div class="col-md-12 col-sm-12 col-xs-12">
                              <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>UN-Published News</h2>
+                                    <h2>Deleted UN-Published News</h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -148,7 +148,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                         <div class="col-md-12 col-sm-12 col-xs-12">
                              <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Published News</h2>
+                                    <h2>Deleted Published News</h2>
                                     <ul class="nav navbar-right panel_toolbox ">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -324,15 +324,15 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
 
         return [
         '<div class="btn-group  btn-group-sm">',
-            '<a class="edit btn btn-default" href="/news/editor/compose/'+row.autono+'" title="Edit">',
-            '<i class="fa fa-pencil-square-o"></i> Edit',
+            '<a class="edit btn btn-default" href="/deleted-news/editor/compose/'+row.autono+'" title="Edit">',
+            '<!-- <i class="fa fa-pencil-square-o"></i> --> <i class="fa fa-eye "></i> View',
             '</a>  ',
-            '<a class="view btn btn-default" href="/news/preview/'+row.autono+'" title="Preview">',
+            /*'<a class="view btn btn-default" href="/news/preview/'+row.autono+'" title="Preview">',
             '<i class="fa fa-eye "></i> View',
             '</a> ',
             '<a class="remove btn btn-default" href="javascript:void(0)" title="Remove">',
             '<i class="fa fa-trash-o"></i> Delete',
-            '</a>',
+            '</a>',*/
         '</div>'
         ].join('');
     }

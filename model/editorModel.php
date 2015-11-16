@@ -72,8 +72,8 @@ class EditorModel extends Database {
 
 	protected function saveNewsArticle($fields) {
 		$this->beginTransaction();
-		$this->_modelQuery = 'INSERT INTO `news_unpublish` (`headline`,`sms_heading`,`summary`,`content`,`publish_date`,`mod_date`,`author_id`,`publisher_id`,`category_id`,`sub_category_id`,`source_id`,`keywords`,`image_id`,`related_story`,`publish`,`transfer_to_newspublish_tbl`,`last_updated_by`) VALUES (:headline,
-:sms_heading,:summary,:content,:publish_date,:mod_date,:author_id,:publisher_id,:category_id,:sub_category_id,:source_id,:keywords,:image_id,:related_story,:publish,:transfer_to_newspublish_tbl,:last_updated_by);';
+		$this->_modelQuery = 'INSERT INTO `news_unpublish` (`headline`,`sms_heading`,`summary`,`content`,`publish_date`,`mod_date`,`author_id`,`publisher_id`,`category_id`,`sub_category_id`,`source_id`,`keywords`,`image_id`,`related_story`,`publish`,`transfer_to_newspublish_tbl`,`last_updated_by`,`assign_to_production`) VALUES (:headline,
+:sms_heading,:summary,:content,:publish_date,:mod_date,:author_id,:publisher_id,:category_id,:sub_category_id,:source_id,:keywords,:image_id,:related_story,:publish,:transfer_to_newspublish_tbl,:last_updated_by,:assign_to_production);';
 		$this->query($this->_modelQuery);
 		$this->bindByValue('headline', $fields['heading']);
 		$this->bindByValue('sms_heading', $fields['sms_heading']);
@@ -91,6 +91,7 @@ class EditorModel extends Database {
 		$this->bindByValue('related_story', $fields['related_story']);
 		$this->bindByValue('publish', $fields['publish']);
 		$this->bindByValue('transfer_to_newspublish_tbl', $fields['transfer_to_newspublish_tbl']);
+		$this->bindByValue('assign_to_production', $fields['assign_to_prod']);
 		$this->bindByValue('last_updated_by', $fields['last_updated_by']);
 		if ($this->execute()) {
 			$articleAutono = $this->lastInsertId();
@@ -102,7 +103,7 @@ class EditorModel extends Database {
 				$this->execute();
 			}
 			if ($fields['assign_to_production'] == 'true') {
-				$this->_modelQuery = 'INSERT INTO `required_image` (news_autono,last_updated_by) VALUES (:article_id,:last_updated_by) ON DUPICATE KEY';
+				$this->_modelQuery = 'INSERT INTO `required_image` (news_autono,last_updated_by) VALUES (:article_id,:last_updated_by) ON DUPLICATE KEY UPDATE news_autono=news_autono';
 				$this->query($this->_modelQuery);
 				$this->bindByValue('article_id', $articleAutono);
 				$this->bindByValue('last_updated_by', $fields['last_updated_by']);
@@ -135,6 +136,7 @@ class EditorModel extends Database {
 			`related_story` = :related_story,
 			`publish` = :publish,
 			`transfer_to_newspublish_tbl` = :transfer_to_newspublish_tbl,
+			`assign_to_production` = :assign_to_prod,
 			`last_updated_by` = :last_updated_by where autono = :autono';
 		$this->query($this->_modelQuery);
 		$this->bindByValue('headline', $fields['heading']);
@@ -153,27 +155,49 @@ class EditorModel extends Database {
 		$this->bindByValue('related_story', $fields['related_story']);
 		$this->bindByValue('publish', $fields['publish']);
 		$this->bindByValue('transfer_to_newspublish_tbl', $fields['transfer_to_newspublish_tbl']);
+		$this->bindByValue('assign_to_prod', $fields['assign_to_prod']);
 		$this->bindByValue('last_updated_by', $fields['last_updated_by']);
 		$this->bindByValue('autono', $fields['articleId']);
 		if ($this->execute()) {
 			$articleAutono = $fields['articleId'];
 			/*			foreach ($fields['uploaded_attachments'] as $key => $value) {
-			$this->_modelQuery = 'INSERT INTO `news_attachments` (article_id,attachment_id) VALUES (:article_id,:attachment_id);';
-			$this->query($this->_modelQuery);
-			$this->bindByValue('article_id', $articleAutono);
-			$this->bindByValue('attachment_id', $value);
-			$this->execute();
-			}*/
-			if ($fields['assign_to_production'] == 'true') {
-				$this->_modelQuery = 'INSERT INTO `required_image` (news_autono,last_updated_by) VALUES (:article_id,:last_updated_by) ON DUPLICATE KEY UPDATE news_autono=:article_id';
+				$this->_modelQuery = 'INSERT INTO `news_attachments` (article_id,attachment_id) VALUES (:article_id,:attachment_id);';
 				$this->query($this->_modelQuery);
 				$this->bindByValue('article_id', $articleAutono);
+				$this->bindByValue('attachment_id', $value);
+				$this->execute();
+			*/
+			if ($fields['assign_to_production'] == 'true') {
+				$this->_modelQuery = 'INSERT INTO `required_image` (news_autono,last_updated_by) VALUES (:article_id,:last_updated_by) ON DUPLICATE KEY UPDATE news_autono=news_autono';
+				$this->query($this->_modelQuery);
 				$this->bindByValue('article_id', $articleAutono);
 				$this->bindByValue('last_updated_by', $fields['last_updated_by']);
 				$this->execute();
 			}
 			$this->endTransaction();
 			return $articleAutono;
+		} else {
+			$this->cancelTransaction();
+			return false;
+		}
+	}
+
+	protected function removeNewsArticle($fields) {
+		$this->beginTransaction();
+		$this->_modelQuery = 'INSERT INTO `deleted_news` SELECT * FROM news_unpublish where autono = :autono';
+		$this->query($this->_modelQuery);
+		$this->bindByValue('autono', $fields['articleId']);
+		if ($this->execute()) {
+			$this->_modelQuery = 'DELETE FROM news_unpublish where autono = :autono';
+			$this->query($this->_modelQuery);
+			$this->bindByValue('autono', $fields['articleId']);
+			if ($this->execute()) {
+				$this->endTransaction();
+				return true;
+			} else {
+				$this->cancelTransaction();
+				return false;
+			}
 		} else {
 			$this->cancelTransaction();
 			return false;
@@ -243,6 +267,62 @@ class EditorModel extends Database {
 		$fields['related_story'] = $this->_queryResult['related_story'];
 		$fields['publish'] = $this->_queryResult['publish'];
 		$fields['transfer_to_newspublish_tbl'] = $this->_queryResult['transfer_to_newspublish_tbl'];
+		$fields['assign_to_prod'] = $this->_queryResult['assign_to_production'];
+		if ($fields['assign_to_prod'] == 1) {
+			$fields['assign_to_production'] = true;
+		} else {
+			$fields['assign_to_production'] = false;
+		}
+		$fields['last_updated_by'] = $this->_queryResult['last_updated_by'];
+		return $fields;
+	}
+
+	protected function getDeletedArticleDetails($fields) {
+		$this->_modelQuery = 'SELECT nup.*, cu.employee_name as author_name, cu1.employee_name as publisher_name, img_bnk.image_300, img_bnk.image_615, img_bnk.image_100, img_bnk.image_77, img_bnk.image_1280, img_bnk.image_1600 FROM `deleted_news` nup LEFT JOIN image_bank img_bnk ON img_bnk.image_id = nup.image_id LEFT JOIN cms_users cu ON nup.author_id = cu.cms_id LEFT JOIN cms_users cu1 ON nup.publisher_id = cu1.cms_id where autono = :autono';
+
+		$this->query($this->_modelQuery);
+		$this->bindByValue('autono', $fields['articleId']);
+		$this->_queryResult = $this->single();
+		if ($this->_queryResult['related_story'] != '') {
+			$this->_modelQuery = 'SELECT headline FROM `news_unpublish` nup where autono = :autono';
+			$this->query($this->_modelQuery);
+			$this->bindByValue('autono', $this->_queryResult['related_story']);
+			$relatedHeadline = $this->single();
+			$fields['related_heading'] = $relatedHeadline['headline'];
+		}
+
+		$fields['heading'] = $this->_queryResult['headline'];
+		$fields['sms_heading'] = $this->_queryResult['sms_heading'];
+		$fields['summary'] = $this->_queryResult['summary'];
+		$fields['news_content'] = $this->_queryResult['content'];
+		$fields['publish_date'] = date('Y-m-d H:i:s', strtotime($this->_queryResult['publish_date']));
+		$fields['disp_date'] = date('M d, Y H:iA', strtotime($this->_queryResult['publish_date']));
+		$fields['mod_date'] = date('Y-m-d H:i:s', strtotime($this->_queryResult['mod_date']));
+		$fields['author_id'] = $this->_queryResult['author_id'];
+		$fields['author_name'] = $this->_queryResult['author_name'];
+		$fields['publisher_id'] = $this->_queryResult['publisher_id'];
+		$fields['publisher_name'] = $this->_queryResult['publisher_name'];
+		$fields['news_category'] = $this->_queryResult['category_id'];
+		$fields['news_subcategory'] = $this->_queryResult['sub_category_id'];
+		$fields['news_source'] = $this->_queryResult['source_id'];
+		$fields['news_source_name'] = $this->_queryResult['source_id'];
+		$fields['keywords'] = $this->_queryResult['keywords'];
+		$fields['image_id'] = $this->_queryResult['image_id'];
+		$fields['image_300'] = $this->_queryResult['image_300'];
+		$fields['image_615'] = $this->_queryResult['image_615'];
+		$fields['image_100'] = $this->_queryResult['image_100'];
+		$fields['image_1280'] = $this->_queryResult['image_1280'];
+		$fields['image_77'] = $this->_queryResult['image_77'];
+		$fields['image_1600'] = $this->_queryResult['image_1600'];
+		$fields['related_story'] = $this->_queryResult['related_story'];
+		$fields['publish'] = $this->_queryResult['publish'];
+		$fields['transfer_to_newspublish_tbl'] = $this->_queryResult['transfer_to_newspublish_tbl'];
+		$fields['assign_to_prod'] = $this->_queryResult['assign_to_production'];
+		if ($fields['assign_to_prod'] == 1) {
+			$fields['assign_to_production'] = true;
+		} else {
+			$fields['assign_to_production'] = false;
+		}
 		$fields['last_updated_by'] = $this->_queryResult['last_updated_by'];
 		return $fields;
 	}

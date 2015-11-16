@@ -29,6 +29,7 @@ class Editor extends EditorModel {
 		'keywords' => NULL,
 		'image_id' => NULL,
 		'assign_to_production' => false,
+		'assign_to_prod' => '0',
 		'publish' => '0',
 		'transfer_to_newspublish_tbl' => '0',
 		'related_story' => NULL,
@@ -61,6 +62,9 @@ class Editor extends EditorModel {
 		if (isset($params['image_id'])) {$this->articleParams['image_id'] = $params['image_id'] == '' ? NULL : $params['image_id'];}
 		if (isset($params['related_story'])) {$this->articleParams['related_story'] = $params['related_story'];}
 		if (isset($params['assign_to_production'])) {$this->articleParams['assign_to_production'] = $params['assign_to_production'];}
+		if ($this->articleParams['assign_to_production'] == true) {
+			$this->articleParams['assign_to_prod'] = '1';
+		}
 		if (isset($params['search'])) {$this->articleParams['search'] = $params['search'];}
 		if (isset($params['publish']) && $params['publish'] == true) {
 			$this->articleParams['publish'] = '1';
@@ -98,6 +102,26 @@ class Editor extends EditorModel {
 		require_once _CONST_VIEW_PATH . 'editor.tpl.php';
 	}
 
+	public function deletedNewsCompose() {
+		self::$pageSubTitle = 'DELETED Article';
+		if (isset($this->articleParams['articleId'])) {
+			$this->articleParams = $this->_editorModel->getDeletedArticleDetails($this->articleParams);
+			if ($this->articleParams['publish'] == 1) {
+				$this->articleParams['publish'] = 'checked';
+			} else {
+				$this->articleParams['publish'] = '';
+			}
+			if ($this->articleParams['publisher_id'] == 0) {
+				$this->articleParams['publisher_id'] = NULL;
+			}
+			$this->articleParams['mod_date'] = date('Y-m-d H:i:s');
+		}
+		$data['mainCategory'] = $this->_editorModel->getNewsCategory();
+		$data['newsSource'] = $this->_editorModel->getNewsSource();
+		$data['deleted_news'] = true;
+		require_once _CONST_VIEW_PATH . 'editor.tpl.php';
+	}
+
 	public function savearticle() {
 		$data['mainCategory'] = $this->_editorModel->getNewsCategory();
 		$data['newsSource'] = $this->_editorModel->getNewsSource();
@@ -112,6 +136,17 @@ class Editor extends EditorModel {
 			$this->_operationStatus = $this->_editorModel->saveNewsArticle($this->articleParams);
 			if ($this->_operationStatus !== false) {
 				$this->redirect(303, '/news/editor/compose/' . $this->_operationStatus);
+			} else {
+				echo 'error';
+			}
+		}
+	}
+
+	public function deletearticle() {
+		if ($this->articleParams['articleId'] != '') {
+			$this->_operationStatus = $this->_editorModel->removeNewsArticle($this->articleParams);
+			if ($this->_operationStatus !== false) {
+				echo 'success';
 			} else {
 				echo 'error';
 			}

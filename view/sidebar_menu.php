@@ -2,7 +2,7 @@
     <div class="left_col">
 
         <div class="navbar nav_title" style="border: 0;">
-            <a href="<?php echo _CONST_WEB_URL;?>" class="site_title"><span>Dalaltimes.com</span></a>
+            <a href="<?php echo _CONST_WEB_URL; ?>" class="site_title"><span>Dalaltimes.com</span></a>
         </div>
         <div class="clearfix"></div>
 
@@ -27,7 +27,7 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                     <li>
-                        <a href="<?php echo _CONST_WEB_URL;?>"><i class="fa fa-home"></i></a>
+                        <a href="<?php echo _CONST_WEB_URL; ?>"><i class="fa fa-home"></i></a>
                     </li>
                     <li><a><i class="fa fa-th-list"></i> Masters <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
@@ -49,6 +49,10 @@
                             </li>
                             <li>
                                 <a href="/news/latest">News Listing</a>
+                            </li>
+
+                            <li>
+                                <a href="/deleted-news/latest">Deleted News Listing</a>
                             </li>
                         </ul>
                     </li>

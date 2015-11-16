@@ -22,7 +22,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3><?php echo self::$pageTitle;?></h3>
+                            <h3><?php echo self::$pageTitle; ?></h3>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -31,9 +31,9 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="" style="min-height:900px;">
                                 <div class="x_title">
-                                    <h2><?php echo self::$pageSubTitle;?></h2>
+                                    <h2><?php echo self::$pageSubTitle; ?></h2>
                                     <ul class="nav navbar-right panel_toolbox MT3">
-                                        <!-- <li><a class="btn btn-primary btn-xs" style="background-color: #1479b8" href='<?php echo $this->_data['url']['add'];?>'>Add New</a>
+                                        <!-- <li><a class="btn btn-primary btn-xs" style="background-color: #1479b8" href='<?php echo $this->_data['url']['add']; ?>'>Add New</a>
                                         </li> -->
                                     </ul>
                                     <div class="clearfix"></div>
@@ -51,30 +51,30 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                 <div class="x_content">
                                     <div class="clearfix"></div>
                                     <form id="defaultForm" method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left" action="/news/editor/savearticle">
-                                        <input type="hidden" name="articleId" id="articleId" value="<?php echo $this->articleParams['articleId'];?>" />
-                                        <input type="checkbox" name="publish" id="publish" value='true' <?php echo $this->articleParams['publish'];?> style="display: none;" />
+                                        <input type="hidden" name="articleId" id="articleId" value="<?php echo $this->articleParams['articleId']; ?>" />
+                                        <input type="checkbox" name="publish" id="publish" value='true' <?php echo $this->articleParams['publish']; ?> style="display: none;" />
                                         <div class="col-md-8 col-sm-12 col-xs-12">
                                             <div class="x_panel">
                                                 <div class="form-group">
                                                     <label>Heading</label>
-                                                    <input type="text" class="form-control" name="heading" name="heading" autocomplete="off" value="<?php echo $this->articleParams['heading'];?>" />
+                                                    <input type="text" class="form-control" name="heading" name="heading" autocomplete="off" value="<?php echo $this->articleParams['heading']; ?>" />
                                                     <span style="float:right;">Max 70 chars</span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Social Sharing Caption</label>
-                                                    <input type="text" class="form-control" name="sms_heading" name="sms_heading" autocomplete="off" value="<?php echo $this->articleParams['sms_heading'];?>" />
+                                                    <input type="text" class="form-control" name="sms_heading" name="sms_heading" autocomplete="off" value="<?php echo $this->articleParams['sms_heading']; ?>" />
                                                     <span style="float:right;">Max 70 chars</span>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Summary</label>
-                                                    <textarea type="text" class="form-control" name="summary" id="summary" autocomplete="off" style="line-height: unset !important;"><?php echo $this->articleParams['summary'];?></textarea>
+                                                    <textarea type="text" class="form-control" name="summary" id="summary" autocomplete="off" style="line-height: unset !important;"><?php echo $this->articleParams['summary']; ?></textarea>
                                                     <span style="float:right;">Max 300 chars</span>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Story</label>
-                                                    <textarea class="show-editor" name="news_content" style="width: 100%; overflow: hidden; word-wrap: break-word; resize: horizontal; height: 250px;"><?php echo $this->articleParams['news_content'];?></textarea>
+                                                    <textarea class="show-editor" name="news_content" style="width: 100%; overflow: hidden; word-wrap: break-word; resize: horizontal; height: 250px;"><?php echo $this->articleParams['news_content']; ?></textarea>
                                                 </div>
 
                                                 <div class="form-group">
@@ -133,25 +133,25 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                     <label>Publish Date & Time</label>
                                                     <div class="input-prepend input-group">
                                                         <span class="add-on input-group-addon" id="pub_dt_icon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
-                                                        <input type="text" readonly="readonly" class="form-control date-picker" value="<?php echo $this->articleParams['publish_date'];?>" name="publish_date" id="publish_date" />
+                                                        <input type="text" readonly="readonly" class="form-control date-picker" value="<?php echo $this->articleParams['publish_date']; ?>" name="publish_date" id="publish_date" />
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Modified Date & Time</label>
                                                     <div class="input-prepend input-group">
                                                         <span class="add-on input-group-addon" id="mod_dt_icon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
-                                                        <input type="text" readonly="readonly" class="form-control date-picker" value="<?php echo $this->articleParams['mod_date'];?>" name="mod_date" id="mod_date" />
+                                                        <input type="text" readonly="readonly" class="form-control date-picker" value="<?php echo $this->articleParams['mod_date']; ?>" name="mod_date" id="mod_date" />
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Author Name</label>
-                                                    <input type="text" class="form-control" value="<?php echo $this->articleParams['author_name'];?>" name="author_name" readonly="readonly" />
-                                                    <input type="hidden" name="author_id" value="<?php echo $this->articleParams['author_id'];?>" />
+                                                    <input type="text" class="form-control" value="<?php echo $this->articleParams['author_name']; ?>" name="author_name" readonly="readonly" />
+                                                    <input type="hidden" name="author_id" value="<?php echo $this->articleParams['author_id']; ?>" />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Publisher Name <?php echo $this->articleParams['publisher_id'];?></label>
-                                                    <input type="text" class="form-control" name="publisher_name" value="<?php echo $this->articleParams['publisher_name'];?>" readonly="readonly" />
-                                                    <input type="hidden" name="publisher_id" value="<?php echo $this->articleParams['publisher_id'];?>" />
+                                                    <label>Publisher Name <?php echo $this->articleParams['publisher_id']; ?></label>
+                                                    <input type="text" class="form-control" name="publisher_name" value="<?php echo $this->articleParams['publisher_name']; ?>" readonly="readonly" />
+                                                    <input type="hidden" name="publisher_id" value="<?php echo $this->articleParams['publisher_id']; ?>" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Category</label>
@@ -193,7 +193,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
 
                                                 <div class="form-group">
                                                     <label>Keywords </label>
-                                                    <input type="text" class="form-control" value="<?php echo $this->articleParams['keywords'];?>" name="keywords" id="keywords" />
+                                                    <input type="text" class="form-control" value="<?php echo $this->articleParams['keywords']; ?>" name="keywords" id="keywords" />
                                                 </div>
                                                 <div class="form-group">
                                                      <select class="js-data-example-ajax" style="width:100%" name="related_story" id="related_story">
@@ -205,15 +205,27 @@ if (isset($this->articleParams['related_story'])) {
                                                         </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="assign_to_production"><input type="checkbox" name="assign_to_production" id="assign_to_production" value='true' /> Assign to Production</label>
+                                                    <label for="assign_to_production">
+                                                    <?php
+if ($this->articleParams['assign_to_production'] == true) {
+	?>
+                                                    <input type="checkbox" name="assign_to_production" id="assign_to_production" checked="checked" disabled value='true' /> Assign to Production</label>
+
+<?php
+} else {
+	?>
+                                                    <input type="checkbox" name="assign_to_production" id="assign_to_production" value='true' /> Assign to Production</label>
+<?php
+}
+?>
                                                 </div>
                                                 <div class="form-group ">
-                                                    <input type="hidden" name="image_id" id="image_id" value="<?php echo $this->articleParams["image_id"];?>">
-                                                    <button value="" type="button" class="btn btn-success" id="image_gallery" style="width:100%;"><i class="fa fa-picture-o"></i> <?php echo $imgGalleryText = $this->articleParams["image_id"] == "" ? 'Add Image' : 'Change Image';?></button>
+                                                    <input type="hidden" name="image_id" id="image_id" value="<?php echo $this->articleParams["image_id"]; ?>">
+                                                    <button value="" type="button" class="btn btn-success" id="image_gallery" style="width:100%;"><i class="fa fa-picture-o"></i> <?php echo $imgGalleryText = $this->articleParams["image_id"] == "" ? 'Add Image' : 'Change Image'; ?></button>
                                                 </div>
                                                 <div class="form-group" id="gallery_image_300">
                                                 <?php if ($this->articleParams["image_id"] != '') {?>
-                                                <img src="<?php echo $this->articleParams["image_300"];?>" class="img-responsive" style="margin:0 auto;width:100%"/>
+                                                <img src="<?php echo $this->articleParams["image_300"]; ?>" class="img-responsive" style="margin:0 auto;width:100%"/>
                                                 <button type="button" class="btn btn-danger" id="remove-image" onclick="removeImage();" style="width:100%;"><i class="fa fa-picture-o"></i> Remove Image</button>
                                                 <?php }
 ?>
@@ -223,8 +235,15 @@ if (isset($this->articleParams['related_story'])) {
                                                 <div class="col-sm-12 text-center">
 
                                                 <?php
-if ($this->articleParams['articleId'] != '') {
+if ($data['deleted_news'] == true) {
 	echo '
+
+                                                    <a href="/deleted-news/latest" class="btn btn-dark"><i class="fa fa-chevron-left"></i> Back </a>
+';
+
+} else {
+	if ($this->articleParams['articleId'] != '') {
+		echo '
 
                                                         <a href="/news/latest" class="btn btn-dark"><i class="fa fa-chevron-left"></i> Back </a>
 
@@ -234,14 +253,15 @@ if ($this->articleParams['articleId'] != '') {
 
                                                         <button type="submit" class="btn btn-primary" id="validateButton"><i class="fa fa-floppy-o"></i> Save </button>
 ';
-} else {
-	echo '
+	} else {
+		echo '
 
                                                         <a href="/news/latest" class="btn btn-dark"><i class="fa fa-chevron-left"></i> Back </a>
 
                                                         <button type="submit" class="btn btn-primary" id="validateButton"><i class="fa fa-floppy-o"></i> Save</button>
 ';
 
+	}
 }
 ?>
 
@@ -259,21 +279,21 @@ if ($this->articleParams['articleId'] != '') {
         </div>
     </div>
 
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>bootstrap.min.js"></script>
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>nicescroll/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>custom.js"></script>
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>/formvalidation/formValidation.js"></script>
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>/formvalidation/framework/bootstrap.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>nicescroll/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>custom.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>/formvalidation/formValidation.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>/formvalidation/framework/bootstrap.js"></script>
 <!-- Datepicker -->
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>jquery.datetimepicker.full.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>jquery.datetimepicker.full.js"></script>
 <!-- select2 -->
-<script type="application/javascript" src="<?php echo _CONST_JS_PATH;?>select/select2.full.js"></script>
+<script type="application/javascript" src="<?php echo _CONST_JS_PATH; ?>select/select2.full.js"></script>
 
 <!-- editor -->
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>tinymce/tinymce.min.js"></script>
 
 <!-- Tag Inputs -->
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>tags/jquery.tagsinput.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>tags/jquery.tagsinput.js"></script>
 
 
 <!-- The template to display files available for upload -->
@@ -354,15 +374,15 @@ if ($this->articleParams['articleId'] != '') {
     </tr>
 {% } %}
 </script>
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>jquery.ui.widget.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>jquery.ui.widget.js"></script>
 <script type="text/javascript" src="//blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>fileupload/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>fileupload/jquery.fileupload.js"></script>
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>fileupload/jquery.fileupload-process.js"></script>
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>fileupload/jquery.fileupload-validate.js"></script>
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>fileupload/jquery.fileupload-ui.js"></script>
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>fileupload/main.js"></script>
-<script type="text/javascript" src="<?php echo _CONST_JS_PATH;?>common.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>fileupload/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>fileupload/jquery.fileupload.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>fileupload/jquery.fileupload-process.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>fileupload/jquery.fileupload-validate.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>fileupload/jquery.fileupload-ui.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>fileupload/main.js"></script>
+<script type="text/javascript" src="<?php echo _CONST_JS_PATH; ?>common.js"></script>
 
 <script type="text/javascript">
 $('#keywords').tagsInput({
@@ -414,12 +434,12 @@ function formatRepoSelection (repo) {
 
 
 $(document).ready(function() {
-    loadNewsSubcategories('<?php echo $this->articleParams["news_category"];?>','<?php echo $this->articleParams["news_subcategory"];?>','news_subcategory','id');
+    loadNewsSubcategories('<?php echo $this->articleParams["news_category"]; ?>','<?php echo $this->articleParams["news_subcategory"]; ?>','news_subcategory','id');
     $('#publish_date, #mod_date').datetimepicker({
       format:'d-m-Y H:i:s',
       lang:'en',
-      defaultDate:'<?php echo date("d-m-Y H:i:s");?>',
-      maxDate:'<?php echo date("d-m-Y");?>',
+      defaultDate:'<?php echo date("d-m-Y H:i:s"); ?>',
+      maxDate:'<?php echo date("d-m-Y"); ?>',
       step:1
     });
 
@@ -615,7 +635,7 @@ tinymce.init({
     relative_urls : false,
     remove_script_host : false,
     convert_urls : true,
-    content_css : "<?php echo _CONST_JS_PATH;?>tinymce/skins/modified.css",
+    content_css : "<?php echo _CONST_JS_PATH; ?>tinymce/skins/modified.css",
     toolbar1: "localautosave | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent",
     toolbar2: "print preview media | forecolor backcolor emoticons | link image ",
     image_advtab: true,
