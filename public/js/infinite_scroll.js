@@ -75,9 +75,6 @@
     generateRelatedStoryBlock = function(_details){
       return[
         '<div class="col-xs-12 col-sm-6 col-md-6 PL16 PR16">',
-          '<div class="relatedarticle-block">',
-              '&nbsp;',
-          '</div>',
           '<a href="'+_details.news_url+'">',
               '<div class="relatedarticle-img">',
                   '<img width="100%;" class="img-responsive" src="'+_CONST_WEB_URL + _details.image_300+'">',
@@ -100,11 +97,16 @@
       _newsWidget = _newsWidget.replace("tab-two", 'rhs-'+_articleDetails.autono+'-two');
       var leftcol = '';
       var rightcol = '';
+      var img_courtesy = '';
       if(_articleDetails['related-news']['left-col']!=null){
         leftcol = generateRelatedStoryBlock(_articleDetails['related-news']['left-col']);
       }
       if(_articleDetails['related-news']['right-col']!=null){
         rightcol = generateRelatedStoryBlock(_articleDetails['related-news']['right-col']);
+      }
+
+      if(_articleDetails['image_courtesy']!=null){
+        img_courtesy = '<span class="image-courtesy">Courtesy :'+_articleDetails['image_courtesy']+' </span>';
       }
       return [
       '<article id="article-'+_articleDetails.autono+'" class="article article-block">',
@@ -124,7 +126,7 @@
                 '</picture>',
                 '<figcaption class="article-image-slug">',
                     '<span class="image-name"><i class="fa fa-camera fa-lg"></i> '+_articleDetails.image_name+'</span>',
-                    '<span class="image-courtesy">Courtesy : [IMAGE COURTESY]</span>',
+                    img_courtesy,
                 '</figcaption>',
             '</figure>',
             '<div class="article-body">',
