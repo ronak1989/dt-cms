@@ -163,6 +163,16 @@ class News extends NewsModel {
 	}
 
 	public function getCategorylistingPage() {
+		$background_color = array(
+			'1' => 'category-purple-bkgrnd',
+			'7' => 'category-yellow-bkgrnd',
+			'2' => 'category-green-bkgrnd',
+			'4' => 'category-pink-bkgrnd',
+			'3' => 'category-blue-bkgrnd',
+			'5' => 'category-orange-bkgrnd',
+			'11' => 'category-blue-bkgrnd',
+			'12' => 'category-black-bkgrnd',
+		);
 		$news_category = parent::getNewsCategory();
 		$menuUrl = array();
 		foreach ($news_category as $key => $value) {
@@ -184,7 +194,7 @@ class News extends NewsModel {
 			} else {
 				$data = $this->_newsModel->getCategoryDetails($this->order, $this->offset, $this->limit, $this->searchParams, 'array');
 				$data['news-widget'] = $this->_newsModel->getNewsWidgetDetails();
-				$data['background_color_cls'] = 'category-purple-bkgrnd';
+				$data['background_color_cls'] = $background_color[$this->searchParams['category_id']];
 				$data['next_url'] = '';
 				$data['prev_url'] = '';
 				$data['prev_data_url'] = '';
