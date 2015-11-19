@@ -105,7 +105,7 @@
         rightcol = generateRelatedStoryBlock(_articleDetails['related-news']['right-col']);
       }
 
-      if(_articleDetails['image_courtesy']!=null){
+      if(_articleDetails['image_courtesy']!=null && _articleDetails['image_courtesy']!=''){
         img_courtesy = '<span class="image-courtesy">Courtesy :'+_articleDetails['image_courtesy']+' </span>';
       }
       return [

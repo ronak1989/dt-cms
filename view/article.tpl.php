@@ -44,7 +44,7 @@ if ($data['article-details']['subcategory_name'] != '') {
                 </picture>
                 <figcaption class="article-image-slug">
                     <?php
-if ($data['article-details']['image_courtesy'] != '') {
+if ($data['article-details']['image_courtesy'] != '' && $data['article-details']['image_courtesy'] != NULL) {
 	?>
                     <span class="image-courtesy">Courtesy : <?php echo $data['article-details']['image_courtesy']; ?></span>
 <?php
