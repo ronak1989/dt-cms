@@ -19,8 +19,6 @@
           </a>
         </div>
         <div class="right">
-            <i class="fa fa-user fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i>
-            |
             <a href="<?php echo _CONST_WEB_URL; ?>/latest-news"><i class="fa fa-bolt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
             |
             <a href="javascript:void(0);" id="c-button--shareicons" class="c-button"><i class="fa fa-share-alt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
