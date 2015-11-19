@@ -115,7 +115,11 @@ class NewsModel extends EditorModel {
 			$userList[$key]['category_name'] = $category[$value['category_id']];
 			$userList[$key]['category_url'] = _CONST_WEB_URL . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
 
-			$userList[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			if ($value['sub_category_id'] == 12 && $value['category_id'] == 1) {
+				$userList[$key]['sub_category_name'] = 'Hot Cake';
+			} else {
+				$userList[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			}
 			$userList[$key]['news_source'] = $news_source[$value['source_id']];
 			$userList[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
 		}
@@ -152,7 +156,11 @@ class NewsModel extends EditorModel {
 			if ($this->_queryResult[$key]['caption'] == null) {
 				$this->_queryResult[$key]['caption'] = '';
 			}
-			$this->_queryResult[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			if ($value['sub_category_id'] == 12 && $value['category_id'] == 1) {
+				$this->_queryResult[$key]['sub_category_name'] = 'Hot Cake';
+			} else {
+				$this->_queryResult[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			}
 			$this->_queryResult[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
 		}
 		if ($return_type == 'json') {
@@ -269,8 +277,11 @@ class NewsModel extends EditorModel {
 			$userList[$key]['ago_date'] = $this->_commonFunction->humanTiming(strtotime($value['modified_date']));
 			$userList[$key]['category_name'] = $category[$value['category_id']];
 			$userList[$key]['category_url'] = _CONST_WEB_URL . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
-
-			$userList[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			if ($value['sub_category_id'] == 12 && $value['category_id'] == 1) {
+				$userList[$key]['sub_category_name'] = 'Hot Cake';
+			} else {
+				$userList[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			}
 			$userList[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
 		}
 		return json_encode(array("total" => (int) $total['cnt'], "rows" => $userList));
@@ -313,8 +324,11 @@ class NewsModel extends EditorModel {
 			$userList[$key]['ago_date'] = $this->_commonFunction->humanTiming(strtotime($value['modified_date']));
 			$userList[$key]['category_name'] = $category[$value['category_id']];
 			$userList[$key]['category_url'] = _CONST_WEB_URL . '/' . $this->_commonFunction->sanitizeString($category[$value['category_id']]);
-
-			$userList[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			if ($value['sub_category_id'] == 12 && $value['category_id'] == 1) {
+				$userList[$key]['sub_category_name'] = 'Hot Cake';
+			} else {
+				$userList[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			}
 			$userList[$key]['news_source'] = $news_source[$value['source_id']];
 			$userList[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
 		}
@@ -356,7 +370,11 @@ class NewsModel extends EditorModel {
 			if ($this->_queryResult[$key]['caption'] == null) {
 				$this->_queryResult[$key]['caption'] = '';
 			}
-			$this->_queryResult[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			if ($value['sub_category_id'] == 12 && $value['category_id'] == 1) {
+				$this->_queryResult[$key]['sub_category_name'] = 'Hot Cake';
+			} else {
+				$this->_queryResult[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			}
 			$this->_queryResult[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
 			$last_related_autono[] = $value['autono'];
 
@@ -405,7 +423,11 @@ class NewsModel extends EditorModel {
 			if ($this->_queryResult[$key]['caption'] == null) {
 				$this->_queryResult[$key]['caption'] = '';
 			}
-			$this->_queryResult[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			if ($value['sub_category_id'] == 12 && $value['category_id'] == 1) {
+				$this->_queryResult[$key]['sub_category_name'] = 'Hot Cake';
+			} else {
+				$this->_queryResult[$key]['sub_category_name'] = $sub_category[$value['sub_category_id']];
+			}
 			$this->_queryResult[$key]['news_url'] = _CONST_WEB_URL . '/' . $value['autono'] . '/' . $this->_commonFunction->sanitizeString($value['headline']);
 
 			$this->_queryResult[$key]['related-news'] = $this->getRelatedNewsWidgetDetails($last_related_autono, $value['related_story'], $value['category_id']);

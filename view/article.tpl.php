@@ -43,7 +43,6 @@ if ($data['article-details']['subcategory_name'] != '') {
                   <img itemprop="image" srcset="<?php echo $data['article-details']['image_300']; ?>" alt="" title="" class="img-responsive">
                 </picture>
                 <figcaption class="article-image-slug">
-                    <span class="image-name"><i class="fa fa-camera fa-lg"></i> <?php echo $data['article-details']['image_name']; ?></span>
                     <?php
 if ($data['article-details']['image_courtesy'] != '') {
 	?>

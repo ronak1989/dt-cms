@@ -2,26 +2,26 @@
   <div class="wsmenucontent overlapblackbg menuclose"></div>
   <div class="wsmenuexpandermain slideRight">
     <a id="navToggle" class="animated-arrow slideLeft menuclose"><span></span></a>
-    <a href="<?php echo _CONST_WEB_URL;?>/homepage" class="smallogo"><img src="<?php echo _CONST_IMAGE_URL;?>logo.png" alt=""></a>
+    <a href="<?php echo _CONST_WEB_URL; ?>/homepage" class="smallogo"><img src="<?php echo _CONST_IMAGE_URL; ?>logo.png" alt=""></a>
     <a class="callusicon" id="c-button--search-mob" class="c-button"><span class="fa fa-search"></span></a>
   </div>
   <!--[if lt IE 8]>
   <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-  <section  class="navigation <?php echo $menuClass;?>">
+  <section  class="navigation <?php echo $menuClass; ?>">
       <header style="padding:10px 0;">
         <div class="logo">
-          <a href="<?php echo _CONST_WEB_URL;?>/homepage">
+          <a href="<?php echo _CONST_WEB_URL; ?>/homepage">
             <!--[if gte IE 10]><!-->
             <!-- DT LOGO -->
-              <img src="<?php echo _CONST_IMAGE_URL;?>logo.png">
+              <img src="<?php echo _CONST_IMAGE_URL; ?>logo.png">
             <!-- /DT LOGO -->
           </a>
         </div>
         <div class="right">
             <i class="fa fa-user fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i>
             |
-            <a href="<?php echo _CONST_WEB_URL;?>/latest-news"><i class="fa fa-bolt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
+            <a href="<?php echo _CONST_WEB_URL; ?>/latest-news"><i class="fa fa-bolt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
             |
             <a href="javascript:void(0);" id="c-button--shareicons" class="c-button"><i class="fa fa-share-alt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a>
             |
@@ -38,7 +38,7 @@
               <nav class="wsmenu slideLeft clearfix menuopen">
               <ul class="mobile-sub wsmenu-list">
                 <li>
-                  <a href="<?php echo _CONST_WEB_URL;?>/homepage" class="active">Home</a>
+                  <a href="<?php echo _CONST_WEB_URL; ?>/homepage" class="active">Home</a>
                 </li>
                 <?php foreach ($menuUrl as $key => $value) {
 	if (in_array(strtolower($value['name']), array("", 'budgets', 'mutual funds', 'chart of the day', 'the forecaster'))) {
@@ -48,7 +48,7 @@
 	?>
                 <span class="seperator">|</span>
                 <li>
-                  <a href="<?php echo $value['url'];?>"><i class="fa fa-align-justify"></i>&nbsp;&nbsp;<?php echo $value['name'];?></a>
+                  <a href="<?php echo $value['url']; ?>"><i class="fa fa-align-justify"></i>&nbsp;&nbsp;<?php echo $value['name']; ?></a>
                 </li>
 
                 <?php
@@ -109,8 +109,7 @@
 <div class="mobile-footerheader">
   <nav>
     <ul class="nav nav-justified">
-      <li><a href="#"><i class="fa fa-user fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
-      <li><a href="<?php echo _CONST_WEB_URL;?>/latest-news"><i class="fa fa-bolt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
+      <li><a href="<?php echo _CONST_WEB_URL; ?>/latest-news"><i class="fa fa-bolt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
       <li><a href="javascript:void(0);" id="c-button--shareicons-mob" class="c-button"><i class="fa fa-share-alt fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
       <li><a href="javascript:void(0);" id="c-button--products-service-mob" class="c-button"><i class="fa fa-briefcase fa-lg" style="color:#FFFFFF;padding: 0 10px;"></i></a></li>
     </ul>

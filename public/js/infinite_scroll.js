@@ -125,7 +125,6 @@
                     '<img itemprop="image" srcset="'+_articleDetails.image_300+'" alt="" title="" class="img-responsive">',
                 '</picture>',
                 '<figcaption class="article-image-slug">',
-                    '<span class="image-name"><i class="fa fa-camera fa-lg"></i> '+_articleDetails.image_name+'</span>',
                     img_courtesy,
                 '</figcaption>',
             '</figure>',
