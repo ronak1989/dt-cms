@@ -396,7 +396,7 @@ class NewsModel extends EditorModel {
 	}
 
 	protected function getArticleCategoryStoryDetails($cat_id, $return_type = 'json') {
-		$this->_modelQuery = 'select nup.*, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77,ib.image_courtesy  from news_unpublish nup INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nup.category_id="' . $cat_id . '" order by nup.publish_date desc limit 10';
+		$this->_modelQuery = 'select nup.*, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77,ib.image_courtesy  from news_unpublish nup INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nup.category_id="' . $cat_id . '" order by nup.publish_date desc limit 15';
 
 		$this->query($this->_modelQuery);
 		$this->_queryResult = $this->resultset();

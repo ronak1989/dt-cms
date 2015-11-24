@@ -222,7 +222,7 @@ body.has-active-menu {
     right: 0;
     top: 0;
 }
-#hp-rank .rank-article {position: absolute;left: 10%;bottom: 3.000em;}
+#hp-rank .rank-article {position: absolute;left: 10%;bottom: 3.000em;right: 10%;}
 .carousel-control{width:4% !important}
 #hp-rank .rank-article > h3 {font-size: 3.000em;color: #FFFFFF;line-height:1em !important;margin:10px 0px;}
 #hp-rank .article-category{background: #ffff00;font-size: 1.100em;text-transform: uppercase;color: #000000;	padding: 6px;font-family: 'Roboto', sans-serif;}

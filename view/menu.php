@@ -90,13 +90,13 @@
                 <a href="https://twitter.com/dalaltimes" target="_blank">
                   <i class="fa fa-twitter"></i>
                 </a>
-                <a href="https://plus.google.com/101688308367249815536/about/p/pub" target="_blank">
+                <a href="https://in.pinterest.com/dalaltimes/" target="_blank">
                   <i class="fa fa-pinterest"></i>
                 </a>
                 <a href="https://www.linkedin.com/company/dalal-times" target="_blank">
                   <i class="fa fa-linkedin-square"></i>
                 </a>
-                <a href="https://in.pinterest.com/dalaltimes/" target="_blank">
+                <a href="https://plus.google.com/101688308367249815536/about/p/pub" target="_blank">
                   <i class="fa fa-google-plus-square"></i>
                 </a>
                 <button class="c-menu__close">X</button>

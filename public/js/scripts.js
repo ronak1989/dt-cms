@@ -77,8 +77,7 @@ $(document).ready(function() {
 
 	/****************** HP Slider ***************/
 	$('.carousel').carousel({
-	  interval: 6000,
-	  pause: "true"
+	  interval: 6000
 	});
 	var $item = $('.carousel .item');
 	var $wWidth = $(window).width();
