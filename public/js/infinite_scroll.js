@@ -114,12 +114,7 @@
           news_attachment += '<div class="PT10"><a href="'+_CONST_WEB_URL+atachment+'" target="_blank"><img src="'+_CONST_WEB_URL+'/public/images/pdf-Banner.jpg" class="img-responsive center-block"></a></div>';
         }
       }
-      /*for( var i = 0; i < _articleDetails['attachments'].length; i++) {
-          console.log(i);
-          var atachment = _articleDetails['attachments'][i];
-          console.log(atachment);
-          news_attachment += '<div class="PT10"><a href="'+_CONST_WEB_URL+atachment+'" target="_blank"><img src="'+_CONST_WEB_URL+'pdf-Banner.jpg" class="img-responsive center-block"></a></div>';
-      }*/
+
       if(_articleDetails['image_courtesy']!=null && _articleDetails['image_courtesy']!=''){
         img_courtesy = '<span class="image-courtesy">Courtesy :'+_articleDetails['image_courtesy']+' </span>';
       }
@@ -233,6 +228,7 @@
         if(currentScroll > lastScroll) {
           // If it's scrolling down
           $contents.each(function(key, value) {
+
             if($(value).offset().top + $(value).height() > currentScroll) {
               // Change title and URL
               changeTitleAndURL(value);

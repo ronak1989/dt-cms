@@ -23,5 +23,5 @@ define('_DB_SERVER_DATABASENAME', 'dalaltimes');
 define('_DB_SERVER_PORT', '3306');
 define('_DB_SERVER_USERNAME', 'root');
 define('_DB_SERVER_PASSWORD', 'coldcold');
-define('_DB_SERVER_DATABASENAME', 'dalaltimes');
- */?>
+define('_DB_SERVER_DATABASENAME', 'dalaltimes');*/
+?>

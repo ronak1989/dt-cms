@@ -183,7 +183,7 @@ if (!empty($data['article-details']['attachments'])) {
                         <div class="tabbable full-width-tabs">
                             <ul class="nav nav-tabs nav-justified">
                                 <li class="active"><a href="#tab-one" data-toggle="tab">LATEST</a></li>
-                                <li><a href="#tab-two" data-toggle="tab">Must Read</a></li>
+                                <li><a href="#tab-two" data-toggle="tab">MUST READ</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab-one">

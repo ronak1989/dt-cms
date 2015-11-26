@@ -364,8 +364,8 @@ class NewsModel extends EditorModel {
 				$this->bindByValue('article_id', $value['autono']);
 				$news_attachments = $this->resultset();
 				$attachments = array();
-				foreach ($news_attachments as $key => $value) {
-					$attachments[] = $value['file_path'];
+				foreach ($news_attachments as $na_key => $na_value) {
+					$attachments[] = $na_value['file_path'];
 				}
 				$this->_queryResult[$key]['attachments'] = $attachments;
 			}
@@ -429,8 +429,8 @@ class NewsModel extends EditorModel {
 				$this->bindByValue('article_id', $value['autono']);
 				$news_attachments = $this->resultset();
 				$attachments = array();
-				foreach ($news_attachments as $key => $value) {
-					$attachments[] = $value['file_path'];
+				foreach ($news_attachments as $na_key => $na_value) {
+					$attachments[] = $na_value['file_path'];
 				}
 				$this->_queryResult[$key]['attachments'] = $attachments;
 			}
