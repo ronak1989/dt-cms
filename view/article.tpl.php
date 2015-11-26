@@ -91,6 +91,17 @@ if ($data['article-details']['image_courtesy'] != '' && $data['article-details']
                     </div>
                     <div class="article-content">
                         <?php echo $data['article-details']['news_content']; ?>
+                        <?php
+if (!empty($data['article-details']['attachments'])) {
+	foreach ($data['article-details']['attachments'] as $key => $value) {
+		?>
+            <div class="PT10">
+                <a href="<?php echo _CONST_WEB_URL . $value; ?>" target="_blank"><img src="<?php echo _CONST_IMAGE_URL . 'pdf-Banner.jpg'; ?>" class='img-responsive center-block'></a>
+            </div>
+<?php
+}
+}
+?>
                     </div>
                     <div class="social-share-block">
                         <!-- Twitter -->

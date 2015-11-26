@@ -320,6 +320,10 @@ article > header > .byline {margin-top:10px;font-size: 15px;line-height: 18px;}
 article > header > .byline > .article-source {color:#d98621;}
 article > header > .byline > .article-timestamp {color:#464646;}
 article > header > .byline > span + span:before {color: #464646;content: "| ";padding: 0 5px;}
+.news-attachment {
+    padding-top: 10px;
+    margin: 0 auto;
+}
 .article-image {position:relative;padding-top:10px;}
 .article-image img {width:100%;}
 .article-image-slug{position:absolute;bottom:0;right:0;padding:20px;width:100%;color:#ffffff;background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;}

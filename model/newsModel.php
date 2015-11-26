@@ -346,7 +346,7 @@ class NewsModel extends EditorModel {
 		return $result;
 	}
 
-	protected function getAllRankedStoryDetails($type, $return_type = 'json') {
+	protected function getAllRankedStoryDetails($type, $return_type = 'json', $for = NULL) {
 		$this->_modelQuery = 'select nup.*, nr.rank, nr.caption, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77,ib.image_courtesy  from news_unpublish nup INNER JOIN news_rank nr ON nr.autono = nup.autono INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nr.type="' . $type . '" order by nr.rank';
 
 		$this->query($this->_modelQuery);
@@ -357,6 +357,18 @@ class NewsModel extends EditorModel {
 		$prev_cat = NULL;
 		$last_related_autono = array();
 		foreach ($this->_queryResult as $key => $value) {
+			if ($for == 'article') {
+				$attachments = array();
+				$this->_modelQuery = 'select file_path from news_attachments na JOIN attachments attach ON na.attachment_id = attach.attachment_id WHERE article_id = :article_id';
+				$this->query($this->_modelQuery);
+				$this->bindByValue('article_id', $value['autono']);
+				$news_attachments = $this->resultset();
+				$attachments = array();
+				foreach ($news_attachments as $key => $value) {
+					$attachments[] = $value['file_path'];
+				}
+				$this->_queryResult[$key]['attachments'] = $attachments;
+			}
 			if ($prev_cat != $value['category_id']) {
 				$prev_cat = $value['category_id'];
 				$sub_category = $this->getNewsSubCategory($value['category_id']);
@@ -395,7 +407,7 @@ class NewsModel extends EditorModel {
 
 	}
 
-	protected function getArticleCategoryStoryDetails($cat_id, $return_type = 'json') {
+	protected function getArticleCategoryStoryDetails($cat_id, $return_type = 'json', $for = NULL) {
 		$this->_modelQuery = 'select nup.*, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77,ib.image_courtesy  from news_unpublish nup INNER JOIN image_bank ib ON ib.image_id = nup.image_id where nup.category_id="' . $cat_id . '" order by nup.publish_date desc limit 15';
 
 		$this->query($this->_modelQuery);
@@ -410,6 +422,18 @@ class NewsModel extends EditorModel {
 		}
 		reset($this->_queryResult);
 		foreach ($this->_queryResult as $key => $value) {
+			if ($for == 'article') {
+				$attachments = array();
+				$this->_modelQuery = 'select file_path from news_attachments na JOIN attachments attach ON na.attachment_id = attach.attachment_id WHERE article_id = :article_id';
+				$this->query($this->_modelQuery);
+				$this->bindByValue('article_id', $value['autono']);
+				$news_attachments = $this->resultset();
+				$attachments = array();
+				foreach ($news_attachments as $key => $value) {
+					$attachments[] = $value['file_path'];
+				}
+				$this->_queryResult[$key]['attachments'] = $attachments;
+			}
 			if ($prev_cat != $value['category_id']) {
 				$prev_cat = $value['category_id'];
 				$sub_category = $this->getNewsSubCategory($value['category_id']);
@@ -467,9 +491,9 @@ class NewsModel extends EditorModel {
 		$result['article-details']['news_source_name'] = $news_source[$result['article-details']['news_source']];
 		$result['related-news'] = $this->getRelatedNewsWidgetDetails($result['article-details']['articleId'], $result['article-details']['related_story'], $result['article-details']['news_category']);
 		if (in_array($autono, $ranked_story)) {
-			$result['suggested-stories'] = $this->getAllRankedStoryDetails('cover story', 'array')['rows'];
+			$result['suggested-stories'] = $this->getAllRankedStoryDetails('cover story', 'array', 'article')['rows'];
 		} else {
-			$result['suggested-stories'] = $this->getArticleCategoryStoryDetails($result['article-details']['news_category'], 'array')['rows'];
+			$result['suggested-stories'] = $this->getArticleCategoryStoryDetails($result['article-details']['news_category'], 'array', 'article')['rows'];
 		}
 
 		return $result;

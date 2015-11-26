@@ -98,13 +98,28 @@
       var leftcol = '';
       var rightcol = '';
       var img_courtesy = '';
-      if(_articleDetails['related-news']['left-col']!=null){
+      if(_articleDetails['related-news']!='undefined' && _articleDetails['related-news']!=undefined){
+      if(_articleDetails['related-news']['left-col']!=null && _articleDetails['related-news']['left-col']!=undefined && _articleDetails['related-news']['left-col']!='undefined'){
         leftcol = generateRelatedStoryBlock(_articleDetails['related-news']['left-col']);
       }
-      if(_articleDetails['related-news']['right-col']!=null){
+      if(_articleDetails['related-news']['right-col']!=null && _articleDetails['related-news']['right-col']!=undefined && _articleDetails['related-news']['right-col']!='undefined'){
         rightcol = generateRelatedStoryBlock(_articleDetails['related-news']['right-col']);
       }
-
+    }
+      var atachment = '';
+      var news_attachment = '';
+      for (var key in _articleDetails['attachments']) {
+        if (_articleDetails['attachments'].hasOwnProperty(key)) {
+          var atachment = _articleDetails['attachments'][key];
+          news_attachment += '<div class="PT10"><a href="'+_CONST_WEB_URL+atachment+'" target="_blank"><img src="'+_CONST_WEB_URL+'/public/images/pdf-Banner.jpg" class="img-responsive center-block"></a></div>';
+        }
+      }
+      /*for( var i = 0; i < _articleDetails['attachments'].length; i++) {
+          console.log(i);
+          var atachment = _articleDetails['attachments'][i];
+          console.log(atachment);
+          news_attachment += '<div class="PT10"><a href="'+_CONST_WEB_URL+atachment+'" target="_blank"><img src="'+_CONST_WEB_URL+'pdf-Banner.jpg" class="img-responsive center-block"></a></div>';
+      }*/
       if(_articleDetails['image_courtesy']!=null && _articleDetails['image_courtesy']!=''){
         img_courtesy = '<span class="image-courtesy">Courtesy :'+_articleDetails['image_courtesy']+' </span>';
       }
@@ -133,6 +148,7 @@
                     social_buttons,
                     '<div>',
                         _articleDetails.content,
+                        news_attachment,
                     '</div>',
                     social_buttons,
                     '<div class="related-story">',
@@ -251,13 +267,10 @@
         // If scrolling close to the bottom
         if(load_story < DT_SS_LENGTH) {
           var res = DT_SS[load_story];
-          console.log(res.autono);
           if(res.autono==ARTICLE_LOADED){
-            console.log("333");
             load_story++;
             var cntr = load_story;
             res = DT_SS[cntr];
-            console.log(cntr);
           }
 
           if(typeof(res)!='undefined'){
