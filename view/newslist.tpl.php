@@ -200,7 +200,7 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
                                                 </div>
                                             </div>
                                         </div>
-                                        <table id="published_news" data-toggle="table" data-query-params="published_news_queryParams"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-url="<?php echo $data_url; ?>" data-pagination="true" data-side-pagination="server" data-method="get" data-sort-order='desc'>
+                                        <table id="published_news" data-row-style="format_background" data-toggle="table" data-query-params="published_news_queryParams"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-url="<?php echo $data_url; ?>" data-pagination="true" data-side-pagination="server" data-method="get" data-sort-order='desc'>
                                             <thead>
                                             <tr>
                                                 <?php foreach ($this->columnHeadings as $data_field => $col_dtls) {
@@ -337,6 +337,11 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
         ].join('');
     }
 
+    function format_background(row,index){
+        console.log(index);
+        console.log(row);
+    }
+
     window.operationEvents = {
 /*        'click .edit': function (e, value, row, index) {
             alert('You click like action, row: ' + JSON.stringify(row));
@@ -362,3 +367,4 @@ include_once _CONST_VIEW_PATH . 'top_nav.php';
 </script>
 </body>
 </html>
+/

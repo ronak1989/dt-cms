@@ -91,7 +91,7 @@ class NewsModel extends EditorModel {
 		} else {
 			$table = 'news_unpublish';
 		}
-		$this->_modelQuery = 'select nu.publish_date as modified_date, nu.autono, nu.headline, nu.category_id, nu.sub_category_id, nu.summary, nu.source_id, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77,ib.image_courtesy  from ' . $table . ' nu LEFT JOIN image_bank ib ON ib.image_id = nu.image_id ' . $where_condition . ' order by nu.publish_date ' . $order . ' limit ' . $offset . ',' . $limit . '';
+		$this->_modelQuery = 'select nu.publish_date as modified_date, nu.autono, nu.headline, nu.category_id, nu.sub_category_id, nu.summary, nu.source_id,nu.assign_to_production, ib.image_id,ib.image_name,ib.image_keywords,ib.image_name,ib.image_1600,ib.image_1280,ib.image_615,ib.image_300,ib.image_100,ib.image_77,ib.image_courtesy  from ' . $table . ' nu LEFT JOIN image_bank ib ON ib.image_id = nu.image_id ' . $where_condition . ' order by nu.publish_date ' . $order . ' limit ' . $offset . ',' . $limit . '';
 		$this->query($this->_modelQuery);
 
 		return $this->resultset();
