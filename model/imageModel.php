@@ -132,9 +132,9 @@ class ImageModel extends Database {
 
 	protected function getProductionAssignedImageCount($search = array()) {
 		$where_condition = array();
-		if (isset($search['publish_status'])) {
+		/*if (isset($search['publish_status'])) {
 			$where_condition[] = ' nup.publish = "' . $search['publish_status'] . '"';
-		}
+		}*/
 		if (isset($search['autono']) && $search['autono'] != '') {
 			$where_condition[] .= ' nup.autono = "' . $search['autono'] . '"';
 		} else {
@@ -156,9 +156,9 @@ class ImageModel extends Database {
 
 	protected function getProductionAssignedImageList($order, $offset, $limit, $search = array()) {
 		$where_condition = array();
-		if (isset($search['publish_status'])) {
+		/*if (isset($search['publish_status'])) {
 			$where_condition[] = ' nu.publish = "' . $search['publish_status'] . '"';
-		}
+		}*/
 		if (isset($search['autono']) && $search['autono'] != '') {
 			$where_condition[] .= ' nu.autono = "' . $search['autono'] . '"';
 		} else {
