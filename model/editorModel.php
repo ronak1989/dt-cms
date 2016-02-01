@@ -57,7 +57,7 @@ class EditorModel extends Database {
 			'9' => array(),
 			/*Wire News*/
 			'10' => array(),
-			'11' => array(),
+			'11' => array('1'=>'Sensex Rider', '2'=>'Nifty Rider'),
 			'12' => array());
 		return $subCategory[$newsCategoryId];
 	}
