@@ -26,7 +26,7 @@ class EditorModel extends Database {
 			'8' => 'MUTUAL FUNDS',
 			/*'9' => 'IPO',*/
 			/*'10' => 'Wire News',*/
-			'11' => 'Chart of the Day',
+			'11' => 'Technical Corner',
 			'12' => 'The Forecaster');
 	}
 
